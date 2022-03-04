@@ -14,7 +14,7 @@
                     <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
                 <li>
-                    <a href="vendor-dashboard-listing.html"><i class="weddingdir_my_listing"></i> My Halls</a>
+                    <a href="{{url('admin/hall')}}"><i class="weddingdir_my_listing"></i> My Halls</a>
                 </li>
                 <li>
                     <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
