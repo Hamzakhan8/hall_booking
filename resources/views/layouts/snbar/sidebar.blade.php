@@ -13,7 +13,8 @@
                 <li class="active">
                     <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
-                <li>
+
+                    <li>
                     <a href="{{url('admin/halltype')}}"><i class="weddingdir_my_listing"></i> My Halls</a>
                 </li>
                 <li>

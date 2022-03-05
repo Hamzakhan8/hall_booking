@@ -5,31 +5,42 @@
 
 @section('content')
 
-
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+    add hall
+  </button>
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
             <table class="table table-hover mb-0">
-                <thead class="thead-light">
+                <thead class="">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Wedding Date</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">No .of Guest</th>
-                        <th scope="col">Budget</th>
-                        <th scope="col">Action</th>
+
+
+
+                        <th scope="col">name</th>
+                        <th scope="col">delet</th>
+                        <th scope="col">edit</th>
+
+                        <th scope="col">view</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">Hitesh Mahavar</th>
-                        <td>11/12/2020</td>
-                        <td><a href="mailto:hiteshmahavar22@gmail.com" class="btn btn-link btn-link-primary text-lowercase p-0">hiteshmahavar22@gmail.com</a></td>
-                        <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
-                        <td>250</td>
-                        <td>$950</td>
-                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
+
+                        <td>hamza khan</td>
+                        <td class="rounded-sm">
+                            <a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a>
+
+
+
+                        </td>
+                        <td> <a href="javascript:" class="action-links" data-toggle="" data-target="#exampleModal"><i class="fa fa-edit"></i></a></td>
+                        <td>
+                            <a href="javascript:" class="action-links"><i class="fa fa-eye"></i></a>
+                        </td>
+
+
                     </tr>
 
 
@@ -38,5 +49,7 @@
         </div>
     </div>
 </div>
+@include('admin.halltype.modal.index')
 
 @endsection
+
