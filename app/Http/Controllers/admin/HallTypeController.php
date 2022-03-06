@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use App\Models\halltype;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 
 class HallTypeController extends Controller
 {
@@ -14,7 +15,9 @@ class HallTypeController extends Controller
      */
     public function index()
     {
-        return view('admin.halltype.index');
+        $data=halltype::latest()->get();
+
+        return view('admin.halltype.index',compact('data'));
     }
 
     /**
@@ -24,7 +27,8 @@ class HallTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.halltype.index');
+
     }
 
     /**
@@ -35,7 +39,13 @@ class HallTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new halltype;
+        $data->name=$request->name;
+        $data->detail=$request->detail;
+        $data->save();
+
+        return redirect('admin/halltype')->with('success','data has being added');
+
     }
 
     /**

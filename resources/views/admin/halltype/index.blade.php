@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('title','myhall')
+
 
 
 @section('content')
+@section('title','myhall')
 
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
     add hall
@@ -12,12 +13,16 @@
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
             <table class="table table-hover mb-0">
+                @if (Session::has('success'))
+                <p class="alert alert-success">{{session('success')}}</p>
+
+                @endif
                 <thead class="">
                     <tr>
 
 
 
-                        <th scope="col">name</th>
+                        <th scope="col">title</th>
                         <th scope="col">delet</th>
                         <th scope="col">edit</th>
 
@@ -26,9 +31,13 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    @foreach ($data as $halltype)
+
+
                     <tr>
 
-                        <td>hamza khan</td>
+                        <td>{{$halltype->name}}</td>
                         <td class="rounded-sm">
                             <a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a>
 
@@ -42,7 +51,7 @@
 
 
                     </tr>
-
+                    @endforeach
 
                 </tbody>
             </table>

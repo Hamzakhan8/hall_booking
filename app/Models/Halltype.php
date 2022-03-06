@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class halltype extends Model
 {
     use HasFactory;
+
+    protected $table='halltypes';
+    protected $fillable=[
+
+        'name',
+        'detail'
+    ];
 }
