@@ -25,5 +25,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
- Route::resource('admin/halltype', HallTypeController::class);
+Route::resource('admin/halltype', HallTypeController::class);
+Route::get('delete-halltype/{category_id}',[App\Http\Controllers\Admin\CategoryController::class,'destroy']);

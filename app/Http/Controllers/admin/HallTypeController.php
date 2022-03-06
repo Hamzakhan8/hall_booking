@@ -15,7 +15,7 @@ class HallTypeController extends Controller
      */
     public function index()
     {
-        $data=halltype::latest()->get();
+        $data=halltype::all();
 
         return view('admin.halltype.index',compact('data'));
     }
@@ -56,7 +56,7 @@ class HallTypeController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -67,7 +67,9 @@ class HallTypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=halltype::find($id);
+
+        return view('admin.halltype.edit',compact('data'));
     }
 
     /**
@@ -79,7 +81,14 @@ class HallTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data=halltype::find($id);
+
+        $data->name=$request->name;
+        $data->detail=$request->detail;
+        $data->update();
+
+        return redirect('admin/halltype')->with('success','data has being updated');
     }
 
     /**
@@ -88,8 +97,9 @@ class HallTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(  $id )
     {
-        //
+             dd($id);
+
     }
 }

@@ -17,6 +17,10 @@
                 <p class="alert alert-success">{{session('success')}}</p>
 
                 @endif
+                @if (Session::has('deleted'))
+                <p class="alert alert-danger">{{session('deleted')}}</p>
+
+                @endif
                 <thead class="">
                     <tr>
 
@@ -39,14 +43,14 @@
 
                         <td>{{$halltype->name}}</td>
                         <td class="rounded-sm">
-                            <a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a>
+                            <a href="{{url('admin/delete-halltype/',$halltype->id)}}" class="action-links"><i class="fa fa-trash"></i></a>
 
 
 
                         </td>
-                        <td> <a href="javascript:" class="action-links" data-toggle="" data-target="#exampleModal"><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
                         <td>
-                            <a href="javascript:" class="action-links"><i class="fa fa-eye"></i></a>
+                            <a href="{{route('halltype.show',$halltype->id)}}" class="action-links"><i class="fa fa-eye"></i></a>
                         </td>
 
 
