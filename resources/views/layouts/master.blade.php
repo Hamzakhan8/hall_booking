@@ -83,10 +83,12 @@ Author: wp-organic
 
             <!-- My Pricing Section -->
             <div class="card-shadow">
-                <div class="card-shadow-body p-0">
-                 @yield('content')
-                </div>
+
             </div>
+
+            <div class="card-shadow-body p-0">
+                @yield('content')
+               </div>
             <!-- My Pricing Section -->
         </div>
     </div>

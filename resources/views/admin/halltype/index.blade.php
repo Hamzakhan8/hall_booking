@@ -5,12 +5,14 @@
 
 @section('content')
 
-
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+    add hall
+  </button>
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
             <table class="table table-hover mb-0">
-                <thead class="thead-light">
+                <thead class="">
                     <tr>
 
 
@@ -33,7 +35,7 @@
 
 
                         </td>
-                        <td> <a href="javascript:" class="action-links"><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="javascript:" class="action-links" data-toggle="" data-target="#exampleModal"><i class="fa fa-edit"></i></a></td>
                         <td>
                             <a href="javascript:" class="action-links"><i class="fa fa-eye"></i></a>
                         </td>
@@ -47,5 +49,7 @@
         </div>
     </div>
 </div>
+@include('admin.halltype.modal.index')
 
 @endsection
+
