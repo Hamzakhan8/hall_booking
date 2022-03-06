@@ -97,9 +97,19 @@ class HallTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(  $id )
-    {
-             dd($id);
+    public function destroy($id) {
+
+        $post = halltype:: find($id);
+
+        if($post){
+            $post->delete();
+            return redirect('admin/halltype')->with('massage','deleted successfully');
+
+        }
+        else{
+            return redirect('admin/halltype')->with('massage', 'no post id found');
+        }
+
 
     }
 }

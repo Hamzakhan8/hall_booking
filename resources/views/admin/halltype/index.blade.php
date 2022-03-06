@@ -25,12 +25,13 @@
                     <tr>
 
 
+                        <th scope="col">ID</th>
 
-                        <th scope="col">title</th>
-                        <th scope="col">delet</th>
+                        <th scope="col">name</th>
+                        <th scope="col">delete</th>
                         <th scope="col">edit</th>
 
-                        <th scope="col">view</th>
+
 
                     </tr>
                 </thead>
@@ -40,18 +41,22 @@
 
 
                     <tr>
+                        <td>{{$halltype->id}}</td>
 
                         <td>{{$halltype->name}}</td>
                         <td class="rounded-sm">
-                            <a href="{{url('admin/delete-halltype/',$halltype->id)}}" class="action-links"><i class="fa fa-trash"></i></a>
 
+                            <form method="post" action="{{ route('halltype.destroy', $halltype->id) }}">
+                                @csrf
+                                @method('DELETE')
 
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+
+                            </form>
 
                         </td>
                         <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
-                        <td>
-                            <a href="{{route('halltype.show',$halltype->id)}}" class="action-links"><i class="fa fa-eye"></i></a>
-                        </td>
+
 
 
                     </tr>
