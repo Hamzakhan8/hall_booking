@@ -4,7 +4,7 @@
 
 
 @section('content')
-@section('title','HallType')
+@section('title','Hall')
 
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
     add hall
@@ -38,16 +38,16 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($data as $halltype)
+                    @foreach ($data as $hall)
 
 
                     <tr>
-                        <td>{{$halltype->id}}</td>
+                        <td>{{$hall->id}}</td>
 
-                        <td>{{$halltype->name}}</td>
+                        <td>{{$hall->name}}</td>
                         <td class="rounded-sm">
 
-                            <form method="post" action="{{ route('halltype.destroy', $halltype->id) }}">
+                            <form method="post" action="{{ route('hall.destroy', $hall->id) }}">
                                 @csrf
                                 @method('DELETE')
 
@@ -56,7 +56,7 @@
                             </form>
 
                         </td>
-                        <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="{{route('hall.edit',$hall->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
 
 
 
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-@include('admin.halltype.modal.index')
+@include('admin.Hall.modal.index')
 
 @endsection
 

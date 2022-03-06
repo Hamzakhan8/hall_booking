@@ -18,6 +18,9 @@
                     <a href="{{route('halltype.index')}}"><i class="weddingdir_my_listing"></i> My Halls</a>
                 </li>
                 <li>
+                    <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
+                </li>
+                <li>
                     <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
                 </li>
                 <!-- <li>
