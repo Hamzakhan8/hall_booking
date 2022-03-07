@@ -18,9 +18,8 @@ class HallController extends Controller
     public function index()
     {
         $data=hall::all();
-        $halltype= halltype:: all();
 
-        return view('admin.hall.index',compact('data','halltype'));
+        return view('admin.hall.index',compact('data',));
     }
 
     /**
@@ -30,7 +29,9 @@ class HallController extends Controller
      */
     public function create()
     {
-        return view('admin.hall.index' );
+        $halltype= halltype:: all();
+
+        return view('admin.Hall.create', compact('halltype'));
 
     }
 

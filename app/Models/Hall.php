@@ -9,11 +9,11 @@ class Hall extends Model
 {
     use HasFactory;
 
-    protected $table='halltypes';
+    protected $table='halls';
     protected $fillable=[
 
-        'name',
-        'detail'
+        'title',
+        'halls_type_id'
     ];
     function Halltype(){
 

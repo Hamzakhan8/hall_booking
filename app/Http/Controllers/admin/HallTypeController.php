@@ -27,7 +27,7 @@ class HallTypeController extends Controller
      */
     public function create()
     {
-        return view('admin.halltype.index');
+        return view('admin.halltype.create');
 
     }
 
