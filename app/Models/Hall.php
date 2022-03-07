@@ -17,7 +17,7 @@ class Hall extends Model
     ];
     function Halltype(){
 
-        return $this->belongsTo(Halltype::class,'halls_type_id');
+        return $this->belongsTo(Halltype::class,'hall_types_id');
 
 
     }

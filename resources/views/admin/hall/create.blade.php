@@ -6,23 +6,23 @@
 @section('content')
 @section('title','Hall')
         <div class="card-body">
-            <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
+            <form action="{{route('hall.store')}} " method="POST" enctype="multipart/form-data">
 
                 @csrf
 
-                <select name="room_type_id" class="form-control">
+                <select name="hall_types_id" class="form-control">
                     <option value="0">--select--</option>
                     @foreach ($halltypes as $ht)
-                    <option value="{{$ht->halltype->id}}">{{$ht->halltype->name}}</option>
+                    <option value="{{$ht->id}}">{{$ht->name}}</option>
 
                     @endforeach
                 </select>
                 <div class="form-group"  >
                   <label for="exampleInputEmail1">title</label>
-                  <input type="text" name="name" class="form-control" >
+                  <input type="text" name="title" class="form-control" >
                 </div>
 
-            </form>
+
 
 
 
@@ -30,7 +30,7 @@
         </div>
         <div class="modal-footer">
          <input type="submit" class="btn btn-warning">
-
+        </form>
         </div>
 
         @endsection

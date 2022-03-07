@@ -28,7 +28,7 @@
 
                         <th scope="col">ID</th>
 
-                        <th scope="col">name</th>
+                        <th scope="col">title</th>
                         <th scope="col">delete</th>
                         <th scope="col">edit</th>
 
@@ -42,12 +42,12 @@
 
 
                     <tr>
-                        <td>{{$halltype->id}}</td>
+                        <td>{{$halltype->hall_types_id}}</td>
 
-                        <td>{{$halltype->name}}</td>
+                        <td>{{$halltype->title}}</td>
                         <td class="rounded-sm">
 
-                            <form method="post" action="{{ route('halltype.destroy', $halltype->id) }}">
+                            <form method="post" action="{{ route('hall.destroy', $halltype->id) }}">
                                 @csrf
                                 @method('DELETE')
 
@@ -56,7 +56,7 @@
                             </form>
 
                         </td>
-                        <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="{{route('hall.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
 
 
 

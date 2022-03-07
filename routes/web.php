@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
+use App\Http\Controllers\admin\CustomerController;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('admin/halltype', HallTypeController::class);
 
 Route::resource('admin/hall',HallController::class);
+
+Route::resource('',CustomerController::class);
+
 
 
