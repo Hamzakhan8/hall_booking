@@ -10,15 +10,18 @@
 
                 @csrf
 
+                <select name="room_type_id" class="form-control">
+                    <option value="0">--select--</option>
+                    @foreach ($halltypes as $ht)
+                    <option value="{{$ht->halltype->id}}">{{$ht->halltype->name}}</option>
+
+                    @endforeach
+                </select>
                 <div class="form-group"  >
                   <label for="exampleInputEmail1">title</label>
                   <input type="text" name="name" class="form-control" >
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">detail</label>
 
-                    <textarea name="detail"  cols="60" rows="10"></textarea>
-                </div>
             </form>
 
 

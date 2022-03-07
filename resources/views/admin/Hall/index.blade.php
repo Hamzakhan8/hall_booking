@@ -6,7 +6,7 @@
 @section('content')
 @section('title','HallType')
 
-<a href="{{url('')}}"  class="btn btn-warning">
+<a href="{{route('hall.create')}}"  class="btn btn-warning">
     add hall
 </a>
 <div class="card-shadow">

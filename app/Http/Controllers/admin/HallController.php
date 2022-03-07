@@ -29,9 +29,9 @@ class HallController extends Controller
      */
     public function create()
     {
-        $halltype= halltype:: all();
+        $halltypes= halltype:: all();
 
-        return view('admin.Hall.create', compact('halltype'));
+        return view('admin.Hall.create', compact('halltypes'));
 
     }
 
