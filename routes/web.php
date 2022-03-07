@@ -33,7 +33,7 @@ Route::resource('admin/halltype', HallTypeController::class);
 
 Route::resource('admin/hall',HallController::class);
 
-Route::resource('',CustomerController::class);
+Route::resource('admin/customer',CustomerController::class);
 
 
 

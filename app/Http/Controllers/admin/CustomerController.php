@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerRequest;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+
 
 class CustomerController extends Controller
 {
@@ -14,7 +18,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $data=Customer::all();
+
+        return view('admin.customer.index',compact('data',));
     }
 
     /**
@@ -24,7 +30,10 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+
+
+        return view('admin.customer.create', );
+
     }
 
     /**
@@ -33,9 +42,24 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
-        //
+        $data=$request->validated();
+
+
+        $data->full_name=$request->full_name;
+        $data->email=$request->email;
+        $data->password=$request->password;
+        $data->mobile=$request->mobile;
+        $data->address=$request->address;
+        $data->full_name=$request->full_name;
+        $data->photo=$request->photo;
+
+
+        $data->save();
+
+        return redirect('admin/Customer')->with('success','data has being added');
+
     }
 
     /**
@@ -44,10 +68,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +78,11 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
+        $data=Customer::find($id);
+
+        return view('admin.customer.edit',compact('data'  ));
     }
 
     /**
@@ -69,7 +94,14 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data=Customer::find($id);
+
+
+        $data->title=$request->title;
+        $data->update();
+
+        return redirect('admin/customer')->with('success','data has being updated');
     }
 
     /**
@@ -78,8 +110,19 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+
+        $post = Customer:: find($id);
+
+        if($post){
+            $post->delete();
+            return redirect('admin/hall')->with('massage','deleted successfully');
+
+        }
+        else{
+            return redirect('admin/hall')->with('massage', 'no post id found');
+        }
+
+
     }
 }

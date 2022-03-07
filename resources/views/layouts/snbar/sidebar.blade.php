@@ -19,10 +19,15 @@
                 </li>
                 <li>
                     <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
+
                 </li>
                 <li>
-                    <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
+                    <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>customers</a>
+
                 </li>
+              {{--sad  <li>
+                    <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
+                </li>--}}
                 <!-- <li>
                     <a href="vendor-dashboard-pricing.html"><i class="weddingdir_pricing_plans"></i> Pricing Table</a>
                 </li>
