@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 
 use App\Models\Customer;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -55,7 +56,15 @@ class CustomerController extends Controller
         $data->photo=$request->photo;
 
 
+        if($request->hasfile('photo'))
+        {
 
+            $file=$request->file('photo');
+            $filename=time(). '.' . $file->getClientOriginalExtension();
+            $file->move('uploads/customer/',$filename);
+            $data->photo=$filename;
+
+        }
 
 
         $data->save();
@@ -108,6 +117,25 @@ class CustomerController extends Controller
         $data->mobile=$request->mobile;
         $data->address=$request->address;
         $data->photo=$request->photo;
+
+
+            if($request->hasfile('photo')) {
+
+                $destination ='uploads/customer/'.$data->photo;
+
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
+
+
+                $file=$request->file('photo');
+                $filename=time(). '.' . $file->getClientOriginalExtension();
+                $file->move('uploads/customer/',$filename);
+                $data->photo=$filename;
+
+    }
+
+
         $data->update();
 
         return redirect('admin/customer')->with('success','data has being updated');
@@ -121,15 +149,22 @@ class CustomerController extends Controller
      */
     public function destroy($id) {
 
-        $post = Customer:: find($id);
+        $data = Customer:: find($id);
 
-        if($post){
-            $post->delete();
-            return redirect('admin/hall')->with('massage','deleted successfully');
+
+        $destination ='uploads/category/'.$data->photo;
+
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
+                if($data){
+                $data->delete();
+
+            return redirect('admin/customer')->with('massage','deleted successfully');
 
         }
         else{
-            return redirect('admin/hall')->with('massage', 'no post id found');
+            return redirect('admin/customer')->with('massage', 'no post id found');
         }
 
 
