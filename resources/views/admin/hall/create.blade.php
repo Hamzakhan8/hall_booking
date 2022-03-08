@@ -6,7 +6,7 @@
 @section('content')
 @section('title','Hall')
         <div class="card-body">
-            <form action="{{route('hall.store')}} " method="POST" enctype="multipart/form-data">
+            <form action="{{route('hall.store')}} " method="get" enctype="multipart/form-data">
 
                 @csrf
 

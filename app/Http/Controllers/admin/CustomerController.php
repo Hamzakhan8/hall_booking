@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerRequest;
 use App\Models\Customer;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 class CustomerController extends Controller
@@ -42,23 +42,25 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CustomerRequest $request)
+    public function store(Request $request)
     {
-        $data=$request->validated();
 
+        $data= new Customer;
 
         $data->full_name=$request->full_name;
         $data->email=$request->email;
         $data->password=$request->password;
         $data->mobile=$request->mobile;
         $data->address=$request->address;
-        $data->full_name=$request->full_name;
         $data->photo=$request->photo;
+
+
+
 
 
         $data->save();
 
-        return redirect('admin/Customer')->with('success','data has being added');
+        return redirect('admin/customer')->with('success','data has being added');
 
     }
 
@@ -98,7 +100,14 @@ class CustomerController extends Controller
         $data=Customer::find($id);
 
 
-        $data->title=$request->title;
+
+
+        $data->full_name=$request->full_name;
+        $data->email=$request->email;
+        $data->password=$request->password;
+        $data->mobile=$request->mobile;
+        $data->address=$request->address;
+        $data->photo=$request->photo;
         $data->update();
 
         return redirect('admin/customer')->with('success','data has being updated');
