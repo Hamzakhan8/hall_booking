@@ -47,7 +47,7 @@
                         <td>{{$customer->id}}</td>
 
                         <td>{{$customer->full_name}}</td>
-                        <td><img src="{{asset('uploads/customer/'.$customer->photo)}}" width="50px" height="50px" alt=""></td>
+                        <td><img src="{{asset('upload/customer/'.$customer->photo)}}" width="50px" height="50px" alt=""></td>
 
                         <td class="rounded-sm">
 

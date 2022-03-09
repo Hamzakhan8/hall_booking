@@ -4,9 +4,10 @@ namespace App\Http\Controllers\admin;
 
 
 use App\Models\Customer;
-use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 use App\Http\Controllers\Controller;
 
 
@@ -21,7 +22,7 @@ class CustomerController extends Controller
     {
         $data=Customer::all();
 
-        return view('admin.customer.index',compact('data',));
+        return view('admin.customer.index',compact('data'));
     }
 
     /**
@@ -53,7 +54,7 @@ class CustomerController extends Controller
         $data->password=$request->password;
         $data->mobile=$request->mobile;
         $data->address=$request->address;
-        $data->photo=$request->photo;
+
 
 
         if($request->hasfile('photo'))
@@ -61,7 +62,7 @@ class CustomerController extends Controller
 
             $file=$request->file('photo');
             $filename=time(). '.' . $file->getClientOriginalExtension();
-            $file->move('uploads/customer/',$filename);
+            $file->move('upload/customer/',$filename);
             $data->photo=$filename;
 
         }
@@ -116,12 +117,12 @@ class CustomerController extends Controller
         $data->password=$request->password;
         $data->mobile=$request->mobile;
         $data->address=$request->address;
-        $data->photo=$request->photo;
+
 
 
             if($request->hasfile('photo')) {
 
-                $destination ='uploads/customer/'.$data->photo;
+                $destination ='upload/customer/'.$data->photo;
 
                 if(File::exists($destination)){
                     File::delete($destination);
@@ -130,7 +131,7 @@ class CustomerController extends Controller
 
                 $file=$request->file('photo');
                 $filename=time(). '.' . $file->getClientOriginalExtension();
-                $file->move('uploads/customer/',$filename);
+                $file->move('upload/customer/',$filename);
                 $data->photo=$filename;
 
     }
@@ -152,7 +153,7 @@ class CustomerController extends Controller
         $data = Customer:: find($id);
 
 
-        $destination ='uploads/category/'.$data->photo;
+        $destination ='upload/customer/'.$data->photo ;
 
                 if(File::exists($destination)){
 
