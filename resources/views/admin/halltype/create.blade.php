@@ -1,14 +1,12 @@
-<div class="modal" id="exampleModal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">add hall</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
+@extends('layouts.master')
+
+
+
+
+@section('content')
+@section('title','Hall')
+        <div class="card-body">
+                <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
 
                 @csrf
 
@@ -32,6 +30,6 @@
 
         </div>
     </form>
-      </div>
-    </div>
-  </div>
+        </div>
+
+        @endsection

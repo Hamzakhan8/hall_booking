@@ -4,7 +4,7 @@
 
 
 @section('content')
-@section('title','HallType')
+@section('title','Hall')
 
 <a href="{{route('hall.create')}}"  class="btn btn-warning">
     add hall
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-@include('admin.halltype.modal.index')
+
 
 @endsection
 

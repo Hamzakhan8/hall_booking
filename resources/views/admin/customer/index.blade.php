@@ -73,7 +73,7 @@
         </div>
     </div>
 </div>
-@include('admin.halltype.modal.index')
+
 
 @endsection
 

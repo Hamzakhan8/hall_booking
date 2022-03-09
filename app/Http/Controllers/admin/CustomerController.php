@@ -155,15 +155,20 @@ class CustomerController extends Controller
         $destination ='uploads/category/'.$data->photo;
 
                 if(File::exists($destination)){
+
                     File::delete($destination);
                 }
+
+
                 if($data){
+
                 $data->delete();
 
             return redirect('admin/customer')->with('massage','deleted successfully');
 
         }
         else{
+
             return redirect('admin/customer')->with('massage', 'no post id found');
         }
 

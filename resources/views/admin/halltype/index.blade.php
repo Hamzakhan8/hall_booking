@@ -6,9 +6,9 @@
 @section('content')
 @section('title','HallType')
 
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-    add hall
-  </button>
+<a href="{{route('halltype.create')}}"  class="btn btn-warning">
+    add hall Type
+</a>
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-@include('admin.halltype.modal.index')
+
 
 @endsection
 
