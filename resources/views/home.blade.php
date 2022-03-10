@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-{{---sdajskdjaskjdkjaskjdkajshdkjhaskjhdkjashdkhaksjhdkajshdkjashkdjaksjhdkjashkjd---}}
 
                 <div class="card-body">
                     @if (session('status'))
