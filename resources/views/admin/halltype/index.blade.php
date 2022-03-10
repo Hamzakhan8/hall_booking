@@ -29,6 +29,8 @@
                         <th scope="col">ID</th>
 
                         <th scope="col">name</th>
+                        <th scope="col">prize</th>
+
                         <th scope="col">delete</th>
                         <th scope="col">edit</th>
 

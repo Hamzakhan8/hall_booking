@@ -21,7 +21,7 @@
 
         <div class="form-group"  >
             <label for="exampleInputEmail1">Prize</label>
-            <input type="text" name="name" value="{{$data->Prize}}" class="form-control" >
+            <input type="text" name="prize" value="{{$data->prize}}" class="form-control" >
           </div>
         <div class="form-group">
           <label for="exampleInputEmail1">detail</label><br>

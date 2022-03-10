@@ -10,11 +10,11 @@
                 <!-- <li>
                     <a href="vendor-dashboard.html"><i class="weddingdir_dashboard"></i> Dashboard</a>
                 </li> -->
-                <li class="active">
+                <li class="">
                     <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
 
-                    <li>
+                    <li class="active">
                     <a href="{{route('halltype.index')}}"><i class="weddingdir_my_listing"></i> My Halls</a>
                 </li>
                 <li>
