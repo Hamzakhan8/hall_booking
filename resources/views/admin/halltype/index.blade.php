@@ -45,6 +45,8 @@
                         <td>{{$halltype->id}}</td>
 
                         <td>{{$halltype->name}}</td>
+                        <td>{{$halltype->prize}}</td>
+
                         <td class="rounded-sm">
 
                             <form method="post" action="{{ route('halltype.destroy', $halltype->id) }}">

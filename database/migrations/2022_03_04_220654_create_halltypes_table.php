@@ -16,6 +16,7 @@ class CreateHalltypesTable extends Migration
         Schema::create('halltypes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->bigInteger('prize');
             $table->text('detail');
 
 

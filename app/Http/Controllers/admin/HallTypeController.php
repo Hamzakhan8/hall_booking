@@ -41,6 +41,8 @@ class HallTypeController extends Controller
     {
         $data=new halltype;
         $data->name=$request->name;
+        $data->prize=$request->prize;
+
         $data->detail=$request->detail;
         $data->save();
 
@@ -85,6 +87,8 @@ class HallTypeController extends Controller
         $data=halltype::find($id);
 
         $data->name=$request->name;
+        $data->prize=$request->prize;
+
         $data->detail=$request->detail;
         $data->update();
 

@@ -18,6 +18,11 @@
           <label for="exampleInputEmail1">title</label>
           <input type="text" name="name" value="{{$data->name}}" class="form-control" >
         </div>
+
+        <div class="form-group"  >
+            <label for="exampleInputEmail1">Prize</label>
+            <input type="text" name="name" value="{{$data->Prize}}" class="form-control" >
+          </div>
         <div class="form-group">
           <label for="exampleInputEmail1">detail</label><br>
 
