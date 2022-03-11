@@ -20,24 +20,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
+
 Route::get('/', function () {
+    return view('home');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
+
+
+    Route::resource('/halltype', HallTypeController::class);
+
+Route::resource('/hall',HallController::class);
+
+Route::resource('/customer',CustomerController::class);
+
+Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
+});
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('admin/halltype', HallTypeController::class);
-
-Route::resource('admin/hall',HallController::class);
-
-Route::resource('admin/customer',CustomerController::class);
 
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
