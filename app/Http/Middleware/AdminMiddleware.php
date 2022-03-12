@@ -24,14 +24,23 @@ class AdminMiddleware
             }
             else{
 
-               return redirect('/home')->with('massage','Access denied');
+               return redirect('/home')->with('status','Access denied');
 
 
             }
+            if(Auth::user()->role_as=="2") // superadmin=2
+            {
+                return $next($request);
+            }
+            else{
 
+               return redirect('/home')->with('status','Access denied');
+
+
+            }
         }
         else{
-            return redirect('/home')->with('massage','Access denied');
+            return redirect('/login')->with('status','please login First');
 
 
         }

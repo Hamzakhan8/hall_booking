@@ -27,13 +27,18 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('admin/super', function(){
+
+    return view('superadmin.index');
+
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
-    Route::resource('/halltype', HallTypeController::class);
+Route::resource('/halltype', HallTypeController::class);
 
 Route::resource('/hall',HallController::class);
 
@@ -41,6 +46,8 @@ Route::resource('/customer',CustomerController::class);
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
+
+
 });
 
 });
