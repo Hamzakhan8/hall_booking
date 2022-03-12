@@ -22,22 +22,19 @@ class AdminMiddleware
             {
                 return $next($request);
             }
-            else{
-
-               return redirect('/home')->with('status','Access denied');
-
-
-            }
-            if(Auth::user()->role_as=="2") // superadmin=2
+            elseif(Auth::user()->role_as=="2") // superadmin=2
             {
                 return $next($request);
             }
+
             else{
 
                return redirect('/home')->with('status','Access denied');
 
 
             }
+
+
         }
         else{
             return redirect('/login')->with('status','please login First');

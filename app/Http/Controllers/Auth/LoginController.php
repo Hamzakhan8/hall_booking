@@ -40,7 +40,7 @@ class LoginController extends Controller
             else if (Auth::user()->role_as=='2')// 2 = 'superadmin'
 
             {
-                return redirect('admin/super')->with('status','welcome to superadmin dashboard');
+                return redirect('admin/super')->with('status','welcome to superadmin  dashboard');
             }
 
             else if(Auth::user()->role_as=='0'){
