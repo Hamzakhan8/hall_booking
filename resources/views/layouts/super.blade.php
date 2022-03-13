@@ -42,7 +42,7 @@ Author: wp-organic
         <!-- Favicons
         ================================================== -->
 
-        @include('layouts.snbar.stylelink');
+        @include('layouts.snbarsuper.stylelink');
 
 
     </head>
@@ -59,7 +59,7 @@ Author: wp-organic
     <!-- end preloader -->
 
     <!--  WeddingDir top -->
-        @include('layouts.snbar.navbar')
+        @include('layouts.snbarsuper.navbar')
     <!--  WeddingDir top -->
 
     <!-- =============================
@@ -69,7 +69,7 @@ Author: wp-organic
     =============================== -->
 
     <main>
-   @include('layouts.snbar.sidebar')
+   @include('layouts.snbarsuper.sidebar')
 
 
    <div class="body-content">
@@ -92,7 +92,7 @@ Author: wp-organic
             <!-- My Pricing Section -->
         </div>
     </div>
-   @include('layouts.snbar.footer')
+   @include('layouts.snbarsuper.footer')
 </div>
 </main>
 
