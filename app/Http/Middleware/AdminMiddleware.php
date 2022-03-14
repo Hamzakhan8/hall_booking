@@ -22,10 +22,7 @@ class AdminMiddleware
             {
                 return $next($request);
             }
-            elseif(Auth::user()->role_as=="2") // superadmin=2
-            {
-                return $next($request);
-            }
+
 
             else{
 

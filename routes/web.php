@@ -26,18 +26,18 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('admin/super', function(){
 
+    return view('superadmin.index');
+
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
-    Route::get('/super', function(){
 
-        return view('superadmin.index');
-
-    });
 
 Route::resource('/halltype', HallTypeController::class);
 
