@@ -26,11 +26,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('admin/super', function(){
-
-    return view('superadmin.index');
-
-});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
