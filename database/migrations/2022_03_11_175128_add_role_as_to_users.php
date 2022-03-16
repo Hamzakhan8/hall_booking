@@ -30,7 +30,7 @@ class AddRoleAsToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->dropColumn('role_as'); 
+            $table->dropColumn('role_as');
 
         });
     }
