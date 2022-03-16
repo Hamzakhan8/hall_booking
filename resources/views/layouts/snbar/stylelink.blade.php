@@ -6,6 +6,8 @@
 <!-- CSS ( Bootstrap + Owlcarouses + Fontawesome + Animate + Select2 + Custom Style )
 ======================================================================================= -->
 <!-- <link href="assets/css/base.css" rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"/>
+
 <link href="{{asset('assets')}}/library/animate/animate.min.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/bootstrap/css/bootstrap-dropdownhover.min.css" rel="stylesheet">

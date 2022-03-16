@@ -14,8 +14,8 @@
                     <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
 
-                    <li class="active">
-                    <a href="{{route('halltype.index')}}"><i class="weddingdir_my_listing"></i> My Halls</a>
+                    <li class="">
+                    <a href="{{route('halltype.index')}}"><i class="weddingdir_my_listing"></i>Hall Type</a>
                 </li>
                 <li>
                     <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>

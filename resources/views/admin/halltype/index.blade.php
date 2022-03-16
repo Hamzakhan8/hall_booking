@@ -12,7 +12,7 @@
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
-            <table class="table table-hover mb-0">
+            <table id="myTable" class="table table-bordered table-hover mb-0">
                 @if (Session::has('success'))
                 <p class="alert alert-success">{{session('success')}}</p>
 
