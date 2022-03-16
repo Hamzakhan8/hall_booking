@@ -23,6 +23,10 @@
 
                     <textarea name="detail"  cols="60" rows="10"></textarea>
                 </div>
+                <div class="form-group"  >
+                    <label for="exampleInputEmail1">upload gallery</label>
+                    <input type="file" multiple name="imgs[]" class="form-control" >
+                  </div>
 
 
 

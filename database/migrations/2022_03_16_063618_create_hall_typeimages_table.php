@@ -15,6 +15,11 @@ class CreateHallTypeimagesTable extends Migration
     {
         Schema::create('hall_typeimages', function (Blueprint $table) {
             $table->id();
+            $table->integer('hall_type_id');
+            $table->text('scr_image');
+            $table->text('alt_image');
+
+
             $table->timestamps();
         });
     }

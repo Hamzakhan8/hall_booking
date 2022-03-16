@@ -15,4 +15,9 @@ class halltype extends Model
         'name',
         'detail'
     ];
+
+         function halltypeimage(){
+
+            return $this->hasMany(HallTypeimage::class,'room_type_id');
+         }
 }

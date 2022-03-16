@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\halltype;
+use Illuminate\Support\Facades\File;
+use App\Models\HallTypeimage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -39,12 +41,35 @@ class HallTypeController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+
+            'name'=>'required',
+            'prize'=>'required',
+
+            'detail'=>'required',
+        ]);
+
         $data=new halltype;
         $data->name=$request->name;
         $data->prize=$request->prize;
 
         $data->detail=$request->detail;
-        $data->save();
+
+
+        foreach($request->file('imgs') as $img){
+
+                $imgPath=$img->store('public/imgs');
+                $imgData= new HallTypeimage();
+
+                $imgData->room_type_id=$data->id;
+                $imgData->img_src=$imgPath;
+                $imgData->img_alt=$request->name;
+                $data->save();
+
+
+
+        }
 
         return redirect('admin/halltype')->with('success','data has being added');
 
