@@ -56,16 +56,18 @@ class HallTypeController extends Controller
 
         $data->detail=$request->detail;
 
+        $data->save();
 
         foreach($request->file('imgs') as $img){
 
                 $imgPath=$img->store('public/imgs');
                 $imgData= new HallTypeimage();
 
-                $imgData->room_type_id=$data->id;
-                $imgData->img_src=$imgPath;
-                $imgData->img_alt=$request->name;
-                $data->save();
+                $imgData->hall_type_id=$data->id;
+                $imgData->scr_image=$imgPath;
+                $imgData->alt_image=$request->name;
+                $imgData->save();
+
 
 
 

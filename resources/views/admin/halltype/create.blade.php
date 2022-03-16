@@ -19,9 +19,9 @@
                     <input type="text" name="prize" class="form-control" >
                   </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">detail</label>
 
-                    <textarea name="detail"  cols="60" rows="10"></textarea>
+
+                    <textarea name="detail" placeholder="detail" cols="60" rows="10"></textarea>
                 </div>
                 <div class="form-group"  >
                     <label for="exampleInputEmail1">upload gallery</label>
