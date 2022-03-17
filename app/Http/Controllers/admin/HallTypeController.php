@@ -159,7 +159,7 @@ class HallTypeController extends Controller
             return redirect('admin/halltype')->with('massage', 'no post id found');
         }
 
-
+//updated error
     }
 
     public function destroy_image($img_id)
