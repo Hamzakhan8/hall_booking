@@ -22,6 +22,7 @@
     $(document).ready(function(){
         $(".delete-image").on('click',function(){
             var _img_id=$(this).attr('data-image-id');
+            alert(_img_id);
             var _vm=$(this);
             $.ajax({
                 url:"{{url('admin/halltypeimage/delete')}}/"+_img_id,
