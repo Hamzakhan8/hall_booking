@@ -36,7 +36,7 @@
 
                     @foreach($data->halltypeimage as $img)
                     <td class="imgcol{{$img->id}}">
-                    <img width="150px" src="{{asset('storage/app/' . $img->scr_image)}}" >
+                    <img width="150px" src="{{Storage::get('app/'.$img->scr_image)  }}" >
                     <p class="mt-2">
                     <button type="button" onclick="return confirm('Are you sure you want to delete this image??')" class="btn btn-danger btn-sm delete-image" data-image-id="{{$img->id}}"><i class="fa fa-trash"></i></button>
                     </p>
