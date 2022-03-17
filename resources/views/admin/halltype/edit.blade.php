@@ -8,7 +8,7 @@
 
 
 
-<div class="card-body">
+<div class="card-body`">
     <form action="{{route('halltype.update',$data->id)}} " method="POST" enctype="multipart/form-data">
 
         @csrf
@@ -28,6 +28,24 @@
 
         <textarea name="detail"  cols="60" rows="10">{{$data->detail}}</textarea>
         </div>
+        <div class="form-group">
+            <h3>hall type images</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <input type="file" multiple name="imgs[]" />
+
+                    @foreach($data->halltypeimage as $img)
+                    <td class="imgcol{{$img->id}}">
+                    <img width="150px" src="{{asset('storage/app/' . $img->scr_image)}}" >
+                    <p class="mt-2">
+                    <button type="button" onclick="return confirm('Are you sure you want to delete this image??')" class="btn btn-danger btn-sm delete-image" data-image-id="{{$img->id}}"><i class="fa fa-trash"></i></button>
+                    </p>
+                     </td>
+                    @endforeach
+                </tr>
+    </table>
+        </div>
+
         <input type="submit" class="btn btn-warning">
 
     </form>

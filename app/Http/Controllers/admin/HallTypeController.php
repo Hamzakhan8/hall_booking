@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\halltype;
-use Illuminate\Support\Facades\File;
+use Illuminate\Http\Request;
 use App\Models\HallTypeimage;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 
 class HallTypeController extends Controller
@@ -142,5 +143,14 @@ class HallTypeController extends Controller
         }
 
 
+    }
+
+    public function destroy_image($img_id)
+    {
+        $data=halltypeimage::where('id',$img_id)->first();
+        Storage::delete($data->img_src);
+
+       halltypeimage::where('id',$img_id)->delete();
+       return response()->json(['bool'=>true]);
     }
 }

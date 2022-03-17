@@ -18,6 +18,6 @@ class halltype extends Model
 
          function halltypeimage(){
 
-            return $this->hasMany(HallTypeimage::class,'room_type_id');
+            return $this->hasMany(HallTypeimage::class,'hall_type_id');
          }
 }
