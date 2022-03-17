@@ -3,8 +3,7 @@
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
-
-
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +52,14 @@ Route::get('/dashboard', function () {
 
 
 
+});
+
+Route::prefix('front')->group(function (){
+    Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
+});
+
+Route::get('front', function() {
+    return view('front_view.index');
 });
 
 
