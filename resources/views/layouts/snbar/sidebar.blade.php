@@ -25,6 +25,10 @@
                     <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>customers</a>
 
                 </li>
+                <li>
+                    <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>booking</a>
+
+                </li>
               {{--sad  <li>
                     <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
                 </li>--}}

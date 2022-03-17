@@ -20,6 +20,7 @@ class HallTypeController extends Controller
     {
         $data=halltype::all();
 
+
         return view('admin.halltype.index',compact('data'));
     }
 
@@ -118,6 +119,22 @@ class HallTypeController extends Controller
         $data->prize=$request->prize;
 
         $data->detail=$request->detail;
+
+        if($request->hasFile('imgs')){
+        foreach($request->file('imgs') as $img){
+
+            $imgPath=$img->store('public/imgs');
+            $imgData= new HallTypeimage();
+
+            $imgData->hall_type_id=$data->id;
+            $imgData->scr_image=$imgPath;
+            $imgData->alt_image=$request->name;
+            $imgData->save();
+
+
+        }
+
+    }
         $data->update();
 
         return redirect('admin/halltype')->with('success','data has being updated');

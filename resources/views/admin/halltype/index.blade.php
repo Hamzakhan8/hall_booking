@@ -30,6 +30,8 @@
 
                         <th scope="col">name</th>
                         <th scope="col">prize</th>
+                        <th scope="col">IMAGES</th>
+
 
                         <th scope="col">delete</th>
                         <th scope="col">edit</th>
@@ -40,6 +42,8 @@
                 </thead>
                 <tbody>
 
+
+
                     @foreach ($data as $halltype)
 
 
@@ -48,6 +52,9 @@
 
                         <td>{{$halltype->name}}</td>
                         <td>{{$halltype->prize}}</td>
+                        <td>{{count($halltype->halltypeimage)}}</td>
+
+
 
                         <td class="rounded-sm">
 
