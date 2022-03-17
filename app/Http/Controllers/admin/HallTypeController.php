@@ -163,10 +163,10 @@ class HallTypeController extends Controller
 
     public function destroy_image($img_id)
     {
-        $data=HallTypeimage::where('id',$img_id)->first();
+        $data=halltypeimage::where('id',$img_id)->first();
         Storage::delete($data->scr_image);
 
-       HallTypeimage::where('id',$img_id)->delete();
+        halltypeimage::where('id',$img_id)->delete();
        return response()->json(['bool'=>true]);
     }
 }
