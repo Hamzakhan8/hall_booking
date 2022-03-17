@@ -17,3 +17,25 @@
     $('#myTable').DataTable();
 } );
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete-image").on('click',function(){
+            var _img_id=$(this).attr('data-image-id');
+            var _vm=$(this);
+            $.ajax({
+                url:"{{url('admin/halltypeimage/delete')}}/"+_img_id,
+                dataType:'json',
+                beforeSend:function(){
+                    _vm.addClass('disabled');
+                },
+                success:function(res){
+                    if(res.bool==true){
+                        $(".imgcol"+_img_id).remove();
+                    }
+                    _vm.removeClass('disabled');
+                }
+            });
+        });
+    });
+</script>

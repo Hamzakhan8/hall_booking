@@ -36,6 +36,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 Route::resource('/halltype', HallTypeController::class);
 
+// Delete Image
+Route::get('admin/halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
+
 Route::resource('/hall',HallController::class);
 
 Route::resource('/customer',CustomerController::class);
