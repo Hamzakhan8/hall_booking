@@ -35,7 +35,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
 Route::resource('/halltype', HallTypeController::class);
-
+//asda
 // Delete Image
 Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
 
