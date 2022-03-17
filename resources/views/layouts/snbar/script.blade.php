@@ -31,7 +31,7 @@
                     _vm.addClass('disabled');
 
                 },
-                
+
                 success:function(res){
                     if(res.bool==true){
                         $(".imgcol"+img_id).remove();

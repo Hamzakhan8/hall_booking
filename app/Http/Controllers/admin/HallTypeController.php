@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-use App\Models\halltype;
+use App\Models\Halltype;
 use Illuminate\Http\Request;
 use App\Models\HallTypeimage;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -52,7 +51,7 @@ class HallTypeController extends Controller
             'detail'=>'required',
         ]);
 
-        $data=new halltype;
+        $data=new Halltype();
         $data->name=$request->name;
         $data->prize=$request->prize;
 
@@ -98,7 +97,7 @@ class HallTypeController extends Controller
      */
     public function edit($id)
     {
-        $data=halltype::find($id);
+        $data=Halltype::find($id);
 
         return view('admin.halltype.edit',compact('data'));
     }
@@ -164,7 +163,7 @@ class HallTypeController extends Controller
 
     public function destroy_image($img_id)
     {
-        $data=halltypeimage::where('id',$img_id)->first();
+        $data=HallTypeimage::where('id',$img_id)->first();
         Storage::delete($data->scr_image);
 
        HallTypeimage::where('id',$img_id)->delete();
