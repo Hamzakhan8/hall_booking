@@ -4,7 +4,7 @@
 
 
 @section('content')
-@section('title','customer')
+@section('title','Booking')
 
 
 
@@ -16,7 +16,7 @@
 
 
 <div class="card-shadow-body">
-    <form action="{{route('customer.update',$data->id)}} " method="post" enctype="multipart/form-data">
+    <form action="{{route('booking.update',$data->id)}} " method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="row">
