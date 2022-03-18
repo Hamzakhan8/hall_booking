@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,21 +42,16 @@ Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image
 Route::resource('/hall',HallController::class);
 
 Route::resource('/customer',CustomerController::class);
+Route::resource('/booking',BookingController::class);
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-
-
-
 });
-
-
-
-
 });
 
 Route::prefix('front')->group(function (){
-    Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
+Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
 });
 
 Route::get('front', function() {
