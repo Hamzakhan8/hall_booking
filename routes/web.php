@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\SearchResultController;
@@ -47,24 +48,27 @@ Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image
 Route::resource('/hall',HallController::class);
 
 Route::resource('/customer',CustomerController::class);
+Route::resource('/booking',BookingController::class);
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-
-
-
 });
-
-
-
-
 });
 
 Route::prefix('front')->group(function (){
+<<<<<<< HEAD
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
     Route::get('search', [SearchResultController::class, 'index'])->name('front.search');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
+=======
+Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
+});
+
+Route::get('front', function() {
+    return view('front_view.index');
+>>>>>>> 4f3038fc69facc00dedf650df5781b211c0099c4
 });
 
 

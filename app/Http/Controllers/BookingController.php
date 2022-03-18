@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -13,7 +14,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.booking.index');
     }
 
     /**
@@ -23,7 +24,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        $customers=Customer::all();
+        return view('booking.create',['data'=>$customers]);
     }
 
     /**
@@ -34,7 +36,15 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'customer_id'=>'required',
+            'room_id'=>'required',
+            'checkin_date'=>'required',
+            'checkout_date'=>'required',
+            'total_adults'=>'required',
+            'hallprice'=>'required',
+        ]);
+
     }
 
     /**

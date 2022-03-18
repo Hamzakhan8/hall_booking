@@ -22,7 +22,7 @@ class CreateBookingsTable extends Migration
             $table->string('checkout_date');
             $table->string('total_adults');
             $table->string('total_childern');
-
+            $table->string('ref');
 
             $table->timestamps();
         });

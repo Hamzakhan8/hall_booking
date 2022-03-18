@@ -26,7 +26,7 @@
 
                 </li>
                 <li>
-                    <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>booking</a>
+                    <a href="{{route('booking.index')}}"><i class="weddingdir_my_profile"></i>booking</a>
 
                 </li>
               {{--sad  <li>
