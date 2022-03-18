@@ -5,23 +5,19 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div class="footer-logo">
-                            <h2 style="color:white">HALL</h2>
-                            <!-- <img src="assets/images/logo_light.svg" alt=""> -->
+                            <h2 style="color:#00aeaf;">BOOK HALL</h2>
                             <p>An online Hall booking System to find the best and affordable Halls all over the Country.</p>
                         </div>
-                        <div><a href="javascript:" class="btn btn-primary">Know More</a></div>
+                        <div><a href="{{ route('front.about') }}" class="btn btn-primary">Know More</a></div>
                     </div>
 
                     <div class="col-md">
                         <div class="footer-widget">
                             <h3 class="widget-title">Menu</h3>
                             <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="search-result-page.html">Hall Booking</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                                <!-- <li><a href="javascript:">Cake</a></li>
-                                <li><a href="javascript:">Photographer</a></li>
-                                <li><a href="javascript:">Music DJ</a></li> -->
+                                <li><a href="{{ route('front.home') }}">Home</a></li>
+                                <li><a href="{{ route('front.search') }}">Hall Booking</a></li>
+                                <li><a href="{{ route('front.contact') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -30,11 +26,11 @@
                         <div class="footer-widget">
                             <h3 class="widget-title">Locations</h3>
                             <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                <li><a href="search-result-page.html">Peshawar</a></li>
-                                <li><a href="search-result-page.html">Islamabad</a></li>
-                                <li><a href="search-result-page.html">Lahore</a></li>
-                                <li><a href="search-result-page.html">Karachi</a></li>
-                                <li><a href="search-result-page.html">Multan</a></li>
+                                <li><a href="{{ route('front.search') }}">Peshawar</a></li>
+                                <li><a href="{{ route('front.search') }}">Islamabad</a></li>
+                                <li><a href="{{ route('front.search') }}">Lahore</a></li>
+                                <li><a href="{{ route('front.search') }}">Karachi</a></li>
+                                <li><a href="{{ route('front.search') }}">Multan</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +79,7 @@
                     © 2022 All rights reserved.
                 </div>
                 <div class="col-md-auto col-12 copyrights-link ml-md-auto">
-                    <a href="javascript:">Home</a> | <a href="javascript:">About</a> | <a href="javascript:">Contact Us</a> | <a href="javascript:">Terms & Conditions</a> |   <a href="javascript:">Privacy Policy</a>
+                    <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a> | <a href="{{ route('front.home') }}">Terms & Conditions</a> |   <a href="{{ route('front.home') }}">Privacy Policy</a>
                 </div>
             </div>
         </div>

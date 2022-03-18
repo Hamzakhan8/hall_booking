@@ -27,7 +27,7 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="assets/images/logo_light.svg" alt="">
+            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
         </div>
     </div>
     <!-- end preloader -->
@@ -47,7 +47,7 @@ Author: wp-organic
             <!-- Home Slider Images -->
             <div class="item">
                 <div class="home-slider">
-                    <img height="500px" src="assets/images/slider/2.jpg" alt="">
+                    <img height="500px" src="{{ asset('assets') }}/images/slider/2.jpg" alt="">
                 </div>
             </div>
             <!-- Home Slider Images -->
@@ -55,7 +55,7 @@ Author: wp-organic
             <!-- Home Slider Images -->
             <div class="item">
                 <div class="home-slider">
-                    <img height="500px" src="assets/images/slider/3.jpg" alt="">
+                    <img height="500px" src="{{ asset('assets') }}/images/slider/3.jpg" alt="">
                 </div>
             </div>
             <!-- Home Slider Images -->
@@ -63,7 +63,7 @@ Author: wp-organic
                         <!-- Home Slider Images -->
             <div class="item">
                 <div class="home-slider">
-                    <img height="500px" src="assets/images/slider/1.jpg" alt="">
+                    <img height="500px" src="{{ asset('assets') }}/images/slider/1.jpg" alt="">
                 </div>
             </div>
             <!-- Home Slider Images -->
@@ -96,17 +96,10 @@ Author: wp-organic
                                     </select>
                                 </div>
                                 <div class="col-12 col-md-2">
-                                    <a href="search-result-page.html" class="btn btn-default text-nowrap btn-block" >Search Now</a>
+                                    <a href="{{ route('front.search') }}" class="btn btn-default text-nowrap btn-block" >Search Now</a>
                                 </div>
                             </div>
                         </div>
-                        <!-- <p class="lead txt-white text-center">Or browse featured categories</p>
-                        <div class="slider-category">
-                            <a href="javascript:"><i class="weddingdir_camera_alt"></i> Photography</a>
-                            <a href="javascript:"><i class="weddingdir_cup_cakes"></i> Cakes</a>
-                            <a href="javascript:"><i class="weddingdir_fashion"></i> Fashion</a>
-                            <a href="javascript:"><i class="weddingdir_music"></i> Music</a>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -128,7 +121,7 @@ Author: wp-organic
                         <div class="wedding-listing">
                             <div class="img">
                                 <a href="listing-singular.html">
-                                    <img height="263px" src="assets/images/weddings/3.jpg" alt="">
+                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/3.jpg" alt="">
                                 </a>
                                 <div class="img-content">
                                     <div class="top">
@@ -149,7 +142,7 @@ Author: wp-organic
                             </div>
                             <div class="content">
                                 <div class="gap">
-                                    <h3><a href="search-result-page.html">Town Wedding Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                    <h3><a href="{{ route('front.search') }}">Town Wedding Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
                                     <div><i class="fa fa-map-marker"></i> Peshawar, Pakistan</div>
                                 </div>
                                 <div class="reviews">
@@ -170,7 +163,7 @@ Author: wp-organic
                         <div class="wedding-listing">
                             <div class="img">
                                 <a href="listing-singular.html">
-                                    <img height="263px" src="assets/images/weddings/1.jfif" alt="">
+                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/1.jfif" alt="">
                                 </a>
                                 <div class="img-content">
                                     <div class="top">
@@ -195,7 +188,7 @@ Author: wp-organic
                             </div>
                             <div class="content">
                                 <div class="gap">
-                                    <h3><a href="search-result-page.html">Islamabad Serena Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                    <h3><a href="{{ route('front.search') }}">Islamabad Serena Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
                                     <div><i class="fa fa-map-marker"></i> Islamabad, Pakistan</div>
                                 </div>
                                 <div class="reviews">
@@ -216,7 +209,7 @@ Author: wp-organic
                         <div class="wedding-listing">
                             <div class="img">
                                 <a href="listing-singular.html">
-                                    <img height="263px" src="assets/images/weddings/2.jpg" alt="">
+                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/2.jpg" alt="">
                                 </a>
                                 <div class="img-content">
                                     <div class="top">
@@ -238,7 +231,7 @@ Author: wp-organic
                             </div>
                             <div class="content">
                                 <div class="gap">
-                                    <h3><a href="search-result-page.html">Lahore kalanders Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                    <h3><a href="{{ route('front.search') }}">Lahore kalanders Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
                                     <div><i class="fa fa-map-marker"></i> Lahore, Pakistan</div>
                                 </div>
                                 <div class="reviews">
@@ -270,10 +263,10 @@ Author: wp-organic
                     <div class="col-lg-3 col-md-4 mx-auto d-lg-block d-none">
                         <div class="popular-locations">
                             <div class="overlay-box">
-                                <h3><a href="search-result-page.html">Islamabad <span>26 Halls</span></a></h3>
-                                <a class="iconlink" href="search-result-page.html"><i class="fa fa-angle-right"></i></a>
+                                <h3><a href="{{ route('front.search') }}">Islamabad <span>26 Halls</span></a></h3>
+                                <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
                             </div>
-                            <img src="assets/images/locations/location_img_1.jpg" alt="">
+                            <img src="{{ asset('assets') }}/images/locations/location_img_1.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -281,37 +274,37 @@ Author: wp-organic
                             <div class="col-md-6 col-lg-4 mb-0">
                                 <div class="popular-locations">
                                     <div class="overlay-box">
-                                        <h3><a href="search-result-page.html">Peshawer <span>42 Halls</span></a></h3>
-                                        <a class="iconlink" href="search-result-page.html"><i class="fa fa-angle-right"></i></a>
+                                        <h3><a href="{{ route('front.search') }}">Peshawer <span>42 Halls</span></a></h3>
+                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
                                     </div>
-                                    <img src="assets/images/locations/location_img_2.jpg" alt="">
+                                    <img src="{{ asset('assets') }}/images/locations/location_img_2.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4 mt-auto order-lg-last mb-0">
                                 <div class="popular-locations">
                                     <div class="overlay-box">
-                                        <h3><a href="search-result-page.html">Multan <span>141 Halls</span></a></h3>
-                                        <a class="iconlink" href="search-result-page.html"><i class="fa fa-angle-right"></i></a>
+                                        <h3><a href="{{ route('front.search') }}">Multan <span>141 Halls</span></a></h3>
+                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
                                     </div>
-                                    <img src="assets/images/locations/location_img_5.jpg" alt="">
+                                    <img src="{{ asset('assets') }}/images/locations/location_img_5.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-6  mb-0">
                                 <div class="popular-locations">
                                     <div class="overlay-box">
-                                        <h3><a href="search-result-page.html">Karachi <span>67 Halls</span></a></h3>
-                                        <a class="iconlink" href="search-result-page.html"><i class="fa fa-angle-right"></i></a>
+                                        <h3><a href="{{ route('front.search') }}">Karachi <span>67 Halls</span></a></h3>
+                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
                                     </div>
-                                    <img src="assets/images/locations/location_img_3.jpg" alt="">
+                                    <img src="{{ asset('assets') }}/images/locations/location_img_3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-6 mt-lg-auto mb-0">
                                 <div class="popular-locations">
                                     <div class="overlay-box">
-                                        <h3><a href="search-result-page.html">Lahore <span>59 Halls</span></a></h3>
-                                        <a class="iconlink" href="search-result-page.html"><i class="fa fa-angle-right"></i></a>
+                                        <h3><a href="{{ route('front.search') }}">Lahore <span>59 Halls</span></a></h3>
+                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
                                     </div>
-                                    <img src="assets/images/locations/location_img_4.jpg" alt="">
+                                    <img src="{{ asset('assets') }}/images/locations/location_img_4.jpg" alt="">
                                 </div>
                             </div>
 
@@ -328,8 +321,8 @@ Author: wp-organic
         <section class="callout-main">
             <div class="container-fluid pl-0">
                 <div class="row">
-                    <div class="col-lg-6" style="background: url(assets/images/callout_img.jpg) center center no-repeat; background-size: cover;">
-                        <img src="assets/images/callout_img.jpg" class="d-lg-none invisible" alt="">
+                    <div class="col-lg-6" style="background: url({{ asset('assets') }}/images/callout_img.jpg) center center no-repeat; background-size: cover;">
+                        <img src="{{ asset('assets') }}/images/callout_img.jpg" class="d-lg-none invisible" alt="">
                     </div>
                     <div class="col-md-12 col-lg-6">
                         <div class="callout-text">
@@ -337,7 +330,7 @@ Author: wp-organic
                                 <h1>The Best Hall Booking Service</h1>
                             </div>
                             <p class="lead">Contact us to select the best and affordable Hall for you event all over the Country.</p>
-                            <a href="contact-us.html" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
+                            <a href="{{ route('front.contact') }}" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -368,7 +361,7 @@ Author: wp-organic
                                 </div>
                             </div>
                             <div class="name-wrap">
-                                <img src="assets/images/feedback_1.jpg" alt="">
+                                <img src="{{ asset('assets') }}/images/feedback_1.jpg" alt="">
                                 <div class="text">
                                     <h3>Mark Hunter</h3>
                                     <div>New York, USA</div>
@@ -394,7 +387,7 @@ Author: wp-organic
                                 </div>
                             </div>
                             <div class="name-wrap">
-                                <img src="assets/images/feedback_2.jpg" alt="">
+                                <img src="{{ asset('assets') }}/images/feedback_2.jpg" alt="">
                                 <div class="text">
                                     <h3>Andrew Lincoln</h3>
                                     <div>New York, USA</div>
@@ -420,7 +413,7 @@ Author: wp-organic
                                 </div>
                             </div>
                             <div class="name-wrap">
-                                <img src="assets/images/feedback_3.jpg" alt="">
+                                <img src="{{ asset('assets') }}/images/feedback_3.jpg" alt="">
                                 <div class="text">
                                     <h3>Mark Hunter</h3>
                                     <div>New York, USA</div>

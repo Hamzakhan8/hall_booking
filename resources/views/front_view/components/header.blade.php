@@ -26,9 +26,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container text-nowrap bdr-nav px-0">
             <div class="d-flex mr-auto">
-                <a class="navbar-brand" href="index.html">
-                    <h2>HALL</h2>
-                    <!-- <img src="assets/images/logo_dark.svg" alt=""> -->
+                <a class="navbar-brand" href="{{ route('front.home') }}">
+                    <h2 style="color:#00aeaf;">BOOK HALL</h2>
                 </a>
             </div>
             <!-- Topbar Request Quote Start -->
@@ -51,23 +50,11 @@
                 data-animations="slideInUp slideInUp slideInUp slideInUp">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                        <li><a class="nav-link dropdown-toggle-mob" href="index.html" aria-haspopup="true" aria-expanded="false">Home</a></li>
+                        <li><a class="nav-link dropdown-toggle-mob" href="{{ route('front.home') }}" aria-haspopup="true" aria-expanded="false">Home</a></li>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle-mob" href="search-result-page.html">Hall Booking</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Panel <i class="fa fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu dropdownhover-bottom dropdown-menu-right">
-                            <li class="dropdown">
-                                <li><a href="couple-dashboard-guest-manager.html">user Dashbaord</a></li>
-                            </li>
-                            <li class="dropdown">
-                                <li><a href="vendor-dashboard-quote.html">Hall Dashbaord</a></li>
-                            </li>
-                        </ul>
+                        <a class="nav-link dropdown-toggle-mob" href="{{ route('front.search') }}">Hall Booking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('front.contact') }}">Contact Us</a>

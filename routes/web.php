@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontHomeController;
+use App\Http\Controllers\SearchResultController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +24,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('home');
+// Route::get('/dashboard', function () {
+//     return view('home');
+// });
+
+Route::get('/', function() {
+    return view('front_view.index');
 });
 
 Auth::routes();
@@ -34,7 +41,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
 Route::resource('/halltype', HallTypeController::class);
-//asda
 // Delete Image
 Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
 
@@ -55,11 +61,10 @@ Route::get('/dashboard', function () {
 });
 
 Route::prefix('front')->group(function (){
+    Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
+    Route::get('search', [SearchResultController::class, 'index'])->name('front.search');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
-});
-
-Route::get('front', function() {
-    return view('front_view.index');
+    Route::get('about', [AboutController::class, 'index'])->name('front.about');
 });
 
 

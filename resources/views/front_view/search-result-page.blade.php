@@ -3,7 +3,7 @@
 
 **********************************************************************************************************
 Copyright (c) 2020
-**********************************************************************************************************  
+**********************************************************************************************************
 
 Template Name: WeddingDir - HTML Template
 Version: 1.0.0
@@ -17,43 +17,12 @@ Author: wp-organic
 <html lang="en">
     <!-- <![endif]-->
     <!-- head -->
-    
+
 <!-- Mirrored from wporganic.com/html/weddingdir/search-result-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Feb 2022 17:28:47 GMT -->
-<head>
-
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <!-- Basic Page Needs
-        ================================================== -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <!-- Specific Meta
-        ================================================== -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="description" content="WeddingDir - Wedding Directory HTML Template">
-        <meta name="keywords" content="bride, business, couple, directory, groom, listing, login, map, marketing, realwedding, registration, rsvp, vendor, wedding, wedding planner">
-        <meta name="author" content="wp-organic">
-        <meta name="MobileOptimized" content="320" />
-        
-        <!-- Titles
-        ================================================== -->
-        <title>WeddingDir - Wedding Directory HTML Template</title>
-
-        <!-- Favicons
-        ================================================== -->
-        <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png" sizes="180x180">
-        <link rel="icon" href="assets/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-        <link rel="icon" href="assets/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-        <link rel="icon" href="assets/images/favicon/favicon.ico">
-
-        <!-- CSS ( Bootstrap + Owlcarouses + Fontawesome + Animate + Select2 + Custom Style )
-        ======================================================================================= -->
-        <link href="assets/css/base.css" rel="stylesheet">
-
-        
-    </head>
+    @extends('front_view.components.head')
     <!-- end head -->
     <!--body start-->
-    <body>    
+    <body>
 
     <!-- preloader -->
     <div class="preloader">
@@ -64,155 +33,7 @@ Author: wp-organic
     <!-- end preloader -->
 
     <!--  WeddingDir top -->
-    <header class="fixed-top header-anim">
-        <div class="top-bar-stripe">
-            <div class="container px-md-0">
-                <div class="row align-items-center">
-                    <div class="col-lg-auto col-sm-12">
-                        <div class="top-icons">
-                            <span><i class="fa fa-map-marker"></i> Peshawar, Pakisatan</span>
-                            <span><a href="mailto:info@weddingdir.com"><i class="fa fa-envelope"></i> info@hall.com</a></span>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg">
-                        <div class="social-icons">
-                            <ul class="list-unstyled">
-                                <li><a href="javascript:"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="javascript:"><i class="fa fa-instagram"></i></a>
-                                <li><a href="javascript:"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Main Navigation Start -->
-        <nav class="navbar navbar-expand-lg">
-            <div class="container text-nowrap bdr-nav px-0">
-                <div class="d-flex mr-auto">
-                    <a class="navbar-brand" href="index.html">
-                        <h2>HALL</h2>
-                        <!-- <img src="assets/images/logo_dark.svg" alt=""> -->
-                    </a>
-                </div>
-                <!-- Topbar Request Quote Start -->
-                <span class="order-lg-last d-inline-flex ml-3">
-                    <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#login_form"> Get Started Now</a>
-                </span>
-                <!-- Toggle Button Start -->
-                <button class="navbar-toggler x collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- Toggle Button End -->
-    
-                <!-- Topbar Request Quote End -->
-    
-                <div class="collapse navbar-collapse" id="navbarCollapse" data-hover="dropdown"
-                    data-animations="slideInUp slideInUp slideInUp slideInUp">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <li><a class="nav-link dropdown-toggle-mob" href="index.html" aria-haspopup="true" aria-expanded="false">Home</a></li>
-                            <!-- <a class="nav-link dropdown-toggle-mob" href="index.html" id="dropdown03" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Home <i class="fa fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu dropdownhover-bottom" aria-labelledby="dropdown03">
-                                <li><a class="dropdown-item" href="index.html">Home page 1</a></li>
-                                <li><a class="dropdown-item" href="index-2.html">Home page 2</a></li>
-                            </ul> -->
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages <i class="fa fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu dropdownhover-bottom">                                
-                                <li><a class="dropdown-item" href="about-us.html">About Us</a></li>                                
-                                <li><a class="dropdown-item" href="pricing.html">Pricing Table</a></li>
-                                <li><a class="dropdown-item" href="team-page.html">Meet Our Team</a></li>
-                                <li><a class="dropdown-item" href="error-404.html">404 Error Page</a></li>
-                                <li><a class="dropdown-item" href="faq.html">FAQ's</a></li>
-                                <li><a class="dropdown-item" href="typography.html">Typography</a></li>                                
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <i class="fa fa-chevron-down"></i></a>    
-                            <ul class="dropdown-menu dropdownhover-bottom">
-                                <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle-mob" href="search-result-page.html">Hall Booking</a>
-
-                            <!-- <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listing <i class="fa fa-chevron-down"></i></a>    
-                            <ul class="dropdown-menu dropdownhover-bottom">
-                                <li><a class="dropdown-item" href="right-side-map-listing.html">Right Side Map Listing</a></li>
-                                <li><a class="dropdown-item" href="listing-singular.html">Listing Singular</a></li>
-                                <li><a class="dropdown-item" href="vendor-singular.html">Vendor Singular</a></li>
-                            </ul> -->
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Real Wedding <i class="fa fa-chevron-down"></i></a>    
-                            <ul class="dropdown-menu dropdownhover-bottom">
-                                <li><a class="dropdown-item" href="real-wedding.html">Real Wedding</a></li>
-                                <li><a class="dropdown-item" href="real-wedding-details.html">Real Wedding Details</a></li>
-                                <li><a class="dropdown-item" href="couple-website.html">Couple Website</a></li>
-                            </ul>
-                        </li>                         -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle-mob" href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Panel <i class="fa fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu dropdownhover-bottom dropdown-menu-right">
-                                <li class="dropdown">
-                                    <li><a href="couple-dashboard-guest-manager.html">user Dashbaord</a></li>
-                                    <!-- <a class="dropdown-toggle-mob dropdown-item dropdown-toggle-click" href="couple-dashboard.html" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Dashboard <i class="fa fa-chevron-right"></i></a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a href="couple-dashboard.html">Dashboard</a></li>
-                                        <li><a href="couple-dashboard-todo-list.html">Checklist</a></li>
-                                        <li><a href="couple-dashboard-vendor-manager.html">Vendor Manager</a></li>
-                                        <li><a href="couple-dashboard-guest-manager.html">Guest List</a></li>
-                                        <li><a href="couple-dashboard-budget.html">Budget</a></li>
-                                        <li><a href="couple-dashboard-realwedding.html">RealWedding</a></li>
-                                        <li><a href="javascript:">Seating Chart</a></li>
-                                        <li><a href="javascript:">Registry</a></li>
-                                        <li><a href="javascript:">Chat</a></li>
-                                        <li><a href="couple-dashboard-profile.html">My Profile</a></li>
-                                        <li><a href="javascript:">Wedding Website</a></li>            
-                                        <li><a href="javascript:">Logout</a></li>
-                                    </ul> -->
-                                </li>
-                                <li class="dropdown">
-                                    <li><a href="vendor-dashboard-profile.html">Hall Dashbaord</a></li>
-                                    <!-- <a class="dropdown-toggle-mob dropdown-item dropdown-toggle-click" href="#" id="navbarDropdown_vendor" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hall Dashboard <i class="fa fa-chevron-right"></i></a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown_vendor">
-                                        <li><a href="vendor-dashboard.html">Dashboard</a></li>
-                                        <li><a href="vendor-dashboard-listing.html">My Listing</a></li>
-                                        <li><a href="vendor-dashboard-pricing.html">Pricing Table</a></li>
-                                        <li><a href="vendor-dashboard-quote.html">Request Quote</a></li>
-                                        <li><a href="vendor-dashboard-reviews.html">Reviews</a></li>
-                                        <li><a href="vendor-dashboard-invoice.html">Invoice</a></li>
-                                        <li><a href="javascript:">Chat</a></li>
-                                        <li><a href="vendor-dashboard-profile.html">My Profile</a></li>
-                                        <li><a href="javascript:">Logout</a></li>
-                                    </ul> -->
-                                </li>                                
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact-us.html">Contact Us</a>
-                       </li>
-                    </ul>
-                    <!-- Main Navigation End -->
-                </div>
-    
-    
-            </div>
-        </nav>
-        <!-- Main Navigation End -->
-    </header>
+    @extends('front_view.components.header')
     <!--  WeddingDir top -->
 
     <!-- =============================
@@ -238,35 +59,35 @@ Author: wp-organic
                 </div>
             </div>
             <div class="view-by">
-                <strong>View By</strong> 
+                <strong>View By</strong>
                 <a href="javascript:" class="selected-tags">New York <span>X</span></a>
                 <a href="javascript:" class="selected-tags">Buffalo <span>X</span></a>
                 <a href="javascript:" class="btn btn-link btn-link-primary">Clear all</a>
-            </div>            
+            </div>
         </div>
     </section>
     <!--  Search Result Header End -->
-    
+
     <main id="body-content">
         <section class="wide-tb-50">
             <div class="container">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-lg-4">
                         <aside class="row sidebar-widgets">
                             <!-- Sidebar Primary Start -->
                             <div class="sidebar-primary col-lg-12 col-md-6">
 
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#categoriestypes" role="button" aria-expanded="false" class="link" aria-controls="categoriestypes">
                                         <h3 class="widget-title">Types of Categories <i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="categoriestypes">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <p><a href="javascript:"><strong>All Categories</strong></a></p>
-                                            
+
                                                 <ul class="list-unstyled">
                                                     <li><a href="javascript:">Barn & Farm Weddings</a></li>
                                                     <li><a href="javascript:">Hotel Weddings</a></li>
@@ -279,25 +100,25 @@ Author: wp-organic
                                                     <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
 
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#city" role="button" aria-expanded="false" class="link" aria-controls="city">
                                         <h3 class="widget-title">City<i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="city">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <p>
                                                     <input type="text" class="form-control" placeholder="Enter city/town">
                                                 </p>
-                                            
+
                                                 <ul class="list-unstyled">
                                                     <li><a href="javascript:">Buffalo</a></li>
                                                     <li><a href="javascript:">Rochester</a></li>
@@ -311,26 +132,26 @@ Author: wp-organic
                                                     <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
 
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#availability" role="button" aria-expanded="false" class="link" aria-controls="availability">
                                         <h3 class="widget-title">Availability<i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="availability">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <div class="datepicker-inline">
                                                     <div data-toggle-inline="datepicker"></div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -341,13 +162,13 @@ Author: wp-organic
                             <!-- Sidebar Secondary Start -->
                             <div class="sidebar-secondary col-lg-12 col-md-6">
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#capacity" role="button" aria-expanded="false" class="link" aria-controls="capacity">
                                         <h3 class="widget-title">Maximum Capacity <i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="capacity">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <div class="custom-control custom-checkbox form-dark mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="99">
@@ -374,20 +195,20 @@ Author: wp-organic
                                                     <label class="custom-control-label" for="400+">400+</label>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
 
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#settings" role="button" aria-expanded="false" class="link" aria-controls="settings">
                                         <h3 class="widget-title">Settings<i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="settings">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <div class="custom-control custom-checkbox form-dark mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="indoor">
@@ -404,20 +225,20 @@ Author: wp-organic
                                                     <label class="custom-control-label" for="uncovered">Uncovered Outdoor</label>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
 
                                 <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">                                    
+                                <div class="widget search-result-toggle">
                                     <a data-toggle="collapse" href="#amenities" role="button" aria-expanded="false" class="link" aria-controls="amenities">
                                         <h3 class="widget-title">Amenities<i class="fa fa-angle-up"></i></h3>
                                     </a>
-                                    
+
                                     <div class="collapse show" id="amenities">
-                                        <div>                                        
+                                        <div>
                                             <div class="inner">
                                                 <div class="custom-control custom-checkbox form-dark mb-3">
                                                     <input type="checkbox" class="custom-control-input" id="accommodations">
@@ -453,16 +274,16 @@ Author: wp-organic
                                                     <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
                             </div>
                             <!-- Sidebar Secondary End -->
-                                                        
+
                         </aside>
-                    </div>                  
+                    </div>
                     <div class="col-lg-8">
                         <div class="result-count">
                             <strong>244 results:</strong>
@@ -487,7 +308,7 @@ Author: wp-organic
 
                         <div class="tab-content theme-tabbing search-result-tabbing" id="pills-tabContent">
                             <div class="tab-pane fade active show" id="pills-listing" role="tabpanel" aria-labelledby="pills-listing-tab">
-                                <!-- Search Result List -->                        
+                                <!-- Search Result List -->
                                 <div class="result-list">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -497,7 +318,7 @@ Author: wp-organic
                                                     <span>Featured</span>
                                                 </span>
                                                 <a href="javascript:"><img src="assets/images/search/search_img_1.jpg" alt="" class="rounded"></a>
-                                            </div>                                    
+                                            </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -510,7 +331,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -537,7 +358,7 @@ Author: wp-organic
                                                 </span>
                                                 <a href="javascript:"><img src="assets/images/search/search_img_2.jpg" alt="" class="rounded"></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -550,7 +371,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -572,7 +393,7 @@ Author: wp-organic
                                         <div class="col-md-4">
                                             <div class="img">
                                                 <a href="javascript:"><img src="assets/images/search/search_img_3.jpg" alt="" class="rounded"></a>
-                                            </div>                                    
+                                            </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -585,7 +406,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -608,7 +429,7 @@ Author: wp-organic
                                             <div class="img">
                                                 <a href="javascript:"><img src="assets/images/search/search_img_4.jpg" alt="" class="rounded"></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -621,7 +442,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -644,7 +465,7 @@ Author: wp-organic
                                             <div class="img">
                                                 <a href="javascript:"><img src="assets/images/search/search_img_5.jpg" alt="" class="rounded"></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -657,7 +478,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -680,7 +501,7 @@ Author: wp-organic
                                             <div class="img">
                                                 <a href="javascript:"><img src="assets/images/search/search_img_6.jpg" alt="" class="rounded"></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -693,7 +514,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -716,7 +537,7 @@ Author: wp-organic
                                             <div class="img">
                                                 <a href="javascript:"><img src="assets/images/search/search_img_7.jpg" alt="" class="rounded"></a>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
@@ -729,7 +550,7 @@ Author: wp-organic
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>                                    
+                                                            <i class="fa fa-star-o"></i>
                                                         </span>
                                                         (22 review)  /  Surat, Gujrat, India
                                                     </div>
@@ -773,7 +594,7 @@ Author: wp-organic
                                         <div class="wedding-listing">
                                             <div class="img">
                                                 <a href="javascript:">
-                                                    <img src="assets/images/weddings/wedding_listing_1.jpg" alt="">                                                    
+                                                    <img src="assets/images/weddings/wedding_listing_1.jpg" alt="">
                                                 </a>
                                                 <div class="img-content">
                                                     <div class="top">
@@ -803,14 +624,14 @@ Author: wp-organic
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>                                    
+                                                        <i class="fa fa-star-o"></i>
                                                     </span>
                                                     (6 review)
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                
+
                                     <div class="col-lg-6 col-md-6">
                                         <div class="wedding-listing">
                                             <div class="img">
@@ -818,7 +639,7 @@ Author: wp-organic
                                                     <img src="assets/images/weddings/wedding_listing_2.jpg" alt="">
                                                 </a>
                                                 <div class="img-content">
-                                                    <div class="top">                                                           
+                                                    <div class="top">
                                                         <span class="featured">
                                                             <i class="fa fa-star"></i>
                                                             <span>Featured</span>
@@ -849,14 +670,14 @@ Author: wp-organic
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>                                    
+                                                        <i class="fa fa-star-o"></i>
                                                     </span>
                                                     (6 review)
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                
+
                                     <div class="col-lg-6 col-md-6">
                                         <div class="wedding-listing">
                                             <div class="img">
@@ -879,7 +700,7 @@ Author: wp-organic
                                                         </a>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                             <div class="content">
                                                 <div class="gap">
@@ -892,14 +713,14 @@ Author: wp-organic
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>                                    
+                                                        <i class="fa fa-star-o"></i>
                                                     </span>
                                                     (6 review)
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                
+
                                 </div>
                             </div>
 
@@ -912,104 +733,14 @@ Author: wp-organic
                             </div>
                         </div>
 
-                        
+
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="footer-logo">
-                                <h2 style="color:white">HALL</h2>
-                                <!-- <img src="assets/images/logo_light.svg" alt=""> -->
-                                <p>An online Hall booking System to find the best and affordable Halls all over the Country.</p>
-                            </div>
-                            <div><a href="javascript:" class="btn btn-primary">Know More</a></div>
-                        </div>
-        
-                        <div class="col-md">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Menu</h3>
-                                <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="search-result-page.html">Hall Booking</a></li>
-                                    <li><a href="contact-us.html">Contact Us</a></li>
-                                    <!-- <li><a href="javascript:">Cake</a></li>
-                                    <li><a href="javascript:">Photographer</a></li>
-                                    <li><a href="javascript:">Music DJ</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-        
-                        <div class="col-md">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Locations</h3>
-                                <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                    <li><a href="search-result-page.html">Peshawar</a></li>
-                                    <li><a href="search-result-page.html">Islamabad</a></li>
-                                    <li><a href="search-result-page.html">Lahore</a></li>
-                                    <li><a href="search-result-page.html">Karachi</a></li>
-                                    <li><a href="search-result-page.html">Multan</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 mr-top-footer">
-                    <div class="row">
-                        <div class="col-md-6 col-12">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Contact Us</h3>
-                                <div class="widget-contact">
-                                    <p>Peshawar, Pakistan</p>
-                                    <p>Call : <a href="tel:+81-258-852-6699">Number</a></p>
-                                    <p>Mail : <a href="mailto:Info@weddingdir.com">Info@hall.com</a></p>
-                                </div>
-                                <div class="social-icons-footers">
-                                    <ul class="list-unstyled">
-                                        <li><a href="javascript:"><i class="fa fa-facebook-f"></i></a></li>
-                                        <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="javascript:"><i class="fa fa-instagram"></i></a>
-                                        <li><a href="javascript:"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-6 col-12">
-                            <div class="footer-widget">
-                                <h3 class="widget-title">Newsletter</h3>
-                                <p>Subscribe to our newsletter  to receive exclusive offers.</p>
-                                <div class="mb-3"><input type="text" class="form-control form-light" id="exampleFormControlInput1" placeholder="Enter Email Address"></div>
-                                <button type="button" class="btn btn-default">Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="copyrights">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-auto col-12">
-                        © 2022 All rights reserved.
-                    </div>
-                    <div class="col-md-auto col-12 copyrights-link ml-md-auto">
-                        <a href="javascript:">Home</a> | <a href="javascript:">About</a> | <a href="javascript:">Contact Us</a> | <a href="javascript:">Terms & Conditions</a> |   <a href="javascript:">Privacy Policy</a>  
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @extends('front_view.components.footer')
     <!-- Back to Top
     ================================================== -->
     <a id="back-to-top" href="javascript:" class="btn btn-outline-primary back-to-top"><i class="fa fa-arrow-up"></i></a>
@@ -1027,7 +758,7 @@ Author: wp-organic
                             </svg>
                         </button>
                     </div>
-                    
+
                     <ul class="nav nav-pills mb-3 horizontal-tab-second justify-content-center nav-fill pt-2" id="pills-tab1" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active show" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
@@ -1037,7 +768,7 @@ Author: wp-organic
                         </li>
                     </ul>
                     <div class="p-3 px-4 pt-0">
-                        
+
                         <div class="tab-content" id="pills-tabContent1">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                                 <form>
@@ -1156,7 +887,7 @@ Author: wp-organic
                                 </div>
                             </div>
                             <div class="form-group">
-                               <small class="form-text text-muted">By clicking <span class="txt-orange">'Request pricing'</span>, I agree to WeddingDir’s <a href="javascript:" class="text-underline">Privacy Policy</a> and <a href="javascript:">Terms of Use</a> </small> 
+                               <small class="form-text text-muted">By clicking <span class="txt-orange">'Request pricing'</span>, I agree to WeddingDir’s <a href="javascript:" class="text-underline">Privacy Policy</a> and <a href="javascript:">Terms of Use</a> </small>
                             </div>
                             <button type="button" class="btn btn-primary">Request Pricing</button>
                         </div>
@@ -1169,19 +900,7 @@ Author: wp-organic
 
     <!-- All The JS Files
       ================================================== -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
-    <script src="assets/library/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/library/bootstrap/js/bootstrap-dropdownhover.min.js"></script>
-    <script src="assets/library/owlcarousel/js/owl.carousel.min.js"></script>
-    <script src="assets/library/select2/js/select2.min.js"></script>
-    <script src="assets/library/jquery-ui/js/jquery-ui.min.js"></script>
-    <script src="assets/library/jquery-ui/js/jquery.ui.touch-punch.min.js"></script>
-    <script src="assets/library/magnific-popup/jquery.magnific-popup.min.js"></script>  
-    <script src="assets/library/isotope-layout/isotope.pkgd.min.js"></script> 
-    <script src="assets/library/datepicker/js/datepicker.js"></script>    
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" src="assets/library/maps/jquery.gmap.min.js"></script>
-    <script src="assets/js/script.js"></script>
+      @extends('front_view.components.scripts')
 
 </body>
 
