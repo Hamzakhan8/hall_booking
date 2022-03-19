@@ -25,7 +25,7 @@ class BookingController extends Controller
     public function create()
     {
         $customers=Customer::all();
-        return view('booking.create',['data'=>$customers]);
+        return view('admin.booking.create',compact( 'customers' ));
     }
 
     /**

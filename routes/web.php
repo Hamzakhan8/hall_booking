@@ -57,18 +57,17 @@ Route::get('/dashboard', function () {
 });
 
 Route::prefix('front')->group(function (){
-<<<<<<< HEAD
+
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
     Route::get('search', [SearchResultController::class, 'index'])->name('front.search');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
-=======
 Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
 });
 
 Route::get('front', function() {
     return view('front_view.index');
->>>>>>> 4f3038fc69facc00dedf650df5781b211c0099c4
+
 });
 
 

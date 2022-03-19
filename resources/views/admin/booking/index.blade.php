@@ -6,7 +6,7 @@
 @section('content')
 @section('title','BOOKING')
 
-<a href="{{route('customer.create')}}"  class="btn btn-warning mb-4">
+<a href="{{route('booking.create')}}"  class="btn btn-warning mb-4">
     BOOKING
 </a>
 <div class="card-shadow">
