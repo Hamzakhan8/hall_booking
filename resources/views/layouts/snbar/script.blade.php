@@ -55,3 +55,13 @@
 
     });
     </script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+console.warning('warning!!');
+
+});
+
+</script>
