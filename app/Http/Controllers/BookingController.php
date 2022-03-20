@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -90,5 +92,17 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+//check available halls
+    public function available_halls(Request $request , $checkin_date)
+
+    {
+
+        $Ahalls=DB::SELECT
+        ("SELECT * FROM halls WHERE id NOT IN(SELECT hall_id FROM bookings WHERE '$checkin_date' BETWEEN  checkin_date AND checkout_date ) ");
+
+        return response()->json($Ahalls);
+
     }
 }

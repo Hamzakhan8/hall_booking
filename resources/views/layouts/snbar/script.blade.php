@@ -60,7 +60,25 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
-console.warning('warning!!');
+    $(".checkin-date").on('blur',function(){
+
+        var _checkindate=$(this).val();
+
+
+
+            //using Ajax to send request to controller
+
+            $.ajax({
+
+                url:"{{url('admin/booking/available-halls')}}/" + _checkindate,
+
+                dataType:'json',
+                success:function(res){
+                    console.log(res);
+                }
+            });
+
+        });
 
 });
 

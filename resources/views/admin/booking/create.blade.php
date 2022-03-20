@@ -25,9 +25,9 @@
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <label class="text-danger checkin-date ">checkin_date</label>
+                    <label class="text-danger  ">checkin_date</label>
 
-                    <input type="date" class="form-control form-dark" name="checkin_date" placeholder="checkin_date">
+                    <input type="date" class="form-control form-dark checkin-date" name="checkin_date" placeholder="checkin_date">
                 </div>
             </div>
 

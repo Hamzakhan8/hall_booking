@@ -48,7 +48,11 @@ Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image
 Route::resource('/hall',HallController::class);
 
 Route::resource('/customer',CustomerController::class);
+
+//booking controller
+Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
 Route::resource('/booking',BookingController::class);
+
 
 
 Route::get('/dashboard', function () {
