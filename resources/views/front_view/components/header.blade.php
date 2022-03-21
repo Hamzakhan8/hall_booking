@@ -1,26 +1,4 @@
 <header class="fixed-top header-anim">
-    <div class="top-bar-stripe">
-        <div class="container px-md-0">
-            <div class="row align-items-center">
-                <div class="col-lg-auto col-sm-12">
-                    <div class="top-icons">
-                        <span><i class="fa fa-map-marker"></i> Peshawar, Pakisatan</span>
-                        <span><a href="mailto:info@weddingdir.com"><i class="fa fa-envelope"></i> info@hall.com</a></span>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-lg">
-                    <div class="social-icons">
-                        <ul class="list-unstyled">
-                            <li><a href="javascript:"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="javascript:"><i class="fa fa-instagram"></i></a>
-                            <li><a href="javascript:"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Main Navigation Start -->
     <nav class="navbar navbar-expand-lg">
@@ -32,7 +10,7 @@
             </div>
             <!-- Topbar Request Quote Start -->
             <span class="order-lg-last d-inline-flex ml-3">
-                <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#login_form"> Get Started Now</a>
+                <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form"> Get Started Now</a>
             </span>
             <!-- Toggle Button Start -->
             <button class="navbar-toggler x collapsed" type="button" data-toggle="collapse"

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class HallMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::user()->role == "admin") // admin role will be admin
-        return redirect()->route('front.home');
+        if(!Auth::user()->role == "hall")
+        return redirect()->route('hall.dashboard');
 
         return $next($request);
     }

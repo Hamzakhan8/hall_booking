@@ -35,19 +35,22 @@ Route::get('/', function() {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('auth')->group(function (){
-    Route::post('login', [LoginController::class, 'authenticated'])->name('auth.login');
-    Route::post('register', [RegisterController::class, 'validator'])->name('auth.register');
+    Route::post('login', [LoginController::class, 'login'])->name('auth.login');
+    Route::post('register', [RegisterController::class, 'validator'])
+    ->name('auth.register');
+    Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
+
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))->name('admin.dashboard');
 });
-//please connect route to there views
+
 // grouped routes for hall
 Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 
-        Route::resource('/halltype', HallTypeController::class);
+    Route::resource('/halltype', HallTypeController::class);
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
 
@@ -59,15 +62,21 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);
 
-    Route::get('dashboard', fn () => view())->name('hall.dashboard');
+    Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
 });
 
-// grouped routes for customer
-Route::prefix('customer')->middleware(['auth', 'customer'])->group(function () {
-    Route::get('dashboard', fn () => view())->name('customer.dashboard');
+/**
+ * grouped routes for couple
+ *
+ * !couple is equal to customer
+ *
+ *  */
+Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
+    Route::get('dashboard', fn () => view('couple.dashboard'))
+    ->name('couple.dashboard');
 
 });
-//wowmmmm
+
 // grouped routes for front site
 Route::prefix('front')->group(function (){
 

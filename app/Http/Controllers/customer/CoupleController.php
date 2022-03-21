@@ -5,7 +5,7 @@ namespace App\Http\Controllers\customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class CoupleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return response()->view('couple.dashboard');
     }
+
 
     /**
      * Show the form for creating a new resource.

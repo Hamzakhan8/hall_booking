@@ -1,6 +1,4 @@
 <footer>
-
-
     <div class="copyrights">
         <div class="container">
             <div class="row">

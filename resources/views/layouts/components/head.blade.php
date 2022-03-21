@@ -26,7 +26,23 @@
 
     <!-- CSS ( Bootstrap + Owlcarouses + Fontawesome + Animate + Select2 + Custom Style )
     ======================================================================================= -->
-    <link href="{{asset('assets')}}/css/base.css" rel="stylesheet">
+    <!-- <link href="assets/css/base.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"/>
+
+    <link href="{{asset('assets')}}/library/animate/animate.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/bootstrap/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/select2/css/select2.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/animate/animate.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/fontawesome/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/datepicker/css/datepicker.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/owlcarousel/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Dashbaord Main Style -->
+    <link href="{{asset('assets')}}/css/dashboard.css" rel="stylesheet">
 
 
 </head>

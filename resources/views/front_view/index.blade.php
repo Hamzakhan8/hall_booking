@@ -441,7 +441,7 @@ Author: wp-organic
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-between align-items-center p-3 px-4 bg-light-gray">
-                        <h2 class="m-0" >Sign In</h2>
+                        <h2 style="color: #00aeaf" class="m-0" >Be a Couple | Hall</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -461,17 +461,19 @@ Author: wp-organic
 
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                <form action="{{ route('auth.login') }}">
+                                <form action="{{ route('auth.login') }}" method="POST">
+                                @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
+                                        <input type="email" required class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" required class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox form-dark">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck112">
-                                            <label class="custom-control-label" for="customCheck112">Remember Me</label>
+                                            <input type="checkbox" required class="custom-control-input" id="customCheck112">
+                                            <label class="custom-control-label" for="customCheck1
+                                            12">Remember Me</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -480,37 +482,38 @@ Author: wp-organic
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
-                                <form action="{{ route('auth.register') }}">
+                                <form action="{{ route('auth.register') }}" method="POST">
+                                @csrf
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="dgest" name="role" class="custom-control-input">
+                                                    <input type="radio" id="dgest" name="role" value="couple" class="custom-control-input">
                                                     <label class="custom-control-label" for="dgest">Couple</label>
                                                 </div>
                                             </div>
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="owner" name="role" class="custom-control-input">
+                                                    <input type="radio" id="owner" name="role" name="hall" class="custom-control-input">
                                                     <label class="custom-control-label" for="owner">Hall</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" type="text" name="username" id="username2">
+                                        <input class="form-control" placeholder="Username" required type="text" name="username" id="username2">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" type="password" name="password" id="password1">
+                                        <input class="form-control" placeholder="Password" required type="password" name="password" id="password1">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="First Name" type="text" name="first_name" id="first-name">
+                                        <input class="form-control" placeholder="First Name" required type="text" name="first_name" id="first-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Last Name" type="text" name="last_name" id="last-name">
+                                        <input class="form-control" placeholder="Last Name" required type="text" name="last_name" id="last-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Email Address" name="email" id="email">
+                                        <input class="form-control" required type="email" placeholder="Email Address" name="email" id="email">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-rounded mt-3">Register</button>

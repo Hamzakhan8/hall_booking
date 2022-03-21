@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers;
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -24,19 +25,19 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => ['required'],
+            'email' => ['required'],
             'password' => ['required']
         ]);
 
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('email', 'password');
 
-        if(Auth::attempt($credentials) && Auth::user()->role_as == '1')
+        if(Auth::attempt($credentials) && Auth::user()->role == 'admin')
         return redirect()->route('admin.dashboard');
 
-        elseif(Auth::user()->role_as == '2')
+        elseif(Auth::user()->role == 'hall')
         return redirect()->route('hall.dashboard');
 
-        elseif(Auth::user()->role_as == '3')
+        elseif(Auth::user()->role == 'couple')
         return redirect()->route('customer.dashboard');
 
         else

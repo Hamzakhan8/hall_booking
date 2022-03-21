@@ -20,7 +20,7 @@ Author: wp-organic
     <!-- head -->
 
 <!-- Mirrored from wporganic.com/html/weddingdir/vendor-dashboard-quote.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Feb 2022 17:30:33 GMT -->
-    @extends('layouts.components.head')
+    @extends('hall.components.head')
     <!-- end head -->
     <!--body start-->
     <body class="open">
@@ -28,13 +28,13 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="assets/images/logo_light.svg" alt="">
+            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
         </div>
     </div>
     <!-- end preloader -->
 
     <!--  WeddingDir top -->
-    @extends('layouts.components.navbar')
+    @extends('hall.components.navbar')
 
     <!--  WeddingDir top -->
 
@@ -44,7 +44,7 @@ Author: wp-organic
        *
     =============================== -->
 
-        @extends('layouts.components.sidebar')
+    @extends('hall.components.sidebar')
 
 
    <div class="body-content">
@@ -68,7 +68,7 @@ Author: wp-organic
         </div>
     </div>
 
-    @extends('layouts.components.footer')
+    @extends('hall.components.footer')
 
 </div>
 </main>
@@ -234,7 +234,7 @@ Author: wp-organic
 
     <!-- All The JS Files
       ================================================== -->
-      @extends('layouts.components.script')
+      @extends('hall.components.script')
 
 </body>
 
