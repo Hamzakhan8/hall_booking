@@ -67,7 +67,7 @@ Route::prefix('customer')->middleware(['auth', 'customer'])->group(function () {
     Route::get('dashboard', fn () => view())->name('customer.dashboard');
 
 });
-//wow
+//wowmmmm
 // grouped routes for front site
 Route::prefix('front')->group(function (){
 
