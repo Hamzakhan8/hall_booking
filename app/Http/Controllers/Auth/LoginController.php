@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -20,6 +21,30 @@ class LoginController extends Controller
     |
     */
 
+    public function login(Request $request)
+    {
+        $request->validate([
+            'username' => ['required'],
+            'password' => ['required']
+        ]);
+
+        $credentials = $request->only('username', 'password');
+
+        if(Auth::attempt($credentials) && Auth::user()->role_as == '1')
+        return redirect()->route('admin.dashboard');
+
+        elseif(Auth::user()->role_as == '2')
+        return redirect()->route('hall.dashboard');
+
+        elseif(Auth::user()->role_as == '3')
+        return redirect()->route('customer.dashboard');
+
+        else
+        return redirect()->route('front.home')
+        ->with('login_error', 'Your login credentials dose not match!');
+
+    }
+
     use AuthenticatesUsers;
 
     /**
@@ -27,28 +52,28 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
-    public function authenticated()
-    {
-            if (Auth::user()->role_as=='1')// 1 = 'admin'
+    // public function authenticated()
+    // {
+    //         if (Auth::user()->role_as=='1')// 1 = 'admin'
 
-            {
-                return redirect('admin/dashboard')->with('status','welcome to admin dashboard');
-            }
+    //         {
+    //             return redirect('admin/dashboard')->with('status','welcome to admin dashboard');
+    //         }
 
 
 
-            else if(Auth::user()->role_as=='0'){
+    //         else if(Auth::user()->role_as=='0'){
 
-                return redirect('/home')->with('status','logged in successfull');
+    //             return redirect('/home')->with('status','logged in successfull');
 
-            }
-            else{
-                return redirect('/')->with('status','login first ');
-            }
+    //         }
+    //         else{
+    //             return redirect('/')->with('status','login first ');
+    //         }
 
-        }
+    //     }
     /**
      * Create a new controller instance.
      *

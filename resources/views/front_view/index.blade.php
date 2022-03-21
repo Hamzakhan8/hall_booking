@@ -461,18 +461,12 @@ Author: wp-organic
 
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                <form>
+                                <form action="{{ route('auth.login') }}">
                                     <div class="form-group">
-                                        <!-- <div class="alert alert-primary" role="alert">
-                                            Username: <strong>vendor</strong> / <strong>couple</strong><br>
-                                            Password: <strong>test</strong>
-                                        </div> -->
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username/Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox form-dark">
@@ -486,25 +480,25 @@ Author: wp-organic
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
-                                <form>
+                                <form action="{{ route('auth.register') }}">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="dgest" name="dgest" class="custom-control-input">
+                                                    <input type="radio" id="dgest" name="role" class="custom-control-input">
                                                     <label class="custom-control-label" for="dgest">Couple</label>
                                                 </div>
                                             </div>
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="owner" name="dgest" class="custom-control-input">
-                                                    <label class="custom-control-label" for="owner">Vendor</label>
+                                                    <input type="radio" id="owner" name="role" class="custom-control-input">
+                                                    <label class="custom-control-label" for="owner">Hall</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" type="text" name="username" id="username2" value="">
+                                        <input class="form-control" placeholder="Username" type="text" name="username" id="username2">
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Password" type="password" name="password" id="password1">
@@ -516,7 +510,7 @@ Author: wp-organic
                                         <input class="form-control" placeholder="Last Name" type="text" name="last_name" id="last-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Email Address" name="email" id="email" value="">
+                                        <input class="form-control" type="text" placeholder="Email Address" name="email" id="email">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-rounded mt-3">Register</button>

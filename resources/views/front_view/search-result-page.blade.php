@@ -27,7 +27,7 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="assets/images/logo_light.svg" alt="">
+            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
         </div>
     </div>
     <!-- end preloader -->
@@ -299,11 +299,6 @@ Author: wp-organic
                                     <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="false"><i class="fa fa-map-marker"></i> Map</a>
                                 </li>
                             </ul>
-                            <!-- <span class="list-style-map">
-                                <a href="javascript:" class="active"></a>
-                                <a href="javascript:"></a>
-                                <a href="javascript:"></a>
-                            </span> -->
                         </div>
 
                         <div class="tab-content theme-tabbing search-result-tabbing" id="pills-tabContent">
@@ -317,232 +312,13 @@ Author: wp-organic
                                                     <i class="fa fa-star"></i>
                                                     <span>Featured</span>
                                                 </span>
-                                                <a href="javascript:"><img src="assets/images/search/search_img_1.jpg" alt="" class="rounded"></a>
+                                                <a href="{{ route('front.hall.details') }}"><img src="{{ asset('assets') }}/images/search/search_img_1.jpg" alt="" class="rounded"></a>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="content">
                                                 <div class="head">
-                                                    <a href="javascript:" class="favorite active"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <span class="featured">
-                                                    <i class="fa fa-star"></i>
-                                                    <span>Featured</span>
-                                                </span>
-                                                <a href="javascript:"><img src="assets/images/search/search_img_2.jpg" alt="" class="rounded"></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <a href="javascript:"><img src="assets/images/search/search_img_3.jpg" alt="" class="rounded"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <a href="javascript:"><img src="assets/images/search/search_img_4.jpg" alt="" class="rounded"></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <a href="javascript:"><img src="assets/images/search/search_img_5.jpg" alt="" class="rounded"></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <a href="javascript:"><img src="assets/images/search/search_img_6.jpg" alt="" class="rounded"></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
-                                                    </div>
-                                                </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Search Result List -->
-
-                                <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <a href="javascript:"><img src="assets/images/search/search_img_7.jpg" alt="" class="rounded"></a>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="javascript:" class="favorite"><i class="fa fa-heart"></i></a>
+                                                    <a href="{{ route('front.hall.details') }}" class="favorite active"><i class="fa fa-heart"></i></a>
                                                     <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
                                                     <div class="rating">
                                                         <span class="stars">
@@ -594,7 +370,7 @@ Author: wp-organic
                                         <div class="wedding-listing">
                                             <div class="img">
                                                 <a href="javascript:">
-                                                    <img src="assets/images/weddings/wedding_listing_1.jpg" alt="">
+                                                    <img src="{{ asset('assets') }}/images/weddings/wedding_listing_1.jpg" alt="">
                                                 </a>
                                                 <div class="img-content">
                                                     <div class="top">
@@ -636,7 +412,7 @@ Author: wp-organic
                                         <div class="wedding-listing">
                                             <div class="img">
                                                 <a href="javascript:">
-                                                    <img src="assets/images/weddings/wedding_listing_2.jpg" alt="">
+                                                    <img src="{{ asset('assets') }}/images/weddings/wedding_listing_2.jpg" alt="">
                                                 </a>
                                                 <div class="img-content">
                                                     <div class="top">
@@ -682,7 +458,7 @@ Author: wp-organic
                                         <div class="wedding-listing">
                                             <div class="img">
                                                 <a href="javascript:">
-                                                    <img src="assets/images/weddings/wedding_listing_3.jpg" alt="">
+                                                    <img src="{{ asset('assets') }}/images/weddings/wedding_listing_3.jpg" alt="">
                                                 </a>
                                                 <div class="img-content">
                                                     <div class="top">
