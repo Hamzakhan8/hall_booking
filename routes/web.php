@@ -38,9 +38,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
-
-
-
+    
 Route::resource('/halltype', HallTypeController::class);
 // Delete Image
 Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
@@ -50,7 +48,7 @@ Route::resource('/hall',HallController::class);
 Route::resource('/customer',CustomerController::class);
 
 //booking controller
-Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
+Route::get('/booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
 Route::resource('/booking',BookingController::class);
 
 
