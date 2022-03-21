@@ -70,7 +70,7 @@ $(document).ready(function(){
 
             $.ajax({
 
-                url:"{{url('admin/booking/available-halls')}}/" + _checkindate,
+                url:"{{url('admin/booking/available-halls')}}/"+_checkindate,
 
                 dataType:'json',
                 success:function(res){

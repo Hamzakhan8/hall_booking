@@ -100,9 +100,10 @@ class BookingController extends Controller
     {
 
         $Ahalls=DB::SELECT
+        
         ("SELECT * FROM halls WHERE id NOT IN(SELECT hall_id FROM bookings WHERE '$checkin_date' BETWEEN  checkin_date AND checkout_date ) ");
 
-        return response()->json($Ahalls);
+        return response()->json(['data'=> $Ahalls]);
 
     }
 }

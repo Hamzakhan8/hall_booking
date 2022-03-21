@@ -12,7 +12,6 @@ use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\HallDetailsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchResultController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
