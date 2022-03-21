@@ -43,7 +43,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))->name('admin.dashboard');
 });
-
+//please connect route to there views
 // grouped routes for hall
 Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 
