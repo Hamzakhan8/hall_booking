@@ -65,8 +65,9 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 // grouped routes for customer
 Route::prefix('customer')->middleware(['auth', 'customer'])->group(function () {
     Route::get('dashboard', fn () => view())->name('customer.dashboard');
-});
 
+});
+//wow
 // grouped routes for front site
 Route::prefix('front')->group(function (){
 
