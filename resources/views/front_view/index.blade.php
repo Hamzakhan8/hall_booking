@@ -464,16 +464,15 @@ Author: wp-organic
                                 <form action="{{ route('auth.login') }}" method="POST">
                                 @csrf
                                     <div class="form-group">
-                                        <input type="email" required class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
+                                        <input type="text" required class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" required class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox form-dark">
-                                            <input type="checkbox" required class="custom-control-input" id="customCheck112">
-                                            <label class="custom-control-label" for="customCheck1
-                                            12">Remember Me</label>
+                                            <input type="checkbox" class="custom-control-input" id="customCheck112">
+                                            <label class="custom-control-label" for="customCheck112">Remember Me</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -494,7 +493,7 @@ Author: wp-organic
                                             </div>
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="owner" name="role" name="hall" class="custom-control-input">
+                                                    <input type="radio" id="owner" name="role" value="hall" class="custom-control-input">
                                                     <label class="custom-control-label" for="owner">Hall</label>
                                                 </div>
                                             </div>

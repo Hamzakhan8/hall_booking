@@ -38,7 +38,7 @@ Route::prefix('auth')->group(function (){
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');
     Route::post('register', [RegisterController::class, 'validator'])
     ->name('auth.register');
-    Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
+    Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
 

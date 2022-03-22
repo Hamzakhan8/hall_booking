@@ -49,16 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(Request $request)
     {
-        dd($request);
-        exit();
-
          $request->validate([
-            'role' => ['required', 'in:couple,hall'],
-            'username' => ['required', 'string', 'unique:users,username'],
+            'role' => ['required'],
+            'username' => ['required', 'string', 'unique:users'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         return $this->create($request);

@@ -34,11 +34,12 @@ class LoginController extends Controller
         if(Auth::attempt($credentials) && Auth::user()->role == 'admin')
         return redirect()->route('admin.dashboard');
 
+
         elseif(Auth::user()->role == 'hall')
         return redirect()->route('hall.dashboard');
 
         elseif(Auth::user()->role == 'couple')
-        return redirect()->route('customer.dashboard');
+        return redirect()->route('couple.dashboard');
 
         else
         return redirect()->route('front.home')
@@ -46,35 +47,6 @@ class LoginController extends Controller
 
     }
 
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-
-    // public function authenticated()
-    // {
-    //         if (Auth::user()->role_as=='1')// 1 = 'admin'
-
-    //         {
-    //             return redirect('admin/dashboard')->with('status','welcome to admin dashboard');
-    //         }
-
-
-
-    //         else if(Auth::user()->role_as=='0'){
-
-    //             return redirect('/home')->with('status','logged in successfull');
-
-    //         }
-    //         else{
-    //             return redirect('/')->with('status','login first ');
-    //         }
-
-    //     }
     /**
      * Create a new controller instance.
      *
