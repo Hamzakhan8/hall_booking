@@ -42,10 +42,12 @@ Route::prefix('auth')->group(function (){
 });
 
 
+
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))->name('admin.dashboard');
 });
+
 
 // grouped routes for hall
 Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
@@ -53,17 +55,14 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::resource('/halltype', HallTypeController::class);
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
-
     Route::resource('/hall',HallController::class);
-
     Route::resource('/customer',CustomerController::class);
-
     //booking controller
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);
-
     Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
 });
+
 
 /**
  * grouped routes for couple
@@ -72,10 +71,13 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
  *
  *  */
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
-    Route::get('dashboard', fn () => view('couple.dashboard'))
+    Route::POST('dashboard', fn () => view('co uple.dashboard'))
     ->name('couple.dashboard');
-
 });
+
+
+
+
 
 // grouped routes for front site
 Route::prefix('front')->group(function (){
