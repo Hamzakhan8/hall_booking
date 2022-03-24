@@ -49,7 +49,7 @@ class RegisterController extends Controller
      */
     protected function validator(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'role' => ['required'],
             'username' => ['required', 'string', 'unique:users'],
             'first_name' => ['required', 'string', 'max:255'],
@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'username' => $request['username'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
+            'role' => $request['role'],
         ]);
 
         return redirect()->route('front.home')
