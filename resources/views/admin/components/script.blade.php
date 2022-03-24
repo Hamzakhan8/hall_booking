@@ -13,9 +13,9 @@
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script>
-         $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+            $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
 </script>
 
 <script type="text/javascript">
@@ -54,32 +54,31 @@
     }, 3000);
 
     });
-    </script>
+</script>
 
 
 <script type="text/javascript">
-$(document).ready(function(){
+    $(document).ready(function(){
 
-    $(".checkin-date").on('blur',function(){
+        $(".checkin-date").on('blur',function(){
 
-        var _checkindate=$(this).val();
+            var _checkindate=$(this).val();
 
 
 
-            //using Ajax to send request to controller
+                //using Ajax to send request to controller
 
-            $.ajax({
+                $.ajax({
 
-                url:"{{url('admin/booking/available-halls')}}/"+_checkindate,
+                    url:"{{url('admin/booking/available-halls')}}/"+_checkindate,
 
-                dataType:'json',
-                success:function(res){
-                    console.log(res);
-                }
+                    dataType:'json',
+                    success:function(res){
+                        console.log(res);
+                    }
+                });
+
             });
 
-        });
-
-});
-
+    });
 </script>

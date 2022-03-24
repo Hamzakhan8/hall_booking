@@ -18,7 +18,7 @@ class CoupleMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::user()->role == "couple")
-        return redirect()->route('couple.dashboard');
+        return redirect()->route('front.home');
 
         return $next($request);
     }

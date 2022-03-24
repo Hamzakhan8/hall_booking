@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
@@ -45,7 +46,10 @@ Route::prefix('auth')->group(function (){
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
-    Route::get('dashboard', fn () => view('admin.dashboard'))->name('admin.dashboard');
+    Route::get('dashboard', fn () => view('admin.dashboard'))
+    ->name('admin.dashboard');
+    Route::get('profile', [ProfileController::class, 'index'])
+    ->name('admin.profile');
 });
 
 
@@ -71,7 +75,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
  *
  *  */
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
-    Route::POST('dashboard', fn () => view('co uple.dashboard'))
+    Route::get('dashboard', fn () => view('couple.dashboard'))
     ->name('couple.dashboard');
 });
 

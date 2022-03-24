@@ -22,6 +22,16 @@ class LoginController extends Controller
     |
     */
 
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        return view('front_view.index');
+    }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -54,6 +64,18 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->only(['login', 'showLoginForm']);
+        $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * The user has logged out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return mixed
+     */
+    protected function loggedOut(Request $request)
+    {
+        return redirect()->route('front.home');
     }
 }

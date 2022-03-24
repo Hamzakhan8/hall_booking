@@ -6,39 +6,32 @@
             <a href="javascript:" class="sidebar-toggle mobile" data-toggle="offcanvas">
                 <i class="fa fa-bars"></i>
             </a>
-            <div class="d-flex mx-auto align-items-center">
-                <a class="navbar-brand" href="index.html">
-                    <h2>HALL</h2>
-                    <!-- <img src="assets/images/logo_dark.svg" alt=""> -->
-                </a>
+            <div class="d-flex align-items-center">
                 <a href="javascript:" class="sidebar-toggle desktop" data-toggle="offcanvas">
                     <i class="fa fa-bars"></i>
                 </a>
+
+                <a class="navbar-brand" href="javascript:window.location.reload(true)">
+                    <h2>Admin Dashboard</h2>
+                </a>
             </div>
-            <!-- Toggle Button Start -->
-            <button class="navbar-toggler x collapsed" type="button" data-toggle="offcanvas-mobile"
-                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
 
-            <!-- Toggle Button End -->
-
-            <!-- Topbar Request Quote End -->
-
-            <div class="collapse navbar-collapse offcanvas-collapse-mobile" id="navbarCollapse" data-hover="dropdown"
-                data-animations="slideInUp slideInUp slideInUp slideInUp">
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                   </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('auth.logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            <i class="weddingdir_logout"></i> {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
 
                 </ul>
                 <!-- Main Navigation End -->
-            </div>
         </div>
     </nav>
 
