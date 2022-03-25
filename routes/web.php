@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\admin\ManageHallController;
+use App\Http\Controllers\admin\ManageUserController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -50,6 +52,10 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     ->name('admin.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])
     ->name('admin.profile');
+    Route::get('manage_user', [ManageUserController::class, 'index'])
+    ->name('admin.manage.user');
+    Route::get('manage_hall', [ManageHallController::class, 'index'])
+    ->name('admin.manage.hall');
 });
 
 

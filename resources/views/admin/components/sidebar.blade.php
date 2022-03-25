@@ -9,7 +9,11 @@
                     <a href="vendor-dashboard.html"><i class="weddingdir_dashboard"></i> Dashboard</a>
                 </li> -->
                 <li class="">
-                    <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
+                    <a href="{{ route('admin.manage.user') }}"><i class="weddingdir_request_quote"></i> Manage Users</a>
+                </li>
+
+                <li class="">
+                    <a href="{{ route('admin.manage.hall') }}"><i class="weddingdir_request_quote"></i> Manage Hall</a>
                 </li>
 
                     <li class="">

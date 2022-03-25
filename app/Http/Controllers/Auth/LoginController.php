@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
+
+    public const USERNAME = "username";
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -32,16 +35,26 @@ class LoginController extends Controller
         return view('front_view.index');
     }
 
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function login(Request $request)
     {
         $request->validate([
-            'email' => ['required'],
+            'username' => ['required'],
             'password' => ['required']
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $column = filter_var($request['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        if(Auth::attempt($credentials) && Auth::user()->role == 'admin')
+
+        if(Auth::attempt([$column => $request['username'], 'password' => $request['password']])
+         && Auth::user()->role == 'admin')
         return redirect()->route('admin.dashboard');
 
 
@@ -55,6 +68,11 @@ class LoginController extends Controller
         return redirect()->route('front.home')
         ->with('login_error', 'Your login credentials dose not match!');
 
+    }
+
+    public function username()
+    {
+        return self::USERNAME;
     }
 
     /**

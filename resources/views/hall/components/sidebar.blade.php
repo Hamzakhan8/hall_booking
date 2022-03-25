@@ -1,4 +1,3 @@
-<main>
     <aside class="offcanvas-collapse">
         <div class="avatar-wrap">
             <!-- <img src="assets/images/dashboard/avatar_img.jpg" alt="">
@@ -60,6 +59,5 @@
             </ul>
         </div>
     </aside>
-</main>
 
 

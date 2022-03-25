@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @section('body-title')
-    <h2>Hall Profile</h2>
+    <h2>Admin Profile</h2>
 @endsection
 
 @section('body-upper-content')

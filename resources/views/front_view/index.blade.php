@@ -464,7 +464,7 @@ Author: wp-organic
                                 <form action="{{ route('auth.login') }}" method="POST">
                                 @csrf
                                     <div class="form-group">
-                                        <input type="text" required class="form-control" name="email" id="exampleInputEmail1" placeholder="Username/Email">
+                                        <input type="text" required class="form-control" name="username" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" required class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
