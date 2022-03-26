@@ -5,8 +5,8 @@
 
 @section('body-upper-content')
 @section('body-title','Hall')
-        <div class="card-body">
-                <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
+          <div class="card-body">
+    <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
 
                 @csrf
 
@@ -40,4 +40,8 @@
     </form>
         </div>
 
-        @endsection
+
+
+ @endsection
+
+
