@@ -6,7 +6,7 @@
 @section('body-upper-content')
 @section('body-title','HallType')
 
-<a href="{{route('halltype.create')}}"  class="btn btn-warning">
+<a href="{{'halltype.create'}}"  class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
     add hall Type
 </a>
 <div class="card-shadow">
@@ -79,7 +79,59 @@
         </div>
     </div>
 </div>
+<!-- Button trigger modal -->
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add HallType</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{route('halltype.store')}} " method="POST" enctype="multipart/form-data">
+
+                @csrf
+
+                <div class="form-group"  >
+                  <label for="exampleInputEmail1">title</label>
+                  <input type="text" name="name" class="form-control" >
+                </div>
+                <div class="form-group"  >
+                    <label for="exampleInputEmail1">Prize</label>
+                    <input type="text" name="prize" class="form-control" >
+                  </div>
+                <div class="form-group">
+
+
+                    <textarea name="detail" id="mysummernote" placeholder="detail" cols="55" rows="10"></textarea>
+                </div>
+                <div class="form-group"  >
+                    <label for="exampleInputEmail1">upload gallery</label>
+                    <input type="file" multiple name="imgs[]" class="form-control" >
+                  </div>
+
+
+
+
+
+
+        <div class="modal-footer">
+
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-warning">
+
+        </div>
+    </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @endsection
 

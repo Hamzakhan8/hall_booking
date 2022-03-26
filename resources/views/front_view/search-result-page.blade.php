@@ -88,14 +88,16 @@ Author: wp-organic
                                             <div class="inner">
                                                 <p><a href="javascript:"><strong>All Categories</strong></a></p>
 
+
                                                 <ul class="list-unstyled">
-                                                    <li><a href="javascript:">Barn & Farm Weddings</a></li>
+                                                    <li><a href="javascript:">{{$halltype->name}}</a></li>
                                                     <li><a href="javascript:">Hotel Weddings</a></li>
                                                     <li><a href="javascript:">Hotel Weddings</a></li>
                                                     <li><a href="javascript:">Country Club Weddings</a></li>
                                                     <li><a href="javascript:">Restaurant Weddings</a></li>
                                                     <li><a href="javascript:">Rooftop Weddings</a></li>
                                                 </ul>
+                                                @endforeach
                                                 <div class="view-all">
                                                     <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
                                                 </div>

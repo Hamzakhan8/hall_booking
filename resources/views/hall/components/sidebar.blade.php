@@ -10,7 +10,7 @@
                     <a href="vendor-dashboard.html"><i class="weddingdir_dashboard"></i> Dashboard</a>
                 </li> -->
                 <li class="">
-                    <a href="vendor-dashboard-quote.html"><i class="weddingdir_request_quote"></i> Manage Users</a>
+                    <a href="#"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
 
                     <li class="">
@@ -20,14 +20,8 @@
                     <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
 
                 </li>
-                <li>
-                    <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>customers</a>
 
-                </li>
-                <li>
-                    <a href="{{route('booking.index')}}"><i class="weddingdir_my_profile"></i>booking</a>
 
-                </li>
               {{--sad  <li>
                     <a href="vendor-dashboard-profile.html"><i class="weddingdir_my_profile"></i> My Profile</a>
                 </li>--}}
@@ -41,9 +35,7 @@
                 <li>
                     <a href="vendor-dashboard-invoice.html"><i class="weddingdir_invoice"></i> Invoice</a>
                 </li> -->
-                <li>
-                    <a href="chat-hall.html"><i class="weddingdir_chat"></i> Chat</a>
-                </li>
+
                 <li>
                     <a class="dropdown-item" href="{{ route('auth.logout') }}"
                 onclick="event.preventDefault();

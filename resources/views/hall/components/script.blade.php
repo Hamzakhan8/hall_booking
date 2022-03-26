@@ -12,6 +12,15 @@
 <script src="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.min.js"></script>
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#mysummernote").summernote();
+        $('.dropdown-toggle').dropdown();
+    });
+
+</script>
 <script>
          $(document).ready( function () {
     $('#myTable').DataTable();
