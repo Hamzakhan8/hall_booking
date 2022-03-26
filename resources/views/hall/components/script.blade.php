@@ -24,7 +24,7 @@
             var img_id=$(this).attr('data-image-id');
             var _vm=$(this);
             $.ajax({
-                url:"{{url('admin/halltypeimage/delete')}}/"+img_id,
+                url:"{{url('hall/halltypeimage/delete')}}/"+img_id,
                 dataType:'json',
                 beforeSend:function(){
 

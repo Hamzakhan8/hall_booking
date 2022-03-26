@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('hall.dashboard')
 
 
 
 
-@section('content')
-@section('title','myhall')
+@section('body-upper-content')
+@section('body-title','myhall')
 
 
 

@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('hall.dashboard')
 
 
 
 
-@section('content')
-@section('title','HallType')
+@section('body-upper-content')
+@section('body-title','HallType')
 
 <a href="{{route('halltype.create')}}"  class="btn btn-warning">
     add hall Type

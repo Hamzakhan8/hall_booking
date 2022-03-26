@@ -18,7 +18,7 @@
     } );
 </script>
 
-<script type="text/javascript">
+{{--<script type="text/javascript">
     $(document).ready(function(){
         $(".delete-image").on('click',function(){
             var img_id=$(this).attr('data-image-id');
@@ -42,7 +42,7 @@
         });
     });
 </script>
-
+--}}
 <script type="text/javascript">
 
     $(document).ready(function () {

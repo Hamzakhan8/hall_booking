@@ -19,7 +19,7 @@ class HallController extends Controller
     {
         $data=hall::all();
 
-        return view('admin.hall.index',compact('data',));
+        return view('hall.hall.index',compact('data',));
     }
 
     /**
@@ -31,7 +31,7 @@ class HallController extends Controller
     {
         $halltypes= halltype:: all();
 
-        return view('admin.Hall.create', compact('halltypes'));
+        return view('hall.Hall.create', compact('halltypes'));
 
     }
 
@@ -51,7 +51,7 @@ class HallController extends Controller
 
         $data->save();
 
-        return redirect('admin/hall')->with('success','data has being added');
+        return redirect('hall/hall')->with('success','data has being added');
 
     }
 
@@ -76,7 +76,7 @@ class HallController extends Controller
 
         $data=hall::find($id);
 
-        return view('admin.hall.edit',compact('data' , 'halltypes'));
+        return view('hall.hall.edit',compact('data' , 'halltypes'));
     }
 
     /**
@@ -95,7 +95,7 @@ class HallController extends Controller
         $data->title=$request->title;
         $data->update();
 
-        return redirect('admin/hall')->with('success','data has being updated');
+        return redirect('hall/hall')->with('success','data has being updated');
     }
 
     /**
@@ -110,11 +110,11 @@ class HallController extends Controller
 
         if($post){
             $post->delete();
-            return redirect('admin/hall')->with('massage','deleted successfully');
+            return redirect('hall/hall')->with('massage','deleted successfully');
 
         }
         else{
-            return redirect('admin/hall')->with('massage', 'no post id found');
+            return redirect('hall/hall')->with('massage', 'no post id found');
         }
 
 

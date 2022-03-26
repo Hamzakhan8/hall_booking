@@ -20,7 +20,7 @@ class HallTypeController extends Controller
         $data=halltype::all();
 
 
-        return view('admin.halltype.index',compact('data'));
+        return view('hall.halltype.index',compact('data'));
     }
 
     /**
@@ -30,7 +30,7 @@ class HallTypeController extends Controller
      */
     public function create()
     {
-        return view('admin.halltype.create');
+        return view('hall.halltype.create');
 
     }
 
@@ -74,7 +74,7 @@ class HallTypeController extends Controller
 
         }
 
-        return redirect('admin/halltype')->with('success','data has being added');
+        return redirect('hall/halltype')->with('success','data has being added');
 
     }
 
@@ -99,7 +99,7 @@ class HallTypeController extends Controller
     {
         $data=Halltype::find($id);
 
-        return view('admin.halltype.edit',compact('data'));
+        return view('hall.halltype.edit',compact('data'));
     }
 
     /**
@@ -136,7 +136,7 @@ class HallTypeController extends Controller
     }
         $data->update();
 
-        return redirect('admin/halltype')->with('success','data has being updated');
+        return redirect('hall/halltype')->with('success','data has being updated');
     }
 
     /**
