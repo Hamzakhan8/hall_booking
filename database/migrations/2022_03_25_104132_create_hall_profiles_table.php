@@ -15,6 +15,7 @@ class CreateHallProfilesTable extends Migration
     {
         Schema::create('hall_profiles', function (Blueprint $table) {
             $table->id();
+
             $table->timestamps();
         });
     }

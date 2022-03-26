@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
             $table->string('checkin_date');
             $table->string('checkout_date');
             $table->string('total_adults');
-            $table->string('total_childern');
+            $table->string('total_children');
             $table->string('ref');
 
             $table->timestamps();

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ManageCoupleController extends Controller
+class ChatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ManageCoupleController extends Controller
      */
     public function index()
     {
-        return view('admin.manageUser');
+        return view();
     }
 
     /**

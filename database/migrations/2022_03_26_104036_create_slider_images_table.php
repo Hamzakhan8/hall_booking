@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoupleProfilesTable extends Migration
+class CreateSliderImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCoupleProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('couple_profiles', function (Blueprint $table) {
+        Schema::create('slider_images', function (Blueprint $table) {
             $table->id();
+            $table->string('slider_imgs');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateCoupleProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('couple_profiles');
+        Schema::dropIfExists('slider_images');
     }
 }

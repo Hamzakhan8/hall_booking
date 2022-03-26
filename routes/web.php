@@ -1,12 +1,18 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\admin\BookingController as AdminBookingController;
+use App\Http\Controllers\admin\CommentController;
+use App\Http\Controllers\admin\ContactController as AdminContactController;
+use App\Http\Controllers\hall\ChatController;
 use App\Http\Controllers\admin\HallTypeController;
 use App\Http\Controllers\admin\HallController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\admin\ManageCoupleController;
 use App\Http\Controllers\admin\ManageHallController;
-use App\Http\Controllers\admin\ManageUserController;
+use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\ReviewsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
@@ -52,10 +58,20 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     ->name('admin.dashboard');
     Route::get('profile', [ProfileController::class, 'index'])
     ->name('admin.profile');
-    Route::get('manage_user', [ManageUserController::class, 'index'])
+    Route::get('manage_user', [ManageCoupleController::class, 'index'])
     ->name('admin.manage.user');
     Route::get('manage_hall', [ManageHallController::class, 'index'])
     ->name('admin.manage.hall');
+    Route::get('transaction', [TransactionController::class, 'index'])
+    ->name('admin.transaction');
+    Route::get('reviews', [ReviewsController::class, 'index'])
+    ->name('admin.reviews');
+    Route::get('comment', [CommentController::class, 'index'])
+    ->name('admin.comment');
+    Route::get('booking', [AdminBookingController::class, 'index'])
+    ->name('admin.booking');
+    Route::get('contact', [AdminContactController::class, 'index'])
+    ->name('admin.contact');
 });
 
 
@@ -71,6 +87,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);
     Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
+    Route::get('chat', [ChatController::class, 'index'])->name('hall.chat');
 });
 
 
