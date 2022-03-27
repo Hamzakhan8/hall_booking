@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ManageCoupleController extends Controller
@@ -14,7 +15,9 @@ class ManageCoupleController extends Controller
      */
     public function index()
     {
-        return view('admin.manageUser');
+        $couples = User::where(['role' => 'couple'])->paginate(5);
+
+        return view('admin.manageUser', compact('couples'));
     }
 
     /**

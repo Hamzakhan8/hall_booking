@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHalltypesTable extends Migration
+class CreateHallsMetaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateHalltypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('halltypes', function (Blueprint $table) {
+        Schema::create('halls_meta', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->bigInteger('prize');
-            $table->text('detail');
-
-
-
+            $table->foreignId('halls_id')->references('id')->on('halls')
+            ->cascadeOnDelete();
+            $table->string('meta_key');
+            $table->string('meta_value');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateHalltypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('halltypes');
+        Schema::dropIfExists('halls_meta');
     }
 }

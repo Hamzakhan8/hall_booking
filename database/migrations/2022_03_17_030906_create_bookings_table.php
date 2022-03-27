@@ -15,15 +15,13 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id');
-            $table->integer('hall_id');
-
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->cascadeOnDelete();
+            $table->foreignId('halls_id')->references('id')->on('halls')
+            ->cascadeOnDelete();
+            $table->string('booking_date');
             $table->string('checkin_date');
             $table->string('checkout_date');
-            $table->string('total_adults');
-            $table->string('total_children');
-            $table->string('ref');
-
             $table->timestamps();
         });
     }

@@ -15,11 +15,13 @@ class CreateHallsTable extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->integer('hall_types_id');
-            $table->string('title');
-
-
-
+            $table->foreignId('user_id')->references('id')->on('users')
+            ->cascadeOnDelete();
+            $table->foreignId('halls_category_id')->references('id')
+            ->on('halls_category')->cascadeOnDelete();
+            $table->string('title')->unique();
+            $table->string('images');
+            $table->string('description');
             $table->timestamps();
         });
     }

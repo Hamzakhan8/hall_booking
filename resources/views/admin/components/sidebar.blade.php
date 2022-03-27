@@ -6,7 +6,7 @@
         <div class="sidebar-nav">
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{ route('admin.manage.user') }}"><i class="weddingdir_request_quote"></i> Manage Users</a>
+                    <a href="{{ route('admin.manage.user') }}"><i class="weddingdir_request_quote"></i> Manage Couple</a>
                 </li>
 
                 <li>
