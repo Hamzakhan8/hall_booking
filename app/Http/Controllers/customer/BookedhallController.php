@@ -14,9 +14,8 @@ class BookedhallController extends Controller
      */
     public function index()
     {
-        //
+        return view('couple.booked_hall.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *

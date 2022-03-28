@@ -1,74 +1,40 @@
-@extends('layouts.master')
+@extends('couple.dashboard')
 
+@section('body-title')
+    <h2>Booked Halls</h2>
+@endsection
 
-
-
-@section('content')
-@section('title','Hall')
-
-<a href="{{route('hall.create')}}"  class="btn btn-warning">
-    add hall
-</a>
+@section('body-upper-content')
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
-            <table id="myTable" class="table table-bordered table-hover mb-0">
-                @if (Session::has('success'))
-                <p class="alert alert-success">{{session('success')}}</p>
-
-                @endif
-                @if (Session::has('massage'))
-                <p class="alert alert-danger">{{session('massage')}}</p>
-
-                @endif
-
-                <thead class="">
+            <table class="table table-hover mb-0">
+                <thead class="thead-light">
                     <tr>
-
-
-                        <th scope="col">ID</th>
-
-                        <th scope="col">title</th>
-                        <th scope="col">delete</th>
-                        <th scope="col">edit</th>
-
-
-
+                        <th scope="col">Hall Name</th>
+                        <th scope="col">Booked Date</th>
+                        <th scope="col">Cheakin Date</th>
+                        <th scope="col">CheackOut Date</th>
+                        <th scope="col">Budget</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    @foreach ($data as $halltype)
-
-
+                    {{-- @foreach ($halls as $hall) --}}
                     <tr>
-                        <td>{{$halltype->hall_types_id}}</td>
-
-                        <td>{{$halltype->title}}</td>
-                        <td class="rounded-sm">
-
-                            <form method="post" action="{{ route('hall.destroy', $halltype->id) }}">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-
-                            </form>
-
-                        </td>
-                        <td> <a href="{{route('hall.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
-
-
-
+                        <th scope="row">Umar FarooQ</th>
+                        <td>11/12/2020</td>
+                        <td><a href="mailto:hiteshmahavar22@gmail.com" class="btn btn-link btn-link-primary text-lowercase p-0">umar@gmail.com</a></td>
+                        <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
+                        <td>$950</td>
+                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
                     </tr>
-                    @endforeach
-
+                    {{-- @endforeach --}}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-
+{{-- {{ $halls->links() }} --}}
 @endsection
-

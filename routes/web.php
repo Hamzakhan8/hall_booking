@@ -17,6 +17,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\customer\BookedhallController;
+use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
+use App\Http\Controllers\customer\TransactionController as CustomerTransactionController;
 use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\HallDetailsController;
 use App\Http\Controllers\HomeController;
@@ -100,6 +103,9 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
     ->name('couple.dashboard');
+    Route::get('profile', [CustomerProfileController::class, 'index'])->name('couple.profile');
+    Route::get('bookedhall',[BookedhallController::class,'index'])->name('couple.bookedhall');
+    Route::get('transaction',[CustomerTransactionController::class,'index'])->name('couple.transaction');
 });
 
 
