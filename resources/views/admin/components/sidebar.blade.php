@@ -21,7 +21,7 @@
 
                 </li>
                 <li>
-                    <a href="{{route('customer.index')}}"><i class="weddingdir_my_profile"></i>Slider Image</a>
+                    <a href="{{ route('admin.slider.img') }}"><i class="weddingdir_my_profile"></i>Slider Image</a>
 
                 </li>
                 <li>

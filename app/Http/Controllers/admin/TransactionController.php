@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -14,7 +15,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('admin.transaction');
+        $transactions = Transactions::paginate(5);
+
+        return view('admin.transaction', compact('transactions'));
     }
 
     /**

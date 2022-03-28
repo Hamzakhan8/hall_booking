@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\ManageHallController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ReviewsController;
+use App\Http\Controllers\admin\SliderImgController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
@@ -72,6 +73,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     ->name('admin.booking');
     Route::get('contact', [AdminContactController::class, 'index'])
     ->name('admin.contact');
+    Route::get('slider_img', [SliderImgController::class, 'index'])
+    ->name('admin.slider.img');
 });
 
 
