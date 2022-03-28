@@ -24,7 +24,7 @@
                     </div>
                 </form>
                 <div id="show_img">
-                    <img src="" id="show" alt="images">
+                    {{-- <img src="" id="show" alt="images"> --}}
                 </div>
             </div>
         </div>
