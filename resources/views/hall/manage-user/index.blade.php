@@ -25,16 +25,29 @@
                             <th scope="col">Name</th>
                             <th scope="col">Wedding Date</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">No .of Guest</th>
-                            <th scope="col">Budget</th>
+
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+
+
                         @foreach ($customers as $customer)
                         <tr>
-                          <td>name</td>
+                          <td>{{$customer->name}}</td>
+                          <td>{{$customer->created_at}}</td>
+                          <td>{{$customer->email}}</td>
+                          <td>
+                          <form method="post" action="{{ route('Manage-user.destroy', $customer->id) }}">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="btn btn-danger btn-sm">delete</button>
+
+                        </form></td>
+
+
+
                         </tr>
                         @endforeach
                     </tbody>

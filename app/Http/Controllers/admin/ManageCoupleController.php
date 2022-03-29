@@ -16,7 +16,6 @@ class ManageCoupleController extends Controller
     public function index()
     {
         $couples = User::where(['role' => 'couple'])->paginate(5);
-
         return view('admin.manageUser', compact('couples'));
     }
 
