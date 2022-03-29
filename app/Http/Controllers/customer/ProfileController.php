@@ -16,7 +16,8 @@ class ProfileController extends Controller
     public function index()
     {
         $couples=User::where('role','couple')->first();
-        return view('couple.profile.index');
+        return view('couple.profile.index', compact('couples'));
+        
     }
 
     /**
