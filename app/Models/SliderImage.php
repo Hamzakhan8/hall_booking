@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class SliderImage extends Model
 {
     use HasFactory;
+
+    protected $table = 'slider_images';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['slider_imgs',];
 }

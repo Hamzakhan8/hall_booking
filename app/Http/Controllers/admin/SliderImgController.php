@@ -38,11 +38,31 @@ class SliderImgController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $req = $request->validate([
-            'multi_img[]' => ['required', 'file']
+        $request->validate([
+            'multi_img' => ['required']
         ]);
-        dd($req);
+
+        $files = $request->file('multi_img');
+
+        // foreach the files variable and hashing each file name individually
+        foreach ($files as $file) {
+
+            $avatar_name = $file->hashName();
+
+            $file->move(public_path('storage/slider_imgs'), $avatar_name);
+
+            // created an array variable
+            // & assigned it to the file hashed names
+            $filename[] = $avatar_name;
+        }
+
+        // uploading array of files in json formate to database
+        SliderImage::updateOrCreate([
+            'slider_imgs' => json_encode($filename),
+        ]);
+
+        //returning the index function to redirect view
+        return $this->index();
     }
 
     /**

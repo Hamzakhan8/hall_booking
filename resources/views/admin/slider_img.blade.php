@@ -20,7 +20,7 @@
                             src="{{ asset('assets/images/icons/icons8-image-64.png') }}"
                             alt="image">
                         </label>
-                        <input type="file" multiple onchange="readURL(this)" accept="image/*" name="multi_img[]" class="form-control d-none" id="imgs">
+                        <input type="file" multiple onchange="readURL(this)" required name="multi_img[]" class="form-control d-none" id="imgs">
                     </div>
                     <div id="show_img" class="border">
                     </div>
