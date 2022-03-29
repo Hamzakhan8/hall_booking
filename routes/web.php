@@ -1,31 +1,33 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\admin\BookingController as AdminBookingController;
-use App\Http\Controllers\admin\CommentController;
-use App\Http\Controllers\admin\ContactController as AdminContactController;
-use App\Http\Controllers\hall\ChatController;
-use App\Http\Controllers\admin\HallTypeController;
-use App\Http\Controllers\admin\HallController;
-use App\Http\Controllers\admin\CustomerController;
-use App\Http\Controllers\admin\ManageCoupleController;
-use App\Http\Controllers\admin\ManageHallController;
-use App\Http\Controllers\admin\TransactionController;
-use App\Http\Controllers\admin\ProfileController;
-use App\Http\Controllers\admin\ReviewsController;
-use App\Http\Controllers\admin\SliderImgController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontHomeController;
+use App\Http\Controllers\hall\ChatController;
+use App\Http\Controllers\hall\HallController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HallDetailsController;
+use App\Http\Controllers\SearchResultController;
+use App\Http\Controllers\admin\CommentController;
+use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\ReviewsController;
+use App\Http\Controllers\Auth\RegisterController;
+
+use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\hall\HallTypeController;
+use App\Http\Controllers\admin\SliderImgController;
+use App\Http\Controllers\hall\ManageUserController;
+use App\Http\Controllers\admin\ManageHallController;
+use App\Http\Controllers\admin\TransactionController;
+use App\Http\Controllers\admin\ManageCoupleController;
 use App\Http\Controllers\customer\BookedhallController;
+use App\Http\Controllers\admin\BookingController as AdminBookingController;
+use App\Http\Controllers\admin\ContactController as AdminContactController;
 use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\customer\TransactionController as CustomerTransactionController;
-use App\Http\Controllers\FrontHomeController;
-use App\Http\Controllers\HallDetailsController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SearchResultController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +91,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
     Route::resource('/hall',HallController::class);
     Route::resource('/customer',CustomerController::class);
+    Route::resource('/Manage-user',ManageUserController::class);
     //booking controller
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);

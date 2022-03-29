@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\hall;
-use App\Models\halltype;
-use App\Models\hall;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-
-class HallController extends Controller
+class ManageUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,8 @@ class HallController extends Controller
      */
     public function index()
     {
-        $data=hall::all();
-
-        return view('hall.hall.index',compact('data',));
+        $customers= User::where(Auth::user()->role == 'hall');
+        return view('hall.manage-user.index',compact('customers'));
     }
 
     /**
@@ -29,10 +27,7 @@ class HallController extends Controller
      */
     public function create()
     {
-        $halltypes= halltype:: all();
-
-        return view('hall.Hall.create', compact('halltypes'));
-
+        //
     }
 
     /**
@@ -43,16 +38,7 @@ class HallController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new hall;
-
-        $data->hall_types_id=$request->hall_types_id;
-
-        $data->title=$request->title;
-
-        $data->save();
-
-        return redirect('hall/hall')->with('success','data has being added');
-
+        //
     }
 
     /**
@@ -61,7 +47,10 @@ class HallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,12 +60,7 @@ class HallController extends Controller
      */
     public function edit($id)
     {
-
-        $halltypes= halltype:: all();
-
-        $data=hall::find($id);
-
-        return view('hall.hall.edit',compact('data' , 'halltypes'));
+        //
     }
 
     /**
@@ -88,14 +72,7 @@ class HallController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $data=hall::find($id);
-        $data->hall_types_id=$request->hall_types_id;
-
-        $data->title=$request->title;
-        $data->update();
-
-        return redirect('hall/hall')->with('success','data has being updated');
+        //
     }
 
     /**
@@ -104,19 +81,8 @@ class HallController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-
-        $post = hall:: find($id);
-
-        if($post){
-            $post->delete();
-            return redirect('hall/hall')->with('massage','deleted successfully');
-
-        }
-        else{
-            return redirect('hall/hall')->with('massage', 'no post id found');
-        }
-
-
+    public function destroy($id)
+    {
+        //
     }
 }

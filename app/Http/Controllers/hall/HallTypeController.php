@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\hall;
 use App\Models\Halltype;
 use Illuminate\Http\Request;
 use App\Models\HallTypeimage;

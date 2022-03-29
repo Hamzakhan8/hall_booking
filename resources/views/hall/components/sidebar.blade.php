@@ -10,7 +10,7 @@
                     <a href="vendor-dashboard.html"><i class="weddingdir_dashboard"></i> Dashboard</a>
                 </li> -->
                 <li class="">
-                    <a href="#"><i class="weddingdir_request_quote"></i> Manage Users</a>
+                    <a href="{{route('Manage-user.index')}}"><i class="weddingdir_request_quote"></i> Manage Users</a>
                 </li>
 
                     <li class="">

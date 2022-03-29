@@ -4,7 +4,7 @@
 
 
 @section('body-upper-content')
-@section('body-title','HallType')
+@section('body-title','ManageCustomer')
 
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
@@ -18,6 +18,26 @@
                 <p class="alert alert-danger">{{session('massage')}}</p>
 
                 @endif
+
+
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Wedding Date</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">No .of Guest</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($customers as $customer)
+                        <tr>
+                          <td>name</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
 
 
             </table>

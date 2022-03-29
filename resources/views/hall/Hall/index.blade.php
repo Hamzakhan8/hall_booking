@@ -4,10 +4,10 @@
 
 
 @section('body-upper-content')
-@section('body-title','Hall')
+@section('body-title','Manage-Customer')
 
 <a href="{{route('hall.create')}}"  class="btn btn-warning">
-    add hall
+    Manage Customer
 </a>
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
@@ -51,12 +51,12 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 
                             </form>
 
                         </td>
-                        <td> <a href="{{route('hall.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="{{route('hall.edit',$halltype->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
 
 
 

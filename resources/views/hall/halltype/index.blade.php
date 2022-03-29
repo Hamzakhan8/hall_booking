@@ -62,12 +62,12 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger btn-sm">delete</button>
 
                             </form>
 
                         </td>
-                        <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links" ><i class="fa fa-edit"></i></a></td>
+                        <td> <a href="{{route('halltype.edit',$halltype->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
 
 
 
