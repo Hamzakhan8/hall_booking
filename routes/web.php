@@ -80,6 +80,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     ->name('admin.contact');
     Route::get('slider_img', [SliderImgController::class, 'index'])
     ->name('admin.slider.img');
+    Route::post('store_slider_img', [SliderImgController::class, 'store'])
+    ->name('admin.slider.store');
 });
 
 

@@ -38,7 +38,11 @@ class SliderImgController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $req = $request->validate([
+            'multi_img[]' => ['required', 'file']
+        ]);
+        dd($req);
     }
 
     /**

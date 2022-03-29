@@ -11,7 +11,7 @@
     <div class="row clearfix">
         <div class="col-lg-12">
             <div class="form mt-4">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form id="multi_img_form" action="{{ route('admin.slider.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="imgs">
@@ -20,12 +20,15 @@
                             src="{{ asset('assets/images/icons/icons8-image-64.png') }}"
                             alt="image">
                         </label>
-                        <input type="file" max="3" multiple onchange="readURL(this)" accept="image/*" name="multi_img" class="form-control d-none" id="imgs">
+                        <input type="file" multiple onchange="readURL(this)" accept="image/*" name="multi_img[]" class="form-control d-none" id="imgs">
+                    </div>
+                    <div id="show_img" class="border">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success d-block" name="submit" value="Upload">
                     </div>
                 </form>
-                <div id="show_img">
-                    {{-- <img src="" id="show" alt="images"> --}}
-                </div>
             </div>
         </div>
     </div>
