@@ -8,7 +8,7 @@
             </a>
             <div class="d-flex mx-auto align-items-center">
                 <a class="navbar-brand" href="index.html">
-                    <h2>Customer Dashoard</h2>
+                    <h2>Dashoard</h2>
                     <!-- <img src="assets/images/logo_dark.svg" alt=""> -->
                 </a>
                 <a href="javascript:" class="sidebar-toggle desktop" data-toggle="offcanvas">
@@ -33,7 +33,11 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        <a class="m-2" class="dropdown-item" href="{{ route('auth.logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                         <i class="weddingdir_logout"></i> {{ __('Logout') }}
+                     </a>
                    </li>
 
                 </ul>

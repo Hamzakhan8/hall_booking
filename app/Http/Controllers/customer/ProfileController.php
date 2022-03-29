@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\customer;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('couple.profile.index');
+        $couples=User::where('role','couple')->first();
+        return view('couple.profile.index', compact('couples'));
+        
     }
 
     /**
@@ -57,7 +60,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**

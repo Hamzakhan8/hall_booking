@@ -55,19 +55,19 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Name" placeholder="Name">
+                                            <input type="text" class="form-control form-dark" value="{{ Auth::user()->name }}" name="Name" placeholder="Name">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Name" placeholder="couple@gmail.com" disabled>
+                                            <input type="text" class="form-control form-dark" value="{{ Auth::user()->email }}" name="Name" placeholder="couple@gmail.com" disabled>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Contact_Number" placeholder="Contact Number">
+                                            <input type="text" class="form-control form-dark" value=" " name="Contact_Number" placeholder="Contact Number">
                                         </div>
                                     </div>
 

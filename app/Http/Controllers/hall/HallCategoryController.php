@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\hall;
-use App\Models\halltype;
-use App\Models\hall;
+
+
 
 use App\Http\Controllers\Controller;
+use App\Models\HallCategory;
 use Illuminate\Http\Request;
 
 
-class HallController extends Controller
+class HallCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class HallController extends Controller
      */
     public function index()
     {
-        $data=hall::all();
+        $data = HallCategory::all();
 
-        return view('hall.hall.index',compact('data',));
+        return view('hall.hall.index',compact('data'));
     }
 
     /**
@@ -29,9 +30,8 @@ class HallController extends Controller
      */
     public function create()
     {
-        $halltypes= halltype:: all();
 
-        return view('hall.Hall.create', compact('halltypes'));
+        return view('hall.Hall.create',);
 
     }
 
@@ -43,15 +43,22 @@ class HallController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new hall;
+        $request->validate([
+            'category' => ['required', 'string']
+        ]);
 
-        $data->hall_types_id=$request->hall_types_id;
+        // $data = new HallCategory;
 
-        $data->title=$request->title;
+        $data = HallCategory::create([
+            'category' => $request['category'],
+        ]);
 
-        $data->save();
 
-        return redirect('hall/hall')->with('success','data has being added');
+        // $data->category=$request->category;
+
+        // $data->save();
+        return redirect()->route('hall.index')->with('success','data has being added');
+        // return redirect('hall/hall')->with('success','data has being added');
 
     }
 
@@ -72,11 +79,10 @@ class HallController extends Controller
     public function edit($id)
     {
 
-        $halltypes= halltype:: all();
 
-        $data=hall::find($id);
+        $data = HallCategory::find($id);
 
-        return view('hall.hall.edit',compact('data' , 'halltypes'));
+        return view('hall.hall.edit', compact('data'));
     }
 
     /**
@@ -88,12 +94,16 @@ class HallController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'category' => ['required', 'string']
+        ]);
 
-        $data=hall::find($id);
-        $data->hall_types_id=$request->hall_types_id;
+        $data = HallCategory::find($id);
 
-        $data->title=$request->title;
-        $data->update();
+        dd($data);
+
+         $data->category=$request->category;
+         $data->update();
 
         return redirect('hall/hall')->with('success','data has being updated');
     }
@@ -106,7 +116,7 @@ class HallController extends Controller
      */
     public function destroy($id) {
 
-        $post = hall:: find($id);
+        $post = HallCategory:: find($id);
 
         if($post){
             $post->delete();

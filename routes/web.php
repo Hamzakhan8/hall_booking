@@ -7,7 +7,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\hall\ChatController;
-use App\Http\Controllers\hall\HallController;
+use App\Http\Controllers\hall\HallCategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HallDetailsController;
 use App\Http\Controllers\SearchResultController;
@@ -91,7 +91,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::resource('/halltype', HallTypeController::class);
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
-    Route::resource('/hall',HallController::class);
+    Route::resource('/hall',HallCategoryController::class);
     Route::resource('/customer',CustomerController::class);
     Route::resource('/Manage-user',ManageUserController::class);
     //booking controller
