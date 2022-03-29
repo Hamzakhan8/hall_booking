@@ -23,11 +23,12 @@
                     {{-- @foreach ($halls as $hall) --}}
                     <tr>
                         <th scope="row">Umar FarooQ</th>
+                        <td>1/03/2022</td>
                         <td>11/12/2020</td>
-                        <td><a href="mailto:hiteshmahavar22@gmail.com" class="btn btn-link btn-link-primary text-lowercase p-0">umar@gmail.com</a></td>
-                        <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
+                        <td>11/12/2023  </td>
                         <td>$950</td>
-                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
+                        <td><a href="javascript:" class="action-links btn btn-danger btn-sm"><i class="fa fa-trash"></i>Delete</a> <a href="javascript:" class="action-links btn btn-info btn-sm"><i class="fa fa-trash"></i>View</a></td>
+                        <td> </td>
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>

@@ -21,11 +21,11 @@
                 <tbody>
                     {{-- @foreach ($halls as $hall) --}}
                     <tr>
-                        <th scope="row">Peral COntential Raturant</th>
-                        <td>Umar FarooQ</td>
+                        <th scope="row">New Resturant In Pesahwar</th>
+                        <td>Behram Khattak</td>
                         <td>900$</td>
                         <td>22/4/2022</td>
-                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
+                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i>Delete</a></td>
                     </tr>
                     {{-- @endforeach --}}
                 </tbody>
