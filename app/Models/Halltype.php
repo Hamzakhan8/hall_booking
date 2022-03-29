@@ -20,4 +20,4 @@ class Halltype extends Model
 
             return $this->hasMany(HallTypeimage::class,'hall_type_id');
          }
-}
+ }

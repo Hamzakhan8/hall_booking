@@ -2,22 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\HallCategory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Hall extends Model
 {
     use HasFactory;
 
     protected $table='halls';
+
     protected $fillable=[
 
+        'user_id',
+        'halls_category_id',
         'title',
-        'halls_type_id'
+        'images',
+        'description'
     ];
-    function Halltype(){
+    function hallCategory(){
 
-        return $this->belongsTo(Halltype::class,'hall_types_id');
+
+        return $this->belongsTo(HallCategory::class,'halls_category_id','id');
+    }
+    function user(){
+
+        return $this->belongsTo(User::class,'user_id','id');
 
 
     }

@@ -4,10 +4,10 @@
 
 
 @section('body-upper-content')
-@section('body-title','Manage-Customer')
+@section('body-title','Hall')
 
 <a href="{{route('hall.create')}}"  class="btn btn-warning">
-    Manage Customer
+    Add Hall
 </a>
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
@@ -42,9 +42,9 @@
 
 
                     <tr>
-                        <td>{{$halltype->hall_types_id}}</td>
+                        <td>{{$halltype->id}}</td>
 
-                        <td>{{$halltype->title}}</td>
+                        <td>{{$halltype->category}}</td>
                         <td class="rounded-sm">
 
                             <form method="post" action="{{ route('hall.destroy', $halltype->id) }}">
