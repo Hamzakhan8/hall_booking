@@ -94,7 +94,9 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 
     Route::resource('/halltype', HallTypeController::class);
     //Halls
-    Route::resource('/halls',HallsController::class);
+    Route::resource('/Halls',HallsController::class);
+
+
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
     Route::resource('/customer',CustomerController::class);

@@ -4,7 +4,7 @@
 
 
 @section('body-upper-content')
-@section('body-title','Hall')
+@section('body-title','HallCategory')
         <div class="card-body">
          <form action="{{route('hallcategory.store')}} " method="post" enctype="multipart/form-data">
 
