@@ -14,10 +14,10 @@
                 </li>
 
                     <li class="">
-                    <a href="{{route('halltype.index')}}"><i class="weddingdir_my_listing"></i>Hall Type</a>
+                    <a href="{{route('hallcategory.index')}}"><i class="weddingdir_my_listing"></i>Hallcategory</a>
                 </li>
                 <li>
-                    <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
+                    {{-- <a href="{{route('hall.index')}}"><i class="weddingdir_my_listing"></i>Halls</a> --}}
 
                 </li>
 

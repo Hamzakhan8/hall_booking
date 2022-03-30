@@ -9,7 +9,7 @@
 
 
 <div class="card-body">
-    <form action="{{route('hall.update',$data->id)}} " method="POST" enctype="multipart/form-data">
+    <form action="{{route('hallcategory.update',$data->id)}} " method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('put')
@@ -25,7 +25,7 @@
         </select> --}}
         <div class="form-group"  >
           <label for="exampleInputEmail1">Category</label>
-          <input type="text" name="Category" value="{{$data->category}}" class="form-control" >
+          <input type="text" name="category" value="{{$data->category}}" class="form-control" >
         </div>
         <input type="submit" value="update" class="btn btn-warning">
 

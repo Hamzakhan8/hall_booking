@@ -6,7 +6,7 @@
 @section('body-upper-content')
 @section('body-title','Hall')
 
-<a href="{{route('hall.create')}}"  class="btn btn-warning">
+<a href="{{route('hallcategory.create')}}"  class="btn btn-warning">
     Add Hall
 </a>
 <div class="card-shadow">
@@ -47,7 +47,7 @@
                         <td>{{$halltype->category}}</td>
                         <td class="rounded-sm">
 
-                            <form method="post" action="{{ route('hall.destroy', $halltype->id) }}">
+                            <form method="post" action="{{ route('hallcategory.destroy', $halltype->id) }}">
                                 @csrf
                                 @method('DELETE')
 
@@ -56,7 +56,7 @@
                             </form>
 
                         </td>
-                        <td> <a href="{{route('hall.edit',$halltype->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
+                        <td> <a href="{{route('hallcategory.edit',$halltype->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
 
 
 

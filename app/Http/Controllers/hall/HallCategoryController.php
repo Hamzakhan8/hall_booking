@@ -57,7 +57,7 @@ class HallCategoryController extends Controller
         // $data->category=$request->category;
 
         // $data->save();
-        return redirect()->route('hall.index')->with('success','data has being added');
+        return redirect()->route('hallcategory.index')->with('success','data has being added');
         // return redirect('hall/hall')->with('success','data has being added');
 
     }
@@ -100,12 +100,12 @@ class HallCategoryController extends Controller
 
         $data = HallCategory::find($id);
 
-        dd($data);
+
 
          $data->category=$request->category;
          $data->update();
 
-        return redirect('hall/hall')->with('success','data has being updated');
+        return redirect('hall/hallcategory')->with('success','data has being updated');
     }
 
     /**
@@ -120,11 +120,11 @@ class HallCategoryController extends Controller
 
         if($post){
             $post->delete();
-            return redirect('hall/hall')->with('massage','deleted successfully');
+            return redirect('hall/hallcategory')->with('massage','deleted successfully');
 
         }
         else{
-            return redirect('hall/hall')->with('massage', 'no post id found');
+            return redirect('hall/hallcategory')->with('massage', 'no post id found');
         }
 
 

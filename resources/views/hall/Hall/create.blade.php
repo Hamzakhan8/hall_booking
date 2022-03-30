@@ -6,7 +6,7 @@
 @section('body-upper-content')
 @section('body-title','Hall')
         <div class="card-body">
-         <form action="{{route('hall.store')}} " method="post" enctype="multipart/form-data">
+         <form action="{{route('hallcategory.store')}} " method="post" enctype="multipart/form-data">
 
                 @csrf
 

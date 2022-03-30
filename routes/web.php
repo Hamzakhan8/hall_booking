@@ -28,6 +28,7 @@ use App\Http\Controllers\admin\BookingController as AdminBookingController;
 use App\Http\Controllers\admin\ContactController as AdminContactController;
 use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\customer\TransactionController as CustomerTransactionController;
+use App\Http\Controllers\hall\HallsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,10 +89,14 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 // grouped routes for hall
 Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 
+    //Hallcategory
+    Route::resource('/hallcategory',HallCategoryController::class);
+
     Route::resource('/halltype', HallTypeController::class);
+    //Halls
+    Route::resource('/halls',HallsController::class);
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
-    Route::resource('/hall',HallCategoryController::class);
     Route::resource('/customer',CustomerController::class);
     Route::resource('/Manage-user',ManageUserController::class);
     //booking controller
