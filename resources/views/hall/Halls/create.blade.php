@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('hall.dashboard')
 
 
 
 
-@section('content')
-@section('title','Booking')
+@section('body-upper-content')
+@section('title','Hall Category')
 
 
 
@@ -18,7 +18,7 @@
 <div class="card-shadow-body">
     <form action="{{route('Halls.store',)}} " method="post" enctype="multipart/form-data">
         @csrf
-        @method('put')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
