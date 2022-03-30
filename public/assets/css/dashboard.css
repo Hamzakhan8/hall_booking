@@ -7,7 +7,7 @@ Template Name:      WeddingDir - Wedding Directory HTML Template
 ------------------------------------------------------------------
 [CSS Table of contents]
 
-1.  Body / Typography 
+1.  Body / Typography
 2.  Layout Container
 3.  Buttons
 4.  General / Elements
@@ -58,7 +58,7 @@ Template Name:      WeddingDir - Wedding Directory HTML Template
 ------------------------------------------------------------------- */
 
 /*-------------------------------------------------------------------
-1.  Body / Typography 
+1.  Body / Typography
 -------------------------------------------------------------------*/
 html {
     -webkit-font-smoothing: antialiased;
@@ -666,7 +666,7 @@ i[class*="weddingdir_"] {
     background: #c0c0c0;
     border: 3px solid #c0c0c0;
 }
-/*----------------------- 
+/*-----------------------
 Background Color / Color
 -------------------------*/
 
@@ -741,8 +741,8 @@ Background Color / Color
 .section-title h2 {
     text-transform: capitalize;
     font-weight: 700;
-    color: #005b5c; 
-    margin: 0;   
+    color: #005b5c;
+    margin: 0;
 }
 .head-simple{
     font-size: 1.25rem;
@@ -782,7 +782,7 @@ Background Color / Color
     background: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
-/*--------------------------- 
+/*---------------------------
 2.  Layout Container Start
 -----------------------------*/
 aside.sidebar-wrap{
@@ -933,7 +933,7 @@ main::after{
     .offcanvas-collapse-mobile.open {
         visibility: visible;
         -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);      
+        transform: translateX(-100%);
     }
     .offcanvas-collapse-mobile .nav-link{
         justify-content: space-between;
@@ -956,21 +956,21 @@ main::after{
       display: flex;
     }
 
-    footer{ 
+    footer{
         margin-top: auto;
     }
   }
   @media (max-width: 991px) {
     .error-img{ margin-top: 2rem; }
   }
-  
-  
-/*--------------------------- 
+
+
+/*---------------------------
 2.  Layout Container End
 -----------------------------*/
 
 
-/*--------------------------- 
+/*---------------------------
 3. Buttons
 -----------------------------*/
 .btn {
@@ -1593,7 +1593,7 @@ main::after{
     z-index: 1;
     background-color: #fff;
     box-shadow: 0px 0px 147px 0px rgba(0, 0, 0, 0.07);
-    padding: 1.5rem;      
+    padding: 1.5rem;
     height: 100%;
     margin-bottom: 15px;
 }
@@ -2075,12 +2075,12 @@ header .btn {
     border-radius: 6px;
     background-color: #FFF;
     padding: 0;
-    box-shadow: 0px 0px 147px 0px rgba(0, 0, 0, 0.07);    
+    box-shadow: 0px 0px 147px 0px rgba(0, 0, 0, 0.07);
 }
 .theme-tabbing-vertical .nav-link {
     color: #171717;
     font-size: 1rem;
-    padding: 0.9rem 1.5rem;    
+    padding: 0.9rem 1.5rem;
 }
 .theme-tabbing-vertical .nav-link:not(:last-child){
     border-bottom: 1px solid #eeeeee;
@@ -2113,7 +2113,7 @@ header .btn {
     border-bottom: 3px solid #f39108;
 }
 /*---- 6.2 Tabbing End ---*/
-  
+
 
 /*-------------------------------------------------------------------
 7. Forms Elements
@@ -2786,8 +2786,8 @@ a.ui-button:active,
 
 /*---- 7.6 Custom File Input Start ---*/
 .custom-file-holder {
-    width: 100px;
-    height: 100px;
+    /* width: 100px; */
+    /* height: 100px; */
     margin: 0 auto;
     position: relative;
     min-width: 100px;
@@ -3205,13 +3205,13 @@ a.ui-button:active,
     left: 25px;
     position: absolute;
     top: -21px;
-    
+
 }
 
 .wedding-detail-wrap .wedding-details-items .dropdown-menu.dropdown-menu-right:before,
 .wedding-detail-wrap .wedding-details-items .dropdown-menu.dropdown-menu-right:after {
     right: 27px;
-    left: auto;    
+    left: auto;
 }
 .wedding-detail-wrap .wedding-details-items .dropdown-menu.dropdown-menu.dropdown-menu-right{
     margin-left: 0;
@@ -3834,7 +3834,7 @@ a.ui-button:active,
 /*---- 8.6 Vendor Manager End ---*/
 
 /*-------------------------------------------------------------------
-8.7 User Profile 
+8.7 User Profile
 -------------------------------------------------------------------*/
 
 /*---- 8.7 User Profile End ---*/
@@ -4106,7 +4106,7 @@ a.ui-button:active,
 }
 /*---- 8.10 Vendor Pricing End ---*/
 
-    
+
 /*-------------------------------------------------------------------
 8.11 Invoice Pages
 -------------------------------------------------------------------*/
@@ -4355,7 +4355,7 @@ a.ui-button:active,
     margin: 0;
     padding: 0;
 }
-.reviews-tabbing.theme-tabbing-vertical .nav-link.active, 
+.reviews-tabbing.theme-tabbing-vertical .nav-link.active,
 .reviews-tabbing.theme-tabbing-vertical .show > .nav-link{
     color: #00aeaf;
     border-radius: 0;
@@ -4368,7 +4368,7 @@ a.ui-button:active,
 /*    8.12 Rating/Reviews End
 /*------------------------------------------*/
 
-    
+
 /*-------------------------------------------------------------------
 9. Footers
 -------------------------------------------------------------------*/
@@ -4507,7 +4507,7 @@ footer .widget-listing li {
     text-decoration: none;
     color: #009091;
   }
-  
+
   /*-------------------------------------------------------------------
    13. Modal Popups End
   -------------------------------------------------------------------*/
@@ -4521,7 +4521,7 @@ footer .widget-listing li {
 /* ------------------------------------------------------------------------ */
 
 @media (min-width: 1921px) {
-    
+
 }
 
 /* ------------------------------------------------------------------------ */
@@ -4532,7 +4532,7 @@ footer .widget-listing li {
     .couple-info{
         padding: 2rem 2rem 2rem 0;
     }
-  
+
 }
 
 /* ------------------------------------------------------------------------ */
@@ -4591,23 +4591,23 @@ footer .widget-listing li {
         font-size: 15px;
     }
 
-    
-    
+
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     html {
           font-size: 15px;
       }
-  
-    
-      
+
+
+
   }
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 1) {
     .footer-widget{
         margin-bottom: 20px;
@@ -4621,7 +4621,7 @@ footer .widget-listing li {
         width: 100%;
     }
 
-    .wedding-detail-wrap .wedding-details-items .dropdown-menu:before, 
+    .wedding-detail-wrap .wedding-details-items .dropdown-menu:before,
     .wedding-detail-wrap .wedding-details-items .dropdown-menu:after,
     .logedin-text{
         display: none;
@@ -4663,7 +4663,7 @@ footer .widget-listing li {
         display: none;
     }
     .sidebar-toggle.mobile{
-        visibility: visible;        
+        visibility: visible;
         width: 40px;
         height: 40px;
     }
@@ -4699,11 +4699,11 @@ footer .widget-listing li {
         margin-bottom: 20px;
     }
 
-    .wedding-detail-wrap .wedding-details-items .dropdown-menu:before, 
+    .wedding-detail-wrap .wedding-details-items .dropdown-menu:before,
     .wedding-detail-wrap .wedding-details-items .dropdown-menu:after{
         display: none;
     }
-    
+
 }
 
 @media (max-width: 767px) {
@@ -4758,7 +4758,7 @@ footer .widget-listing li {
     footer [class*="col-"]:not(:last-child){
         margin-bottom: 30px;
     }
-    
+
 
     .cost-details{
         min-width: 100px;
@@ -4794,7 +4794,7 @@ footer .widget-listing li {
 }
 
 @media (max-width: 575px) {
-    
+
     footer .col {
         flex: 1 1 100%;
     }
@@ -4887,13 +4887,13 @@ footer .widget-listing li {
     .select2-container {
         z-index: 9;
     }
-    
+
     .select2-container--form-light .select2-dropdown {
         left: 15px;
     }
-    
+
 }
-@media (max-width: 320px) {  
+@media (max-width: 320px) {
   .select2-container {
         z-index: 9;
         width: 100% !important;

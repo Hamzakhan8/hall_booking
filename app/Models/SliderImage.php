@@ -16,5 +16,5 @@ class SliderImage extends Model
      *
      * @var array
      */
-    protected $fillable = ['slider_imgs',];
+    protected $fillable = ['user_id','slider_imgs',];
 }

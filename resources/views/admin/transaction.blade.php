@@ -33,7 +33,17 @@
                         <td>8</td>
                         <td>2028</td>
                         <td>6789</td>
-                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
+                        <td>
+                            <a href="javascript:" class="action-links">
+                                <lord-icon
+                                src="https://cdn.lordicon.com/qsloqzpf.json"
+                                trigger="loop"
+                                colors="primary:#121331"
+                                state="hover-empty"
+                                style="width:25px;height:25px">
+                                </lord-icon>
+                            </a>
+                        </td>
                 </tbody>
             </table>
         </div>

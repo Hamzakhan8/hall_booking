@@ -29,7 +29,17 @@
                         <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
                         <td>250</td>
                         <td>$950</td>
-                        <td><a href="javascript:" class="action-links"><i class="fa fa-trash"></i></a> </td>
+                        <td>
+                            <a href="javascript:" class="action-links">
+                                <lord-icon
+                                src="https://cdn.lordicon.com/qsloqzpf.json"
+                                trigger="loop"
+                                colors="primary:#121331"
+                                state="hover-empty"
+                                style="width:25px;height:25px">
+                                </lord-icon>
+                            </a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -15,10 +15,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="imgs">
-                            <img
-                            style="cursor: pointer;"
-                            src="{{ asset('assets/images/icons/icons8-image-64.png') }}"
-                            alt="image">
+                            <lord-icon
+                                src="https://cdn.lordicon.com/qfbuijil.json"
+                                id="lord_img_icon"
+                                style="width:250px;height:250px;">
+                            </lord-icon>
                         </label>
                         <input type="file" multiple onchange="readURL(this)" required name="multi_img[]" class="form-control d-none" id="imgs">
                     </div>

@@ -12,6 +12,7 @@
 <script src="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.min.js"></script>
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.lordicon.com/lusqsztk.js"></script>
 <script>
             $(document).ready( function () {
         $('#myTable').DataTable();
@@ -90,12 +91,39 @@
                 var reader = new FileReader();
             reader.onload = function (e) {
 
-            var img_upload = $('#show_img')
-                .append("<img src='" + e.target.result + "' class='p-2 rounded' width='150' height='150' alt='images'>");
+            $('#show_img')
+            .append("<img src='" + e.target.result + "' class='p-2 rounded' width='150' height='150' alt='images'>");
             };
 
             reader.readAsDataURL(input.files[i]);
             }
         }
     }
+
+    function readAvatar(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+
+        $('#default_avatar').remove();
+
+        $('#show_avatar')
+        .append("<img src='" + e.target.result + "' class='p-2 rounded-circle' style='width:130px;height:120px;' alt='images'>");
+        };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+        $(document).ready(function () {
+            $('#lord_img_icon').mouseenter(function () {
+                $(this).attr('trigger', 'loop');
+            });
+
+            $('#lord_img_icon').mouseleave(function () {
+                $(this).removeAttr('trigger');
+            });
+        });
 </script>

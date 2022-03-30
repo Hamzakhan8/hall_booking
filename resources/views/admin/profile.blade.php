@@ -12,13 +12,9 @@
                 aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-general" role="tab"
                     aria-controls="v-pills-general" aria-selected="true">Edit Profile</a>
-                <!-- <a class="nav-link" id="v-pills-vendor-tab" data-toggle="pill" href="#v-pills-vendor" role="tab"
-                    aria-controls="v-pills-vendor" aria-selected="false">Hall Information</a> -->
                 <a class="nav-link" id="v-pills-groom-tab" data-toggle="pill" href="#v-pills-groom" role="tab"
                     aria-controls="v-pills-groom" aria-selected="false">Password Change
                 </a>
-                <!-- <a class="nav-link" id="v-pills-pricing-tab" data-toggle="pill" href="#v-pills-pricing" role="tab"
-                    aria-controls="v-pills-pricing" aria-selected="false">Social Media</a> -->
             </div>
         </div>
         <div class="col-12 col-lg-9 mt-4 mt-lg-0">
@@ -39,9 +35,11 @@
                                         <div class="form-group">
                                             <div class="custom-file-wrap">
                                                 <div class="custom-file-holder">
-                                                    <i class="fa fa-picture-o"></i>
+                                                    <div class="avatar_profile" id="show_avatar">
+                                                        <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
+                                                    </div>
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFile01">
+                                                        <input type="file" class="custom-file-input" name="avatar" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
                                                         <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-pencil"></i></label>
                                                     </div>
                                                 </div>
@@ -55,138 +53,42 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Name" placeholder="Name">
+                                            <input type="text" class="form-control form-dark" value="{{ Auth::user()->name }}" name="name" placeholder="Name">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Name" placeholder="couple@gmail.com" disabled>
+                                            <input type="email" class="form-control form-dark" name="email" value="{{ Auth::user()->email }}" placeholder="couple@gmail.com" disabled>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Contact_Number" placeholder="Contact Number">
+                                            <input type="number" class="form-control form-dark" name="contact_number" placeholder="Contact Number">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Address" placeholder="Address">
+                                            <input type="text" class="form-control form-dark" name="address" placeholder="Address">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea class="form-control form-dark" placeholder="Descriptions" rows="3"></textarea>
+                                            <textarea class="form-control form-dark" placeholder="description" rows="3"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-rounded">Update Profile</button>
+                                        <button type="button" type="submit" class="btn btn-primary btn-rounded">Update Profile</button>
                                     </div>
-
-
-
-
-
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="tab-pane fade" id="v-pills-vendor" role="tabpanel" aria-labelledby="v-pills-vendor-tab">
-                    <div class="card-shadow">
-                        <div class="card-shadow-header">
-                            <div class="head-simple">
-                                Wedding Information
-                            </div>
-                        </div>
-
-                        <div class="card-shadow-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="custom-file-wrap w-100">
-                                                <div class="custom-file-holder">
-                                                    <i class="fa fa-picture-o"></i>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile011" aria-describedby="inputGroupFile011">
-                                                        <label class="custom-file-label" for="inputGroupFile011"><i class="fa fa-pencil"></i></label>
-                                                    </div>
-                                                </div>
-                                                <div class="custom-file-text">
-                                                    <div class="head">Upload Profile Image</div>
-                                                    <div>Files must be less than <strong>4mb</strong>, allowed files types are <strong>png/jpg</strong>.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="custom-file-wrap w-100">
-                                                <div class="custom-file-holder">
-                                                    <i class="fa fa-picture-o"></i>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="inputGroupFile02" aria-describedby="inputGroupFile02">
-                                                        <label class="custom-file-label" for="inputGroupFile02"><i class="fa fa-pencil"></i></label>
-                                                    </div>
-                                                </div>
-                                                <div class="custom-file-text">
-                                                    <div class="head">Upload Profile Image</div>
-                                                    <div>Files must be less than <strong>4mb</strong>, allowed files types are <strong>png/jpg</strong>.</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control datepicker"  name="Wedding_Date" placeholder="Select Wedding Date">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  name="Wedding_Address" placeholder="Wedding Address">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  name="Bride_First_Name" placeholder="Bride First Name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  name="Bride_Last_Name" placeholder="Bride Last Name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  name="Groom_First_Name" placeholder="Groom First Name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  name="Groom_Last_Name" placeholder="Groom Last Name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-rounded">Update Wedding Information</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="tab-pane fade" id="v-pills-groom" role="tabpanel" aria-labelledby="v-pills-groom-tab">
                     <div class="card-shadow">
                         <div class="card-shadow-header">
@@ -231,46 +133,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="tab-pane fade" id="v-pills-pricing" role="tabpanel" aria-labelledby="v-pills-pricing-tab">
-                    <div class="card-shadow">
-                        <div class="card-shadow-header">
-                            <div class="head-simple">
-                                Social Media
-                            </div>
-                        </div>
-                        <div class="card-shadow-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Facebook" placeholder="Facebook">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Twitter" placeholder="Twitter">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Instagram" placeholder="Instagram">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Youtube" placeholder="Youtube">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-rounded">Update Social Profile</button>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
         <!-- Profile Tabbing End -->

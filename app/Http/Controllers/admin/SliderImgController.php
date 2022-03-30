@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\SliderImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SliderImgController extends Controller
 {
@@ -56,8 +57,10 @@ class SliderImgController extends Controller
             $filename[] = $avatar_name;
         }
 
+        $user_id = Auth::user()->id;
         // uploading array of files in json formate to database
         SliderImage::updateOrCreate([
+            'user_id' => $user_id,
             'slider_imgs' => json_encode($filename),
         ]);
 
