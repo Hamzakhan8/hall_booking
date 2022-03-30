@@ -20,7 +20,7 @@ class HallCategoryController extends Controller
     {
         $data = HallCategory::all();
 
-        return view('hall.hall.index',compact('data'));
+        return view('hall.HallCategory.index',compact('data'));
     }
 
     /**
@@ -31,7 +31,7 @@ class HallCategoryController extends Controller
     public function create()
     {
 
-        return view('hall.Hall.create',);
+        return view('hall.HallCategory.create');
 
     }
 
@@ -82,7 +82,7 @@ class HallCategoryController extends Controller
 
         $data = HallCategory::find($id);
 
-        return view('hall.hall.edit', compact('data'));
+        return view('hall.HallCategory.edit', compact('data'));
     }
 
     /**
