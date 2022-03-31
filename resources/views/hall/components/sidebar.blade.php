@@ -14,7 +14,7 @@
                 </li>
 
                     <li class="">
-                    <a href="{{route('hallcategory.index')}}"><i class="weddingdir_my_listing"></i>Hallcategory</a>
+                    <a href="{{route('hallcategory.index')}}"><i class="weddingdir_my_"></i>Hallcategory</a>
                 </li>
                 <li>
                     <a href="{{route('Halls.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>

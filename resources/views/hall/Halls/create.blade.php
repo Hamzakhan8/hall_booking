@@ -16,7 +16,7 @@
 
 
 <div class="card-shadow-body">
-    <form action="{{route('Halls.store',)}} " method="post" enctype="multipart/form-data">
+    <form action="{{route('Halls.store')}} " method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
