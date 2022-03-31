@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 
 class ReviewsController extends Controller
@@ -14,7 +15,8 @@ class ReviewsController extends Controller
      */
     public function index()
     {
-        return view('admin.reviews');
+        $reviews = Reviews::paginate(5);
+        return view('admin.reviews', compact('reviews'));
     }
 
     /**

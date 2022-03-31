@@ -49,15 +49,15 @@ class HallCategoryController extends Controller
 
         // $data = new HallCategory;
 
-        $data = HallCategory::create([
+        HallCategory::create([
             'category' => $request['category'],
         ]);
-
 
         // $data->category=$request->category;
 
         // $data->save();
-        return redirect()->route('hallcategory.index')->with('success','data has being added');
+        // return redirect()->route('hallcategory.index')->with('success','data has being added');
+        return $this->index();
         // return redirect('hall/hall')->with('success','data has being added');
 
     }
