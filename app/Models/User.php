@@ -37,18 +37,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The relation models
+     */
     public  function hall(){
 
         return  $this->hasMany(Hall::class);
     }
+<<<<<<< HEAD
     public  function hallcategory(){
 
         return  $this->hasMany(HallCategory::class);
     }
+=======
+
+>>>>>>> a87f200c402bf20f2edf2b2a149b901bc1914580
     public function profile(){
         return  $this->hasOne(Profile::class);
 
     }
+
     public function transactions(){
 
         return $this->hasMany(Transactions::class);

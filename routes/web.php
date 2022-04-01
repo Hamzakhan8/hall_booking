@@ -63,8 +63,14 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))
     ->name('admin.dashboard');
-    Route::get('profile', [ProfileController::class, 'index'])
-    ->name('admin.profile');
+
+    Route::controller(ProfileController::class)->group(function() {
+
+        Route::get('profile', 'index')->name('admin.profile');
+        Route::put('update_profile', 'update')->name('admin.profile.update');
+        Route::put('update_password', 'pass_update')->name('admin.password.update');
+    });
+
     Route::get('manage_user', [ManageCoupleController::class, 'index'])
     ->name('admin.manage.user');
     Route::get('manage_hall', [ManageHallController::class, 'index'])

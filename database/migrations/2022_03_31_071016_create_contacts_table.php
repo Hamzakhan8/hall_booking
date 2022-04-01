@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHallsTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreateHallsTable extends Migration
      */
     public function up()
     {
-        Schema::create('halls', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')
             ->cascadeOnDelete();
-            $table->foreignId('halls_category_id')->references('id')
-            ->on('halls_category')->cascadeOnDelete();
-            $table->string('title')->unique();
-            $table->string('images');
-            $table->string('description');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->bigInteger('mobile');
+            $table->string('your_message');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -34,6 +33,6 @@ class CreateHallsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('halls');
+        Schema::dropIfExists('contacts');
     }
 }

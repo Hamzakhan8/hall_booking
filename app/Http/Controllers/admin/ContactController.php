@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contacts;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,7 +15,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('admin.contact');
+        $contacts = Contacts::paginate(5);
+
+        return view('admin.contact', compact('contacts'));
     }
 
     /**

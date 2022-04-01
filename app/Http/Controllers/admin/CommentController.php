@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,7 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return view('admin.comments');
+        $comments = Comments::paginate(1);
+
+        return view('admin.comments', compact('comments'));
     }
 
     /**

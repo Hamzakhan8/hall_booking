@@ -48,25 +48,5 @@
     </div>
 </div>
 
-<div class="mt-4">
-    <div class="theme-pagination">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-                    </a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
+{{ $reviews->links() }}
 @endsection

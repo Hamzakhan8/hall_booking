@@ -50,16 +50,20 @@ class HallCategoryController extends Controller
         // $data = new HallCategory;
         $logged_id = Auth::user()->id;
 
+<<<<<<< HEAD
         $data = HallCategory::create([
             'user_id' => $logged_id,
+=======
+        HallCategory::create([
+>>>>>>> a87f200c402bf20f2edf2b2a149b901bc1914580
             'category' => $request['category'],
         ]);
-
 
         // $data->category=$request->category;
 
         // $data->save();
-        return redirect()->route('hallcategory.index')->with('success','data has being added');
+        // return redirect()->route('hallcategory.index')->with('success','data has being added');
+        return $this->index();
         // return redirect('hall/hall')->with('success','data has being added');
 
     }
