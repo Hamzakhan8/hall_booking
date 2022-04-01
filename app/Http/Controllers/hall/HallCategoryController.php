@@ -50,12 +50,8 @@ class HallCategoryController extends Controller
         // $data = new HallCategory;
         $logged_id = Auth::user()->id;
 
-<<<<<<< HEAD
-        $data = HallCategory::create([
-            'user_id' => $logged_id,
-=======
         HallCategory::create([
->>>>>>> a87f200c402bf20f2edf2b2a149b901bc1914580
+            'user_id' => $logged_id,
             'category' => $request['category'],
         ]);
 

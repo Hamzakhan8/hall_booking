@@ -40,35 +40,48 @@ class User extends Authenticatable
     /**
      * The relation models
      */
-    public  function hall(){
-
+    public  function hall()
+    {
         return  $this->hasMany(Hall::class);
     }
-<<<<<<< HEAD
-    public  function hallcategory(){
 
+    public  function hallCategory()
+    {
         return  $this->hasMany(HallCategory::class);
     }
-=======
 
->>>>>>> a87f200c402bf20f2edf2b2a149b901bc1914580
-    public function profile(){
+    public function profile()
+    {
         return  $this->hasOne(Profile::class);
-
     }
 
-    public function transactions(){
-
+    public function transactions()
+    {
         return $this->hasMany(Transactions::class);
-
     }
 
-    public function bookings(){
+    public function bookings()
+    {
         return $this->hasMany(Bookings::class);
     }
 
-    public function comments(){
-
+    public function comments()
+    {
         return $this->hasMany(Comments::class);
+    }
+
+    public function reply()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+    public function halls_meta()
+    {
+        $this->hasMany(Halls_meta::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class);
     }
 }
