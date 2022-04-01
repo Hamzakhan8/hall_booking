@@ -7,7 +7,7 @@ namespace App\Http\Controllers\hall;
 use App\Http\Controllers\Controller;
 use App\Models\HallCategory;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class HallCategoryController extends Controller
 {
@@ -48,8 +48,10 @@ class HallCategoryController extends Controller
         ]);
 
         // $data = new HallCategory;
+        $logged_id = Auth::user()->id;
 
         $data = HallCategory::create([
+            'user_id' => $logged_id,
             'category' => $request['category'],
         ]);
 

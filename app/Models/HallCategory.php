@@ -11,12 +11,18 @@ class HallCategory extends Model
 
     protected $table ='halls_category';
 
+
+
        /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'user_id',
          'category',
     ];
+    public function user(){
+        $this->belongsTo(User::class,'user_id','id');
+    }
 }

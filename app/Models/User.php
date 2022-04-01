@@ -41,6 +41,10 @@ class User extends Authenticatable
 
         return  $this->hasMany(Hall::class);
     }
+    public  function hallcategory(){
+
+        return  $this->hasMany(HallCategory::class);
+    }
     public function profile(){
         return  $this->hasOne(Profile::class);
 

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\hall;
 
 use App\Models\Hall;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\HallCategory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 
@@ -32,8 +36,9 @@ class HallsController extends Controller
     public function create()
     {
 
+        $hallcategory=HallCategory::all();
 
-        return view('hall.Halls.create' );
+        return view('hall.Halls.create' , compact('hallcategory') );
 
     }
 
@@ -46,30 +51,74 @@ class HallsController extends Controller
     public function store(Request $request)
     {
 
-        $data= new Hall;
+        // $data= new Hall;
 
-        $data->full_name=$request->full_name;
-        $data->email=$request->email;
-        $data->password=$request->password;
-        $data->mobile=$request->mobile;
-        $data->address=$request->address;
+        // $data->user()->id=$request->user_id;
+        // $data->title=$request->title;
 
 
 
-        if($request->hasfile('photo'))
-        {
+        // if($request->hasfile('images'))
+        // {
 
-            $file=$request->file('photo');
-            $filename=time(). '.' . $file->getClientOriginalExtension();
-            $file->move('upload/customer/',$filename);
-            $data->photo=$filename;
+        //     $file=$request->file('images');
+        //     $filename=time(). '.' . $file->getClientOriginalExtension();
+        //     $file->move(public_path('storage/hall_img'),$filename);
+        //     $data->images=$filename;
+
+        // }
+
+
+        // $data->save();
+
+
+        // return redirect('hall/halls')->with('success','data has being added');
+
+        $request->validate([
+
+            'images'=> 'required',
+            'title'=>'required',
+            'description'=>'required',
+        ]);
+
+        $files = $request->file('images');
+
+        foreach ($files as $file) {
+
+            $filename= $file->hashName();
+
+            $file->move(public_path('storage/hall_img'),$filename);
+
+            $multi_imgs[] = $filename;
 
         }
 
 
-        $data->save();
+        $loggedid=Auth::user()->id;
 
-        return redirect('admin/customer')->with('success','data has being added');
+
+        $hallcategory= HallCategory::all();
+
+        foreach ($hallcategory as $hallcat) {
+
+            $hallcategory_id = $hallcat->id;
+        }
+
+
+
+
+
+        Hall::create([
+            'user_id'=>$loggedid,
+            'halls_category_id'=>$hallcategory_id,
+            'images'=> json_encode($multi_imgs),
+            'title'=>$request['title'],
+            'description'=>$request['description']
+        ]);
+
+
+        return $this->index();
+
 
     }
 

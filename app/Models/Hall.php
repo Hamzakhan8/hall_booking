@@ -21,7 +21,7 @@ class Hall extends Model
         'images',
         'description'
     ];
-    function hallCategory(){
+    function hallcategory(){
 
 
         return $this->belongsTo(HallCategory::class,'halls_category_id','id');
