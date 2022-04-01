@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Hall;
 use App\Models\Reviews;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,7 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'reviews' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
         ];
     }
 }

@@ -23,13 +23,12 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'avatar' => $this->faker->image(),
-            'contact' => $this->faker->randomElements(['03323847766',
+            'avatar' => $this->faker->image($dir = public_path('storage/profile_img'),
+            $width = 640, $height = 480),
+            'contact' => $this->faker->randomElement(['03323847766',
             '02213456782', '00023438877']),
-            'address' => $this->faker->address,
-            'description' => $this->faker->randomElement([
-                'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.'
-            ])
+            'address' => $this->faker->text($maxNbChars = 100),
+            'description' => $this->faker->text($maxNbChars = 100)
         ];
     }
 }

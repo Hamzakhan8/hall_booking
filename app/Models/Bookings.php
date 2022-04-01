@@ -20,7 +20,7 @@ class Bookings extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'hall_id', 'booking_date', 'checkin_date', 'checkout_date',
+        'user_id', 'halls_id', 'booking_date', 'checkin_date', 'checkout_date',
     ];
 
     /**
@@ -34,7 +34,7 @@ class Bookings extends Model
 
     public function hall()
     {
-        $this->belongsTo(Hall::class, 'hall_id', 'id');
+        $this->belongsTo(Hall::class, 'halls_id', 'id');
 
     }
 }

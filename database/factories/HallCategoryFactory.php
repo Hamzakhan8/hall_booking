@@ -22,7 +22,7 @@ class HallCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'category' => $this->faker->randomElement(['Wedding', 'Concert', 'Birthday']),
         ];
     }
 }

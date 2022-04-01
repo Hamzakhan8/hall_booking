@@ -70,6 +70,11 @@ class User extends Authenticatable
         return $this->hasMany(Comments::class);
     }
 
+    public function contact()
+    {
+        return $this->hasMany(Contacts::class);
+    }
+
     public function reply()
     {
         return $this->hasMany(Reply::class);

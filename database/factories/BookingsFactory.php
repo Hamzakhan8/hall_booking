@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Bookings;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BookingFactory extends Factory
+class BookingsFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -22,7 +22,9 @@ class BookingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'booking_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),
+            'checkin_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),
+            'checkout_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),
         ];
     }
 }

@@ -22,7 +22,7 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'reply' => $this->faker->text,
         ];
     }
 }

@@ -22,7 +22,10 @@ class HallFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->text,
+            'images' => $this->faker->image($dir = public_path('upload/customer'),
+            $width = 640, $height = 480),
+            'description' => $this->faker->text($maxNbChars = 100),
         ];
     }
 }
