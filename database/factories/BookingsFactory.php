@@ -22,6 +22,7 @@ class BookingsFactory extends Factory
     public function definition()
     {
         return [
+            'halls_id' => $this->faker->randomDigit,
             'booking_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),
             'checkin_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),
             'checkout_date' => $this->faker->date($formate = 'Y-m-d' , $max = 'now'),

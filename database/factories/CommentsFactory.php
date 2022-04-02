@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Comments;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CommentFactory extends Factory
+class CommentsFactory extends Factory
 {
         /**
      * The name of the factory's corresponding model.
@@ -22,6 +22,7 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
+            'hall' => $this->faker->randomDigit,
             'comment' => $this->faker->text,
         ];
     }

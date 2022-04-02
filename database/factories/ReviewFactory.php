@@ -23,6 +23,7 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
+            'hall_id' => $this->faker->randomDigit,
             'reviews' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
         ];
     }

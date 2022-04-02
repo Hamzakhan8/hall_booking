@@ -25,7 +25,7 @@ class HallCategory extends Model
     ];
 
     public function user(){
-        $this->belongsTo(User::class,'user_id','id');
+        $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function hall()

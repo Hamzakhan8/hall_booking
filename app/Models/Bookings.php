@@ -34,7 +34,7 @@ class Bookings extends Model
 
     public function hall()
     {
-        $this->belongsTo(Hall::class, 'halls_id', 'id');
+        $this->belongsToMany(Hall::class, 'halls_id', 'id');
 
     }
 }

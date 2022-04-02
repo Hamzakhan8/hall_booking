@@ -22,6 +22,7 @@ class HallFactory extends Factory
     public function definition()
     {
         return [
+            'halls_category_id' => $this->faker->randomDigit,
             'title' => $this->faker->text,
             'images' => $this->faker->image($dir = public_path('upload/customer'),
             $width = 640, $height = 480),

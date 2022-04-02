@@ -22,6 +22,7 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
+            'comment_id' => $this->faker->randomDigit,
             'reply' => $this->faker->text,
         ];
     }
