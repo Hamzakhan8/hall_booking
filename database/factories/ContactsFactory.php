@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Models\Contacts;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ContactFactory extends Factory
+class ContactsFactory extends Factory
 {
         /**
      * The name of the factory's corresponding model.
@@ -25,7 +25,7 @@ class ContactFactory extends Factory
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'email' => $this->faker->email,
-            'mobile' => $this->faker->phoneNumber,
+            'mobile' => $this->faker->e164PhoneNumber,
             'your_message' => $this->faker->text,
         ];
     }

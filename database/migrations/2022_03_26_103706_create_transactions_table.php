@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('user_name');
-            $table->bigInteger('transaction_id')->unique();
+            $table->string('transaction_id')->unique();
             $table->bigInteger('amount');
             $table->date('date');
             $table->tinyInteger('card_cvc')->unique();

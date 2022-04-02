@@ -25,8 +25,7 @@ class ProfileFactory extends Factory
         return [
             'avatar' => $this->faker->image($dir = public_path('storage/profile_img'),
             $width = 640, $height = 480),
-            'contact' => $this->faker->randomElement(['03323847766',
-            '02213456782', '00023438877']),
+            'contact' => $this->faker->e164PhoneNumber,
             'address' => $this->faker->text($maxNbChars = 100),
             'description' => $this->faker->text($maxNbChars = 100)
         ];
