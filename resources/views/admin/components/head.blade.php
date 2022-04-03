@@ -15,6 +15,7 @@
 <link href="{{asset('assets')}}/library/animate/animate.min.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/magnific-popup/magnific-popup.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
+<link href="{{asset('assets')}}/library/fontawesome/font-awesome.min.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/datepicker/css/datepicker.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/owlcarousel/css/owl.carousel.min.css" rel="stylesheet">
 <link href="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.css" rel="stylesheet">

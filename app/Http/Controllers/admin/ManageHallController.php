@@ -15,7 +15,7 @@ class ManageHallController extends Controller
      */
     public function index()
     {
-        $halls = User::where(['role' => 'hall'])->paginate(5);
+        $halls = User::where(['role' => 'hall'])->paginate(1);
 
         return view('admin.manageHall', compact('halls'));
     }

@@ -13,23 +13,24 @@
             <table class="table table-hover mb-0">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Wedding Date</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">No .of Guest</th>
-                        <th scope="col">Budget</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Your Message</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($contacts as $contact)
                     <tr>
-                        <th scope="row">Hitesh Mahavar</th>
-                        <td>11/12/2020</td>
-                        <td><a href="mailto:hiteshmahavar22@gmail.com" class="btn btn-link btn-link-primary text-lowercase p-0">hiteshmahavar22@gmail.com</a></td>
-                        <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
-                        <td>250</td>
-                        <td>$950</td>
+                        <th scope="row">{{ $contact['username'] }}</th>
+                        <td>{{ $contact['first_name'] }}</td>
+                        <td>{{ $contact['last_name'] }}</td>
+                        <td>{{ $contact['email'] }}</td>
+                        <td>{{ $contact['mobile'] }}</td>
+                        <td>{{ $contact['your_message'] }}</td>
                         <td>
                             <a href="javascript:" class="action-links">
                                 <lord-icon
@@ -42,6 +43,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

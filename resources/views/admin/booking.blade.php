@@ -13,7 +13,8 @@
             <table class="table table-hover mb-0">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Hall Name</th>
                         <th scope="col">Booking Date</th>
                         <th scope="col">checkin_date</th>
                         <th scope="col">checkout_date</th>
@@ -21,11 +22,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($bookings as $booking)
                     <tr>
-                        <th scope="row">Hitesh Mahavar</th>
-                        <td>11/12/2020</td>
-                        <td>11/12/2020</td>
-                        <td>11/12/2020</td>
+                        <th scope="row">{{ $booking['username'] }}</th>
+                        <td>{{ $booking['hall_name'] }}</td>
+                        <td>{{ $booking['booking_date'] }}</td>
+                        <td>{{ $booking['checkin_date'] }}</td>
+                        <td>{{ $booking['checkout_date'] }}</td>
                         <td>
                             <a href="javascript:" class="action-links">
                                 <lord-icon
@@ -38,6 +41,7 @@
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

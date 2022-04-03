@@ -20,9 +20,9 @@ class CreateTransactionsTable extends Migration
             $table->string('transaction_id')->unique();
             $table->bigInteger('amount');
             $table->date('date');
-            $table->tinyInteger('card_cvc')->unique();
+            $table->smallInteger('card_cvc')->unique();
             $table->tinyInteger('exp_month');
-            $table->tinyInteger('exp_year');
+            $table->smallInteger('exp_year');
             $table->smallInteger('card_last_4');
             $table->timestamps();
         });

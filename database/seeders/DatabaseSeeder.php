@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
          * Creates the relationship seeders data into
          * the database
          */
-        User::factory(4)->create()->each(function ($user)
+        User::factory(3)->create()->each(function ($user)
         {
             $user->profile()->save(Profile::factory()->make());
             $user->hallCategory()->save(HallCategory::factory()->make());

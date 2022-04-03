@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
 class ProfileController extends Controller
 {
     /**
@@ -120,13 +119,20 @@ class ProfileController extends Controller
 
         $logged_password = Auth::user()->password;
 
+        $logged_id =  Auth::user()->id;
+
+
         if(!Hash::check($request['old_password'], $logged_password))
             return redirect()->route('admin.profile')
             ->with('error_password', 'Old password does not match!');
 
-        // elseif(($request['new_password'])->exists())
+        User::where('id', $logged_id)->update([
+            'password' => Hash::make($request['new_password']),
+        ]);
 
+        Auth::logout();
 
+        return response()->view('front_view.index');
     }
 
     /**

@@ -13,7 +13,7 @@
             <table class="table table-hover mb-0">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">User Name</th>
                         <th scope="col">Transaction Id</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Date</th>
@@ -25,14 +25,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <th scope="row">Hitesh Mahavar</th>
-                        <td>sdjf34734nasdf894r3dsf</td>
-                        <td>10000</td>
-                        <td>12/22/2023</td>
-                        <td>123</td>
-                        <td>8</td>
-                        <td>2028</td>
-                        <td>6789</td>
+                    @foreach ($transactions as $transaction)
+                    <tr>
+                        <th scope="row">{{ $transaction['user_name'] }}</th>
+                        <td>{{ $transaction['transaction_id'] }}</td>
+                        <td>{{ $transaction['amount'] }}</td>
+                        <td>{{ $transaction['date'] }}</td>
+                        <td>{{ $transaction['card_cvc'] }}</td>
+                        <td>{{ $transaction['exp_month'] }}</td>
+                        <td>{{ $transaction['exp_year'] }}</td>
+                        <td>{{ $transaction['card_last_4'] }}</td>
                         <td>
                             <a href="javascript:" class="action-links">
                                 <lord-icon
@@ -44,6 +46,8 @@
                                 </lord-icon>
                             </a>
                         </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
