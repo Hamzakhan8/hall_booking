@@ -82,6 +82,9 @@ class ManageCoupleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+
+        return redirect()->route('admin.manage.user')
+        ->with('couple_deleted', 'The user has been deleted!');
     }
 }

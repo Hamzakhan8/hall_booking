@@ -58,7 +58,7 @@
                                 © 2022 All rights reserved.
                             </div>
                             <div class="col-md-auto col-12 copyrights-link ml-md-auto">
-                                <a href="javascript:">Home</a> | <a href="javascript:">About</a> | <a href="javascript:">Contact Us</a> | <a href="javascript:">Terms & Conditions</a> |   <a href="javascript:">Privacy Policy</a>
+                                <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a>
                             </div>
                         </div>
                     </div>

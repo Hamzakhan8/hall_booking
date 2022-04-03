@@ -1743,7 +1743,6 @@ header .btn {
   height: 50px;
 }
 .navbar {
-  padding: 0 0.5rem;
   background: #f8f8ff;
 
   -webkit-transition: all 0.15s linear;
@@ -1761,11 +1760,6 @@ header .btn {
   border-radius: 3px;
   font-weight: 700;
   transition: all 0.3s;
-}
-.navbar-nav .active .nav-link,
-.navbar-nav .active .nav-link:hover,
-.navbar-nav .nav-link:hover {
-  background: rgba(255, 255, 255, 0.302);
 }
 .navbar-nav .nav-link {
   color: #121212;
@@ -1936,7 +1930,6 @@ header .btn {
 /*---- 6.1 Main Home Slider Slider ---*/
 .slider-wrap {
   position: relative;
-  margin-top: 129px;
   min-height: 500px;
   background: #f8f8f8;
 }

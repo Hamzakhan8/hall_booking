@@ -15,15 +15,13 @@ use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ReviewsController;
 use App\Http\Controllers\Auth\RegisterController;
-
-use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\hall\HallTypeController;
 use App\Http\Controllers\admin\SliderImgController;
 use App\Http\Controllers\hall\ManageUserController;
 use App\Http\Controllers\admin\ManageHallController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\ManageCoupleController;
-use App\Http\Controllers\customer\BookedhallController;
+use App\Http\Controllers\customer\BookedHallController;
 use App\Http\Controllers\admin\BookingController as AdminBookingController;
 use App\Http\Controllers\admin\ContactController as AdminContactController;
 use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
@@ -73,8 +71,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('manage_user', [ManageCoupleController::class, 'index'])
     ->name('admin.manage.user');
+    Route::get('delete_user/{id}', [ManageCoupleController::class, 'destroy'])
+    ->name('admin.delete.user');
     Route::get('manage_hall', [ManageHallController::class, 'index'])
     ->name('admin.manage.hall');
+    Route::get('delete_hall/{id}', [ManageHallController::class, 'destroy'])
+    ->name('admin.delete.hall');
     Route::get('transaction', [TransactionController::class, 'index'])
     ->name('admin.transaction');
     Route::get('reviews', [ReviewsController::class, 'index'])
@@ -105,7 +107,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
 
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
-    Route::resource('/customer',CustomerController::class);
+    // Route::resource('/customer',CustomerController::class);
     Route::resource('/Manage-user',ManageUserController::class);
     //booking controller
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
@@ -125,13 +127,9 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
     ->name('couple.dashboard');
     Route::get('profile', [CustomerProfileController::class, 'index'])->name('couple.profile');
-    Route::get('bookedhall',[BookedhallController::class,'index'])->name('couple.bookedhall');
+    Route::get('booked_hall',[BookedHallController::class,'index'])->name('couple.bookedhall');
     Route::get('transaction',[CustomerTransactionController::class,'index'])->name('couple.transaction');
 });
-
-
-
-
 
 // grouped routes for front site
 Route::prefix('front')->group(function (){

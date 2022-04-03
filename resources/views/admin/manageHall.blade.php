@@ -5,6 +5,11 @@
 @endsection
 
 @section('body-upper-content')
+@if (Session::has('hall_deleted'))
+<div class="alert alert-success" role="alert">
+    <strong>{{ Session::get('hall_deleted') }}</strong>
+</div>
+@endif
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
@@ -30,7 +35,7 @@
                         <td>250</td>
                         <td>$950</td>
                         <td>
-                            <a href="javascript:" class="action-links">
+                            <a href="{{ route('admin.delete.hall', $hall['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"
