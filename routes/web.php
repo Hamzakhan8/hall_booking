@@ -101,7 +101,7 @@ Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
     Route::resource('/hallcategory',HallCategoryController::class);
 
     Route::resource('/halltype', HallTypeController::class);
-    //Halls
+    //Hall
     Route::resource('/Halls',HallsController::class);
 
 
