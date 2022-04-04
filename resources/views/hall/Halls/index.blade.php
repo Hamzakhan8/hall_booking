@@ -49,7 +49,10 @@
                         <td>{{$hall->title}}</td>
 
                         <td>
-                            {{--Fetch images here --}}
+                         @foreach(json_decode($hall->images) as $image)
+
+                            <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
+                         @endforeach
                         </td>
 
                         <td class="rounded-sm">
