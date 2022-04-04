@@ -1,6 +1,9 @@
     <aside class="offcanvas-collapse">
         <div class="avatar-wrap">
-            <img src="{{ asset('assets') }}/images/dashboard/avatar_img.jpg" alt="">
+            <img src="{{ asset('storage/profile_img/'.Auth::user()->profile->avatar) }}"
+            width="130"
+            height="130"
+            alt="profile_image">
             <h3>{{ Auth::user()->username }}</h3>
         </div>
         <div class="sidebar-nav">

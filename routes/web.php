@@ -24,6 +24,7 @@ use App\Http\Controllers\admin\ManageCoupleController;
 use App\Http\Controllers\customer\BookedHallController;
 use App\Http\Controllers\admin\BookingController as AdminBookingController;
 use App\Http\Controllers\admin\ContactController as AdminContactController;
+use App\Http\Controllers\admin\ContactsReplyController;
 use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
 use App\Http\Controllers\customer\TransactionController as CustomerTransactionController;
 use App\Http\Controllers\hall\HallsController;
@@ -54,7 +55,6 @@ Route::prefix('auth')->group(function (){
     ->name('auth.register');
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
-
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
@@ -102,6 +102,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
         Route::get('contact', 'index')->name('admin.contact');
         Route::get('contact_delete/{id}', 'destroy')->name('admin.contact.delete');
     });
+
+    Route::post('contacts_reply', [ContactsReplyController::class, 'store'])
+    ->name('admin.contact.reply.submit');
 
     Route::controller(SliderImgController::class)->group(function() {
         Route::get('slider_img', 'index')->name('admin.slider.img');

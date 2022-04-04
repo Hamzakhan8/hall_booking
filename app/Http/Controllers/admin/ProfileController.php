@@ -94,6 +94,8 @@ class ProfileController extends Controller
 
         Profile::updateOrCreate([
             'user_id' => $logged_id,
+        ],
+        [
             'avatar' => $avatar_name,
             'contact' => $request['contact_number'],
             'address' => $request['address'],

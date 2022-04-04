@@ -75,6 +75,11 @@ class User extends Authenticatable
         return $this->hasMany(Contacts::class);
     }
 
+    public function contact_reply()
+    {
+        return $this->hasMany(ContactsReply::class);
+    }
+
     public function reply()
     {
         return $this->hasMany(Reply::class);

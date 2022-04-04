@@ -79,7 +79,7 @@
                     © 2022 All rights reserved.
                 </div>
                 <div class="col-md-auto col-12 copyrights-link ml-md-auto">
-                    <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a> | <a href="{{ route('front.home') }}">Terms & Conditions</a> |   <a href="{{ route('front.home') }}">Privacy Policy</a>
+                    <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a>
                 </div>
             </div>
         </div>

@@ -126,4 +126,17 @@
                 $(this).removeAttr('trigger');
             });
         });
+
+        // contact reply update on bootstrap modal
+        $(document).ready(function () {
+            $('.myModalBtn').click(function () {
+                var id = $(this).attr('data-id');
+
+                var modal = $('#myModal').attr('data-id', id);
+
+                modal.modal('show');
+
+                $('#contact_id').attr('value', id);
+            });
+        });
 </script>
