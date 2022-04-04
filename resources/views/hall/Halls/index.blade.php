@@ -29,7 +29,9 @@
                         <th scope="col">ID</th>
 
                         <th scope="col">title</th>
+                        <th scope="col">images</th>
                         <th scope="col">delete</th>
+
                         <th scope="col">edit</th>
 
 
@@ -38,10 +40,34 @@
                 </thead>
                 <tbody>
 
-                    @foreach ($data as $Halls)
+                    @foreach ($data as $hall)
+
+
+                    <tr>
+                        <td>{{$hall->id}}</td>
+
+                        <td>{{$hall->title}}</td>
+
+                        <td>
+                            {{--Fetch images here --}}
+                        </td>
+
+                        <td class="rounded-sm">
+
+                            <form method="post" action="{{ route('hallcategory.destroy', $hall->id) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+
+                            </form>
+
+                        </td>
+                        <td> <a href="{{route('hallcategory.edit',$hall->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
 
 
 
+                    </tr>
                     @endforeach
 
                 </tbody>
