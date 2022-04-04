@@ -51,13 +51,14 @@
                         <td>
                          @foreach(json_decode($hall->images) as $image)
 
+
                             <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
                          @endforeach
                         </td>
 
                         <td class="rounded-sm">
 
-                            <form method="post" action="{{ route('hallcategory.destroy', $hall->id) }}">
+                            <form method="post" action="{{ route('Halls.destroy', $hall->id) }}">
                                 @csrf
                                 @method('DELETE')
 
@@ -66,7 +67,7 @@
                             </form>
 
                         </td>
-                        <td> <a href="{{route('hallcategory.edit',$hall->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
+                        <td> <a href="{{route('Halls.edit',$hall->id)}}" class="action-links btn btn-primary btn-sm" >Edit</a></td>
 
 
 
