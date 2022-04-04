@@ -83,6 +83,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comments::where('id', $id)->delete();
+
+        return redirect()->route('admin.comment')
+        ->with('comment_deleted', "The user's comment has been deleted!");
     }
 }

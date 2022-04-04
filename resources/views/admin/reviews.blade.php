@@ -26,7 +26,7 @@
                         <td>{{ $review['hall_name'] }}</td>
                         <td>{{ $review['reviews'] }}</td>
                         <td>
-                            <a href="javascript:" class="action-links">
+                            <a href="{{ route('admin.reviews.delete', $review['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"

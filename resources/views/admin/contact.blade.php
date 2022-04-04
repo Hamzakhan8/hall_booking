@@ -32,7 +32,7 @@
                         <td>{{ $contact['mobile'] }}</td>
                         <td>{{ $contact['your_message'] }}</td>
                         <td>
-                            <a href="javascript:" class="action-links">
+                            <a href="{{ route('admin.contact.delete', $contact['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"

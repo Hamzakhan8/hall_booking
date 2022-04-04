@@ -30,7 +30,7 @@
                         <td>{{ $booking['checkin_date'] }}</td>
                         <td>{{ $booking['checkout_date'] }}</td>
                         <td>
-                            <a href="javascript:" class="action-links">
+                            <a href="{{ route('admin.booking.delete', $booking['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"

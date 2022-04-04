@@ -30,8 +30,8 @@
                     <tr>
                         <td scope="row">{{ $couple['name'] }}</td>
                         <td>11/12/2020</td>
-                        <td><a href="mailto:hiteshmahavar22@gmail.com" class="btn btn-link btn-link-primary text-lowercase p-0">{{ $couple['email'] }}</a></td>
-                        <td><a href="tel:+91-9596880088" class="btn btn-link btn-link-primary text-lowercase p-0">+91 9596880088</a></td>
+                        <td>{{ $couple['email'] }}</td>
+                        <td>{{ $couple->profile->contact }}</td>
                         <td>250</td>
                         <td>$950</td>
                         <td>

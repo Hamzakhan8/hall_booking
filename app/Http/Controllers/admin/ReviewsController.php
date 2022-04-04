@@ -82,6 +82,9 @@ class ReviewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reviews::where('id', $id)->delete();
+
+        return redirect()->route('admin.reviews')
+        ->with('reviews_deleted', "The user's reviews has been deleted!");
     }
 }

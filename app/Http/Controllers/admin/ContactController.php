@@ -83,6 +83,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contacts::where('id', $id)->delete();
+
+        return redirect()->route('admin.contact')
+        ->with('contact_deleted', "The user's contact message has been deleted!");
     }
 }

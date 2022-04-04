@@ -83,6 +83,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Transactions::where('id', $id)->delete();
+
+        return redirect()->route('admin.transaction')
+        ->with('transaction_deleted', "The user's transaction has been deleted!");
     }
 }

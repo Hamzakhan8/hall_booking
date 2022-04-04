@@ -36,7 +36,7 @@
                         <td>{{ $transaction['exp_year'] }}</td>
                         <td>{{ $transaction['card_last_4'] }}</td>
                         <td>
-                            <a href="javascript:" class="action-links">
+                            <a href="{{ route('admin.transaction.delete', $transaction['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"

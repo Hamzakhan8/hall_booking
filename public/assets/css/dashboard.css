@@ -446,12 +446,6 @@ i[class*="weddingdir_"] {
     display: inline-flex;
     align-items: center;
 }
-.action-links i{
-    color: #ee8c00;
-    padding-left: 0.4rem;
-    font-size: 1.25rem;
-    transition: all 400ms ease-in-out 0s;
-}
 .action-links:hover, .action-links:hover i {
     color: #00abac;
 }

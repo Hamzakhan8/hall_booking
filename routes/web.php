@@ -63,34 +63,50 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     ->name('admin.dashboard');
 
     Route::controller(ProfileController::class)->group(function() {
-
         Route::get('profile', 'index')->name('admin.profile');
         Route::put('update_profile', 'update')->name('admin.profile.update');
         Route::put('update_password', 'pass_update')->name('admin.password.update');
     });
 
-    Route::get('manage_user', [ManageCoupleController::class, 'index'])
-    ->name('admin.manage.user');
-    Route::get('delete_user/{id}', [ManageCoupleController::class, 'destroy'])
-    ->name('admin.delete.user');
-    Route::get('manage_hall', [ManageHallController::class, 'index'])
-    ->name('admin.manage.hall');
-    Route::get('delete_hall/{id}', [ManageHallController::class, 'destroy'])
-    ->name('admin.delete.hall');
-    Route::get('transaction', [TransactionController::class, 'index'])
-    ->name('admin.transaction');
-    Route::get('reviews', [ReviewsController::class, 'index'])
-    ->name('admin.reviews');
-    Route::get('comment', [CommentController::class, 'index'])
-    ->name('admin.comment');
-    Route::get('booking', [AdminBookingController::class, 'index'])
-    ->name('admin.booking');
-    Route::get('contact', [AdminContactController::class, 'index'])
-    ->name('admin.contact');
-    Route::get('slider_img', [SliderImgController::class, 'index'])
-    ->name('admin.slider.img');
-    Route::post('store_slider_img', [SliderImgController::class, 'store'])
-    ->name('admin.slider.store');
+    Route::controller(ManageCoupleController::class)->group(function() {
+        Route::get('manage_user', 'index')->name('admin.manage.user');
+        Route::get('delete_user/{id}', 'destroy')->name('admin.delete.user');
+    });
+
+    Route::controller(ManageHallController::class)->group(function() {
+        Route::get('manage_hall', 'index')->name('admin.manage.hall');
+        Route::get('delete_hall/{id}', 'destroy')->name('admin.delete.hall');
+    });
+
+    Route::controller(TransactionController::class)->group(function() {
+        Route::get('transaction', 'index')->name('admin.transaction');
+        Route::get('transaction_delete/{id}', 'destroy')->name('admin.transaction.delete');
+    });
+
+    Route::controller(ReviewsController::class)->group(function() {
+        Route::get('reviews', 'index')->name('admin.reviews');
+        Route::get('reviews_delete/{id}', 'destroy')->name('admin.reviews.delete');
+    });
+
+    Route::controller(CommentController::class)->group(function() {
+        Route::get('comment', 'index')->name('admin.comment');
+        Route::get('comment_delete/{id}', 'destroy')->name('admin.comment.delete');
+    });
+
+    Route::controller(AdminBookingController::class)->group(function() {
+        Route::get('booking', 'index')->name('admin.booking');
+        Route::get('booking_delete/{id}', 'destroy')->name('admin.booking.delete');
+    });
+
+    Route::controller(AdminContactController::class)->group(function() {
+        Route::get('contact', 'index')->name('admin.contact');
+        Route::get('contact_delete/{id}', 'destroy')->name('admin.contact.delete');
+    });
+
+    Route::controller(SliderImgController::class)->group(function() {
+        Route::get('slider_img', 'index')->name('admin.slider.img');
+        Route::post('store_slider_img', 'store')->name('admin.slider.store');
+    });
 });
 
 

@@ -83,6 +83,9 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Bookings::where('id', $id)->delete();
+
+        return redirect()->route('admin.booking')
+        ->with('booking_deleted', "The user's Booking has been deleted!");
     }
 }
