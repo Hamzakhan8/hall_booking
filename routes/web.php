@@ -111,7 +111,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
 
 // grouped routes for hall
-Route::prefix('hall')->middleware(['auth', 'hall'])->group(function () {
+Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 
     //Hallcategory
     Route::resource('/hallcategory',HallCategoryController::class);
