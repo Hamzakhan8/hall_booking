@@ -72,13 +72,15 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'avatar' => ['required'],
+        $c= $request->validate([
+            'avatar' => ['file', 'sometimes'],
             'name' => ['required'],
             'contact_number' => ['required', 'integer'],
             'address' => ['required'],
             'description' => ['required']
         ]);
+        dd($c);
+        exit();
 
         $logged_id =  Auth::user()->id;
 

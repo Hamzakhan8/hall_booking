@@ -7,6 +7,11 @@
 @endsection
 
 @section('body-upper-content')
+@if (Session::has('replied_contact'))
+<div class="alert alert-success" role="alert">
+    <strong>{{ Session::get('replied_contact') }}</strong>
+</div>
+@endif
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
@@ -58,7 +63,7 @@
                                             @csrf
                                             <div class="form-group">
                                               <label for="exampleInputEmail1">Message Reply</label>
-                                              <input type="hidden" id="contact_id" name="id">
+                                              <input type="hidden" id="contact_id" name="contactId">
                                               <input type="text" id="contactReply" name="reply" class="form-control" placeholder="Enter reply here">
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary">Submit</button>

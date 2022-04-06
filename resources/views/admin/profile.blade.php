@@ -45,7 +45,7 @@
                                                             <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
                                                         </div>
                                                         <div class="custom-file">
-                                                            <input type="file" required class="custom-file-input" name="avatar" value="{{ Auth::user()->profile->avatar }}" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
+                                                            <input type="file" class="custom-file-input" name="avatar" value="{{ Auth::user()->profile->avatar }}" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
                                                             <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-pencil"></i></label>
                                                         </div>
                                                     </div>
@@ -59,31 +59,31 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <input type="text" required class="form-control form-dark" value="{{ Auth::user()->name }}" name="name" placeholder="Name">
+                                                <input type="text" class="form-control form-dark" value="{{ Auth::user()->name }}" name="name" placeholder="Name">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <input type="email" required class="form-control form-dark" value="{{ Auth::user()->email }}" placeholder="couple@gmail.com" disabled>
+                                                <input type="email" class="form-control form-dark" value="{{ Auth::user()->email }}" placeholder="couple@gmail.com" disabled>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <input type="number" required class="form-control form-dark" value="{{ Auth::user()->profile->contact }}" name="contact_number" placeholder="Contact Number">
+                                                <input type="number" class="form-control form-dark" value="{{ Auth::user()->profile->contact }}" name="contact_number" placeholder="Contact Number">
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="text" required class="form-control form-dark" value="{{ Auth::user()->profile->address }}" name="address" placeholder="Address">
+                                                <input type="text" class="form-control form-dark" value="{{ Auth::user()->profile->address }}" name="address" placeholder="Address">
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input class="form-control form-dark" value="{{ Auth::user()->profile->description }}" required name="description" placeholder="Write description"
+                                                <input class="form-control form-dark" value="{{ Auth::user()->profile->description }}" name="description" placeholder="Write description"
                                                 >
                                             </div>
                                         </div>

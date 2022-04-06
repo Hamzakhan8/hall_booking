@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactsReply;
 use Illuminate\Http\Request;
 
 class ContactsReplyController extends Controller
@@ -35,7 +36,21 @@ class ContactsReplyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'contactId' => ['required', 'integer'],
+            'reply' => ['required', 'string']
+        ]);
+
+        $logged_id = $request->user();
+
+        ContactsReply::Create([
+            'user_id' => $logged_id->id,
+            'contacts_id' => $request['contactId'],
+            'reply' => $request['reply'],
+        ]);
+
+        return redirect()->route('admin.contact')
+        ->with('replied_contact', 'Reply has been sent to the user!');
     }
 
     /**
