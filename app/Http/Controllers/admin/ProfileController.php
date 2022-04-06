@@ -72,15 +72,13 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $c= $request->validate([
-            'avatar' => ['file', 'sometimes'],
+        $request->validate([
+            'avatar' => ['required', 'file', 'sometimes'],
             'name' => ['required'],
-            'contact_number' => ['required', 'integer'],
+            'contact_number' => ['required'],
             'address' => ['required'],
             'description' => ['required']
         ]);
-        dd($c);
-        exit();
 
         $logged_id =  Auth::user()->id;
 
@@ -88,11 +86,18 @@ class ProfileController extends Controller
             'name' => $request['name'],
         ]);
 
-        $file = $request->file('avatar');
+        if (empty($request->hasFile('avatar')) && $request['avatar'] == null) {
+            $avatar_name = $request->user()->profile->avatar;
+        }
+        else
+        {
+            $file = $request->file('avatar');
 
-        $avatar_name = $file->hashName();
+            $avatar_name = $file->hashName();
 
-        $file->move(public_path('storage/profile_img'), $avatar_name);
+            $file->move(public_path('storage/profile_img'), $avatar_name);
+        }
+
 
         Profile::updateOrCreate([
             'user_id' => $logged_id,
