@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bookings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -14,8 +16,12 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('couple.booking');
+        $logged_id = Auth::user()->id;
+
+        $bookings = Bookings::where('user_id', $logged_id)->paginate(5);
+        return view('couple.booking', compact('bookings'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -79,6 +85,9 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Bookings::where('id', $id)->delete();
+
+        return redirect()->route('couple.booked.hall')
+        ->with('booking_deleted', "Your Hall Booking has been deleted!");
     }
 }

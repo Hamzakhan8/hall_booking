@@ -19,7 +19,7 @@ class CreateHallsTable extends Migration
             ->cascadeOnDelete();
             $table->foreignId('halls_category_id')->references('id')
             ->on('halls_category')->cascadeOnDelete();
-            $table->string('title')->unique();
+            $table->string('title');
             $table->string('images');
             $table->string('description');
             $table->timestamps();

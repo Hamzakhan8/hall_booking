@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transactions;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class TransactionController extends Controller
+class ReReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $logged_id = Auth::user()->id;
-
-        $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
-        return  view('couple.transaction', compact('transactions'));
+        //
     }
 
     /**
@@ -40,7 +35,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -85,6 +80,6 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }

@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reply extends Model
+class ReReply extends Model
 {
     use HasFactory;
 
-        /**
+            /**
      * The table associated with model
      */
-    protected $table = 'replies';
+    protected $table = 're_replies';
 
     /**
      * The attributes that are mass assignable
      * @var array
      */
     protected $fillable = [
-        'user_id', 'comment_id', 'reply'
+        'user_id', 'username', 'reply_id', 'reply'
     ];
 
     /**
@@ -30,13 +30,8 @@ class Reply extends Model
         $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function comment()
+    public function reply()
     {
-        $this->belongsTo(Comments::class, 'comment_id', 'id');
-    }
-
-    public function re_reply()
-    {
-        return $this->hasMany(ReReply::class);
+        $this->belongsTo(Reply::class, 'reply_id', 'id');
     }
 }

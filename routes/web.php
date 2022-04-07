@@ -28,6 +28,9 @@ use App\Http\Controllers\admin\ContactsReplyController;
 use App\Http\Controllers\couple\ProfileController as CoupleProfileController;
 use App\Http\Controllers\couple\TransactionController as CoupleTransactionController;
 use App\Http\Controllers\hall\HallsController;
+use App\Http\Controllers\couple\CommentController as CoupleCommentController;
+use App\Http\Controllers\couple\ReplyController;
+use App\Http\Controllers\couple\ReReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -152,11 +155,28 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
         Route::put('password_update', 'pass_update')->name('couple.password.update');
     });
 
-    Route::get('booked_hall',[CoupleBookingController::class,'index'])
-    ->name('couple.booked.hall');
+    Route::controller(CoupleBookingController::class)->group(function () {
+        Route::get('booked_hall', 'index')->name('couple.booked.hall');
+        Route::get('booking_delete/{id}', 'destroy')
+        ->name('couple.booking.delete');
+    });
 
-    Route::get('transaction',[CoupleTransactionController::class,'index'])
-    ->name('couple.transaction');
+    Route::controller(CoupleTransactionController::class)->group(function () {
+        Route::get('transaction', 'index')->name('couple.transaction');
+    });
+
+    Route::controller(CoupleCommentController::class)->group(function () {
+        Route::get('comment', 'index')->name('couple.comment');
+        Route::get('comment_delete/{id}', 'destroy')->name('couple.comment.delete');
+    });
+
+    Route::controller(ReplyController::class)->group(function () {
+        Route::get('reply/{id}', 'index')->name('couple.reply');
+    });
+
+    Route::controller(ReReplyController::class)->group(function () {
+        Route::post('re_reply', 'store')->name('couple.re_reply');
+    });
 });
 
 // grouped routes for front site

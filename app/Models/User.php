@@ -85,6 +85,11 @@ class User extends Authenticatable
         return $this->hasMany(Reply::class);
     }
 
+    public function re_reply()
+    {
+        return $this->hasMany(ReReply::class);
+    }
+
     public function halls_meta()
     {
         $this->hasMany(Halls_meta::class);

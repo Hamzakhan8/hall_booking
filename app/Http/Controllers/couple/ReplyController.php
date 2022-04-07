@@ -3,23 +3,21 @@
 namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transactions;
+use App\Models\Reply;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class TransactionController extends Controller
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $logged_id = Auth::user()->id;
+        $replies = Reply::where('comment_id', $id)->paginate(5);
 
-        $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
-        return  view('couple.transaction', compact('transactions'));
+        return view('couple.reply', compact('replies'));
     }
 
     /**
@@ -85,6 +83,6 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }

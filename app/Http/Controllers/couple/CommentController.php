@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
-use App\Models\Transactions;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TransactionController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,9 @@ class TransactionController extends Controller
     {
         $logged_id = Auth::user()->id;
 
-        $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
-        return  view('couple.transaction', compact('transactions'));
+        $comments = Comments::where('user_id', $logged_id)->paginate(5);
+
+        return view('couple.comment', compact('comments'));
     }
 
     /**
@@ -85,6 +86,9 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
+        Comments::where('id', $id)->delete();
 
+        return redirect()->route('couple.comment')
+        ->with('comment_deleted', "Your Comment to Hall has been deleted!");
     }
 }

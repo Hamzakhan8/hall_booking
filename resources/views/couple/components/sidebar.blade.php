@@ -17,6 +17,9 @@
                 <li>
                     <a href="{{ route('couple.transaction') }}"><i class="weddingdir_my_profile"></i>Transactions</a>
                 </li>
+                <li>
+                    <a href="{{ route('couple.comment') }}"><i class="weddingdir_my_profile"></i>Comments</a>
+                </li>
             </ul>
         </div>
     </aside>
