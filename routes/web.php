@@ -149,9 +149,12 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::controller(CoupleProfileController::class)->group(function () {
         Route::get('profile', 'index')->name('couple.profile');
         Route::put('profile_update', 'update')->name('couple.profile.update');
+        Route::put('password_update', 'pass_update')->name('couple.password.update');
     });
+
     Route::get('booked_hall',[CoupleBookingController::class,'index'])
     ->name('couple.booked.hall');
+
     Route::get('transaction',[CoupleTransactionController::class,'index'])
     ->name('couple.transaction');
 });

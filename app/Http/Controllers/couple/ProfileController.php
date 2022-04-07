@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -111,6 +112,38 @@ class ProfileController extends Controller
         ]);
 
         return $this->index();
+    }
+
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function pass_update(Request $request)
+    {
+        $request->validate([
+            'old_password' => ['required'],
+            'new_password' => ['required', 'confirmed']
+        ]);
+
+        $logged_password = Auth::user()->password;
+
+        $logged_id =  Auth::user()->id;
+
+
+        if(!Hash::check($request['old_password'], $logged_password))
+            return redirect()->route('admin.profile')
+            ->with('error_password', 'Old password does not match!');
+
+        User::where('id', $logged_id)->update([
+            'password' => Hash::make($request['new_password']),
+        ]);
+
+        Auth::logout();
+
+        return response()->view('front_view.index');
     }
 
     /**

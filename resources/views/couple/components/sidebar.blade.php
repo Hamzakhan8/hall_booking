@@ -12,10 +12,10 @@
                     <a href="{{ route('couple.profile') }}"><i class="weddingdir_request_quote"></i>My Profile</a>
                 </li>
                 <li>
-                    <a href="{{route('couple.booked.hall')}}"><i class="weddingdir_my_listing"></i>Booked Hall</a>
+                    <a href="{{route('couple.booked.hall')}}"><i class="weddingdir_my_listing"></i>Bookings</a>
                 </li>
                 <li>
-                    <a href="{{ route('couple.transaction') }}"><i class="weddingdir_my_profile"></i>Transaction Record</a>
+                    <a href="{{ route('couple.transaction') }}"><i class="weddingdir_my_profile"></i>Transactions</a>
                 </li>
             </ul>
         </div>

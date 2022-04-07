@@ -169,12 +169,14 @@
                             </div>
                         </div>
                         <div class="card-shadow-body">
-                            <form>
+                            <form action="{{ route('couple.password.update') }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="password-eye">
-                                                <input id="Old_Password" type="password" class="form-control" name="Old Password" placeholder="Old Password">
+                                                <input id="Old_Password" type="password" class="form-control" name="old_password" placeholder="Old Password">
                                                 <span data-toggle="#Old_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             </div>
                                         </div>
@@ -182,7 +184,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="password-eye">
-                                                <input id="New_Password" type="password" class="form-control" name="New_Password" placeholder="New Password">
+                                                <input id="New_Password" type="password" class="form-control" name="new_password" placeholder="New Password">
                                                 <span data-toggle="#New_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             </div>
                                         </div>
@@ -190,14 +192,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="password-eye">
-                                                <input id="Confirm_Password" type="password" class="form-control" name="Confirm_Password" placeholder="Confirm Password">
+                                                <input id="Confirm_Password" type="password" class="form-control" name="new_password_confirmation" placeholder="Confirm Password">
                                                 <span data-toggle="#Confirm_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-rounded">Change Password</button>
+                                        <button type="submit" class="btn btn-primary btn-rounded">Change Password</button>
                                     </div>
 
                                 </div>
