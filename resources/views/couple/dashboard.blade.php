@@ -2,7 +2,7 @@
 <html lang="en">
     <!-- head -->
 
-    @extends('couple.components.head')
+    @extends('layouts.components.head')
     <!-- end head -->
 
     <!--body start-->
@@ -70,7 +70,7 @@
 
     <!-- All The JS Files
       ================================================== -->
-      @extends('couple.components.script')
+      @extends('layouts.components.script')
 
 </body>
 

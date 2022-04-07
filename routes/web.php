@@ -21,12 +21,12 @@ use App\Http\Controllers\hall\ManageUserController;
 use App\Http\Controllers\admin\ManageHallController;
 use App\Http\Controllers\admin\TransactionController;
 use App\Http\Controllers\admin\ManageCoupleController;
-use App\Http\Controllers\customer\BookedHallController;
+use App\Http\Controllers\couple\BookingController as CoupleBookingController;
 use App\Http\Controllers\admin\BookingController as AdminBookingController;
 use App\Http\Controllers\admin\ContactController as AdminContactController;
 use App\Http\Controllers\admin\ContactsReplyController;
-use App\Http\Controllers\customer\ProfileController as CustomerProfileController;
-use App\Http\Controllers\customer\TransactionController as CustomerTransactionController;
+use App\Http\Controllers\couple\ProfileController as CoupleProfileController;
+use App\Http\Controllers\couple\TransactionController as CoupleTransactionController;
 use App\Http\Controllers\hall\HallsController;
 
 /*
@@ -145,9 +145,15 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
     ->name('couple.dashboard');
-    Route::get('profile', [CustomerProfileController::class, 'index'])->name('couple.profile');
-    Route::get('booked_hall',[BookedHallController::class,'index'])->name('couple.bookedhall');
-    Route::get('transaction',[CustomerTransactionController::class,'index'])->name('couple.transaction');
+
+    Route::controller(CoupleProfileController::class)->group(function () {
+        Route::get('profile', 'index')->name('couple.profile');
+        Route::put('profile_update', 'update')->name('couple.profile.update');
+    });
+    Route::get('booked_hall',[CoupleBookingController::class,'index'])
+    ->name('couple.booked.hall');
+    Route::get('transaction',[CoupleTransactionController::class,'index'])
+    ->name('couple.transaction');
 });
 
 // grouped routes for front site

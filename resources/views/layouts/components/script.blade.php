@@ -12,10 +12,12 @@
 <script src="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.min.js"></script>
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script>
-        $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+<script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+
+<script type="text/javascript">
+            $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
 </script>
 
 <script type="text/javascript">
@@ -64,10 +66,7 @@
 
             var _checkindate=$(this).val();
 
-
-
                 //using Ajax to send request to controller
-
                 $.ajax({
 
                     url:"{{url('admin/booking/available-halls')}}/"+_checkindate,
@@ -81,4 +80,64 @@
             });
 
     });
+</script>
+
+<script type="text/javascript">
+
+    // for selecting and displaying multiple images for slider
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            for (var i = 0; i < input.files.length; i++){
+                var reader = new FileReader();
+            reader.onload = function (e) {
+
+            $('#show_img')
+            .append("<img src='" + e.target.result + "' class='p-2 rounded' width='150' height='150' alt='images'>");
+            };
+
+            reader.readAsDataURL(input.files[i]);
+            }
+        }
+    }
+
+    // for selecting and displaying profile image in dashboard
+    function readAvatar(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+
+        $('#default_avatar').remove();
+
+        $('#show_avatar')
+        .append("<img src='" + e.target.result + "' class='p-2 rounded-circle' style='width:130px;height:120px;' alt='images'>");
+        };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+        // triggerd loop on image icon
+        $(document).ready(function () {
+            $('#lord_img_icon').mouseenter(function () {
+                $(this).attr('trigger', 'loop');
+            });
+
+            $('#lord_img_icon').mouseleave(function () {
+                $(this).removeAttr('trigger');
+            });
+        });
+
+        // contact reply update on bootstrap modal
+        $(document).ready(function () {
+            $('.myModalBtn').click(function () {
+                var id = $(this).attr('data-id');
+
+                var modal = $('#myModal').attr('data-id', id);
+
+                modal.modal('show');
+
+                $('#contact_id').attr('value', id);
+            });
+        });
 </script>

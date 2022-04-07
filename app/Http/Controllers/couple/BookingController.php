@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\customer;
+namespace App\Http\Controllers\couple;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $couples=User::where('role','couple')->first();
-        return view('couple.profile.index', compact('couples'));
-        
+        return view('couple.booking');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -60,7 +56,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-       
+        //
     }
 
     /**

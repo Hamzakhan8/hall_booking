@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\customer;
+namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+class CoupleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return  view('couple.transactions.index');
+        return response()->view('couple.dashboard');
     }
+
 
     /**
      * Show the form for creating a new resource.
