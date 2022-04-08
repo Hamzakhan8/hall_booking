@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
+use App\Models\ReReply;
 use Illuminate\Http\Request;
 
 class ReReplyController extends Controller
@@ -12,9 +13,12 @@ class ReReplyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($reply_id)
     {
-        //
+        // dd($reply_id);
+        $re_replies = ReReply::where('reply_id', $reply_id)->get();
+
+        return view('couple.reply', compact('re_replies'));
     }
 
     /**
@@ -35,7 +39,24 @@ class ReReplyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'reply_id' => ['required'],
+            'reply' => ['required', 'string'],
+        ]);
+
+        $reply_id = $request['reply_id'];
+
+        $logged_id = $request->user()->id;
+        $logged_username = $request->user()->username;
+
+        ReReply::create([
+            'user_id' => $logged_id,
+            'username' => $logged_username,
+            'reply_id' => $request['reply_id'],
+            'reply' => $request['reply'],
+        ]);
+
+        return $this->index($reply_id);
     }
 
     /**

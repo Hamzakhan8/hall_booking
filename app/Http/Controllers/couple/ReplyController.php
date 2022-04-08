@@ -13,9 +13,9 @@ class ReplyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($comment_id)
     {
-        $replies = Reply::where('comment_id', $id)->paginate(5);
+        $replies = Reply::where('comment_id', $comment_id)->paginate(5);
 
         return view('couple.reply', compact('replies'));
     }

@@ -38,8 +38,12 @@
                                 style="width:25px;height:25px">
                                 </lord-icon>
                             </a> |
-                            <a href="{{ route('couple.reply', $comment['id']) }}" style="color: #17a2b8">
-                                <i class="fa fa-reply"></i>
+                            <a href="{{ route('couple.reply', $comment['id']) }}"
+                             style="color: #17a2b8"
+                             data-toggle="tooltip"
+                             data-placement="top"
+                             title="Replies">
+                                <i class="fa fa-reply-all"></i>
                             </a>
                         </td>
                     </tr>
