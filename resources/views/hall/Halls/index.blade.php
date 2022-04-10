@@ -30,6 +30,8 @@
 
                         <th scope="col">title</th>
                         <th scope="col">images</th>
+                        <th scope="col">description</th>
+
                         <th scope="col">delete</th>
 
                         <th scope="col">edit</th>
@@ -55,7 +57,7 @@
                             <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
                          @endforeach
                         </td>
-
+                        <td><p>{{$hall->description}}</p></td>
                         <td class="rounded-sm">
 
                             <form method="post" action="{{ route('Halls.destroy', $hall->id) }}">

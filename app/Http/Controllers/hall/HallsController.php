@@ -157,39 +157,39 @@ class HallsController extends Controller
     public function update(Request $request, $id)
     {
 
-    //     $data=Hall::find($id);
+        $data=Hall::find($id);
 
 
 
 
-    //     $data->full_name=$request->full_name;
-    //     $data->email=$request->email;
-    //     $data->password=$request->password;
-    //     $data->mobile=$request->mobile;
-    //     $data->address=$request->address;
+        $data->full_name=$request->full_name;
+        $data->email=$request->email;
+        $data->password=$request->password;
+        $data->mobile=$request->mobile;
+        $data->address=$request->address;
 
 
 
-    //         if($request->hasfile('images')) {
+            if($request->hasfile('images')) {
 
-    //             $destination ='upload/customer/'.$data->photo;
+                $destination ='upload/customer/'.$data->photo;
 
-    //             if(File::exists($destination)){
-    //                 File::delete($destination);
-    //             }
-
-
-    //             $file=$request->file('photo');
-    //             $filename=time(). '.' . $file->getClientOriginalExtension();
-    //             $file->move('upload/customer/',$filename);
-    //             $data->photo=$filename;
-
-    // }
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
 
 
-    //     $data->update();
+                $file=$request->file('photo');
+                $filename=time(). '.' . $file->getClientOriginalExtension();
+                $file->move('upload/customer/',$filename);
+                $data->photo=$filename;
 
-    //     return redirect('hall/Halls')->with('success','data has being updated');
+    }
+
+
+        $data->update();
+
+        return redirect('hall/Halls')->with('success','data has being updated');
     }
 
     /**
@@ -203,7 +203,7 @@ class HallsController extends Controller
         $data = Hall :: find($id);
 
 
-        $destination ='upload/customer/'.$data->photo ;
+        $destination ='storage/hall_img'.$data->images ;
 
                 if(File::exists($destination)){
 
@@ -211,7 +211,7 @@ class HallsController extends Controller
                 }
 
 
-                if($data){
+        if($data){
 
                 $data->delete();
 

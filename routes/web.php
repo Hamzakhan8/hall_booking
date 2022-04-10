@@ -123,7 +123,7 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     Route::resource('/hallcategory',HallCategoryController::class);
 
     Route::resource('/halltype', HallTypeController::class);
-    //Hall
+    //Halls
     Route::resource('/Halls',HallsController::class);
 
 
