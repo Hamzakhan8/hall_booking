@@ -4,6 +4,7 @@ namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
 use App\Models\Reply;
+use App\Models\ReReply;
 use Illuminate\Http\Request;
 
 class ReplyController extends Controller
@@ -15,9 +16,11 @@ class ReplyController extends Controller
      */
     public function index($comment_id)
     {
-        $replies = Reply::where('comment_id', $comment_id)->paginate(5);
+        $replies = Reply::where('comment_id', $comment_id)->get();
 
-        return view('couple.reply', compact('replies'));
+        $re_replies = ReReply::where('comment_id', $comment_id)->get();
+
+        return view('couple.reply', compact('replies', 're_replies', 'comment_id'));
     }
 
     /**
@@ -36,9 +39,25 @@ class ReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $comment_id)
     {
-        //
+        $request->validate([
+            'reply_id' => ['required'],
+            'reply' => ['required', 'string'],
+        ]);
+
+        $logged_id = $request->user()->id;
+        $logged_username = $request->user()->username;
+
+        ReReply::create([
+            'user_id' => $logged_id,
+            'username' => $logged_username,
+            'comment_id' => $comment_id,
+            'reply_id' => $request['reply_id'],
+            'reply' => $request['reply'],
+        ]);
+
+        return $this->index($comment_id);
     }
 
     /**

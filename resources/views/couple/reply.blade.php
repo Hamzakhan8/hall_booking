@@ -12,41 +12,47 @@
 @endif
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
-        <div class="card">
+        <div class="card" style="overflow-y: scroll;height:30rem">
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-12">
-                        @foreach ($replies as $reply)
-                            <div class="media">
-                                <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="{{ asset('assets/images/author_img.png') }}" />
-                                <div class="media-body">
-                                    <div class="row">
-                                        <div class="col-8 d-flex">
-                                            <h5 class="pr-3">{{ $reply['username'] }}</h5>
-                                            <span>{{ \Carbon\Carbon::parse($reply['created_at'])->diffForHumans() }}</span>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="pull-right reply">
-                                                 <a style="color: #17a2b8;cursor: pointer;" data-id="{{ $reply['id'] }}" class="myModalBtn" data-toggle="modal"><span><i class="fa fa-reply"></i> reply</span></a>
+                            @foreach ($replies as $reply)
+                                <div class="media pb-5">
+                                    <img class="mr-3 rounded-circle" alt="Bootstrap Media Preview" src="{{ asset('assets/images/author_img.png') }}" />
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-8 d-flex">
+                                                <h5 class="pr-3">{{ $reply['username'] }}</h5>
+                                                <span>{{ \Carbon\Carbon::parse($reply['created_at'])->diffForHumans() }}</span>
                                             </div>
+                                        </div> {{ $reply['reply'] }}
+                                        <div class="col-4">
+                                            <a style="color: #17a2b8;cursor: pointer;" data-id="{{ $reply['id'] }}" class="myModalBtn" data-toggle="modal"><i class="fa fa-reply"></i></a>
                                         </div>
-                                    </div> {{ $reply['reply'] }}
-                                    {{-- @foreach ($re_replies as $re_reply)
-                                    <div class="media mt-4">
-                                            <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="{{ asset('assets/images/author_img.png') }}" /></a>
-                                        <div class="media-body">
-                                            <div class="row">
-                                                <div class="col-12 d-flex">
-                                                    <h5>{{ $re_reply['username'] }}</h5> <span>{{ \Carbon\Carbon::parse($re_reply['created_at'])->diffForHumans() }}</span>
+                                        @foreach ($re_replies as $re_reply)
+
+                                            @if ($reply['id'] == $re_reply['reply_id'])
+                                                <div class="media mt-4">
+                                                    <a class="pr-3" href="#"><img class="rounded-circle" alt="Bootstrap Media Another Preview" src="{{ asset('assets/images/author_img.png') }}" /></a>
+                                                    <div class="media-body">
+                                                        <div class="row">
+                                                            <div class="col-12 d-flex">
+                                                                <h5 class="pr-3">{{ $re_reply['username'] }} to {{ $reply['username'] }}</h5>
+                                                                <span>{{ \Carbon\Carbon::parse($re_reply['created_at'])->diffForHumans() }}</span>
+                                                            </div>
+                                                        </div> {{ $re_reply['reply'] }}
+                                                        <div class="col-4">
+                                                            <a style="color: #17a2b8;cursor: pointer;" data-id="{{ $re_reply['reply_id'] }}" class="myModalBtn" data-toggle="modal"><i class="fa fa-reply"></i></a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div> {{ $re_reply['reply'] }}
-                                        </div>
+                                            @endif
+
+                                        @endforeach
                                     </div>
-                                    @endforeach --}}
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -60,7 +66,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Reply User's Message</h5>
                     </div>
                     <div class="modal-body">
-                        <form class="myModalForm" action="{{ route('couple.re_reply') }}" method="POST">
+                        <form class="myModalForm" action="{{ route('couple.re_reply', $comment_id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Message Reply</label>

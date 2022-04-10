@@ -19,7 +19,7 @@ class ReReply extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'reply_id', 'reply'
+        'user_id', 'username', 'comment_id', 'reply_id', 'reply'
     ];
 
     /**
