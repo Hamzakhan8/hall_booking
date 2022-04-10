@@ -52,6 +52,7 @@ class ReplyController extends Controller
         ReReply::create([
             'user_id' => $logged_id,
             'username' => $logged_username,
+            'username_to' => $request['reply_username'],
             'comment_id' => $comment_id,
             'reply_id' => $request['reply_id'],
             'reply' => $request['reply'],
@@ -100,8 +101,10 @@ class ReplyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $comment_id)
     {
-        //
+        ReReply::where('id', $id)->delete();
+
+        return $this->index($comment_id);
     }
 }

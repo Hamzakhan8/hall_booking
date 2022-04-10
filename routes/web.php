@@ -173,12 +173,8 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::controller(ReplyController::class)->group(function () {
         Route::get('reply/{comment_id}', 'index')->name('couple.reply');
         Route::post('re_reply/{comment_id}', 'store')->name('couple.re_reply');
+        Route::get('reply_delete/{id}/{comment_id}', 'destroy')->name('couple.reply.delete');
     });
-
-    // Route::controller(ReReplyController::class)->group(function () {
-    //     // Route::get('re_reply/{id}', 'index')->name('couple.re_reply.index');
-    //     Route::post('re_reply', 'store')->name('couple.re_reply');
-    // });
 });
 
 // grouped routes for front site

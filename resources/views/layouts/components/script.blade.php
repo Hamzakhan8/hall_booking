@@ -132,12 +132,15 @@
         $(document).ready(function () {
             $('.myModalBtn').click(function () {
                 var id = $(this).attr('data-id');
+                var username = $(this).attr('data-name');
 
                 var modal = $('#myModal').attr('data-id', id);
+                var modal = $('#myModal').attr('data-name', username);
 
                 modal.modal('show');
 
                 $('#contact_id').attr('value', id);
+                $('#contact_username').attr('value', username);
             });
         });
 </script>
