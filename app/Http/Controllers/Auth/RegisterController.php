@@ -49,7 +49,7 @@ class RegisterController extends Controller
      */
     protected function validator(Request $request)
     {
-       $check = $request->validate([
+       $request->validate([
             'role' => ['required'],
             'username' => ['required', 'string', 'unique:users'],
             'first_name' => ['required', 'string', 'max:255'],
@@ -57,8 +57,19 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
         ]);
-        dd($check);
-        exit();
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+
+            $password = $user->password;
+
+            // checks if the upcoming password already exists or not
+            if (Hash::check($request['password'], $password))
+
+            return back()->with('passwords_match',
+            'The password has already been taken');
+        }
 
         return $this->create($request);
     }

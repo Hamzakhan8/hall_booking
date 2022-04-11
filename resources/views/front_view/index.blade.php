@@ -436,7 +436,7 @@ Author: wp-organic
     <a id="back-to-top" href="javascript:" class="btn btn-outline-primary back-to-top"><i class="fa fa-arrow-up"></i></a>
 
     <!-- Modal -->
-    <div class="modal fade" id="login_form" tabindex="-1" aria-labelledby="login_form" aria-hidden="true">
+    <div class="modal fade front_login_modal" id="login_form" tabindex="-1" aria-labelledby="login_form" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered register-tab">
             <div class="modal-content">
                 <div class="modal-body p-0">
@@ -451,16 +451,16 @@ Author: wp-organic
 
                     <ul class="nav nav-pills mb-3 horizontal-tab-second justify-content-center nav-fill pt-2" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active show" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
+                            <a class="nav-link active show login_panel_title" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
+                            <a class="nav-link register_panel_title" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
                         </li>
                     </ul>
                     <div class="p-3 px-4 pt-0">
 
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                            <div class="tab-pane fade show active login_panel" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                                 <form action="{{ route('auth.login') }}" method="POST">
                                 @csrf
                                     <div class="form-group">
@@ -480,9 +480,14 @@ Author: wp-organic
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane fade" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
+                            <div class="tab-pane fade register_panel" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
                                 <form action="{{ route('auth.register') }}" method="POST">
                                 @csrf
+                                    @if (Session::has('passwords_match'))
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong>{{ Session::get('passwords_match') }}</strong>
+                                        </div>
+                                    @endif
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col text-center">
