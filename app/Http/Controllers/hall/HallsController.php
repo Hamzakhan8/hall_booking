@@ -23,7 +23,14 @@ class HallsController extends Controller
      */
     public function index()
     {
-        $data=Hall::all();
+        $data = Hall::all();
+
+        // foreach ($data as $key) {
+        //     $images = $key->images;
+
+        //     dd($images);
+        //     exit();
+        // }
 
         return view('hall.Halls.index',compact('data'));
     }
@@ -103,10 +110,6 @@ class HallsController extends Controller
 
             $hallcategory_id = $hallcat->id;
         }
-
-
-
-
 
         Hall::create([
             'user_id'=>$loggedid,

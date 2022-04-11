@@ -50,13 +50,20 @@
 
                         <td>{{$hall->title}}</td>
 
+                        @if (empty($hall->images))
                         <td>
-                         @foreach(json_decode($hall->images) as $image)
-
-
-                            <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
-                         @endforeach
+                            <img src="{{asset('assets/images/about/team/team_img_1.jpg')}}" style="width:50px;height:50px;"><br/>
                         </td>
+                        @elseif (!empty($hall->images))
+                        <td>
+                            @foreach(json_decode($hall->images) as $image)
+
+                               <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
+
+                           @endforeach
+                        </td>
+                        @endif
+
                         <td><p>{{$hall->description}}</p></td>
                         <td class="rounded-sm">
 
