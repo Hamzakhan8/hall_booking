@@ -10,7 +10,7 @@
 <script src="{{asset('assets')}}/library/datepicker/js/datepicker.js"></script>
 <script src="{{asset('assets')}}/js/script.js"></script>
 
-@if (Session::has('passwords_match'))
+@if ($errors && (is_array($errors) || $errors->all()))
     <script type="text/javascript">
         $(document).ready(function () {
 

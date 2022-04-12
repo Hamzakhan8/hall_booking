@@ -58,19 +58,6 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ]);
 
-        $users = User::all();
-
-        foreach ($users as $user) {
-
-            $password = $user->password;
-
-            // checks if the upcoming password already exists or not
-            if (Hash::check($request['password'], $password))
-
-            return back()->with('passwords_match',
-            'The password has already been taken');
-        }
-
         return $this->create($request);
     }
 

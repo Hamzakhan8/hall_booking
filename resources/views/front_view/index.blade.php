@@ -483,10 +483,18 @@ Author: wp-organic
                             <div class="tab-pane fade register_panel" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
                                 <form action="{{ route('auth.register') }}" method="POST">
                                 @csrf
-                                    @if (Session::has('passwords_match'))
-                                        <div class="alert alert-danger" role="alert">
-                                            <strong>{{ Session::get('passwords_match') }}</strong>
-                                        </div>
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                            <div class="alert alert-danger" role="alert">
+                                                <strong class="text-danger">Errors encounteded!</strong>
+                                                <br>
+                                                <ul>
+                                                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                                    <li>
+                                                        <strong>{{ $error }}</strong>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                     @endif
                                     <div class="form-group">
                                         <div class="row">
