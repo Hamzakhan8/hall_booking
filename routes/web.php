@@ -50,8 +50,6 @@ Route::get('/', function() {
     return view('front_view.index');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::prefix('auth')->group(function (){
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');
     Route::post('register', [RegisterController::class, 'validator'])
@@ -60,7 +58,7 @@ Route::prefix('auth')->group(function (){
 });
 
 
-Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))
     ->name('admin.dashboard');
