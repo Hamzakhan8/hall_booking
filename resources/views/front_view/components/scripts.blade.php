@@ -24,4 +24,22 @@
 
         });
     </script>
+
+    @elseif (Session::has('user_error'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var front_modal = $('.front_login_modal').modal('show');
+
+        });
+    </script>
+
+    @elseif (Session::has('password_error') || Session::has('username_error'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var front_modal = $('.front_login_modal').modal('show');
+
+        });
+    </script>
 @endif

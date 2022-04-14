@@ -60,8 +60,14 @@ class LoginController extends Controller
         foreach ($users as $value) {
             $passwords = $value->password;
 
-            if(!Hash::check($request['password'], $passwords))
+            if(!Hash::check($request['password'], $passwords) && User::where('username', '!=', $request['username'])->orWhereNull('username'))
+            return back()->with('user_error', 'The user does not match our records.');
+
+            elseif(!Hash::check($request['password'], $passwords))
             return back()->with('password_error', 'The password does not match our records.');
+
+            elseif(User::where('username', '!=', $request['username'])->orWhereNull('username'))
+            return back()->with('username_error', 'The username does not match our records.');
         }
 
         if(Auth::attempt([$column => $request['username'], 'password' => $request['password']])
