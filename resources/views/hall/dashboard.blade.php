@@ -70,7 +70,7 @@
 
     <!-- All The JS Files
       ================================================== -->
-      @extends('hall.components.script')
+      @extends('layouts.components.script')
 
 </body>
 

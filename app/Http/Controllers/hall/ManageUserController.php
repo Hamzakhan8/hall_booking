@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\hall;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Bookings;
+use App\Models\Hall;
+use Illuminate\Support\Facades\Auth;
 
 class ManageUserController extends Controller
 {
@@ -16,9 +17,19 @@ class ManageUserController extends Controller
      */
     public function index()
     {
-        $customers = User::where('role','couple')->paginate(5);
+        $logged_id = Auth::user()->id;
 
-        return view('hall.manage-user.index', compact('customers'));
+        $halls = Hall::where('user_id', $logged_id)->pluck('id');
+
+        foreach ($halls as $key) {
+            // $halls_id = $key->id;
+            // dd($key);
+            // exit();
+
+            $bookings = Bookings::where('halls_id', $key)->paginate(5);
+        }
+
+        return view('hall.Bookings', compact('bookings'));
     }
 
     /**
@@ -84,6 +95,9 @@ class ManageUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Bookings::where('id', $id)->delete();
+
+        return redirect()->route('hall.bookings')
+        ->with('booking_deleted', 'The booking has been deleted!');
     }
 }

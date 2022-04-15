@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Rules\PasswordCheck;
+use App\Rules\UsernameCheck;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -49,26 +48,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => ['required'],
-            'password' => ['required']
+            'username' => ['required', new UsernameCheck()],
+            'password' => ['required', new PasswordCheck()]
         ]);
 
         $column = filter_var($request['username'], FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-
-        $users = User::all();
-
-        foreach ($users as $value) {
-            $passwords = $value->password;
-
-            if(!Hash::check($request['password'], $passwords) && User::where('username', '!=', $request['username'])->orWhereNull('username'))
-            return back()->with('user_error', 'The user does not match our records.');
-
-            elseif(!Hash::check($request['password'], $passwords))
-            return back()->with('password_error', 'The password does not match our records.');
-
-            elseif(User::where('username', '!=', $request['username'])->orWhereNull('username'))
-            return back()->with('username_error', 'The username does not match our records.');
-        }
 
         if(Auth::attempt([$column => $request['username'], 'password' => $request['password']])
          && Auth::user()->role == 'admin')

@@ -32,9 +32,27 @@
                 data-animations="slideInUp slideInUp slideInUp slideInUp">
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                   </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('front.home') }}">Home</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('front.about') }}">About</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('front.contact') }}">Contact Us</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="{{ route('auth.logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            <i class="weddingdir_logout"></i> {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
 
                 </ul>
                 <!-- Main Navigation End -->

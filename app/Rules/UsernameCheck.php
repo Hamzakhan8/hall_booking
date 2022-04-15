@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
-class PasswordCheck implements Rule
+class UsernameCheck implements Rule
 {
     /**
      * Create a new rule instance.
@@ -27,14 +27,8 @@ class PasswordCheck implements Rule
      */
     public function passes($attribute, $value)
     {
-        $users = User::all();
+        return User::where('username', $value)->exists();
 
-        foreach ($users as $key) {
-            $passwords = $key->password;
-
-            return Hash::check($value, $passwords);
-
-        }
     }
 
     /**

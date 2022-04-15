@@ -463,18 +463,18 @@ Author: wp-organic
                             <div class="tab-pane fade show active login_panel" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
                                 <form action="{{ route('auth.login') }}" method="POST">
                                 @csrf
-                                    @if (Session::has('user_error'))
-                                        <div class="alert alert-danger" role="alert">
-                                            <strong>{{ Session::get('user_error') }}</strong>
-                                        </div>
-                                        @elseif (Session::has('password_error'))
-                                        <div class="alert alert-danger" role="alert">
-                                            <strong>{{ Session::get('password_error') }}</strong>
-                                        </div>
-                                        @elseif (Session::has('username_error'))
-                                        <div class="alert alert-danger" role="alert">
-                                            <strong>{{ Session::get('username_error') }}</strong>
-                                        </div>
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong class="text-danger">Errors encounteded!</strong>
+                                        <br>
+                                        <ul>
+                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                            <li>
+                                                <strong>{{ $error }}</strong>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                     @endif
                                     <div class="form-group">
                                         <input type="text" required class="form-control" name="username" id="exampleInputEmail1" placeholder="Username/Email">

@@ -117,6 +117,11 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 // grouped routes for hall
 Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 
+    Route::controller(ManageUserController::class)->group(function () {
+        Route::get('bookings', 'index')->name('hall.bookings');
+        Route::get('bookings_delete/{id}', 'destroy')->name('hall.bookings.delete');
+    });
+
     //Hallcategory
     Route::resource('/hallcategory',HallCategoryController::class);
 
@@ -128,7 +133,6 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     // Delete Image
     Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
     // Route::resource('/customer',CustomerController::class);
-    Route::resource('/Manage-user',ManageUserController::class);
     //booking controller
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);
