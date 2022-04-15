@@ -13,12 +13,6 @@
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
 
-{{-- <script type="text/javascript">
-    $(window).load(function() {
-        $('.preloader').fadeOut('slow');
-    });
-</script> --}}
-
 <script type="text/javascript">
     $(document).ready(function(){
         $(".delete-image").on('click',function(){

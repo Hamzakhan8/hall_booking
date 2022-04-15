@@ -20,7 +20,7 @@ class Comments extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'halls_id', 'hall_name','comment',
+        'user_id', 'username', 'hall_id', 'hall_name','comment',
     ];
 
     /**

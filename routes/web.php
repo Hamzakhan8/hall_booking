@@ -31,7 +31,9 @@ use App\Http\Controllers\hall\HallsController;
 use App\Http\Controllers\couple\CommentController as CoupleCommentController;
 use App\Http\Controllers\couple\ReplyController;
 use App\Http\Controllers\couple\ReReplyController;
+use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
+use App\Http\Controllers\hall\ReplyController as HallReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,6 +129,18 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
         Route::get('profile', 'index')->name('hall.profile');
         Route::put('update_profile', 'update')->name('hall.profile.update');
         Route::put('update_password', 'pass_update')->name('hall.password.update');
+    });
+
+    Route::controller(HallCommentController::class)->group(function () {
+        Route::get('comment', 'index')->name('hall.comment');
+    });
+
+    Route::controller(HallReplyController::class)->group(function () {
+        Route::get('reply/{comment_id}', 'index')->name('hall.reply');
+        Route::post('reply_create/{comment_id}', 'create')->name('hall.reply.create');
+        Route::post('re_reply/{comment_id}', 'store')->name('hall.re_reply');
+        Route::get('reply_destroy/{id}/{comment_id}', 'destroy')->name('hall.reply.destroy');
+        Route::get('reply_delete/{id}/{comment_id}', 'delete')->name('hall.reply.delete');
     });
 
     //Hallcategory

@@ -29,7 +29,10 @@
 
                 <li>
                     <a href="{{route('Halls.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
+                </li>
 
+                <li>
+                    <a href="{{ route('hall.comment') }}"><i class="weddingdir_my_listing"></i>User Comments</a>
                 </li>
 
 

@@ -1,4 +1,4 @@
-@extends('couple.dashboard')
+@extends('hall.dashboard')
 
 @section('body-title')
     <h2>Replies</h2>
@@ -12,7 +12,7 @@
 @endif
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
-        <div class="card" style="overflow-y: scroll;height:30rem">
+        <div class="card" style="overflow-y: scroll;height:30rem;padding:20px;">
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
@@ -38,8 +38,14 @@
                                                 data-toggle="modal">
                                                     <i class="fa fa-reply"></i>
                                                 </a>
-
-                                            </span>
+                                            </span> |
+                                            <a style="color: #333;cursor: pointer;"
+                                             href="{{ route('hall.reply.delete', [$reply['id'], $comment_id]) }}"
+                                             data-toggle="tooltip"
+                                             data-placement="top"
+                                             title="Delete">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </div>
                                         @foreach ($re_replies as $re_reply)
 
@@ -66,13 +72,13 @@
                                                                </a>
 
                                                             </span> |
-                                                            <a style="color: #333;cursor: pointer;"
-                                                             href="{{ route('couple.reply.delete', [$re_reply['id'], $comment_id]) }}"
-                                                             data-toggle="tooltip"
-                                                             data-placement="top"
-                                                             title="Delete">
+                                                                <a style="color: #333;cursor: pointer;"
+                                                                href="{{ route('hall.reply.destroy', [$re_reply['id'], $comment_id]) }}"
+                                                                data-toggle="tooltip"
+                                                                data-placement="top"
+                                                                title="Delete">
                                                                 <i class="fa fa-trash"></i>
-                                                            </a>
+                                                                </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -95,7 +101,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Reply User's Message</h5>
                     </div>
                     <div class="modal-body">
-                        <form class="myModalForm" action="{{ route('couple.re_reply', $comment_id) }}" method="POST">
+                        <form class="myModalForm" action="{{ route('hall.re_reply', $comment_id) }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Message Reply To</label>
