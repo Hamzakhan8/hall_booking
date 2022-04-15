@@ -9,11 +9,11 @@
 <body class="open">
 
     <!-- preloader -->
-    <div class="preloader">
-        <div class="status">
-            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
+    {{-- <div class="preloader" id="loader">
+        <div class="status" id="loader_status">
+            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="image">
         </div>
-    </div>
+    </div> --}}
     <!-- end preloader -->
 
     <!--  WeddingDir top -->

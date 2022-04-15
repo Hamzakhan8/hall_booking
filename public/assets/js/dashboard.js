@@ -12,7 +12,7 @@
               $('.preloader').delay(350).fadeOut('slow');
           });
       },
-      
+
       date_picker: function () {
           if ($('.datepicker').length) {
 
@@ -21,7 +21,7 @@
               });
           }
       },
-      
+
       select_dark: function () {
           if ($('select').length) {
 
@@ -33,7 +33,7 @@
               });
           }
       },
-     
+
       select_light: function () {
           if ($('.form-light-select').length) {
 
@@ -72,7 +72,7 @@
     },
 
 
-    
+
 
       header_anim: function () {
           if ($('.header-anim').length) {
@@ -169,13 +169,13 @@
                       type: 'image',
                       gallery: {
                           enabled: true, // set to true to enable gallery
-                      
+
                           preload: [0,2], // read about this option in next Lazy-loading section
-                      
+
                           navigateByImgClick: true,
-                      
+
                           arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', // markup of an arrow button
-                      
+
                           tPrev: 'Previous (Left arrow key)', // title for left button
                           tNext: 'Next (Right arrow key)', // title for right button
                           tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
@@ -234,7 +234,7 @@
                 wheelSpeed: 2,
                 wheelPropagation: true,
                 minScrollbarLength: 20
-                
+
             });
 
             ps.update();
@@ -303,11 +303,11 @@
                 }
                 var $subMenu = $(this).next(".dropdown-menu");
                 $subMenu.toggleClass('show');
-    
+
                 $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
                     $('.dropdown-submenu .show').removeClass("show");
                 });
-    
+
                 return false;
             });
         }

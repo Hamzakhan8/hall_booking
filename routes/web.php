@@ -31,6 +31,7 @@ use App\Http\Controllers\hall\HallsController;
 use App\Http\Controllers\couple\CommentController as CoupleCommentController;
 use App\Http\Controllers\couple\ReplyController;
 use App\Http\Controllers\couple\ReReplyController;
+use App\Http\Controllers\hall\ProfileController as HallProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,6 +121,12 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     Route::controller(ManageUserController::class)->group(function () {
         Route::get('bookings', 'index')->name('hall.bookings');
         Route::get('bookings_delete/{id}', 'destroy')->name('hall.bookings.delete');
+    });
+
+    Route::controller(HallProfileController::class)->group(function () {
+        Route::get('profile', 'index')->name('hall.profile');
+        Route::put('update_profile', 'update')->name('hall.profile.update');
+        Route::put('update_password', 'pass_update')->name('hall.password.update');
     });
 
     //Hallcategory

@@ -7,7 +7,7 @@
 <div class="card-shadow">
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
-            <table id="myTable" class="table table-bordered table-hover mb-0">
+            <table class="table table-hover mb-0">
                 @if (Session::has('booking_deleted'))
                 <div class="alert alert-success" role="alert">
                     <strong>{{ Session::get('booking_deleted') }}</strong>

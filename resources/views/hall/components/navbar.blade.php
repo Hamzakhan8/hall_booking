@@ -7,12 +7,11 @@
                 <i class="fa fa-bars"></i>
             </a>
             <div class="d-flex mx-auto align-items-center">
-                <a class="navbar-brand" href="index.html">
-                    <h2>HALL</h2>
-                    <!-- <img src="assets/images/logo_dark.svg" alt=""> -->
-                </a>
                 <a href="javascript:" class="sidebar-toggle desktop" data-toggle="offcanvas">
                     <i class="fa fa-bars"></i>
+                </a>
+                <a class="navbar-brand" href="index.html">
+                    <h2>HALL Dashboard</h2>
                 </a>
             </div>
             <!-- Toggle Button Start -->

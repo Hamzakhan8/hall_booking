@@ -5,7 +5,7 @@
                 width="130"
                 height="130"
                 alt="profile_image">
-            @elseif (empty(Auth::user()->profile->avatar))
+                @elseif (empty(Auth::user()->profile->avatar))
                 <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}'
                 width="130"
                 height="130"
@@ -17,6 +17,10 @@
             <ul class="list-unstyled">
                 <li>
                     <a href="{{ route('hall.bookings') }}"><i class="weddingdir_request_quote"></i>Bookings</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('hall.profile') }}"><i class="weddingdir_request_quote"></i>My Profile</a>
                 </li>
 
                 <li>

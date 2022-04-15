@@ -21,10 +21,9 @@ class ManageUserController extends Controller
 
         $halls = Hall::where('user_id', $logged_id)->pluck('id');
 
+        $bookings = array();
+
         foreach ($halls as $key) {
-            // $halls_id = $key->id;
-            // dd($key);
-            // exit();
 
             $bookings = Bookings::where('halls_id', $key)->paginate(5);
         }

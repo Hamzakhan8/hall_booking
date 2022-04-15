@@ -1,9 +1,16 @@
     <aside class="offcanvas-collapse">
         <div class="avatar-wrap">
+        @if (!empty(Auth::user()->profile->avatar))
             <img src="{{ asset('storage/profile_img/'.Auth::user()->profile->avatar) }}"
             width="130"
             height="130"
             alt="profile_image">
+            @elseif (empty(Auth::user()->profile->avatar))
+            <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}'
+            width="130"
+            height="130"
+            alt="profile_image">
+        @endif
             <h3>{{ Auth::user()->username }}</h3>
         </div>
         <div class="sidebar-nav">
