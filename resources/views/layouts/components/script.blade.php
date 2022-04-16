@@ -136,4 +136,14 @@
                 $('#contact_username').attr('value', username);
             });
         });
+
+        $(document).ready(function () {
+            $('.select_input_option').click(function () {
+                var category = $(this).attr('data-category');
+                var category_id = $(this).val();
+
+                $('.select_input').val(category);
+                $('.category_input').val(category_id);
+            });
+        });
 </script>

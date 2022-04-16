@@ -24,11 +24,11 @@
                 </li>
 
                 <li>
-                    <a href="{{route('hallcategory.index')}}"><i class="weddingdir_pricing_plans"></i>Hallcategory</a>
+                    <a href="{{ route('hall.category.index') }}"><i class="weddingdir_pricing_plans"></i>Hallcategory</a>
                 </li>
 
                 <li>
-                    <a href="{{route('Halls.index')}}"><i class="weddingdir_my_listing"></i>Halls</a>
+                    <a href="{{ route('hall.halls.index') }}"><i class="weddingdir_my_listing"></i>Halls</a>
                 </li>
 
                 <li>

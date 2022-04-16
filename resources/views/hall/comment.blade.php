@@ -23,11 +23,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $comment_id;
-                    @endphp
                     @foreach ($comments as $comment)
-                    {{ $comment_id = $comment['id'] }}
+                    @php
+                    $comment_id = $comment['id'];
+                    @endphp
                     <tr>
                         <td>{{ $comment['username'] }}</td>
                         <td>{{ $comment['hall_name'] }}</td>

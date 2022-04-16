@@ -144,11 +144,21 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     });
 
     //Hallcategory
-    Route::resource('/hallcategory',HallCategoryController::class);
+    // Route::resource('hall_category',HallCategoryController::class);
+    Route::controller(HallCategoryController::class)->group(function () {
+        Route::get('hall_category', 'index')->name('hall.category.index');
+        Route::post('hall_category_store', 'store')->name('hall.category.store');
+        Route::get('hall_category_destroy/{category_id}', 'destroy')->name('hall.category.destroy');
+        Route::put('hall_category_update/{category_id}', 'update')->name('hall.category.update');
+    });
 
     Route::resource('/halltype', HallTypeController::class);
     //Halls
-    Route::resource('/Halls',HallsController::class);
+    // Route::resource('/Halls',HallsController::class);
+    Route::controller(HallsController::class)->group(function () {
+        Route::get('hall', 'index')->name('hall.halls.index');
+        Route::post('hall_store', 'store')->name('hall.halls.store');
+    });
 
 
     // Delete Image

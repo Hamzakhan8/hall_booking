@@ -23,16 +23,13 @@ class HallsController extends Controller
      */
     public function index()
     {
-        $data = Hall::all();
+        $logged_id = Auth::user()->id;
 
-        // foreach ($data as $key) {
-        //     $images = $key->images;
+        $halls = Hall::where('user_id', $logged_id)->paginate(5);
 
-        //     dd($images);
-        //     exit();
-        // }
+        $categories=HallCategory::where('user_id', $logged_id)->paginate(5);
 
-        return view('hall.Halls.index',compact('data'));
+        return view('hall.hall',compact('halls', 'categories'));
     }
 
     /**
@@ -42,10 +39,6 @@ class HallsController extends Controller
      */
     public function create()
     {
-
-        $hallcategory=HallCategory::all();
-
-        return view('hall.Halls.create' , compact('hallcategory') );
 
     }
 
@@ -57,30 +50,6 @@ class HallsController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $data= new Hall;
-
-        // $data->user()->id=$request->user_id;
-        // $data->title=$request->title;
-
-
-
-        // if($request->hasfile('images'))
-        // {
-
-        //     $file=$request->file('images');
-        //     $filename=time(). '.' . $file->getClientOriginalExtension();
-        //     $file->move(public_path('storage/hall_img'),$filename);
-        //     $data->images=$filename;
-
-        // }
-
-
-        // $data->save();
-
-
-        // return redirect('hall/halls')->with('success','data has being added');
-
         $request->validate([
 
             'images'=> 'required',
@@ -97,23 +66,20 @@ class HallsController extends Controller
             $file->move(public_path('storage/hall_img'),$filename);
 
             $multi_imgs[] = $filename;
-
         }
 
+        $loggedId = Auth::user()->id;
 
-        $loggedid=Auth::user()->id;
+        $category = HallCategory::all();
 
+        foreach ($category as $cat) {
 
-        $hallcategory= HallCategory::all();
-
-        foreach ($hallcategory as $hallcat) {
-
-            $hallcategory_id = $hallcat->id;
+            $category_id = $cat->id;
         }
 
         Hall::create([
-            'user_id'=>$loggedid,
-            'halls_category_id'=>$hallcategory_id,
+            'user_id'=>$loggedId,
+            'halls_category_id'=>$category_id,
             'images'=> json_encode($multi_imgs),
             'title'=>$request['title'],
             'description'=>$request['description']

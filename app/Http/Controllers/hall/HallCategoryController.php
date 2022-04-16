@@ -18,9 +18,9 @@ class HallCategoryController extends Controller
      */
     public function index()
     {
-        $data = HallCategory::all();
+        $categories = HallCategory::all();
 
-        return view('hall.HallCategory.index',compact('data'));
+        return view('hall.Hall_category', compact('categories'));
     }
 
     /**
@@ -30,8 +30,6 @@ class HallCategoryController extends Controller
      */
     public function create()
     {
-
-        return view('hall.HallCategory.create');
 
     }
 
@@ -47,7 +45,6 @@ class HallCategoryController extends Controller
             'category' => ['required', 'string']
         ]);
 
-        // $data = new HallCategory;
         $logged_id = Auth::user()->id;
 
         HallCategory::create([
@@ -55,13 +52,8 @@ class HallCategoryController extends Controller
             'category' => $request['category'],
         ]);
 
-        // $data->category=$request->category;
-
-        // $data->save();
-        // return redirect()->route('hallcategory.index')->with('success','data has being added');
-        return $this->index();
-        // return redirect('hall/hall')->with('success','data has being added');
-
+        return redirect()->route('hall.category.index')
+        ->with('added', 'Category has been added!');
     }
 
     /**
@@ -81,10 +73,6 @@ class HallCategoryController extends Controller
     public function edit($id)
     {
 
-
-        $data = HallCategory::find($id);
-
-        return view('hall.HallCategory.edit', compact('data'));
     }
 
     /**
@@ -94,20 +82,23 @@ class HallCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $category_id)
     {
         $request->validate([
             'category' => ['required', 'string']
         ]);
 
-        $data = HallCategory::find($id);
+        $logged_id = Auth::user()->id;
 
+        HallCategory::updateOrCreate([
+            'user_id' => $logged_id,
+        ],
+        [
+            'category' => $request['category'],
+        ]);
 
-
-         $data->category=$request->category;
-         $data->update();
-
-        return redirect('hall/hallcategory')->with('success','data has being updated');
+        return redirect()->route('hall.category.index')
+        ->with('updated','Category has been updated!');
     }
 
     /**
@@ -116,19 +107,11 @@ class HallCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($category_id)
+    {
+        HallCategory::where('id', $category_id)->delete();
 
-        $post = HallCategory:: find($id);
-
-        if($post){
-            $post->delete();
-            return redirect('hall/hallcategory')->with('massage','deleted successfully');
-
-        }
-        else{
-            return redirect('hall/hallcategory')->with('massage', 'no post id found');
-        }
-
-
+        return redirect()->route('hall.category.index')
+        ->with('deleted', 'Category has been deleted!');
     }
 }
