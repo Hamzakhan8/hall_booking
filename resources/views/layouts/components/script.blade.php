@@ -146,4 +146,23 @@
                 $('.category_input').val(category_id);
             });
         });
+
+        $(document).ready(function () {
+            $('#edit_hall_modal').click(function () {
+                var hall_id  = $(this).attr('data-id');
+                var hall_title  = $(this).attr('data-title');
+                var hall_description  = $(this).attr('data-description');
+                var hall_image  = $(this).attr('data-image');
+                var hall_category_id  = $(this).attr('data-category');
+
+                alert(hall_id);
+
+                // $(this).attr('data-id', hall_id);
+
+                // $('#edit_hall_image').val(hall_image);
+                // $('#edit_hall_description').val(hall_description);
+                // $('#edit_hall_title').val(hall_title);
+                // $('#category_id').val(hall_category_id);
+            });
+        });
 </script>
