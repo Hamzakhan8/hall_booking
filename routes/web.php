@@ -143,7 +143,6 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
         Route::get('reply_delete/{id}/{comment_id}', 'delete')->name('hall.reply.delete');
     });
 
-    //Hallcategory
     // Route::resource('hall_category',HallCategoryController::class);
     Route::controller(HallCategoryController::class)->group(function () {
         Route::get('hall_category', 'index')->name('hall.category.index');
@@ -152,17 +151,19 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
         Route::put('hall_category_update/{category_id}', 'update')->name('hall.category.update');
     });
 
-    Route::resource('/halltype', HallTypeController::class);
+    // Route::resource('/halltype', HallTypeController::class);
     //Halls
     // Route::resource('/Halls',HallsController::class);
     Route::controller(HallsController::class)->group(function () {
         Route::get('hall', 'index')->name('hall.halls.index');
         Route::post('hall_store', 'store')->name('hall.halls.store');
+        Route::put('hall_update/{hall_id}', 'update')->name('hall.halls.update');
+        Route::get('hall_destroy/{hall_id}', 'destroy')->name('hall.halls.destroy');
     });
 
 
     // Delete Image
-    Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
+    // Route::get('halltypeimage/delete/{id}',[HallTypeController::class,'destroy_image']);
     // Route::resource('/customer',CustomerController::class);
     //booking controller
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);

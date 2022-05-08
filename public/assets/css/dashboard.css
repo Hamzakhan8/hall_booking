@@ -1615,23 +1615,23 @@ main::after{
     -ms-transition: all 400ms ease-in-out;
     transition: all 400ms ease-in-out;
 }
-.sidebar-nav ul li a:hover,
-.sidebar-nav ul li.active a {
+.sidebar-nav ul li a:hover {
     color: #00aeaf;
 }
-.sidebar-nav ul li a:hover i,
-.sidebar-nav ul li.active a i {
+.sidebar-nav ul li a:hover i {
     color: #f48f00;
 }
+/* .sidebar-nav ul li .active {
+    color: #00aeaf;
+}
+.sidebar-nav ul li .active i {
+    color: #f48f00;
+} */
 /* .sidebar-nav ul li.active a,
 .sidebar-nav ul li.active a i {
     background: #00aeaf;
     color: #fff;
 } */
-.sidebar-nav ul li:last-child a,
-.sidebar-nav ul li:last-child a i {
-    color: #fe2400;
-}
 
 /*---- 4.5 Margin/Padding Spacing ---*/
 .wide-tb-120 {

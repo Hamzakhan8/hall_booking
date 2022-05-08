@@ -15,24 +15,24 @@
         </div>
         <div class="sidebar-nav">
             <ul class="list-unstyled">
-                <li>
-                    <a href="{{ route('hall.bookings') }}"><i class="weddingdir_request_quote"></i>Bookings</a>
+                <li class="sidebar_btn">
+                    <a class="" id="sidebar_a" href="{{ route('hall.bookings') }}"><i class="weddingdir_request_quote"></i>Bookings</a>
                 </li>
 
-                <li>
-                    <a href="{{ route('hall.profile') }}"><i class="weddingdir_request_quote"></i>My Profile</a>
+                <li class="sidebar_btn">
+                    <a class="" href="{{ route('hall.profile') }}"><i class="weddingdir_request_quote"></i>My Profile</a>
                 </li>
 
-                <li>
-                    <a href="{{ route('hall.category.index') }}"><i class="weddingdir_pricing_plans"></i>Hallcategory</a>
+                <li class="sidebar_btn">
+                    <a class="" href="{{ route('hall.category.index') }}"><i class="weddingdir_pricing_plans"></i>Hall Categories</a>
                 </li>
 
-                <li>
-                    <a href="{{ route('hall.halls.index') }}"><i class="weddingdir_my_listing"></i>Halls</a>
+                <li class="sidebar_btn">
+                    <a class="" href="{{ route('hall.halls.index') }}"><i class="weddingdir_my_listing"></i>Halls</a>
                 </li>
 
-                <li>
-                    <a href="{{ route('hall.comment') }}"><i class="weddingdir_my_listing"></i>User Comments</a>
+                <li class="sidebar_btn">
+                    <a class="" href="{{ route('hall.comment') }}"><i class="weddingdir_my_listing"></i>User Comments</a>
                 </li>
 
 

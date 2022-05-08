@@ -21,7 +21,7 @@ class HallCategory extends Model
      */
     protected $fillable = [
         'user_id',
-         'category',
+        'category',
     ];
 
     public function user(){

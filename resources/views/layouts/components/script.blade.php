@@ -148,21 +148,32 @@
         });
 
         $(document).ready(function () {
-            $('#edit_hall_modal').click(function () {
+            $('.edit_hall_modal').click(function () {
                 var hall_id  = $(this).attr('data-id');
                 var hall_title  = $(this).attr('data-title');
                 var hall_description  = $(this).attr('data-description');
-                var hall_image  = $(this).attr('data-image');
                 var hall_category_id  = $(this).attr('data-category');
 
-                alert(hall_id);
+                var cancel_btn = $('.Update_close_btn');
 
-                // $(this).attr('data-id', hall_id);
+                //concatinating hall id with update form action
+                var url = $('.hallUpdateForm').attr('action');
 
-                // $('#edit_hall_image').val(hall_image);
-                // $('#edit_hall_description').val(hall_description);
-                // $('#edit_hall_title').val(hall_title);
-                // $('#category_id').val(hall_category_id);
+                url = url.replace(':id', hall_id);
+
+                cancel_btn.click(function () {
+                    var url_2 = $('.hallUpdateForm').attr('action');
+
+                    url_2 = url_2.replace(hall_id, ':id');
+
+                    $('.hallUpdateForm').attr('action', url_2);
+                });
+
+                $('#edit_hall_description').val(hall_description);
+                $('#edit_hall_title').val(hall_title);
+                $('#edit_hall_category_id').val(hall_category_id);
+                $('.hallUpdateForm').attr('action', url);
             });
         });
+
 </script>

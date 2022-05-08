@@ -3,17 +3,11 @@
 namespace App\Http\Controllers\hall;
 
 use App\Models\Hall;
-use App\Models\User;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\HallCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-
-
-
-
 class HallsController extends Controller
 {
     /**
@@ -78,17 +72,16 @@ class HallsController extends Controller
         }
 
         Hall::create([
-            'user_id'=>$loggedId,
-            'halls_category_id'=>$category_id,
-            'images'=> json_encode($multi_imgs),
-            'title'=>$request['title'],
-            'description'=>$request['description']
+            'user_id' => $loggedId,
+            'halls_category_id' => $category_id,
+            'images' => json_encode($multi_imgs),
+            'title' => $request['title'],
+            'description' => $request['description']
         ]);
 
 
-        return $this->index();
-
-
+        return redirect()->route('hall.halls.index')
+        ->with('created', 'The Hall has been created');
     }
 
     /**
@@ -108,12 +101,6 @@ class HallsController extends Controller
     public function edit($id)
     {
 
-        $hallcategory=HallCategory::all();
-
-
-        $data=Hall::find($id);
-
-        return view('hall.Halls.edit',compact('data' , 'hallcategory' ));
     }
 
     /**
@@ -123,42 +110,38 @@ class HallsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $hall_id)
     {
+        $check = $request->validate([
+            // 'images' => ['required', 'file', 'sometimes'],
+            'category_id' => ['required'],
+            'title' => ['required'],
+            'description' => ['required']
+        ]);
+        // dd($check);
 
-        $data=Hall::find($id);
+        if (empty($request->hasFile('images')) && $request['images'] == null) {
+            $hall_images = $request->user()->hall->images;
+        }
+        else
+        {
+            $file = $request->file('images');
 
+            $hall_images = $file->hashName();
 
+            $file->move(public_path('storage/profile_img'), $hall_images);
+        }
 
+        $request->user()->hall->update([
+            'user_id' => $request->user()->id,
+            'halls_category_id' => $request['category_id'],
+            'title' => $request['title'],
+            'images' => $hall_images,
+            'description' => $request['description'],
+        ]);
 
-        $data->full_name=$request->full_name;
-        $data->email=$request->email;
-        $data->password=$request->password;
-        $data->mobile=$request->mobile;
-        $data->address=$request->address;
-
-
-
-            if($request->hasfile('images')) {
-
-                $destination ='upload/customer/'.$data->photo;
-
-                if(File::exists($destination)){
-                    File::delete($destination);
-                }
-
-
-                $file=$request->file('photo');
-                $filename=time(). '.' . $file->getClientOriginalExtension();
-                $file->move('upload/customer/',$filename);
-                $data->photo=$filename;
-
-    }
-
-
-        $data->update();
-
-        return redirect('hall/Halls')->with('success','data has being updated');
+        return redirect()->route('hall.halls.index')
+        ->with('updated', 'Your Hall has been updated');
     }
 
     /**
@@ -167,31 +150,13 @@ class HallsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($hall_id)
+    {
+        $delete = Hall::findOrFail($hall_id);
 
-        $data = Hall :: find($id);
+        $delete->delete();
 
-
-        $destination ='storage/hall_img'.$data->images ;
-
-                if(File::exists($destination)){
-
-                    File::delete($destination);
-                }
-
-
-        if($data){
-
-                $data->delete();
-
-            return redirect('hall/Halls')->with('massage','deleted successfully');
-
-        }
-        else{
-
-            return redirect('hall/Halls')->with('massage', 'no post id found');
-        }
-
-
+        return redirect()->route('hall.halls.index')
+        ->with('deleted', 'The Hall has been deleted');
     }
 }

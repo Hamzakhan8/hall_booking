@@ -16,18 +16,23 @@
     <div class="card-shadow-body p-0">
         <div class="table-responsive">
             <table id="myTable" class="table table-bordered table-hover mb-0">
-                @if (Session::has('success'))
-                <p class="alert alert-success">{{session('success')}}</p>
-
+                @if (Session::has('created'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{ Session::get('created') }}</strong>
+                    </div>
+                    @elseif (Session::has('deleted'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{ Session::get('deleted') }}</strong>
+                    </div>
+                    @elseif (Session::has('updated'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{ Session::get('updated') }}</strong>
+                    </div>
                 @endif
-                @if (Session::has('massage'))
-                <p class="alert alert-danger">{{session('massage')}}</p>
-
-                @endif
-
-                <thead class="">
+                <thead>
                     <tr>
                         <th scope="col">Title</th>
+                        <th scope="col">Category</th>
                         <th scope="col">Images</th>
                         <th scope="col">Description</th>
                         <th scope="col">Actions</th>
@@ -36,10 +41,18 @@
                 <tbody>
 
                     @foreach ($halls as $hall)
+                    @php
+                        $hall_id = $hall->id;
+                    @endphp
 
 
                     <tr>
                         <td>{{$hall->title}}</td>
+                        @foreach ($categories as $category)
+                            @if ($category->id === $hall->halls_category_id)
+                                <td>{{ $category->category }}</td>
+                            @endif
+                        @endforeach
 
                         @if (empty($hall->images))
                             <td>
@@ -51,13 +64,13 @@
 
                                 <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
 
-                            @endforeach
+                                @endforeach
                             </td>
                         @endif
 
                         <td><p>{{$hall->description}}</p></td>
                         <td class="rounded-sm">
-                            <a href="{{ route('hall.category.destroy', $hall['id']) }}" class="action-links">
+                            <a href="{{ route('hall.halls.destroy', $hall['id']) }}" class="action-links">
                                 <lord-icon
                                 src="https://cdn.lordicon.com/qsloqzpf.json"
                                 trigger="loop"
@@ -75,13 +88,12 @@
                                 <a style="color:#ff0000;cursor: pointer;"
                                 data-id="{{ $hall['id'] }}"
                                 data-title="{{ $hall['title'] }}"
-                                data-image="{{ $hall['image'] }}"
                                 data-description="{{ $hall['description'] }}"
                                 data-category="{{ $hall['halls_category_id'] }}"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 title="Edit"
-                                id="edit_hall_modal">
+                                class="edit_hall_modal">
                                 <i class="fa fa-edit"></i>
                                 </a>
                             </span>
@@ -147,17 +159,17 @@
                 <h5 class="modal-title" id="exampleModalLabel">Edit Hall Information</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form class="hallUpdateForm" action="{{ route('hall.halls.update', ':id') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="" class="">Add Images</label>
-                            <input  class="form-control" id="edit_hall_image" type="file" name="images[]" multiple>
+                            <input  class="form-control" id="edit_hall_image" type="file" value="" name="images[]" multiple>
                         </div>
                         <div class="form-group">
                             <div class="dropdown">
                                 <input class="form-control dropdown-toggle select_input" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="Select Category">
-                                <input type="hidden" class="category_input" name="category_id" value="">
+                                <input type="hidden" class="category_input" id="edit_hall_category_id" name="category_id" value="">
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach ($categories as $category)
                                         <option class="dropdown-item select_input_option"
@@ -170,17 +182,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="edit_hall_title" name="title" placeholder="Hall title">
+                            <input type="text" class="form-control" id="edit_hall_title" name="title" value="" placeholder="Hall title">
                         </div>
                         <div class="form-group">
-                            <textarea name="description" id="edit_hall_description" class="form-control" placeholder="Write description"></textarea>
+                            <input name="description" id="edit_hall_description" class="form-control" value="" placeholder="Write description">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary Update_close_btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
             </div>
