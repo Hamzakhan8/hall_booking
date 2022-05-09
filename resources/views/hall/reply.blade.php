@@ -34,7 +34,7 @@
                                                 <a style="color: #17a2b8;cursor: pointer;"
                                                 data-name="{{ $reply['username'] }}"
                                                 data-id="{{ $reply['id'] }}"
-                                                class="myModalBtn"
+                                                class="myCommentReplybtn"
                                                 data-toggle="modal">
                                                     <i class="fa fa-reply"></i>
                                                 </a>
@@ -66,7 +66,7 @@
                                                                 <a style="color: #17a2b8;cursor: pointer;"
                                                                 data-name="{{ $re_reply['username'] }}"
                                                                 data-id="{{ $re_reply['reply_id'] }}"
-                                                                class="myModalBtn"
+                                                                class="myReeReplyModalbtn"
                                                                 data-toggle="modal">
                                                                    <i class="fa fa-reply"></i>
                                                                </a>

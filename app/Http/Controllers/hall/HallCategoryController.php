@@ -88,12 +88,13 @@ class HallCategoryController extends Controller
             'category' => ['required', 'string']
         ]);
 
-        $logged_id = Auth::user()->id;
 
-        HallCategory::updateOrCreate([
-            'user_id' => $logged_id,
-        ],
-        [
+        $request->user()->hallCategory()
+        ->where([
+            'id' => $category_id,
+            'user_id' => $request->user()->id,
+        ])
+        ->update([
             'category' => $request['category'],
         ]);
 

@@ -130,10 +130,74 @@
                 var modal = $('#myModal').attr('data-id', id);
                 var modal = $('#myModal').attr('data-name', username);
 
+                var cancel_btn = $('.Update_close_btn');
+
+                //concatinating hall id with update form action
+                var url = $('.UpdateHallCategoryForm').attr('action');
+
+                url = url.replace(':id', id);
+
+                cancel_btn.click(function () {
+                    var url_2 = $('.UpdateHallCategoryForm').attr('action');
+
+                    url_2 = url_2.replace(id, ':id');
+
+                    $('.UpdateHallCategoryForm').attr('action', url_2);
+                });
+
                 modal.modal('show');
 
                 $('#contact_id').attr('value', id);
                 $('#contact_username').attr('value', username);
+                $('.UpdateHallCategoryForm').attr('action', url);
+            });
+        });
+
+        // comment reply update on bootstrap modal
+        $(document).ready(function () {
+            $('.myReplyModalBtn').click(function () {
+                var id = $(this).attr('data-id');
+                var username = $(this).attr('data-name');
+
+                var modal = $('#myModal').attr('data-id', id);
+                var modal = $('#myModal').attr('data-name', username);
+
+                modal.modal('show');
+
+                $('#contact_id').attr('value', id);
+                $('#contact_username').attr('value', username);
+            });
+        });
+
+        // comment reply update on bootstrap modal
+        $(document).ready(function () {
+        $('.myCommentReplybtn').click(function () {
+            var id = $(this).attr('data-id');
+            var username = $(this).attr('data-name');
+
+            var modal = $('#myModal').attr('data-id', id);
+            var modal = $('#myModal').attr('data-name', username);
+
+            modal.modal('show');
+
+            $('#contact_id').attr('value', id);
+            $('#contact_username').attr('value', username);
+            });
+        });
+
+        // comment Reereply update on bootstrap modal
+        $(document).ready(function () {
+        $('.myReeReplyModalbtn').click(function () {
+            var id = $(this).attr('data-id');
+            var username = $(this).attr('data-name');
+
+            var modal = $('#myModal').attr('data-id', id);
+            var modal = $('#myModal').attr('data-name', username);
+
+            modal.modal('show');
+
+            $('#contact_id').attr('value', id);
+            $('#contact_username').attr('value', username);
             });
         });
 

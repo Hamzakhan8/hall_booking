@@ -24,32 +24,32 @@
                 </thead>
                 <tbody>
                     @foreach ($comments as $comment)
-                    @php
-                    $comment_id = $comment['id'];
-                    @endphp
-                    <tr>
-                        <td>{{ $comment['username'] }}</td>
-                        <td>{{ $comment['hall_name'] }}</td>
-                        <td>{{ $comment['comment'] }}</td>
-                        <td>
-                            <a style="color: #17a2b8"
-                            data-name="{{ $comment['username'] }}"
-                            data-id="{{ $comment['id'] }}"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            class="myModalBtn"
-                            title="Reply">
-                               <i class="fa fa-reply"></i>
-                           </a> |
-                            <a href="{{ route('hall.reply', $comment['id']) }}"
-                             style="color: #17a2b8"
-                             data-toggle="tooltip"
-                             data-placement="top"
-                             title="Replies">
-                                <i class="fa fa-reply-all"></i>
-                            </a>
-                        </td>
-                    </tr>
+                        @php
+                            $comment_id = $comment['id'];
+                        @endphp
+                        <tr>
+                            <td>{{ $comment['username'] }}</td>
+                            <td>{{ $comment['hall_name'] }}</td>
+                            <td>{{ $comment['comment'] }}</td>
+                            <td>
+                                <a style="color: #17a2b8"
+                                data-name="{{ $comment['username'] }}"
+                                data-id="{{ $comment['id'] }}"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                class="myReplyModalBtn"
+                                title="Reply">
+                                <i class="fa fa-reply"></i>
+                            </a> |
+                                <a href="{{ route('hall.reply', $comment['id']) }}"
+                                style="color: #17a2b8"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Replies">
+                                    <i class="fa fa-reply-all"></i>
+                                </a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

@@ -81,7 +81,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
                     </div>
                     <div class="modal-body">
-                        <form class="myModalForm" action="{{ route('hall.category.update', $category_id) }}" method="POST">
+                        <form class="myModalForm UpdateHallCategoryForm" action="{{ route('hall.category.update', ':id') }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="form-group">
@@ -95,7 +95,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-sm btn-secondary Update_close_btn" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
