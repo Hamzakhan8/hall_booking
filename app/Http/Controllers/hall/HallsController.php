@@ -113,30 +113,38 @@ class HallsController extends Controller
     public function update(Request $request, $hall_id)
     {
         $check = $request->validate([
-            // 'images' => ['required', 'file', 'sometimes'],
             'category_id' => ['required'],
             'title' => ['required'],
             'description' => ['required']
         ]);
-        // dd($check);
+
+        $check = $request->user()->hall[0];
 
         if (empty($request->hasFile('images')) && $request['images'] == null) {
-            $hall_images = $request->user()->hall->images;
+            $hall_images = $check->images;
         }
         else
         {
-            $file = $request->file('images');
+            $files = $request->file('images');
 
-            $hall_images = $file->hashName();
+            foreach ($files as $file) {
 
-            $file->move(public_path('storage/profile_img'), $hall_images);
+                $hall_images = $file->hashName();
+
+                $file->move(public_path('storage/hall_img'), $hall_images);
+
+                // created an array variable
+                // & assigned it to the file hashed names
+                $filename[] = $hall_images;
+            }
         }
 
-        $request->user()->hall->update([
+        $request->user()->hall()->update([
+            'id' => $hall_id,
             'user_id' => $request->user()->id,
             'halls_category_id' => $request['category_id'],
             'title' => $request['title'],
-            'images' => $hall_images,
+            'images' => $filename,
             'description' => $request['description'],
         ]);
 
