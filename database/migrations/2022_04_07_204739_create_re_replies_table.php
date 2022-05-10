@@ -15,9 +15,24 @@ class CreateReRepliesTable extends Migration
     {
         Schema::create('re_replies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
             $table->string('username');
-            $table->foreignId('reply_id')->references('id')->on('replies');
+
+            $table->string('username_to');
+
+            $table->foreignId('comment_id')
+            ->references('id')
+            ->on('comments');
+
+            $table->foreignId('reply_id')
+            ->references('id')
+            ->on('replies');
+
             $table->string('reply');
             $table->timestamps();
         });

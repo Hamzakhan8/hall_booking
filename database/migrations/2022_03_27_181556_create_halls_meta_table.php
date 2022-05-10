@@ -15,10 +15,20 @@ class CreateHallsMetaTable extends Migration
     {
         Schema::create('halls_meta', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('halls_id')->references('id')->on('halls')
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
             ->cascadeOnDelete();
+
+            $table->foreignId('hall_id')
+            ->references('id')
+            ->on('halls')
+            ->cascadeOnDelete();
+
             $table->string('meta_key');
             $table->string('meta_value');
+
             $table->timestamps();
         });
     }

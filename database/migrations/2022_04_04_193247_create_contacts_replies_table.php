@@ -15,11 +15,18 @@ class CreateContactsRepliesTable extends Migration
     {
         Schema::create('contacts_replies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')
-            ->on('users')->cascadeOnDelete();
-            $table->foreignId('contacts_id')->references('id')
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
+            $table->foreignId('contacts_id')
+            ->references('id')
             ->on('contacts');
+
             $table->string('reply');
+
             $table->timestamps();
         });
     }

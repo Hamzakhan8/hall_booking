@@ -4,12 +4,10 @@
 <div class="d-flex justify-content-between">
     <h2>Category</h2>
 
-    <button
-    class="btn btn-sm btn-warning"
-    data-toggle="modal"
-    data-target="#HallModel">
+    <a href="{{ route('hall.halls.create') }}"
+    class="btn btn-sm btn-warning">
         Add Hall
-    </button>
+    </a>
 </div>
 @endsection
 <div class="card-shadow">

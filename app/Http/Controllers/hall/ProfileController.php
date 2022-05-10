@@ -110,7 +110,8 @@ class ProfileController extends Controller
             'description' => $request['description'],
         ]);
 
-        return $this->index();
+        return redirect()->route('hall.profile')
+        ->with('updated', 'Profile has been updated');
     }
 
     /**

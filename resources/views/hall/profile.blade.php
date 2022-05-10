@@ -25,6 +25,11 @@
                 <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel"
                     aria-labelledby="v-pills-home-tab">
                     <div class="card-shadow">
+                        @if (Session::has('updated'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{{ Session::get('updated') }}</strong>
+                        </div>
+                        @endif
                         <div class="card-shadow-header">
                             <div class="head-simple">
                                 Edit Profile
@@ -33,7 +38,7 @@
 
                         <div class="card-shadow-body">
                             @if (!empty($profile))
-                                <form action="{{ route('couple.profile.update') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('hall.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
@@ -95,7 +100,7 @@
                                 </form>
 
                             @elseif (empty($profile))
-                                <form action="{{ route('couple.profile.update') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('hall.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">
@@ -169,7 +174,7 @@
                             </div>
                         </div>
                         <div class="card-shadow-body">
-                            <form action="{{ route('couple.password.update') }}" method="POST">
+                            <form action="{{ route('hall.password.update') }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">

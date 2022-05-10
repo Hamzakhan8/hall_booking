@@ -15,13 +15,19 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
             ->cascadeOnDelete();
+
+            $table->string('username');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
             $table->bigInteger('mobile');
             $table->string('your_message');
+
             $table->timestamps();
         });
     }

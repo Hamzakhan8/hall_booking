@@ -15,7 +15,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
             $table->string('user_name');
             $table->string('transaction_id')->unique();
             $table->bigInteger('amount');
@@ -24,6 +29,7 @@ class CreateTransactionsTable extends Migration
             $table->tinyInteger('exp_month');
             $table->smallInteger('exp_year');
             $table->smallInteger('card_last_4');
+
             $table->timestamps();
         });
     }

@@ -15,7 +15,14 @@ class CreateHallsCategoryTable extends Migration
     {
         Schema::create('halls_category', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
             $table->string('category');
+
             $table->timestamps();
         });
     }

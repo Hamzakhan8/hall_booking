@@ -33,7 +33,11 @@ class HallsController extends Controller
      */
     public function create()
     {
+        $logged_id = Auth::user()->id;
 
+        $categories=HallCategory::where('user_id', $logged_id)->get();
+
+        return view('hall.hall_add_info', compact('categories'));
     }
 
     /**
@@ -45,10 +49,10 @@ class HallsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-
-            'images'=> 'required',
-            'title'=>'required',
-            'description'=>'required',
+            'images' => 'required',
+            'hall_category' => 'required',
+            'title' => 'required',
+            'description' => 'required',
         ]);
 
         $files = $request->file('images');
@@ -62,21 +66,24 @@ class HallsController extends Controller
             $multi_imgs[] = $filename;
         }
 
-        $loggedId = Auth::user()->id;
-
-        $category = HallCategory::all();
-
-        foreach ($category as $cat) {
-
-            $category_id = $cat->id;
-        }
-
-        Hall::create([
-            'user_id' => $loggedId,
-            'halls_category_id' => $category_id,
+        $hall = Hall::create([
+            'user_id' => $request->user()->id,
+            'halls_category_id' => $request['hall_category'],
             'images' => json_encode($multi_imgs),
             'title' => $request['title'],
             'description' => $request['description']
+        ]);
+
+        $hall->halls_meta()->create([
+            'user_id' => $hall->user_id,
+            'hall_id' => $hall->id,
+            'meta_key' => 'hall_events',
+            'meta_value' => [
+                "wedding".'='.$request['wedding_price'] => $request['wedding_guests'],
+                "birthday".'='.$request['birthday_price'] => $request['birthday_guests'],
+                "concert".'='.$request['concert_price'] => $request['concert_guests'],
+                "festival".'='.$request['festival_price'] => $request['wedding_guests'],
+            ],
         ]);
 
 
