@@ -79,12 +79,16 @@ class HallsController extends Controller
             'hall_id' => $hall->id,
             'meta_key' => 'hall_events',
             'meta_value' => [
-                "wedding".'='.$request['wedding_price'] => $request['wedding_guests'],
-                "birthday".'='.$request['birthday_price'] => $request['birthday_guests'],
-                "concert".'='.$request['concert_price'] => $request['concert_guests'],
-                "festival".'='.$request['festival_price'] => $request['wedding_guests'],
+                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'],
+                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'],
+                "concert" => $request['concert_price'].'-'.$request['concert_guests'],
+                "festival" => $request['festival_price'].'-'.$request['wedding_guests'],
             ],
         ]);
+
+
+
+
 
 
         return redirect()->route('hall.halls.index')
@@ -107,6 +111,17 @@ class HallsController extends Controller
      */
     public function edit($id)
     {
+        $hall = Hall::findOrFail($id);
+
+        $metaValue = $hall->halls_meta->toArray();
+
+        $check = collect($metaValue);
+
+        $events = $check->pluck('meta_value');
+
+        $categories = HallCategory::all();
+
+        return view('hall.hall_edit_info', compact('hall', 'categories', 'events'));
 
     }
 

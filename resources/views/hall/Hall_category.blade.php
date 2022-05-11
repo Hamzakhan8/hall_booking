@@ -125,5 +125,6 @@
         </div>
     </div>
 </div>
+{{ $categories->links() }}
 @endsection
 

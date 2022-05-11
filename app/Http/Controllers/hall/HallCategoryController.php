@@ -18,7 +18,9 @@ class HallCategoryController extends Controller
      */
     public function index()
     {
-        $categories = HallCategory::all();
+        $user = Auth::user();
+
+        $categories = HallCategory::where('user_id', $user->id)->paginate(5);
 
         return view('hall.Hall_category', compact('categories'));
     }

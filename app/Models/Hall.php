@@ -29,7 +29,7 @@ class Hall extends Model
      */
     public function hallCategory()
     {
-        return $this->belongsToMany(HallCategory::class, 'halls_category_id', 'id');
+        return $this->belongsTo(HallCategory::class, 'halls_category_id', 'id');
     }
 
     public function user()

@@ -155,6 +155,7 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
         Route::get('hall', 'index')->name('hall.halls.index');
         Route::get('hall_create', 'create')->name('hall.halls.create');
         Route::post('hall_store', 'store')->name('hall.halls.store');
+        Route::get('hall_edit/{hall_id}', 'edit')->name('hall.halls.edit');
         Route::put('hall_update/{hall_id}', 'update')->name('hall.halls.update');
         Route::get('hall_destroy/{hall_id}', 'destroy')->name('hall.halls.destroy');
     });
