@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
@@ -15,7 +14,6 @@ use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ReviewsController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\hall\HallTypeController;
 use App\Http\Controllers\admin\SliderImgController;
 use App\Http\Controllers\hall\ManageUserController;
 use App\Http\Controllers\admin\ManageHallController;
@@ -30,11 +28,11 @@ use App\Http\Controllers\couple\TransactionController as CoupleTransactionContro
 use App\Http\Controllers\hall\HallsController;
 use App\Http\Controllers\couple\CommentController as CoupleCommentController;
 use App\Http\Controllers\couple\ReplyController;
-use App\Http\Controllers\couple\ReReplyController;
 use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
+use App\Models\SliderImage;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +49,11 @@ use App\Http\Controllers\hall\TransactionController as HallTransactionController
 
 
 Route::get('/', function() {
-    return view('front_view.index');
+
+    //retrieving the slider images
+    $slider_images = SliderImage::value('slider_imgs');
+
+    return view('front_view.index', compact('slider_images'));
 });
 
 Route::prefix('auth')->group(function (){
@@ -114,6 +116,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     Route::controller(SliderImgController::class)->group(function() {
         Route::get('slider_img', 'index')->name('admin.slider.img');
         Route::post('store_slider_img', 'store')->name('admin.slider.store');
+        Route::put('slider_img_update/{id}', 'update')->name('admin.slider.update');
+        Route::get('slider_img_delete/{id}', 'destroy')->name('admin.slider.delete');
     });
 });
 
@@ -172,12 +176,7 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 });
 
 
-/**
- * grouped routes for couple
- *
- * !couple is equal to customer
- *
- *  */
+//  grouped routes for couple
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
     ->name('couple.dashboard');

@@ -17,9 +17,12 @@ class CoupleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::user()->role == "couple")
+        if($request->user()->role == "couple"){ // couple role will be couple
+            return $next($request);
+        }
+
         return redirect()->route('front.home');
 
-        return $next($request);
+
     }
 }

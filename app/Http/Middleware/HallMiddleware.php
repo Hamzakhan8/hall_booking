@@ -17,9 +17,11 @@ class HallMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::user()->role == "hall")
+        if($request->user()->role == "hall"){ // hall role will be hall
+            return $next($request);
+        }
+
         return redirect()->route('front.home');
 
-        return $next($request);
     }
 }

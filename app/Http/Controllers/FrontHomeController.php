@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SliderImage;
 use Illuminate\Http\Request;
 
 class FrontHomeController extends Controller
@@ -13,7 +14,10 @@ class FrontHomeController extends Controller
      */
     public function index()
     {
-        return view('front_view.index');
+        //retrieving the slider images
+        $slider_images = SliderImage::value('slider_imgs');
+
+        return view('front_view.index', compact('slider_images'));
     }
 
     /**

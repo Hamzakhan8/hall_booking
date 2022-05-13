@@ -11,7 +11,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
 
-                <a class="navbar-brand" href="javascript:window.location.reload(true)">
+                <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
                     <h2>Admin Dashboard</h2>
                 </a>
             </div>

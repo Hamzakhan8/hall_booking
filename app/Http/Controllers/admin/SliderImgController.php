@@ -16,9 +16,9 @@ class SliderImgController extends Controller
      */
     public function index()
     {
-        $slider_img = SliderImage::paginate(5);
+        $slider_imgs = SliderImage::all();
 
-        return view('admin.slider_img', compact('slider_img'));
+        return view('admin.slider_img', compact('slider_imgs'));
     }
 
     /**
@@ -65,7 +65,8 @@ class SliderImgController extends Controller
         ]);
 
         //returning the index function to redirect view
-        return $this->index();
+        return redirect()->route('admin.slider.img')
+        ->with('created', 'Slider images has been added');
     }
 
     /**
@@ -99,7 +100,36 @@ class SliderImgController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'multi_img' => ['required']
+        ]);
+
+        $files = $request->file('multi_img');
+
+        // foreach the files variable and hashing each file name individually
+        foreach ($files as $file) {
+
+            $avatar_name = $file->hashName();
+
+            $file->move(public_path('storage/slider_imgs'), $avatar_name);
+
+            // created an array variable
+            // & assigned it to the file hashed names
+            $filename[] = $avatar_name;
+        }
+
+        $user = $request->user();
+        // uploading array of files in json formate to database
+        SliderImage::where([
+            'id' => $id,
+            'user_id' => $user->id,
+        ])->update([
+            'slider_imgs' => json_encode($filename),
+        ]);
+
+        //returning the index function to redirect view
+        return redirect()->route('admin.slider.img')
+        ->with('updated', 'Slider images has been updated');
     }
 
     /**
@@ -110,6 +140,9 @@ class SliderImgController extends Controller
      */
     public function destroy($id)
     {
-        //
+        SliderImage::findOrFail($id)->delete();
+
+        return redirect()->route('admin.slider.img')
+        ->with('deleted', 'Slider images has been deleted');
     }
 }

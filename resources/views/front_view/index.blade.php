@@ -45,27 +45,13 @@ Author: wp-organic
     <section class="slider-wrap">
         <div class="owl-carousel owl-theme" id="slider-home">
             <!-- Home Slider Images -->
-            <div class="item">
-                <div class="home-slider">
-                    <img height="500px" src="{{ asset('assets') }}/images/slider/2.jpg" alt="">
+            @foreach (json_decode($slider_images) as $slide_img)
+                <div class="item">
+                    <div class="home-slider">
+                    <img height="500px" src="{{ asset('storage/slider_imgs/'.$slide_img) }}" alt="slider images">
+                    </div>
                 </div>
-            </div>
-            <!-- Home Slider Images -->
-
-            <!-- Home Slider Images -->
-            <div class="item">
-                <div class="home-slider">
-                    <img height="500px" src="{{ asset('assets') }}/images/slider/3.jpg" alt="">
-                </div>
-            </div>
-            <!-- Home Slider Images -->
-
-                        <!-- Home Slider Images -->
-            <div class="item">
-                <div class="home-slider">
-                    <img height="500px" src="{{ asset('assets') }}/images/slider/1.jpg" alt="">
-                </div>
-            </div>
+            @endforeach
             <!-- Home Slider Images -->
         </div>
 
@@ -110,7 +96,7 @@ Author: wp-organic
     <main id="body-content">
 
         <!-- Top Wedding Listings Start -->
-        <section class="wide-tb-120 floral-bg">
+        {{-- <section class="wide-tb-120 floral-bg">
             <div class="container">
                 <div class="section-title text-center">
                     <h1>Top Hall Listings</h1>
@@ -250,7 +236,7 @@ Author: wp-organic
                 </div>
 
             </div>
-        </section>
+        </section> --}}
 
         <!-- Popular locations Start -->
         <section class="wide-tb-120 bg-light-gray">

@@ -6189,9 +6189,6 @@ footer .widget-listing li {
   .top-bar-stripe .social-icons li {
     border: none !important;
   }
-  header.fixed-top {
-    position: relative !important;
-  }
   .breadcrumbs-page,
   .vendor-bg,
   .vendor-single-slider,
@@ -6567,14 +6564,8 @@ footer .widget-listing li {
     flex-direction: column;
     align-items: flex-start;
   }
-  .vendor-wrap-alt .content .vendor-heading h3 {
-    margin-bottom: 1rem;
-  }
 }
 @media (max-width: 430px) {
-  header .btn {
-    display: none;
-  }
   .select2-container {
     z-index: 9;
     width: 100% !important;

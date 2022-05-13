@@ -58,7 +58,6 @@
                             </td>
                             @elseif (!empty($hall->images))
                             <td>
-                                {{-- {{ dd($hall->images) }} --}}
                                 @foreach(json_decode($hall->images) as $image)
 
                                 <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
@@ -81,8 +80,7 @@
                                 title="Delete">
                                 </lord-icon>
                             </a> |
-                            <span
-                            >
+                            <span>
                                 <a href="{{ route('hall.halls.edit', $hall['id']) }}"
                                  style="color:#ff0000;cursor: pointer;"
                                 data-toggle="tooltip"
