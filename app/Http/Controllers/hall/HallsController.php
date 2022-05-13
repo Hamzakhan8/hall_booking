@@ -6,6 +6,7 @@ use App\Models\Hall;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\HallCategory;
+use App\Models\Halls_meta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 class HallsController extends Controller
@@ -86,11 +87,6 @@ class HallsController extends Controller
             ],
         ]);
 
-
-
-
-
-
         return redirect()->route('hall.halls.index')
         ->with('created', 'The Hall has been created');
     }
@@ -135,7 +131,7 @@ class HallsController extends Controller
     public function update(Request $request, $hall_id)
     {
         $check = $request->validate([
-            'category_id' => ['required'],
+            'hall_category' => ['required'],
             'title' => ['required'],
             'description' => ['required']
         ]);
@@ -144,6 +140,8 @@ class HallsController extends Controller
 
         if (empty($request->hasFile('images')) && $request['images'] == null) {
             $hall_images = $check->images;
+
+            $filename = $hall_images;
         }
         else
         {
@@ -161,13 +159,29 @@ class HallsController extends Controller
             }
         }
 
-        $request->user()->hall()->update([
-            'id' => $hall_id,
-            'user_id' => $request->user()->id,
-            'halls_category_id' => $request['category_id'],
+        $request->user()
+        ->hall()
+        ->where(
+            ['id' => $hall_id],
+            ['user_id' => $request->user()->id])
+        ->update([
+            'halls_category_id' => $request['hall_category'],
             'title' => $request['title'],
             'images' => $filename,
             'description' => $request['description'],
+        ]);
+
+        Halls_meta::where(
+            ['user_id' => $request->user()->id],
+            ['hall_id' => $hall_id],
+            ['meta_key' => 'hall_events'])
+        ->update([
+            'meta_value' => [
+                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'],
+                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'],
+                "concert" => $request['concert_price'].'-'.$request['concert_guests'],
+                "festival" => $request['festival_price'].'-'.$request['wedding_guests'],
+            ]
         ]);
 
         return redirect()->route('hall.halls.index')

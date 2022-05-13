@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class ChatController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,11 @@ class ChatController extends Controller
      */
     public function index()
     {
-        return view();
+        $logged_id = Auth::user()->id;
+
+        $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
+
+        return view('hall.transaction', compact('transactions'));
     }
 
     /**

@@ -41,9 +41,6 @@
                     <a href="{{ route('admin.profile') }}"><i class="weddingdir_my_profile"></i>My Profile</a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.reviews') }}"><i class="weddingdir_reviews"></i>Reviews</a>
-                </li>
-                <li>
                     <a href="{{ route('admin.contact') }}"><i class="weddingdir_reviews"></i>Contact</a>
                 </li>
             </ul>

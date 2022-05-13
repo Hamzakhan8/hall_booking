@@ -58,6 +58,7 @@
                             </td>
                             @elseif (!empty($hall->images))
                             <td>
+                                {{-- {{ dd($hall->images) }} --}}
                                 @foreach(json_decode($hall->images) as $image)
 
                                 <img src="{{asset('storage/hall_img/'.$image)}}" style="width:50px;height:50px;"><br/>
@@ -81,19 +82,12 @@
                                 </lord-icon>
                             </a> |
                             <span
-                            {{-- data-toggle="modal"
-                            data-target="#editHallModal" --}}
                             >
                                 <a href="{{ route('hall.halls.edit', $hall['id']) }}"
                                  style="color:#ff0000;cursor: pointer;"
-                                {{-- data-id="{{ $hall['id'] }}"
-                                data-title="{{ $hall['title'] }}"
-                                data-description="{{ $hall['description'] }}"
-                                data-category="{{ $hall['halls_category_id'] }}" --}}
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 title="Edit"
-                                {{-- class="edit_hall_modal" --}}
                                 >
                                 <i class="fa fa-edit"></i>
                                 </a>

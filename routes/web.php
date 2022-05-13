@@ -34,6 +34,7 @@ use App\Http\Controllers\couple\ReReplyController;
 use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
+use App\Http\Controllers\hall\TransactionController as HallTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -160,6 +161,9 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
         Route::get('hall_destroy/{hall_id}', 'destroy')->name('hall.halls.destroy');
     });
 
+    Route::controller(HallTransactionController::class)->group(function () {
+       Route::get('hall_transaction', 'index')->name('hall.transaction.index');
+    });
 
     Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
     Route::resource('/booking',BookingController::class);

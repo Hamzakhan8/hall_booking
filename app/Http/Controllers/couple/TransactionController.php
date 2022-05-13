@@ -19,6 +19,7 @@ class TransactionController extends Controller
         $logged_id = Auth::user()->id;
 
         $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
+
         return  view('couple.transaction', compact('transactions'));
     }
 

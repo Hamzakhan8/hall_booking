@@ -1,4 +1,4 @@
-@extends('couple.dashboard')
+@extends('hall.dashboard')
 
 @section('body-title')
     <h2>Transaction Records</h2>

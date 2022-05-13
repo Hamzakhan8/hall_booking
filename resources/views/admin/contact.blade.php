@@ -46,7 +46,7 @@
                                 style="width:25px;height:25px">
                                 </lord-icon>
                             </a> |
-                            <a data-id="{{ $contact['id'] }}" class="myModalBtn" style="color: #17a2b8" data-toggle="modal">
+                            <a data-id="{{ $contact['id'] }}" class="myContactModalBtn" style="color: #17a2b8" data-toggle="modal">
                                 <i class="fa fa-reply"></i>
                             </a>
                         </td>

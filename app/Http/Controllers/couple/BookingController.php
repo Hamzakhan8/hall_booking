@@ -18,7 +18,8 @@ class BookingController extends Controller
     {
         $logged_id = Auth::user()->id;
 
-        $bookings = Bookings::where('user_id', $logged_id)->paginate(5);
+        $bookings = Bookings::where('user_id', $logged_id)->with('hall')->paginate(5);
+
         return view('couple.booking', compact('bookings'));
     }
 
