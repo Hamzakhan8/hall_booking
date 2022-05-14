@@ -80,29 +80,31 @@ Author: wp-organic
                         <h1>FIND the Perfect Hall</h1>
                         <p class="lead txt-white text-center">Search over 360,000 Halls with reviews, pricing, availability and more</p>
                         <div class="slider-form rounded">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-12 col-md-5">
-                                    <select class="form-light-select theme-combo home-select-1" name="state">
-                                        <option>Choose Hall Type</option>
-                                        <option value="AL">Wedding Hall</option>
-                                        <option value="WY">Seminar Hall</option>
-                                        <option value="WY">Vendor Type 3</option>
-                                        <option value="WY">Vendor Type 4</option>
-                                    </select>
+                            <form action="{{ route('front.search.store') }}" method="post">
+                                    @csrf
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-12 col-md-5">
+                                        <select class="form-light-select theme-combo home-select-1" name="hall_type">
+                                            <option>Choose Hall Type</option>
+                                            <option value="Wedding">Wedding</option>
+                                            <option value="Concert">Concert</option>
+                                            <option value="Birthday">Birthday</option>
+                                            <option value="Festival">Festival</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-5 left-border">
+                                        <select class="form-light-select theme-combo home-select-2" name="city">
+                                            <option>Choose Location</option>
+                                            @foreach ($cities as $city)
+                                                <option value="{{ $city }}">{{ $city }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-2">
+                                        <button type="submit" class="btn btn-default text-nowrap btn-block" >Search Now</button>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-md-5 left-border">
-                                    <select class="form-light-select theme-combo home-select-2" name="state">
-                                        <option>Choose Location</option>
-                                        <option value="AL">Peshawar</option>
-                                        <option value="WY">Islamabad</option>
-                                        <option value="WY">Lahore</option>
-                                        <option value="WY">Karachi</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-2">
-                                    <a href="{{ route('front.search') }}" class="btn btn-default text-nowrap btn-block" >Search Now</a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

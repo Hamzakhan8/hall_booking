@@ -10,9 +10,35 @@
             </div>
             <!-- Topbar Request Quote Start -->
             <span class="order-lg-last d-inline-flex ml-3">
-                <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form"> Get Started Now</a>
+                <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form">
+                Get Started Now
+                </a>
             </span>
             <!-- Toggle Button Start -->
+
+            <!-- Dashboard Button -->
+            @if (!Auth::check())
+                @elseif (Auth::user()->role == "admin")
+                <span class="order-lg-last d-inline-flex ml-3">
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-warning text-white" role="button">
+                    Dashboard
+                    </a>
+                </span>
+                @elseif (Auth::user()->role == "hall")
+                <span class="order-lg-last d-inline-flex ml-3">
+                    <a href="{{ route('hall.dashboard') }}" class="btn btn-warning text-white" role="button">
+                    Dashboard
+                    </a>
+                </span>
+                @elseif (Auth::user()->role == "couple")
+                <span class="order-lg-last d-inline-flex ml-3">
+                    <a href="{{ route('couple.dashboard') }}" class="btn btn-warning text-white" role="button">
+                    Dashboard
+                    </a>
+                </span>
+            @endif
+            <!-- Dashboard Button -->
+
             <button class="navbar-toggler x collapsed" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                 aria-label="Toggle navigation">

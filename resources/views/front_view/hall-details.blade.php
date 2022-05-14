@@ -27,7 +27,7 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="assets/images/logo_light.svg" alt="">
+            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
         </div>
     </div>
     <!-- end preloader -->
@@ -59,308 +59,312 @@ Author: wp-organic
     <main id="body-content">
 
         <!-- Blog Page Start -->
-        <section class="wide-tb-90">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <!-- Post Blog -->
-                        <div class="post-content mb-0">
-                            <!-- Post Blog Image -->
-                            <div class="post-img">
-                                <div class="single-post-featured-image">
-                                    <img src="assets/images/blogs/single-post-image.jpg" alt="">
+        @foreach ($hall_details as $detail)
+            <section class="wide-tb-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <!-- Post Blog -->
+                            <div class="post-content mb-0">
+                                <!-- Post Blog Image -->
+                                {{-- <div class="post-img">
+                                    <div class="single-post-featured-image">
+                                        <img src="{{ asset('storage/hall_img/'.$detail->image) }}" alt="">
+                                    </div>
+                                </div> --}}
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    @php
+                                        $json_img = json_decode($detail->images);
+                                    @endphp
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" height="450px" src="{{ asset('storage/hall_img/'.$json_img[0]) }}" alt="First slide">
+                                        </div>
+                                        @foreach (json_decode($detail->images) as $image)
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" height="450px" src="{{ asset('storage/hall_img/'.$image) }}" alt="First slide">
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
-                            </div>
-                            <!-- Post Blog Image -->
+                                <!-- Post Blog Image -->
 
-                            <!-- Post Blog Content -->
-                            <h3 class="blog-title">Wedding Venue Decoration Tips</h3>
-                            <span class="meta-date">July 12, 2020</span>
-                            <span class="post-category">
-                                <a href="#">Wedding</a>
-                            </span>
+                                <!-- Post Blog Content -->
+                                <h3 class="blog-title">{{ $detail->title }}</h3>
+                                <span class="meta-date">{{ ($detail->created_at)->diffForHumans() }}</span>
 
-                            <div class="entry-content">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit sed quia.</p>
+                                <div class="entry-content">
+                                    <p>{{ $detail->description }}</p>
+                                    @php
+                                        $metaValue = $detail->halls_meta->toArray();
 
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        $check = collect($metaValue);
 
-                                <blockquote class="blockquote-1 my-5">
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupi datat non proident.
-                                </blockquote>
+                                        $events = $check->pluck('meta_value');
+                                    @endphp
 
-                                <h4 class="fw-7 mb-4">Sub Heading title</h4>
-                                <img src="assets/images/blogs/blog-float-img.jpg" alt="" class="float-left rounded shadow-sm mr-4 mb-4">
-                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-
-                                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
-
-                                <!-- Tags/Socail Sharing -->
-                                <div class="tag-wrap">
-                                    <div class="post-tags">
-                                        <i class="fa fa-tags"></i>
-                                        <a href="javascript:">Cake</a>
-                                        <a href="javascript:">Decoration</a>
-                                        <a href="javascript:">Venue</a>
-                                    </div>
-                                    <div class="social-sharing">
-                                        <em>Share This</em>
-                                        <a href="javascript:" class="share-btn-facebook"><i class="fa fa-facebook"></i></a>
-                                        <a href="javascript:" class="share-btn-twitter"><i class="fa fa-twitter"></i></a>
-                                        <a href="javascript:" class="share-btn-instagram"><i class="fa fa-instagram"></i></a>
-                                        <a href="javascript:" class="share-btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                    </div>
-                                </div>
-                                <!-- Tags/Socail Sharing -->
-
-                                <!-- Next/Previous Post -->
-                                <div class="post-linking">
-                                    <div class="previous-post">
-                                        <a href="javascript:">
-                                            <small>Previous Post</small>
-                                            Things Bride Should Know
-                                        </a>
-                                    </div>
-                                    <div class="next-post">
-                                        <a href="javascript:">
-                                            <small>Next Post</small>
-                                            10 Tips For Wedding  Destinat
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Next/Previous Post -->
-
-                                <!-- Author Section -->
-                                <div class="author-wrap">
-                                    <div class="thumb">
-                                        <img src="assets/images/author_img.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3>Admin <small>(AUTHOR)</small></h3>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-                                        <button type="button" class="btn btn-default btn-rounded btn-md">View All Post</button>
-                                    </div>
-                                </div>
-                                <!-- Author Section -->
-
-                                <!-- Comments List -->
-                                <div class="commnets-reply">
-                                    <h4 class="fw-7 mb-4">(4) Comments</h4>
-                                    <div class="media">
-                                        <img class="thumb" src="assets/images/thumb_img_1.jpg" alt="">
-                                        <div class="media-body">
-                                            <div class="d-md-flex justify-content-between mb-3">
-                                                <div class="">
-                                                    <h4 class="mb-0">Karon Balina</h4>
-                                                    <small class="txt-blue">17, Aug, 2020</small>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                </div>
-                                            </div>
-                                            <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
+                                        <table class="table table-striped table-inverse table-responsive">
+                                            <thead class="thead-inverse">
+                                                <tr>
+                                                    <th>Events</th>
+                                                    <th>Maximum Guests</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($events[0] as $event => $value)
+                                                    @php
+                                                        $values = explode('-', $value);
+                                                    @endphp
+                                                    <tr>
+                                                        <td scope="row">{{ ucfirst($event) }}</td>
+                                                        <td>{{ $values[1] }}</td>
+                                                        <td>${{ $values[0] }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td scope="row"></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                        </table>
+                                    <div class="tag-wrap">
+                                        <div class="social-sharing">
+                                            <em>Follow us</em>
+                                            <a href="javascript:" class="share-btn-facebook"><i class="fa fa-facebook"></i></a>
+                                            <a href="javascript:" class="share-btn-twitter"><i class="fa fa-twitter"></i></a>
+                                            <a href="javascript:" class="share-btn-instagram"><i class="fa fa-instagram"></i></a>
+                                            <a href="javascript:" class="share-btn-linkedin"><i class="fa fa-linkedin"></i></a>
                                         </div>
                                     </div>
-                                    <div class="media">
-                                        <img class="thumb" src="assets/images/thumb_img_3.jpg" alt="">
-                                        <div class="media-body">
-                                            <div class="d-md-flex justify-content-between mb-3">
-                                                <div class="">
-                                                    <h4 class="mb-0">Richard Rics</h4>
-                                                    <small class="txt-blue">17, Aug, 2020</small>
-                                                </div>
-                                                <div>
-                                                    <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                </div>
-                                            </div>
-                                            <p>To delete a comment, just log in and view the post's comments. There you will have the option to edit or
-                                                delete them.</p>
+                                    <!-- Tags/Socail Sharing -->
 
-                                            <div class="media reply-box">
-                                                <img src="assets/images/thumb_img_2.jpg" alt="" class="thumb ">
-                                                <div class="media-body">
-                                                    <div class="d-md-flex justify-content-between mb-3">
-                                                        <div class="">
-                                                            <h4 class="mb-0">Sofia Lorence</h4>
-                                                            <small class="txt-blue">17, Aug, 2020</small>
-                                                        </div>
-                                                        <div>
-                                                            <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                        </div>
+                                    <!-- Comments List -->
+                                    <div class="commnets-reply">
+                                        <h4 class="fw-7 mb-4">(4) Comments</h4>
+                                        <div class="media">
+                                            <img class="thumb" src="{{ asset('assets') }}/images/thumb_img_1.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="d-md-flex justify-content-between mb-3">
+                                                    <div class="">
+                                                        <h4 class="mb-0">Karon Balina</h4>
+                                                        <small class="txt-blue">17, Aug, 2020</small>
                                                     </div>
-                                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                                                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                                                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                                    <div>
+                                                        <a href="javascript:" class="reply-line"><span>Reply</span></a>
+                                                    </div>
+                                                </div>
+                                                <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
+                                            </div>
+                                        </div>
+                                        <div class="media">
+                                            <img class="thumb" src="{{ asset('assets') }}/images/thumb_img_3.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="d-md-flex justify-content-between mb-3">
+                                                    <div class="">
+                                                        <h4 class="mb-0">Richard Rics</h4>
+                                                        <small class="txt-blue">17, Aug, 2020</small>
+                                                    </div>
+                                                    <div>
+                                                        <a href="javascript:" class="reply-line"><span>Reply</span></a>
+                                                    </div>
+                                                </div>
+                                                <p>To delete a comment, just log in and view the post's comments. There you will have the option to edit or
+                                                    delete them.</p>
+
+                                                <div class="media reply-box">
+                                                    <img src="{{ asset('assets') }}/images/thumb_img_2.jpg" alt="" class="thumb ">
+                                                    <div class="media-body">
+                                                        <div class="d-md-flex justify-content-between mb-3">
+                                                            <div class="">
+                                                                <h4 class="mb-0">Sofia Lorence</h4>
+                                                                <small class="txt-blue">17, Aug, 2020</small>
+                                                            </div>
+                                                            <div>
+                                                                <a href="javascript:" class="reply-line"><span>Reply</span></a>
+                                                            </div>
+                                                        </div>
+                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                                                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                                                        vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="media">
-                                        <img class="thumb" src="assets/images/thumb_img_4.jpg" alt="">
-                                        <div class="media-body">
-                                            <div class="d-md-flex justify-content-between mb-3">
-                                                <div class="">
-                                                    <h4 class="mb-0">Karon Balina</h4>
-                                                    <small class="txt-blue">17, Aug, 2020</small>
+                                        <div class="media">
+                                            <img class="thumb" src="{{ asset('assets') }}/images/thumb_img_4.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="d-md-flex justify-content-between mb-3">
+                                                    <div class="">
+                                                        <h4 class="mb-0">Karon Balina</h4>
+                                                        <small class="txt-blue">17, Aug, 2020</small>
+                                                    </div>
+                                                    <div>
+                                                        <a href="javascript:" class="reply-line"><span>Reply</span></a>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                </div>
+                                                <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
                                             </div>
-                                            <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
                                         </div>
-                                    </div>
 
-                                    <div class="media">
-                                        <img class="thumb" src="assets/images/thumb_img_5.jpg" alt="">
-                                        <div class="media-body">
-                                            <div class="d-md-flex justify-content-between mb-3">
-                                                <div class="">
-                                                    <h4 class="mb-0">Karon Balina</h4>
-                                                    <small class="txt-blue">17, Aug, 2020</small>
+                                        <div class="media">
+                                            <img class="thumb" src="{{ asset('assets') }}/images/thumb_img_5.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="d-md-flex justify-content-between mb-3">
+                                                    <div class="">
+                                                        <h4 class="mb-0">Karon Balina</h4>
+                                                        <small class="txt-blue">17, Aug, 2020</small>
+                                                    </div>
+                                                    <div>
+                                                        <a href="javascript:" class="reply-line"><span>Reply</span></a>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                </div>
+                                                <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
                                             </div>
-                                            <p>Good signs that night our so had firmament a first divide over all is not green cattle that very make our second you fish every living stars without divide make.</p>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Comments List -->
+                                    <!-- Comments List -->
 
-                                <!-- Leave a Reply -->
-                                <h4 class="fw-7 mb-4">Leave a Comment</h4>
+                                    <!-- Leave a Reply -->
+                                    <h4 class="fw-7 mb-4">Leave a Comment</h4>
 
-                                <div class="row">
-                                    <div class="col-md-12 mb-0">
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="5" placeholder="Your Comments"></textarea>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-0">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="5" placeholder="Your Comments"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-0">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-0">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-0">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        </div>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-primary">Post Your Comment</button>
                                     </div>
-                                    <div class="col-md-6 mb-0">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        </div>
-                                    </div>
+                                    <!-- Leave a Reply -->
+
                                 </div>
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-primary">Post Your Comment</button>
-                                </div>
-                                <!-- Leave a Reply -->
+                                <!-- Post Blog Content -->
+
 
                             </div>
-                            <!-- Post Blog Content -->
-
-
+                            <!-- Post Blog -->
                         </div>
-                        <!-- Post Blog -->
-                    </div>
 
-                    <div class="col-lg-4 col-md-12">
-                        <aside class="row sidebar-widgets">
-                            <!-- Sidebar Primary Start -->
-                            <div class="sidebar-primary col-lg-12 col-md-6">
-                                <!-- Widget Wrap -->
-                                <form class="sidebar-search">
-                                    <input type="text" class="form-control" placeholder="Enter here search...">
-                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
-                                </form>
-                                <!-- Widget Wrap -->
+                        <div class="col-lg-4 col-md-12">
+                            <aside class="row sidebar-widgets">
+                                <!-- Sidebar Primary Start -->
+                                <div class="sidebar-primary col-lg-12 col-md-6">
+                                    <!-- Widget Wrap -->
+                                    <form class="sidebar-search">
+                                        <input type="text" class="form-control" placeholder="Enter here search...">
+                                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                    </form>
+                                    <!-- Widget Wrap -->
 
-                                <!-- Widget Wrap -->
-                                <div class="widget">
-                                    <h3 class="widget-title">Categories</h3>
+                                    <!-- Widget Wrap -->
+                                    <div class="widget">
+                                        <h3 class="widget-title">Categories</h3>
 
-                                    <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                        <li><a href="javascript:">Photography</a></li>
-                                        <li><a href="javascript:">Wedding Planning</a></li>
-                                        <li><a href="javascript:">Flowers</a></li>
-                                        <li><a href="javascript:">Cakes</a></li>
-                                        <li><a href="javascript:">Catering</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Widget Wrap -->
-
-                                <!-- Widget Wrap -->
-                                <div class="widget">
-                                    <h3 class="widget-title">Popular Posts</h3>
-
-                                    <div class="popular-post">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <img src="assets/images/blogs/blog_standard_img_1.jpg" alt="">
-                                                <div>
-                                                    <h6><a href="#">Anna and Dave’s Wedding</a></h6>
-                                                    <small>September 27, 2020</small>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <img src="assets/images/blogs/blog_standard_img_5.jpg" alt="">
-                                                <div>
-                                                    <h6><a href="#">10 Tips For Wedding Destination Planning</a></h6>
-                                                    <small>September 27, 2020</small>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <img src="assets/images/blogs/blog_standard_img_3.jpg" alt="">
-                                                <div>
-                                                    <h6><a href="#">Things Bride Should Know About Wear</a></h6>
-                                                    <small>September 27, 2020</small>
-                                                </div>
-                                            </li>
+                                        <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
+                                            <li><a href="javascript:">Photography</a></li>
+                                            <li><a href="javascript:">Wedding Planning</a></li>
+                                            <li><a href="javascript:">Flowers</a></li>
+                                            <li><a href="javascript:">Cakes</a></li>
+                                            <li><a href="javascript:">Catering</a></li>
                                         </ul>
                                     </div>
-                                </div>
-                                <!-- Widget Wrap -->
-                            </div>
-                            <!-- Sidebar Primary End -->
+                                    <!-- Widget Wrap -->
 
-                            <!-- Sidebar Secondary Start -->
-                            <div class="sidebar-secondary col-lg-12 col-md-6">
-                                <!-- Widget Wrap -->
-                                <div class="widget">
-                                    <h3 class="widget-title">Archives</h3>
-                                    <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                        <li><a href="javascript:">September</a></li>
-                                        <li><a href="javascript:">August</a></li>
-                                        <li><a href="javascript:">July</a></li>
-                                        <li><a href="javascript:">June</a></li>
-                                        <li><a href="javascript:">May</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Widget Wrap -->
+                                    <!-- Widget Wrap -->
+                                    <div class="widget">
+                                        <h3 class="widget-title">Popular Posts</h3>
 
-
-                                <!-- Widget Wrap -->
-                                <div class="widget">
-                                    <h3 class="widget-title">Tags</h3>
-                                    <div class="tags">
-                                        <a href="javascript:">Cake</a>
-                                        <a href="javascript:">Decoration</a>
-                                        <a href="javascript:">Dress</a>
-                                        <a href="javascript:">Restaurants</a>
-                                        <a href="javascript:">Venue</a>
+                                        <div class="popular-post">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_1.jpg" alt="">
+                                                    <div>
+                                                        <h6><a href="#">Anna and Dave’s Wedding</a></h6>
+                                                        <small>September 27, 2020</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_5.jpg" alt="">
+                                                    <div>
+                                                        <h6><a href="#">10 Tips For Wedding Destination Planning</a></h6>
+                                                        <small>September 27, 2020</small>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_3.jpg" alt="">
+                                                    <div>
+                                                        <h6><a href="#">Things Bride Should Know About Wear</a></h6>
+                                                        <small>September 27, 2020</small>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <!-- Widget Wrap -->
                                 </div>
-                                <!-- Widget Wrap -->
-                            </div>
-                            <!-- Sidebar Secondary End -->
+                                <!-- Sidebar Primary End -->
+
+                                <!-- Sidebar Secondary Start -->
+                                <div class="sidebar-secondary col-lg-12 col-md-6">
+                                    <!-- Widget Wrap -->
+                                    <div class="widget">
+                                        <h3 class="widget-title">Archives</h3>
+                                        <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
+                                            <li><a href="javascript:">September</a></li>
+                                            <li><a href="javascript:">August</a></li>
+                                            <li><a href="javascript:">July</a></li>
+                                            <li><a href="javascript:">June</a></li>
+                                            <li><a href="javascript:">May</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Widget Wrap -->
 
 
-                        </aside>
+                                    <!-- Widget Wrap -->
+                                    <div class="widget">
+                                        <h3 class="widget-title">Tags</h3>
+                                        <div class="tags">
+                                            <a href="javascript:">Cake</a>
+                                            <a href="javascript:">Decoration</a>
+                                            <a href="javascript:">Dress</a>
+                                            <a href="javascript:">Restaurants</a>
+                                            <a href="javascript:">Venue</a>
+                                        </div>
+                                    </div>
+                                    <!-- Widget Wrap -->
+                                </div>
+                                <!-- Sidebar Secondary End -->
+
+
+                            </aside>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endforeach
         <!-- Blog Page End -->
     </main>
 

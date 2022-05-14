@@ -3155,8 +3155,9 @@ header .btn {
 .post-content .post-category a {
   border-radius: 30px;
   padding: 0.4rem 1.3rem;
+  /* margin: 10px; */
   color: #fff;
-  display: inline-block;
+  /* display: block; */
   font-size: 0.8125rem;
   font-family: "Lora", serif;
 }

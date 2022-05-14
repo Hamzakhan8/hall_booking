@@ -287,7 +287,7 @@ Author: wp-organic
                     </div>
                     <div class="col-lg-8">
                         <div class="result-count">
-                            <strong>244 results:</strong>
+                            <strong>{{ $halls->count() }} results:</strong>
                             <ul class="nav nav-pills theme-tabbing list-style-map" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link show active" id="pills-listing-tab" data-toggle="pill" href="#pills-listing" role="tab" aria-controls="pills-listing" aria-selected="false"><i class="fa fa-list-ul"></i> List</a>
@@ -305,64 +305,37 @@ Author: wp-organic
                         <div class="tab-content theme-tabbing search-result-tabbing" id="pills-tabContent">
                             <div class="tab-pane fade active show" id="pills-listing" role="tabpanel" aria-labelledby="pills-listing-tab">
                                 <!-- Search Result List -->
-                                <div class="result-list">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="img">
-                                                <span class="featured">
-                                                    <i class="fa fa-star"></i>
-                                                    <span>Featured</span>
-                                                </span>
-                                                <a href="{{ route('front.hall.details') }}"><img src="{{ asset('assets') }}/images/search/search_img_1.jpg" alt="" class="rounded"></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="content">
-                                                <div class="head">
-                                                    <a href="{{ route('front.hall.details') }}" class="favorite active"><i class="fa fa-heart"></i></a>
-                                                    <h3><a href="javascript:">Lotus Wedding Florist</a></h3>
-                                                    <div class="rating">
-                                                        <span class="stars">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </span>
-                                                        (22 review)  /  Surat, Gujrat, India
+                                @foreach ($halls as $hall)
+                                    @php
+                                        $image = json_decode($hall->images);
+                                    @endphp
+                                        <div class="result-list">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="img">
+                                                        <a href="{{ route('front.search.details', $hall->id) }}">
+                                                            <img src="{{ asset('storage/hall_img/'. $image[0]) }}" alt="" class="rounded">
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <p>Nullam facilisis massa id elit ornare lobortised convallis purus ac tincidunt efficiturstibulum et rutrum onec vitae finibus quaenean dignissim nibh vel ante accumsan sagittis. Integer gravida aliquet auctor.</p>
-                                                <div class="bottom">
-                                                    <span class="badge border rounded p-2">Guests 1 to 200</span>
-                                                    <a href="javascript:" class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
+                                                <div class="col-md-8">
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <h3><a href="{{ route('front.search.details', $hall->id) }}">{{ $hall->title }}</a></h3>
+                                                        </div>
+                                                        <p>{{ $hall->description }}</p>
+                                                        <div class="bottom">
+                                                            <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                @endforeach
                                 <!-- Search Result List -->
 
                                 <!-- Search Result Pagination -->
-                                <div class="theme-pagination">
-                                    <nav>
-                                        <ul class="pagination">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                {{ $halls->links() }}
                                 <!-- Post Pagination -->
                             </div>
                             <div class="tab-pane fade" id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">

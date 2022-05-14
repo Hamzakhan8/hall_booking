@@ -32,9 +32,6 @@ use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
-use App\Models\SliderImage;
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,16 +46,7 @@ use Illuminate\Http\Request;
 
 
 
-Route::get('/', function(Request $request) {
-
-    $user_ip = $request->ip;
-
-    $location = \Location::get($user_ip);
-    //retrieving the slider images
-    $slider_images = SliderImage::value('slider_imgs');
-
-    return view('front_view.index', compact('slider_images'));
-});
+Route::get('/', [FrontHomeController::class, 'index']);
 
 Route::prefix('auth')->group(function (){
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');
@@ -215,12 +203,17 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
 
 // grouped routes for front site
 Route::prefix('front')->group(function (){
-
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
-    Route::get('search', [SearchResultController::class, 'index'])->name('front.search');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
-    Route::get('hall_details', [HallDetailsController::class, 'index'])->name('front.hall.details');
+    // Route::get('hall_details', [HallDetailsController::class, 'index'])->name('front.hall.details');
+
+    // Routes with post methods
+    Route::controller(SearchResultController::class)->group(function (){
+        Route::get('search', 'index')->name('front.search');
+        Route::get('search_details/{id}', 'details')->name('front.search.details');
+        Route::post('search_store', 'store')->name('front.search.store');
+    });
 });
 
