@@ -10,6 +10,19 @@
         <form action="{{ route('hall.halls.update', $hall->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            @if ($errors && (is_array($errors) || $errors->all()))
+                <div class="alert alert-danger" role="alert">
+                    <strong class="text-danger">Errors encounteded!</strong>
+                    <br>
+                    <ul>
+                        @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                        <li>
+                            <strong>{{ $error }}</strong>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="form-group">
               <label for="exampleFormControlInput1">Add Images </label>
               <input  class="form-control" type="file" value="{{ $hall->image }}" name="images[]" multiple>
@@ -36,6 +49,11 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3">{{ $hall->description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">City</label>
+                <input type="text" class="form-control col-4" value="{{ $hall->location }}" name="location">
             </div>
 
             @foreach ($events[0] as $event => $value)

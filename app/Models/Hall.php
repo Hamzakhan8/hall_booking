@@ -21,7 +21,7 @@ class Hall extends Model
      * @var array
      */
     protected $fillable=[
-        'user_id', 'halls_category_id', 'title', 'images', 'description'
+        'user_id', 'halls_category_id', 'title', 'images', 'description', 'location'
     ];
 
     /**

@@ -45,13 +45,31 @@ Author: wp-organic
     <section class="slider-wrap">
         <div class="owl-carousel owl-theme" id="slider-home">
             <!-- Home Slider Images -->
-            @foreach (json_decode($slider_images) as $slide_img)
+            @if (empty($slider_images) || $slider_images === null)
+                <div class="item">
+                    <div class="home-slider">
+                    <img height="500px" src="{{ asset('assets/images/weddings/1.jfif') }}" alt="slider images">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="home-slider">
+                    <img height="500px" src="{{ asset('assets/images/weddings/1.jfif') }}" alt="slider images">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="home-slider">
+                    <img height="500px" src="{{ asset('assets/images/weddings/1.jfif') }}" alt="slider images">
+                    </div>
+                </div>
+                @else
+                @foreach (json_decode($slider_images) as $slide_img)
                 <div class="item">
                     <div class="home-slider">
                     <img height="500px" src="{{ asset('storage/slider_imgs/'.$slide_img) }}" alt="slider images">
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            @endif
             <!-- Home Slider Images -->
         </div>
 
@@ -96,139 +114,26 @@ Author: wp-organic
     <main id="body-content">
 
         <!-- Top Wedding Listings Start -->
-        {{-- <section class="wide-tb-120 floral-bg">
+        <section class="wide-tb-120 floral-bg">
             <div class="container">
                 <div class="section-title text-center">
                     <h1>Top Hall Listings</h1>
                     <p>Chose one of the best Hall all over Pakistan</p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="wedding-listing">
-                            <div class="img">
-                                <a href="listing-singular.html">
-                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/3.jpg" alt="">
-                                </a>
-                                <div class="img-content">
-                                    <div class="top">
-                                        <span class="price">
-                                            <i class="fa fa-tag"></i>
-                                            <span>$500-$800</span>
-                                        </span>
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="wedding-listing">
+                                <div class="img">
+                                    <a href="{{ route('front.search') }}">
+                                        <img height="263px" src="{{ asset('assets') }}/images/weddings/3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="gap">
+                                        <h3><a href="{{ route('front.search') }}">Town Wedding Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                        <div><i class="fa fa-map-marker"></i> Peshawar, Pakistan</div>
                                     </div>
-                                    <div class="bottom">
-                                        <a class="tags" href="javascript:">
-                                            Peshawar
-                                        </a>
-                                        <a class="favorite" href="javascript:">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="gap">
-                                    <h3><a href="{{ route('front.search') }}">Town Wedding Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
-                                    <div><i class="fa fa-map-marker"></i> Peshawar, Pakistan</div>
-                                </div>
-                                <div class="reviews">
-                                    <span class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </span>
-                                    (123 review)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="wedding-listing">
-                            <div class="img">
-                                <a href="listing-singular.html">
-                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/1.jfif" alt="">
-                                </a>
-                                <div class="img-content">
-                                    <div class="top">
-                                        <span class="featured">
-                                            <i class="fa fa-star"></i>
-                                            <span>Featured</span>
-                                        </span>
-                                        <span class="price">
-                                            <i class="fa fa-tag"></i>
-                                            <span>$500-$800</span>
-                                        </span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a class="tags" href="javascript:">
-                                            Islamabad
-                                        </a>
-                                        <a class="favorite" href="javascript:">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="gap">
-                                    <h3><a href="{{ route('front.search') }}">Islamabad Serena Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
-                                    <div><i class="fa fa-map-marker"></i> Islamabad, Pakistan</div>
-                                </div>
-                                <div class="reviews">
-                                    <span class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </span>
-                                    (241 review)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mx-auto">
-                        <div class="wedding-listing">
-                            <div class="img">
-                                <a href="listing-singular.html">
-                                    <img height="263px" src="{{ asset('assets') }}/images/weddings/2.jpg" alt="">
-                                </a>
-                                <div class="img-content">
-                                    <div class="top">
-                                        <span class="price">
-                                            <i class="fa fa-tag"></i>
-                                            <span>$500-$800</span>
-                                        </span>
-                                    </div>
-                                    <div class="bottom">
-                                        <a class="tags" href="javascript:">
-                                            Lahore
-                                        </a>
-                                        <a class="favorite" href="javascript:">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="content">
-                                <div class="gap">
-                                    <h3><a href="{{ route('front.search') }}">Lahore kalanders Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
-                                    <div><i class="fa fa-map-marker"></i> Lahore, Pakistan</div>
-                                </div>
-                                <div class="reviews">
-                                    <span class="stars">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                    (89 review)
                                 </div>
                             </div>
                         </div>
@@ -236,7 +141,7 @@ Author: wp-organic
                 </div>
 
             </div>
-        </section> --}}
+        </section>
 
         <!-- Popular locations Start -->
         <section class="wide-tb-120 bg-light-gray">
@@ -293,8 +198,6 @@ Author: wp-organic
                                     <img src="{{ asset('assets') }}/images/locations/location_img_4.jpg" alt="">
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 

@@ -28,5 +28,14 @@
     ======================================================================================= -->
     <link href="{{asset('assets')}}/css/base.css" rel="stylesheet">
 
-
+    <style>
+        #owl-demo .item{
+        margin: 3px;
+        }
+        #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+        }
+    </style>
 </head>

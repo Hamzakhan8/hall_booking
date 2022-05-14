@@ -9,6 +9,19 @@
     <div class="card-shadow-body p-4">
         <form action="{{ route('hall.halls.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if ($errors && (is_array($errors) || $errors->all()))
+            <div class="alert alert-danger" role="alert">
+                <strong class="text-danger">Errors encounteded!</strong>
+                <br>
+                <ul>
+                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                    <li>
+                        <strong>{{ $error }}</strong>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="form-group">
               <label for="exampleFormControlInput1">Add Images </label>
               <input  class="form-control" type="file" name="images[]" multiple>
@@ -34,6 +47,11 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Description</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">City</label>
+                <input type="text" class="form-control col-4" name="location">
             </div>
 
             <div class="form-check pb-3">

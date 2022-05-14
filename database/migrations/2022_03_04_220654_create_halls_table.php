@@ -27,8 +27,9 @@ class CreateHallsTable extends Migration
             ->cascadeOnDelete();
 
             $table->string('title');
-            $table->string('images');
-            $table->string('description');
+            $table->string('images', 255);
+            $table->string('description', 255);
+            $table->string('location');
 
             $table->timestamps();
         });

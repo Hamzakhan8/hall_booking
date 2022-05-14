@@ -33,6 +33,7 @@ use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
 use App\Models\SliderImage;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +49,11 @@ use App\Models\SliderImage;
 
 
 
-Route::get('/', function() {
+Route::get('/', function(Request $request) {
 
+    $user_ip = $request->ip;
+
+    $location = \Location::get($user_ip);
     //retrieving the slider images
     $slider_images = SliderImage::value('slider_imgs');
 

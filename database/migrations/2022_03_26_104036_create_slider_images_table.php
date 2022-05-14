@@ -21,7 +21,7 @@ class CreateSliderImagesTable extends Migration
             ->on('users')
             ->cascadeOnDelete();
 
-            $table->string('slider_imgs');
+            $table->string('slider_imgs', 255);
 
             $table->timestamps();
         });

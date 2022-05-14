@@ -8,9 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Models\HallCategory;
 use App\Models\Halls_meta;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
+use App\Traits\Cities;
 class HallsController extends Controller
 {
+    use Cities;
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +39,9 @@ class HallsController extends Controller
 
         $categories=HallCategory::where('user_id', $logged_id)->get();
 
-        return view('hall.hall_add_info', compact('categories'));
+        $cities = $this->cities();
+
+        return view('hall.hall_add_info', compact('categories', 'cities'));
     }
 
     /**
@@ -50,10 +53,11 @@ class HallsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'images' => 'required',
+            'images' => 'required|min:4|max:6',
             'hall_category' => 'required',
             'title' => 'required',
             'description' => 'required',
+            'location' => 'required',
         ]);
 
         $files = $request->file('images');
@@ -72,7 +76,8 @@ class HallsController extends Controller
             'halls_category_id' => $request['hall_category'],
             'images' => json_encode($multi_imgs),
             'title' => $request['title'],
-            'description' => $request['description']
+            'description' => $request['description'],
+            'location' => ucfirst($request['location']),
         ]);
 
         $hall->halls_meta()->create([
@@ -117,7 +122,9 @@ class HallsController extends Controller
 
         $categories = HallCategory::all();
 
-        return view('hall.hall_edit_info', compact('hall', 'categories', 'events'));
+        $cities = $this->cities();
+
+        return view('hall.hall_edit_info', compact('hall', 'categories', 'events', 'cities'));
 
     }
 
@@ -169,6 +176,7 @@ class HallsController extends Controller
             'title' => $request['title'],
             'images' => $filename,
             'description' => $request['description'],
+            'location' => ucfirst($request['location']),
         ]);
 
         Halls_meta::where(
