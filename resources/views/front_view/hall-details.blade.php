@@ -112,7 +112,7 @@ Author: wp-organic
                                     @endphp
 
                                         <table class="table table-striped table-inverse">
-                                            <thead class="thead-inverse">
+                                            <thead class="thead-inverse" style="color: #00aeaf">
                                                 <tr>
                                                     <th>Events</th>
                                                     <th>Maximum Guests</th>
