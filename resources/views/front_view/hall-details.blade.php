@@ -111,7 +111,7 @@ Author: wp-organic
                                         $events = $check->pluck('meta_value');
                                     @endphp
 
-                                        <table class="table table-striped table-inverse table-responsive">
+                                        <table class="table table-striped table-inverse">
                                             <thead class="thead-inverse">
                                                 <tr>
                                                     <th>Events</th>

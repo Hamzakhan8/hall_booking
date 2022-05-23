@@ -86,6 +86,16 @@
                 </div>
             </div>
 
+            <div class="form-group">
+              <label for="">Social Links</label>
+              <div class="links d-flex">
+                <input type="url" class="form-control m-2" name="facebook" id="" aria-describedby="helpId" placeholder="facebook.com">
+                <input type="url" class="form-control m-2" name="twitter" id="" aria-describedby="helpId" placeholder="twitter.com">
+                <input type="url" class="form-control m-2" name="instagram" id="" aria-describedby="helpId" placeholder="instagram.com">
+                <input type="url" class="form-control m-2" name="linkedin" id="" aria-describedby="helpId" placeholder="linkedin.com">
+              </div>
+            </div>
+
             <button type="submit" class="btn btn-primary mt-4">Save changes</button>
         </form>
     </div>

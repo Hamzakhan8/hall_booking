@@ -52,12 +52,16 @@ class HallsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $check = $request->validate([
             'images' => 'required|min:4|max:6',
             'hall_category' => 'required',
             'title' => 'required',
             'description' => 'required',
             'location' => 'required',
+            'facebook' => 'required|url',
+            'twitter' => 'required|url',
+            'instagram' => 'required|url',
+            'linkedin' => 'required|url'
         ]);
 
         $files = $request->file('images');
@@ -89,6 +93,18 @@ class HallsController extends Controller
                 "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'],
                 "concert" => $request['concert_price'].'-'.$request['concert_guests'],
                 "festival" => $request['festival_price'].'-'.$request['wedding_guests'],
+            ],
+        ]);
+
+        $hall->halls_meta()->create([
+            'user_id' => $hall->user_id,
+            'hall_id' => $hall->id,
+            'meta_key' => 'hall_links',
+            'meta_value' => [
+                "facebook" => $request['facebook'],
+                "twitter" => $request['twitter'],
+                "instagram" => $request['instagram'],
+                "linkedin" => $request['linkedin']
             ],
         ]);
 
