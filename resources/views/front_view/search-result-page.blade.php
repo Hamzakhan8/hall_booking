@@ -287,7 +287,11 @@ Author: wp-organic
                     </div>
                     <div class="col-lg-8">
                         <div class="result-count">
-                            <strong>{{ $halls->count() }} results:</strong>
+                            @if (isset($halls))
+                                <strong>{{ $halls->count() }} results:</strong>
+                            @elseif (isset($by_category))
+                                <strong>{{ $by_category->count() }} results:</strong>
+                            @endif
                             <ul class="nav nav-pills theme-tabbing list-style-map" id="pills-tab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link show active" id="pills-listing-tab" data-toggle="pill" href="#pills-listing" role="tab" aria-controls="pills-listing" aria-selected="false"><i class="fa fa-list-ul"></i> List</a>
@@ -305,10 +309,11 @@ Author: wp-organic
                         <div class="tab-content theme-tabbing search-result-tabbing" id="pills-tabContent">
                             <div class="tab-pane fade active show" id="pills-listing" role="tabpanel" aria-labelledby="pills-listing-tab">
                                 <!-- Search Result List -->
-                                @foreach ($halls as $hall)
-                                    @php
-                                        $image = json_decode($hall->images);
-                                    @endphp
+                                @if (isset($halls))
+                                    @foreach ($halls as $hall)
+                                        @php
+                                            $image = json_decode($hall->images);
+                                        @endphp
                                         <div class="result-list">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -331,11 +336,46 @@ Author: wp-organic
                                                 </div>
                                             </div>
                                         </div>
-                                @endforeach
+                                    @endforeach
+
+                                @elseif (isset($by_category))
+                                {{-- results by categories --}}
+                                    @foreach ($by_category as $halls)
+                                        @php
+                                            $image = json_decode($halls->images);
+                                        @endphp
+                                        <div class="result-list">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="img">
+                                                        <a href="{{ route('front.search.details', $halls->id) }}">
+                                                            <img src="{{ asset('storage/hall_img/'. $image[0]) }}" alt="" class="rounded">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <h3><a href="{{ route('front.search.details', $halls->id) }}">{{ $halls->title }}</a></h3>
+                                                        </div>
+                                                        <p>{{ $halls->description }}</p>
+                                                        <div class="bottom">
+                                                            <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <!-- Search Result List -->
 
                                 <!-- Search Result Pagination -->
-                                {{ $halls->links() }}
+                                @if (isset($halls))
+                                    {{ $halls->links() }}
+                                @elseif (isset($by_category))
+                                    {{ $by_category->links() }}
+                                @endif
                                 <!-- Post Pagination -->
                             </div>
                             <div class="tab-pane fade" id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">

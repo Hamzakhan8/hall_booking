@@ -52,7 +52,7 @@ class HallsController extends Controller
      */
     public function store(Request $request)
     {
-        $check = $request->validate([
+        $request->validate([
             'images' => 'required|min:4|max:6',
             'hall_category' => 'required',
             'title' => 'required',

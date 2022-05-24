@@ -140,10 +140,13 @@ Author: wp-organic
                                     <div class="tag-wrap">
                                         <div class="social-sharing">
                                             <em>Follow us</em>
-                                            <a href="javascript:" class="share-btn-facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="javascript:" class="share-btn-twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="javascript:" class="share-btn-instagram"><i class="fa fa-instagram"></i></a>
-                                            <a href="javascript:" class="share-btn-linkedin"><i class="fa fa-linkedin"></i></a>
+                                            @foreach ($events[1] as $social => $links)
+                                                @php
+                                                    $i = "fa fa-".$social."";
+                                                    $class = "share-btn-".$social."";
+                                                @endphp
+                                                <a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <!-- Tags/Socail Sharing -->
@@ -284,11 +287,8 @@ Author: wp-organic
                                         <h3 class="widget-title">Categories</h3>
 
                                         <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                            <li><a href="javascript:">Photography</a></li>
-                                            <li><a href="javascript:">Wedding Planning</a></li>
-                                            <li><a href="javascript:">Flowers</a></li>
-                                            <li><a href="javascript:">Cakes</a></li>
-                                            <li><a href="javascript:">Catering</a></li>
+                                            <li><a href="{{ route('front.search.by_category',[$detail->hallCategory->id,$detail->location]) }}">
+                                                {{ $detail->hallCategory->category }}</a></li>
                                         </ul>
                                     </div>
                                     <!-- Widget Wrap -->

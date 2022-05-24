@@ -80,20 +80,29 @@ Author: wp-organic
                         <h1>FIND the Perfect Hall</h1>
                         <p class="lead txt-white text-center">Search over 360,000 Halls with reviews, pricing, availability and more</p>
                         <div class="slider-form rounded">
+                            @if ($errors && (is_array($errors) || $errors->all()))
+                            <div class="alert alert-danger" role="alert">
+                                <strong class="text-danger">Errors encounteded!</strong>
+                                <br>
+                                <ul>
+                                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                    <li>
+                                        <strong>{{ $error }}</strong>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                            @if (Session::has('not found'))
+                            <div class="alert alert-danger" role="alert">
+                                <strong>{{ Session::get('not found') }}</strong>
+                            </div>
+                            @endif
                             <form action="{{ route('front.search.store') }}" method="post">
                                     @csrf
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-12 col-md-5">
-                                        <select class="form-light-select theme-combo home-select-1" name="hall_type">
-                                            <option>Choose Hall Type</option>
-                                            <option value="Wedding">Wedding</option>
-                                            <option value="Concert">Concert</option>
-                                            <option value="Birthday">Birthday</option>
-                                            <option value="Festival">Festival</option>
-                                        </select>
-                                    </div>
+                                <div class="d-flex justify-content-center">
                                     <div class="col-12 col-md-5 left-border">
-                                        <select class="form-light-select theme-combo home-select-2" name="city">
+                                        <select class="form-light-select theme-combo home-select-2" required name="city">
                                             <option>Choose Location</option>
                                             @foreach ($cities as $city)
                                                 <option value="{{ $city }}">{{ $city }}</option>
