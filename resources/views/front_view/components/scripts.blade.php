@@ -41,3 +41,33 @@
 
     });
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#submit_comment').click(function () {
+            let id = $('#hall_detail').attr('data-id');
+            let title = $('#hall_detail').attr('data-title');
+
+            $('#append_hall_id').val(id);
+            $('#append_hall_title').val(title);
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.frontCommentReply_btn').click(function () {
+            let comment_id = $(this).attr('data-comment-id');
+            let comment_username = $(this).attr('data-comment-username');
+            let comment_hallId = $(this).attr('data-comment-hallId');
+            let comment_hallName = $(this).attr('data-comment-hallName');
+
+            $('#frontCommentUsername').val(comment_username);
+            $('#frontCommentId').val(comment_id);
+            $('#frontCommentHallId').val(comment_hallId);
+            $('#frontCommentHallName').val(comment_hallName);
+
+            $('#frontRepyModal').modal('show');
+        });
+    });
+</script>

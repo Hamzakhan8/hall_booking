@@ -28,6 +28,7 @@ use App\Http\Controllers\couple\TransactionController as CoupleTransactionContro
 use App\Http\Controllers\hall\HallsController;
 use App\Http\Controllers\couple\CommentController as CoupleCommentController;
 use App\Http\Controllers\couple\ReplyController;
+use App\Http\Controllers\FrontCommentController;
 use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
@@ -207,8 +208,11 @@ Route::prefix('front')->group(function (){
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
-    // Route::get('hall_details', [HallDetailsController::class, 'index'])->name('front.hall.details');
 
+    Route::controller(FrontCommentController::class)->group(function (){
+        Route::post('front_comment', 'store')->name('front.hall.comment');
+        Route::post('front_comment_reply', 'replyComment')->name('front.hall.comment.reply');
+    });
     // Routes with post methods
     Route::controller(SearchResultController::class)->group(function (){
         Route::get('search', 'index')->name('front.search');

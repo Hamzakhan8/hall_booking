@@ -19,7 +19,7 @@ class Reply extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'comment_id', 'reply'
+        'user_id', 'username', 'comment_id', 'reply', 'hall_id', 'hall_name'
     ];
 
     /**

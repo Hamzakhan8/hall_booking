@@ -47,11 +47,6 @@ class Hall extends Model
         return $this->hasMany(Halls_meta::class);
     }
 
-    // public function reviews()
-    // {
-    //     return $this->hasMany(Reviews::class);
-    // }
-
     public function comments()
     {
         return $this->hasMany(Comments::class);

@@ -340,15 +340,15 @@ Author: wp-organic
 
                                 @elseif (isset($by_category))
                                 {{-- results by categories --}}
-                                    @foreach ($by_category as $halls)
+                                    @foreach ($by_category as $by_cat_halls)
                                         @php
-                                            $image = json_decode($halls->images);
+                                            $image = json_decode($by_cat_halls->images);
                                         @endphp
                                         <div class="result-list">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="img">
-                                                        <a href="{{ route('front.search.details', $halls->id) }}">
+                                                        <a href="{{ route('front.search.details', $by_cat_halls->id) }}">
                                                             <img src="{{ asset('storage/hall_img/'. $image[0]) }}" alt="" class="rounded">
                                                         </a>
                                                     </div>
@@ -356,9 +356,9 @@ Author: wp-organic
                                                 <div class="col-md-8">
                                                     <div class="content">
                                                         <div class="head">
-                                                            <h3><a href="{{ route('front.search.details', $halls->id) }}">{{ $halls->title }}</a></h3>
+                                                            <h3><a href="{{ route('front.search.details', $by_cat_halls->id) }}">{{ $by_cat_halls->title }}</a></h3>
                                                         </div>
-                                                        <p>{{ $halls->description }}</p>
+                                                        <p>{{ $by_cat_halls->description }}</p>
                                                         <div class="bottom">
                                                             <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
                                                         </div>
