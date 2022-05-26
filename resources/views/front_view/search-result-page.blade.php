@@ -49,13 +49,21 @@ Author: wp-organic
                 <div class="col-lg-9 mx-auto">
                     <h1>Find the Perfect Hall Vendor</h1>
                     <p class="lead">Search over 360,000 Halls with reviews, pricing, availability and more</p>
-                    <div class="input-group">
-                        <input type="text" aria-label="First name" class="form-control form-light" placeholder="(E.g. Clifton Springs Weddings)">
-                        <input type="text" aria-label="Last name" class="form-control form-light left-border" placeholder="Where">
-                        <div class="input-group-prepend">
-                            <button type="submit" class="btn btn-default">Search Now</button>
+                    <form action="{{ route('front.search.by_name') }}" method="POST">
+                        @csrf
+                        @if (Session::has('not found'))
+                        <div class="alert alert-warning" role="alert">
+                            <strong>{{ Session::get('not found') }}</strong>
                         </div>
-                    </div>
+                        @endif
+                        <div class="input-group">
+                            <input type="text" name="hall_name" class="form-control form-light" required placeholder="(E.g. Clifton Springs Weddings)">
+                            <input type="text" name="hall_city" class="form-control form-light left-border" required placeholder="Where">
+                            <div class="input-group-prepend">
+                                <button type="submit" class="btn btn-default">Search Now</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="view-by">
@@ -89,17 +97,11 @@ Author: wp-organic
                                                 <p><a href="javascript:"><strong>All Categories</strong></a></p>
 
 
-                                                <ul class="list-unstyled">
-                                                    <li><a href="javascript:"></a></li>
-                                                    <li><a href="javascript:">Hotel Weddings</a></li>
-                                                    <li><a href="javascript:">Hotel Weddings</a></li>
-                                                    <li><a href="javascript:">Country Club Weddings</a></li>
-                                                    <li><a href="javascript:">Restaurant Weddings</a></li>
-                                                    <li><a href="javascript:">Rooftop Weddings</a></li>
+                                                <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
+                                                    @foreach ($halls as $hall)
+                                                        <li><a style="cursor: pointer">{{ $hall->hallCategory->category }}</a></li>
+                                                    @endforeach
                                                 </ul>
-                                                <div class="view-all">
-                                                    <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
-                                                </div>
                                             </div>
 
                                         </div>
@@ -367,6 +369,36 @@ Author: wp-organic
                                             </div>
                                         </div>
                                     @endforeach
+
+                                @elseif (isset($by_name))
+                                {{-- results by names and location --}}
+                                    @foreach ($by_name as $by_name_halls)
+                                        @php
+                                            $image = json_decode($by_name_halls->images);
+                                        @endphp
+                                        <div class="result-list">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="img">
+                                                        <a href="{{ route('front.search.details', $by_name_halls->id) }}">
+                                                            <img src="{{ asset('storage/hall_img/'. $image[0]) }}" alt="" class="rounded">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <h3><a href="{{ route('front.search.details', $by_name_halls->id) }}">{{ $by_name_halls->title }}</a></h3>
+                                                        </div>
+                                                        <p>{{ $by_name_halls->description }}</p>
+                                                        <div class="bottom">
+                                                            <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 @endif
                                 <!-- Search Result List -->
 
@@ -375,6 +407,8 @@ Author: wp-organic
                                     {{ $halls->links() }}
                                 @elseif (isset($by_category))
                                     {{ $by_category->links() }}
+                                @elseif (isset($by_name))
+                                    {{ $by_name->links() }}
                                 @endif
                                 <!-- Post Pagination -->
                             </div>

@@ -72,7 +72,7 @@ Author: wp-organic
                                     @endphp
                                     <div class="carousel-inner">
                                         <div class="carousel-item active">
-                                            <img class="d-block w-100" height="450px" src="{{ asset('storage/hall_img/'.$json_img[0]) }}" alt="First slide">
+                                            <img class="d-block" height="450px" width="700rem" src="{{ asset('storage/hall_img/'.$json_img[0]) }}" alt="First slide">
                                         </div>
                                         @foreach (json_decode($detail->images) as $image)
                                         <div class="carousel-item">
@@ -158,70 +158,41 @@ Author: wp-organic
                                                             <h4 class="mb-0">{{ $comments->username }}</h4>
                                                             <small class="txt-blue">{{ ($comments->created_at)->diffForHumans() }}</small>
                                                         </div>
-                                                        <div>
-                                                            <a  class="frontCommentReply_btn"
-                                                                style="cursor: pointer"
-                                                                data-comment-id="{{ $comments->id }}"
-                                                                data-comment-username="{{ $comments->username }}"
-                                                                data-comment-hallId="{{ $comments->hall_id }}"
-                                                                data-comment-hallName="{{ $comments->hall_name }}"
-                                                                class="reply-line"><span>Reply</span></a>
-                                                        </div>
                                                     </div>
                                                     <p>
                                                         {{ $comments->comment }}
                                                     </p>
+                                                    @foreach ($comments->reply as $reply)
+                                                        <div class="media reply-box ml-3">
+                                                            <div class="media-body">
+                                                                <div class="d-md-flex justify-content-between mb-3">
+                                                                    <div class="">
+                                                                        <h4 class="mb-0">{{ $reply->username }}</h4>
+                                                                        <small class="txt-blue">{{ ($reply->created_at)->diffForHumans() }}</small>
+                                                                    </div>
+                                                                </div>
+                                                                {{ $reply->reply }}
+                                                            </div>
+                                                        </div>
+                                                        {{-- reply replies --}}
+                                                        @foreach ($reply->re_reply as $re_reply)
+                                                            <div class="media reply-box ml-5">
+                                                                <div class="media-body">
+                                                                    <div class="d-md-flex justify-content-between mb-3">
+                                                                        <div class="">
+                                                                            <h4 class="mb-0">{{ $re_reply->username }}</h4>
+                                                                            <small class="txt-blue">{{ ($re_reply->created_at)->diffForHumans() }}</small>
+                                                                        </div>
+                                                                        <div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {{ $re_reply->reply }}
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                                @foreach ($comments->reply as $reply)
-                                                    <div class="media reply-box ml-3">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex justify-content-between mb-3">
-                                                                <div class="">
-                                                                    <h4 class="mb-0">{{ $reply->username }}</h4>
-                                                                    <small class="txt-blue">{{ ($reply->created_at)->diffForHumans() }}</small>
-                                                                </div>
-                                                                <div>
-                                                                    <a
-                                                                        class="frontReplyToReply_btn"
-                                                                        style="cursor: pointer"
-                                                                        data-comment-id="{{ $reply->comments_id }}"
-                                                                        data-reply-id="{{ $reply->id }}"
-                                                                        data-reply-username="{{ $reply->username }}"
-                                                                        data-reply-hallId="{{ $reply->hall_id }}"
-                                                                        data-reply-hallName="{{ $reply->hall_name }}"
-                                                                        ><span>Reply</span></a>
-                                                                </div>
-                                                            </div>
-                                                            {{ $reply->reply }}
-                                                        </div>
-                                                    </div>
-                                                {{-- reply replies --}}
-                                                @foreach ($reply->re_reply as $re_reply)
-                                                    <div class="media reply-box ml-5">
-                                                        <div class="media-body">
-                                                            <div class="d-md-flex justify-content-between mb-3">
-                                                                <div class="">
-                                                                    <h4 class="mb-0">{{ $re_reply->username }}</h4>
-                                                                    <small class="txt-blue">{{ ($re_reply->created_at)->diffForHumans() }}</small>
-                                                                </div>
-                                                                <div>
-                                                                    <a
-                                                                    class="frontReReply_btn"
-                                                                    style="cursor: pointer"
-                                                                    data-comment-id="{{ $re_reply->comment_id }}"
-                                                                    data-reReply-id="{{ $re_reply->id }}"
-                                                                    data-reReply-username="{{ $re_reply->username }}"
-                                                                    data-reReply-hallId="{{ $re_reply->hall_id }}"
-                                                                    data-reReply-hallName="{{ $re_reply->hall_name }}"
-                                                                    ><span>Reply</span></a>
-                                                                </div>
-                                                            </div>
-                                                            {{ $re_reply->reply }}
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @endforeach
                                         @endforeach
                                             {{-- comment repies --}}
 
@@ -267,8 +238,9 @@ Author: wp-organic
                                 <!-- Sidebar Primary Start -->
                                 <div class="sidebar-primary col-lg-12 col-md-6">
                                     <!-- Widget Wrap -->
-                                    <form class="sidebar-search">
-                                        <input type="text" class="form-control" placeholder="Enter here search...">
+                                    <form action="{{ route('front.search.store') }}" method="POST" class="sidebar-search">
+                                        @csrf
+                                        <input type="text" name="city" class="form-control" placeholder="Search by city...">
                                         <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                     </form>
                                     <!-- Widget Wrap -->
@@ -286,70 +258,25 @@ Author: wp-organic
 
                                     <!-- Widget Wrap -->
                                     <div class="widget">
-                                        <h3 class="widget-title">Popular Posts</h3>
+                                        <h3 class="widget-title">Lastest Halls</h3>
 
                                         <div class="popular-post">
                                             <ul class="list-unstyled">
-                                                <li>
-                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_1.jpg" alt="">
-                                                    <div>
-                                                        <h6><a href="#">Anna and Dave’s Wedding</a></h6>
-                                                        <small>September 27, 2020</small>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_5.jpg" alt="">
-                                                    <div>
-                                                        <h6><a href="#">10 Tips For Wedding Destination Planning</a></h6>
-                                                        <small>September 27, 2020</small>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_3.jpg" alt="">
-                                                    <div>
-                                                        <h6><a href="#">Things Bride Should Know About Wear</a></h6>
-                                                        <small>September 27, 2020</small>
-                                                    </div>
-                                                </li>
+                                                @foreach ($latest_halls as $latest)
+                                                    <li>
+                                                        <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_1.jpg" alt="">
+                                                        <div>
+                                                            <h6><a href="#">{{ $latest->title }}</a></h6>
+                                                            <small>{{ ($latest->created_at)->diffForHumans() }}</small>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                     <!-- Widget Wrap -->
                                 </div>
                                 <!-- Sidebar Primary End -->
-
-                                <!-- Sidebar Secondary Start -->
-                                <div class="sidebar-secondary col-lg-12 col-md-6">
-                                    <!-- Widget Wrap -->
-                                    <div class="widget">
-                                        <h3 class="widget-title">Archives</h3>
-                                        <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                            <li><a href="javascript:">September</a></li>
-                                            <li><a href="javascript:">August</a></li>
-                                            <li><a href="javascript:">July</a></li>
-                                            <li><a href="javascript:">June</a></li>
-                                            <li><a href="javascript:">May</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Widget Wrap -->
-
-
-                                    <!-- Widget Wrap -->
-                                    <div class="widget">
-                                        <h3 class="widget-title">Tags</h3>
-                                        <div class="tags">
-                                            <a href="javascript:">Cake</a>
-                                            <a href="javascript:">Decoration</a>
-                                            <a href="javascript:">Dress</a>
-                                            <a href="javascript:">Restaurants</a>
-                                            <a href="javascript:">Venue</a>
-                                        </div>
-                                    </div>
-                                    <!-- Widget Wrap -->
-                                </div>
-                                <!-- Sidebar Secondary End -->
-
-
                             </aside>
                         </div>
                     </div>
@@ -476,98 +403,6 @@ Author: wp-organic
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Front Reply Modal -->
-    <div class="modal fade" id="frontRepyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reply User's Comment</h5>
-                </div>
-                <div class="modal-body">
-                    <form class="frontRepyModalForm" action="{{ route('front.hall.comment.reply') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Message Reply To</label>
-                            <input type="text" class="form-control" id="frontCommentUsername" name="comment_username">
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" id="frontCommentId" name="comment_id">
-                            <input type="hidden" id="frontCommentHallId" name="comment_hall_id">
-                            <input type="hidden" id="frontCommentHallName" name="comment_hall_name">
-                            <input type="text" id="frontCommentReply" name="reply" class="form-control" placeholder="Enter reply here" required>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Front Reply to Reply Modal -->
-    <div class="modal fade" id="frontReRepyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reply User's Reply</h5>
-                </div>
-                <div class="modal-body">
-                    <form class="frontRepyModalForm" action="{{ route('front.hall.reply.reply') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Reply To Reply</label>
-                            <input type="text" class="form-control" id="frontReplyUsername" name="reply_username">
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" id="frontCommentReplyId" name="comment_id">
-                            <input type="hidden" id="frontReplyId" name="reply_id">
-                            <input type="hidden" id="frontReplyHallId" name="reply_hall_id">
-                            <input type="hidden" id="frontReplyHallName" name="reply_hall_name">
-                            <input type="text" id="frontReplyToReply" name="reply" class="form-control" placeholder="Enter reply here" required>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Front ReReply Modal -->
-    <div class="modal fade" id="frontReRepiesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reply User's Reply</h5>
-                </div>
-                <div class="modal-body">
-                    <form class="frontRepyModalForm" action="{{ route('front.hall.reply.reply') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Reply To Reply</label>
-                            <input type="text" class="form-control" id="frontReReplyUsername" name="reply_username">
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" id="frontReReplyCommentId" name="comment_id">
-                            <input type="hidden" id="frontReReplyId" name="reply_id">
-                            <input type="hidden" id="frontReReplyHallId" name="reply_hall_id">
-                            <input type="hidden" id="frontReReplyHallName" name="reply_hall_name">
-                            <input type="text" id="frontReReply" name="reply" class="form-control" placeholder="Enter reply here" required>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -58,7 +58,9 @@ class SearchResultController extends Controller
     {
         $hall_details = Hall::where('id', $id)->with(['halls_meta', 'hallCategory', 'comments'])->get();
 
-        return view('front_view.hall-details', compact('hall_details'));
+        $latest_halls = Hall::orderByDesc('id')->limit(3)->get();
+
+        return view('front_view.hall-details', compact('hall_details', 'latest_halls'));
     }
 
     /**
@@ -73,6 +75,29 @@ class SearchResultController extends Controller
          'location' => $location])->paginate(10);
 
         return view('front_view.search-result-page', compact('by_category'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function byName(Request $request)
+    {
+        $request->validate([
+            'hall_name' => ['required', 'string'],
+            'hall_city' => ['required', 'string'],
+        ]);
+
+        $by_name = Hall::where(['title' => $request->hall_name,
+         'location' => $request->hall_city])->paginate(10);
+
+         if(empty($by_name) || $by_name == null)
+         return back()
+         ->with('not found', 'There is no hall with '.$request->hall_name.' in '.$request->hall_city.'');
+
+        return view('front_view.search-result-page', compact('by_name'));
     }
 
     /**

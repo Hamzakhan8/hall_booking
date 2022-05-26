@@ -219,6 +219,7 @@ Route::prefix('front')->group(function (){
         Route::get('search', 'index')->name('front.search');
         Route::get('search_details/{id}', 'details')->name('front.search.details');
         Route::get('by_category/{id}/{location}', 'byCategory')->name('front.search.by_category');
+        Route::post('by_name', 'byName')->name('front.search.by_name');
         Route::post('search_store', 'store')->name('front.search.store');
     });
 });
