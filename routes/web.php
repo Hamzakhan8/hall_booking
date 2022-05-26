@@ -212,6 +212,7 @@ Route::prefix('front')->group(function (){
     Route::controller(FrontCommentController::class)->group(function (){
         Route::post('front_comment', 'store')->name('front.hall.comment');
         Route::post('front_comment_reply', 'replyComment')->name('front.hall.comment.reply');
+        Route::post('front_reply_reply', 'replyToReply')->name('front.hall.reply.reply');
     });
     // Routes with post methods
     Route::controller(SearchResultController::class)->group(function (){

@@ -14,6 +14,8 @@ class Comments extends Model
      */
     protected $table = 'comments';
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *

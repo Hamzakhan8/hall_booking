@@ -51,4 +51,14 @@ class Hall extends Model
     {
         return $this->hasMany(Comments::class);
     }
+
+    public function reply()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+    public function re_reply()
+    {
+        return $this->hasMany(ReReply::class);
+    }
 }

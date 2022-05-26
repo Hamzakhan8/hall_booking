@@ -33,6 +33,13 @@ class CreateReRepliesTable extends Migration
             ->references('id')
             ->on('replies');
 
+            $table->foreignId('hall_id')
+            ->references('id')
+            ->on('halls')
+            ->cascadeOnDelete();
+
+            $table->string('hall_name');
+
             $table->string('reply');
             $table->timestamps();
         });

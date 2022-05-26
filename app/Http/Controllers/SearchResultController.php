@@ -56,7 +56,7 @@ class SearchResultController extends Controller
      */
     public function details($id)
     {
-        $hall_details = Hall::where('id', $id)->with(['halls_meta', 'hallCategory'])->get();
+        $hall_details = Hall::where('id', $id)->with(['halls_meta', 'hallCategory', 'comments'])->get();
 
         return view('front_view.hall-details', compact('hall_details'));
     }

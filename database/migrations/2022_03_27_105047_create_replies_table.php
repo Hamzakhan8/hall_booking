@@ -23,9 +23,16 @@ class CreateRepliesTable extends Migration
 
             $table->string('username');
 
-            $table->foreignId('comment_id')
+            $table->foreignId('comments_id')
             ->references('id')
             ->on('comments');
+
+            $table->foreignId('hall_id')
+            ->references('id')
+            ->on('halls')
+            ->cascadeOnDelete();
+
+            $table->string('hall_name');
 
             $table->string('reply');
 

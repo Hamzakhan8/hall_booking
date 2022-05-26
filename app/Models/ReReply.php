@@ -19,7 +19,7 @@ class ReReply extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'username_to', 'comment_id', 'reply_id', 'reply'
+        'user_id', 'username', 'username_to', 'comment_id', 'reply_id', 'reply', 'hall_id', 'hall_name'
     ];
 
     /**
@@ -33,5 +33,10 @@ class ReReply extends Model
     public function reply()
     {
         $this->belongsTo(Reply::class, 'reply_id', 'id');
+    }
+
+    public function hall()
+    {
+        $this->belongsTo(Hall::class, 'hall_id', 'id');
     }
 }

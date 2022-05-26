@@ -133,22 +133,22 @@ Author: wp-organic
                                                     </tr>
                                                 </tbody>
                                         </table>
-                                    <div class="tag-wrap">
-                                        <div class="social-sharing">
-                                            <em>Follow us</em>
-                                            @foreach ($events[1] as $social => $links)
-                                                @php
-                                                    $i = "fa fa-".$social."";
-                                                    $class = "share-btn-".$social."";
-                                                @endphp
-                                                <a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a>
-                                            @endforeach
+                                        <div class="tag-wrap">
+                                            <div class="social-sharing">
+                                                <em>Follow us</em>
+                                                @foreach ($events[1] as $social => $links)
+                                                    @php
+                                                        $i = "fa fa-".$social."";
+                                                        $class = "share-btn-".$social."";
+                                                    @endphp
+                                                    <a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a>
+                                                @endforeach
+                                            </div>
                                         </div>
-                                    </div>
                                     <!-- Tags/Socail Sharing -->
 
                                     <!-- Comments List -->
-                                    <div class="commnets-reply">
+                                    <div class="commnets-reply" style="overflow-y: scroll;height:30rem">
                                         <h4 class="fw-7 mb-4">({{ $detail->comments->count() }}) Comments</h4>
                                         @foreach ($detail->comments as $comments)
                                             <div class="media">
@@ -173,41 +173,58 @@ Author: wp-organic
                                                     </p>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                        {{-- <div class="media">
-                                            <img class="thumb" src="{{ asset('assets') }}/images/thumb_img_3.jpg" alt="">
-                                            <div class="media-body">
-                                                <div class="d-md-flex justify-content-between mb-3">
-                                                    <div class="">
-                                                        <h4 class="mb-0">Richard Rics</h4>
-                                                        <small class="txt-blue">17, Aug, 2020</small>
-                                                    </div>
-                                                    <div>
-                                                        <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                    </div>
-                                                </div>
-                                                <p>To delete a comment, just log in and view the post's comments. There you will have the option to edit or
-                                                    delete them.</p>
-
-                                                <div class="media reply-box">
-                                                    <img src="{{ asset('assets') }}/images/thumb_img_2.jpg" alt="" class="thumb ">
-                                                    <div class="media-body">
-                                                        <div class="d-md-flex justify-content-between mb-3">
-                                                            <div class="">
-                                                                <h4 class="mb-0">Sofia Lorence</h4>
-                                                                <small class="txt-blue">17, Aug, 2020</small>
+                                                @foreach ($comments->reply as $reply)
+                                                    <div class="media reply-box ml-3">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex justify-content-between mb-3">
+                                                                <div class="">
+                                                                    <h4 class="mb-0">{{ $reply->username }}</h4>
+                                                                    <small class="txt-blue">{{ ($reply->created_at)->diffForHumans() }}</small>
+                                                                </div>
+                                                                <div>
+                                                                    <a
+                                                                        class="frontReplyToReply_btn"
+                                                                        style="cursor: pointer"
+                                                                        data-comment-id="{{ $reply->comments_id }}"
+                                                                        data-reply-id="{{ $reply->id }}"
+                                                                        data-reply-username="{{ $reply->username }}"
+                                                                        data-reply-hallId="{{ $reply->hall_id }}"
+                                                                        data-reply-hallName="{{ $reply->hall_name }}"
+                                                                        ><span>Reply</span></a>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <a href="javascript:" class="reply-line"><span>Reply</span></a>
-                                                            </div>
+                                                            {{ $reply->reply }}
                                                         </div>
-                                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                                                        purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                                                        vulputate fringilla. Donec lacinia congue felis in faucibus.
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
+                                                {{-- reply replies --}}
+                                                @foreach ($reply->re_reply as $re_reply)
+                                                    <div class="media reply-box ml-5">
+                                                        <div class="media-body">
+                                                            <div class="d-md-flex justify-content-between mb-3">
+                                                                <div class="">
+                                                                    <h4 class="mb-0">{{ $re_reply->username }}</h4>
+                                                                    <small class="txt-blue">{{ ($re_reply->created_at)->diffForHumans() }}</small>
+                                                                </div>
+                                                                <div>
+                                                                    <a
+                                                                    class="frontReReply_btn"
+                                                                    style="cursor: pointer"
+                                                                    data-comment-id="{{ $re_reply->comment_id }}"
+                                                                    data-reReply-id="{{ $re_reply->id }}"
+                                                                    data-reReply-username="{{ $re_reply->username }}"
+                                                                    data-reReply-hallId="{{ $re_reply->hall_id }}"
+                                                                    data-reReply-hallName="{{ $re_reply->hall_name }}"
+                                                                    ><span>Reply</span></a>
+                                                                </div>
+                                                            </div>
+                                                            {{ $re_reply->reply }}
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endforeach
+                                        @endforeach
+                                            {{-- comment repies --}}
+
                                     </div>
                                     <!-- Comments List -->
 
@@ -483,6 +500,68 @@ Author: wp-organic
                             <input type="hidden" id="frontCommentHallId" name="comment_hall_id">
                             <input type="hidden" id="frontCommentHallName" name="comment_hall_name">
                             <input type="text" id="frontCommentReply" name="reply" class="form-control" placeholder="Enter reply here" required>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Front Reply to Reply Modal -->
+    <div class="modal fade" id="frontReRepyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reply User's Reply</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="frontRepyModalForm" action="{{ route('front.hall.reply.reply') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Reply To Reply</label>
+                            <input type="text" class="form-control" id="frontReplyUsername" name="reply_username">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="frontCommentReplyId" name="comment_id">
+                            <input type="hidden" id="frontReplyId" name="reply_id">
+                            <input type="hidden" id="frontReplyHallId" name="reply_hall_id">
+                            <input type="hidden" id="frontReplyHallName" name="reply_hall_name">
+                            <input type="text" id="frontReplyToReply" name="reply" class="form-control" placeholder="Enter reply here" required>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Front ReReply Modal -->
+    <div class="modal fade" id="frontReRepiesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reply User's Reply</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="frontRepyModalForm" action="{{ route('front.hall.reply.reply') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Reply To Reply</label>
+                            <input type="text" class="form-control" id="frontReReplyUsername" name="reply_username">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="frontReReplyCommentId" name="comment_id">
+                            <input type="hidden" id="frontReReplyId" name="reply_id">
+                            <input type="hidden" id="frontReReplyHallId" name="reply_hall_id">
+                            <input type="hidden" id="frontReReplyHallName" name="reply_hall_name">
+                            <input type="text" id="frontReReply" name="reply" class="form-control" placeholder="Enter reply here" required>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary">Submit</button>
                     </form>

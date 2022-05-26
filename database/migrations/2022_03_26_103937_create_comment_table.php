@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsToReRepliesTable extends Migration
+class CreateCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,24 @@ class AddColumnsToReRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::table('re_replies', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('user_id')
+            ->references('id')
+            ->on('users')
+            ->cascadeOnDelete();
+
+            $table->string('username');
+
             $table->foreignId('hall_id')
             ->references('id')
             ->on('halls')
-            ->after('comment_id')
             ->cascadeOnDelete();
 
-            $table->string('hall_name')
-            ->after('hall_id');
+            $table->string('hall_name');
+            $table->string('comment');
+            $table->timestamps();
         });
     }
 
@@ -32,9 +41,6 @@ class AddColumnsToReRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::table('re_replies', function (Blueprint $table) {
-            $table->dropColumn('hall_id');
-            $table->dropColumn('hall_name');
-        });
+        Schema::dropIfExists('comments');
     }
 }

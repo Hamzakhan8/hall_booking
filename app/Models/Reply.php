@@ -14,12 +14,14 @@ class Reply extends Model
      */
     protected $table = 'replies';
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'comment_id', 'reply', 'hall_id', 'hall_name'
+        'user_id', 'username', 'comments_id', 'reply', 'hall_id', 'hall_name'
     ];
 
     /**
@@ -32,7 +34,12 @@ class Reply extends Model
 
     public function comment()
     {
-        $this->belongsTo(Comments::class, 'comment_id', 'id');
+        $this->belongsTo(Comments::class, 'comments_id', 'id');
+    }
+
+    public function hall()
+    {
+        $this->belongsTo(hall::class, 'hall_id', 'id');
     }
 
     public function re_reply()
