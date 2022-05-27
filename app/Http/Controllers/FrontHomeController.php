@@ -21,9 +21,11 @@ class FrontHomeController extends Controller
 
         $halls = Hall::orderByDesc('id')->limit(3)->get();
 
+        $list_halls = Hall::orderBy('location')->get();
+
         $cities = $this->cities();
 
-        return view('front_view.index', compact('slider_images', 'cities', 'halls'));
+        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls'));
     }
 
     /**

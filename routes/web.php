@@ -203,7 +203,11 @@ Route::prefix('front')->group(function (){
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
-    Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
+
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('contact', 'index')->name('front.contact');
+        Route::post('contact_store', 'store')->name('front.contact.store');
+    });
 
     Route::controller(FrontCommentController::class)->group(function (){
         Route::post('front_comment', 'store')->name('front.hall.comment');

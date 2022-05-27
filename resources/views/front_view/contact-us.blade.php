@@ -92,7 +92,7 @@ Author: wp-organic
                         <div class="text-center">
                             <h3 class="txt-default fw-7">Feel Free To Contact Us</h3>
                             <p>Excepteur sint occaecat cupidatat non proident sunt</p>
-                            <form action="https://wporganic.com/html/weddingdir/form-action.php" method="POST">
+                            <form action="{{ route('front.contact.store') }}" method="POST">
                                 @csrf
                                 @if (Session::has('success'))
                                 <div class="alert alert-success" role="alert">
