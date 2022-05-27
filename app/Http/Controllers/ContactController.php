@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacts_info;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -11,6 +12,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('front_view.contact-us');
+        $contacts = Contacts_info::all();
+
+        return view('front_view.contact-us', compact('contacts'));
     }
 }

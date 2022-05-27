@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contacts;
+use App\Models\Contacts_info;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -38,7 +39,24 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'call' => ['required'],
+            'email' => ['required', 'email'],
+            'address' => ['required', 'string'],
+        ]);
+
+        $user = $request->user();
+
+        Contacts_info::updateOrCreate(
+            ['user_id' => $user->id],
+        [
+            'call_number' => $request->call,
+            'email' => $request->email,
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('admin.contact')
+        ->with('added_info', 'Contact info has been updated to contacts page');
     }
 
     /**

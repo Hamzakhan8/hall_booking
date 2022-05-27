@@ -66,12 +66,12 @@ Author: wp-organic
                     </form>
                 </div>
             </div>
-            <div class="view-by">
-                <strong>View By</strong>
-                <a href="javascript:" class="selected-tags">New York <span>X</span></a>
-                <a href="javascript:" class="selected-tags">Buffalo <span>X</span></a>
-                <a href="javascript:" class="btn btn-link btn-link-primary">Clear all</a>
-            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('front.home') }}"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Halls</li>
+                </ol>
+            </nav>
         </div>
     </section>
     <!--  Search Result Header End -->
@@ -125,182 +125,8 @@ Author: wp-organic
                                     </div>
                                 </div>
                                 <!-- Widget Wrap -->
-
-                                <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">
-                                    <a data-toggle="collapse" href="#city" role="button" aria-expanded="false" class="link" aria-controls="city">
-                                        <h3 class="widget-title">City<i class="fa fa-angle-up"></i></h3>
-                                    </a>
-
-                                    <div class="collapse show" id="city">
-                                        <div>
-                                            <div class="inner">
-                                                <p>
-                                                    <input type="text" class="form-control" placeholder="Enter city/town">
-                                                </p>
-
-                                                <ul class="list-unstyled">
-                                                    <li><a href="javascript:">Buffalo</a></li>
-                                                    <li><a href="javascript:">Rochester</a></li>
-                                                    <li><a href="javascript:">Canandaigua</a></li>
-                                                    <li><a href="javascript:">Geneva</a></li>
-                                                    <li><a href="javascript:">Niagara Falls</a></li>
-                                                    <li><a href="javascript:">Lockport</a></li>
-                                                    <li><a href="javascript:">East Aurora</a></li>
-                                                </ul>
-                                                <div class="view-all">
-                                                    <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget Wrap -->
-
-                                <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">
-                                    <a data-toggle="collapse" href="#availability" role="button" aria-expanded="false" class="link" aria-controls="availability">
-                                        <h3 class="widget-title">Availability<i class="fa fa-angle-up"></i></h3>
-                                    </a>
-
-                                    <div class="collapse show" id="availability">
-                                        <div>
-                                            <div class="inner">
-                                                <div class="datepicker-inline">
-                                                    <div data-toggle-inline="datepicker"></div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget Wrap -->
                             </div>
                             <!-- Sidebar Primary End -->
-
-                            <!-- Sidebar Secondary Start -->
-                            <div class="sidebar-secondary col-lg-12 col-md-6">
-                                <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">
-                                    <a data-toggle="collapse" href="#capacity" role="button" aria-expanded="false" class="link" aria-controls="capacity">
-                                        <h3 class="widget-title">Maximum Capacity <i class="fa fa-angle-up"></i></h3>
-                                    </a>
-
-                                    <div class="collapse show" id="capacity">
-                                        <div>
-                                            <div class="inner">
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="99">
-                                                    <label class="custom-control-label" for="99">0 - 99</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="199">
-                                                    <label class="custom-control-label" for="199">100 - 199</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="299">
-                                                    <label class="custom-control-label" for="299">200 - 299</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="399">
-                                                    <label class="custom-control-label" for="399">300 - 399</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="400+">
-                                                    <label class="custom-control-label" for="400+">400+</label>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget Wrap -->
-
-                                <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">
-                                    <a data-toggle="collapse" href="#settings" role="button" aria-expanded="false" class="link" aria-controls="settings">
-                                        <h3 class="widget-title">Settings<i class="fa fa-angle-up"></i></h3>
-                                    </a>
-
-                                    <div class="collapse show" id="settings">
-                                        <div>
-                                            <div class="inner">
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="indoor">
-                                                    <label class="custom-control-label" for="indoor">Indoor</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="covered">
-                                                    <label class="custom-control-label" for="covered">Covered Outdoor</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="uncovered">
-                                                    <label class="custom-control-label" for="uncovered">Uncovered Outdoor</label>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget Wrap -->
-
-                                <!-- Widget Wrap -->
-                                <div class="widget search-result-toggle">
-                                    <a data-toggle="collapse" href="#amenities" role="button" aria-expanded="false" class="link" aria-controls="amenities">
-                                        <h3 class="widget-title">Amenities<i class="fa fa-angle-up"></i></h3>
-                                    </a>
-
-                                    <div class="collapse show" id="amenities">
-                                        <div>
-                                            <div class="inner">
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="accommodations">
-                                                    <label class="custom-control-label" for="accommodations">Accommodations</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="barservices">
-                                                    <label class="custom-control-label" for="barservices">Bar Services</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="catering">
-                                                    <label class="custom-control-label" for="catering">Catering Services</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="cleanup">
-                                                    <label class="custom-control-label" for="cleanup">Clean Up</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="eventplanner">
-                                                    <label class="custom-control-label" for="eventplanner">Event Planner</label>
-                                                </div>
-
-                                                <div class="custom-control custom-checkbox form-dark mb-3">
-                                                    <input type="checkbox" class="custom-control-input" id="eventrentals">
-                                                    <label class="custom-control-label" for="eventrentals">Event Rentals</label>
-                                                </div>
-
-                                                <div class="view-all">
-                                                    <a href="javascript:" class="btn btn-link-default p-0">+ View More</a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget Wrap -->
-                            </div>
-                            <!-- Sidebar Secondary End -->
 
                         </aside>
                     </div>
@@ -315,18 +141,6 @@ Author: wp-organic
                             @elseif (isset($list_halls))
                                 <strong>{{ $list_halls->count() }} results:</strong>
                             @endif
-                            <ul class="nav nav-pills theme-tabbing list-style-map" id="pills-tab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link show active" id="pills-listing-tab" data-toggle="pill" href="#pills-listing" role="tab" aria-controls="pills-listing" aria-selected="false"><i class="fa fa-list-ul"></i> List</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " id="pills-images-tab" data-toggle="pill" href="#pills-images" role="tab" aria-controls="pills-images" aria-selected="true"><i class="fa fa-th-large"></i> Images</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="false"><i class="fa fa-map-marker"></i> Map</a>
-                                </li>
-                            </ul>
                         </div>
 
                         <div class="tab-content theme-tabbing search-result-tabbing" id="pills-tabContent">

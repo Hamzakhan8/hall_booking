@@ -54,38 +54,30 @@ Author: wp-organic
         <section>
             <div class="container">
                 <div class="row contact-broken">
-                    <!-- Contact Details Wrap -->
-                    <div class="col-md-4">
-                        <div class="contact-details-wrap">
-                            <i class="weddingdir_support"></i>
-                            <h3 class="txt-primary">Customer Support</h3>
-                            <p class="my-4">Call our 24-hour helpline.</p>
-                            <div>Phone number: <a href="javascript:" class="btn-link btn-link-default">+800-123-4567</a></div>
-                            <div>Email Us: <a href="mailto:info@weddingdir.com" class="btn-link btn-link-primary">info@weddingdir.com</a> </div>
+                    @foreach ($contacts as $contact)
+                        <!-- Contact Details Wrap -->
+                        <div class="col-md-6">
+                            <div class="contact-details-wrap">
+                                <i class="weddingdir_support"></i>
+                                <h3 class="txt-primary">Customer Support</h3>
+                                <p class="my-4">Call our 24-hour helpline.</p>
+                                <div>Phone number: <a href="javascript:" class="btn-link btn-link-default">{{ $contact->call_number }}</a></div>
+                                <div>Email Us: <a href="mailto:info@weddingdir.com" class="btn-link btn-link-primary">{{ $contact->email }}</a> </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Contact Details Wrap -->
+                        <!-- Contact Details Wrap -->
 
-                    <!-- Contact Details Wrap -->
-                    <div class="col-md-4">
-                        <div class="contact-details-wrap">
-                            <i class="weddingdir_location"></i>
-                            <h3 class="txt-primary">Our Address</h3>
-                            <p class="my-4">Our offices are located in the Georgia.</p>
-                            <div>Address: 4998 Elk Creek Road <br>Canton, GA 30114</div>
+                        <!-- Contact Details Wrap -->
+                        <div class="col-md-6">
+                            <div class="contact-details-wrap">
+                                <i class="weddingdir_location"></i>
+                                <h3 class="txt-primary">Our Address</h3>
+                                <p class="my-4">{{ $contact->address }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Contact Details Wrap -->
 
-                    <!-- Contact Details Wrap -->
-                    <div class="col-md-4">
-                        <div class="contact-details-wrap">
-                            <i class="weddingdir_mail"></i>
-                            <h3 class="txt-primary">Other Enquiries</h3>
-                            <p class="my-4">Please contact us at the email below for all other inquiries.</p>
-                            <div>Email Us: <a href="mailto:enquiry@weddingdir.com" class="btn-link btn-link-primary">enquiry@weddingdir.com</a> </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                     <!-- Contact Details Wrap -->
                 </div>
             </div>
@@ -100,19 +92,28 @@ Author: wp-organic
                         <div class="text-center">
                             <h3 class="txt-default fw-7">Feel Free To Contact Us</h3>
                             <p>Excepteur sint occaecat cupidatat non proident sunt</p>
-                            <form action="https://wporganic.com/html/weddingdir/form-action.php" method="get">
-
+                            <form action="https://wporganic.com/html/weddingdir/form-action.php" method="POST">
+                                @csrf
+                                @if (Session::has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    <strong>{{ Session::get('success') }}</strong>
+                                </div>
+                                @elseif (Session::has('danger'))
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>{{ Session::get('danger') }}</strong>
+                                    </div>
+                                @endif
                                 <input type="hidden" name="subject" value="Contact Form" />
 
                                 <div class="row mt-5">
                                     <div class="col-sm-6 mb-0">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="First Name" placeholder="First Name">
+                                            <input type="text" class="form-control form-dark" name="First_Name" placeholder="First Name">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 mb-0">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-dark" name="Last Name" placeholder="Last Name">
+                                            <input type="text" class="form-control form-dark" name="Last_Name" placeholder="Last Name">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 mb-0">
@@ -122,7 +123,7 @@ Author: wp-organic
                                     </div>
                                     <div class="col-sm-6 mb-0">
                                         <div class="form-group">
-                                            <input type="number" class="form-control form-dark" name="Contact Number" placeholder="Mobile No.">
+                                            <input type="number" class="form-control form-dark" name="Contact_Number" placeholder="Mobile No.">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 mb-0">
@@ -151,12 +152,12 @@ Author: wp-organic
     <a id="back-to-top" href="javascript:" class="btn btn-outline-primary back-to-top"><i class="fa fa-arrow-up"></i></a>
 
     <!-- Modal -->
-    <div class="modal fade" id="login_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade front_login_modal" id="login_form" tabindex="-1" aria-labelledby="login_form" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered register-tab">
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-between align-items-center p-3 px-4 bg-light-gray">
-                        <h2 class="m-0" >Sign In</h2>
+                        <h2 style="color: #00aeaf" class="m-0" >Be a Couple | Hall</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -166,28 +167,36 @@ Author: wp-organic
 
                     <ul class="nav nav-pills mb-3 horizontal-tab-second justify-content-center nav-fill pt-2" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active show" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
+                            <a class="nav-link active show login_panel_title" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
+                            <a class="nav-link register_panel_title" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
                         </li>
                     </ul>
                     <div class="p-3 px-4 pt-0">
 
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                <form>
+                            <div class="tab-pane fade show active login_panel" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                                <form action="{{ route('auth.login') }}" method="POST">
+                                @csrf
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong class="text-danger">Errors encounteded!</strong>
+                                        <br>
+                                        <ul>
+                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                            <li>
+                                                <strong>{{ $error }}</strong>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <div class="form-group">
-                                        <div class="alert alert-primary" role="alert">
-                                            Username: <strong>vendor</strong> / <strong>couple</strong><br>
-                                            Password: <strong>test</strong>
-                                        </div>
+                                        <input type="text" required class="form-control" name="username" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username/Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" required class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox form-dark">
@@ -200,38 +209,52 @@ Author: wp-organic
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane fade" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
-                                <form>
+                            <div class="tab-pane fade register_panel" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
+                                <form action="{{ route('auth.register') }}" method="POST">
+                                @csrf
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                            <div class="alert alert-danger" role="alert">
+                                                <strong class="text-danger">Errors encounteded!</strong>
+                                                <br>
+                                                <ul>
+                                                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                                    <li>
+                                                        <strong>{{ $error }}</strong>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                    @endif
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="dgest" name="dgest" class="custom-control-input">
+                                                    <input type="radio" id="dgest" name="role" value="couple" class="custom-control-input">
                                                     <label class="custom-control-label" for="dgest">Couple</label>
                                                 </div>
                                             </div>
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="owner" name="dgest" class="custom-control-input">
-                                                    <label class="custom-control-label" for="owner">Vendor</label>
+                                                    <input type="radio" id="owner" name="role" value="hall" class="custom-control-input">
+                                                    <label class="custom-control-label" for="owner">Hall</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" type="text" class="input-text" name="username" id="username2" value="">
+                                        <input class="form-control" placeholder="Username" required type="text" name="username" id="username2">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" class="input-text" type="password" name="password" id="password1">
+                                        <input class="form-control" placeholder="Password" required type="password" name="password" id="password1">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="First Name" type="text" name="first_name" id="first-name">
+                                        <input class="form-control" placeholder="First Name" required type="text" name="first_name" id="first-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Last Name" type="text" name="last_name" id="last-name">
+                                        <input class="form-control" placeholder="Last Name" required type="text" name="last_name" id="last-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Email Address" class="input-text" name="email" id="email" value="">
+                                        <input class="form-control" required type="email" placeholder="Email Address" name="email" id="email">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-rounded mt-3">Register</button>
@@ -244,7 +267,6 @@ Author: wp-organic
             </div>
         </div>
     </div>
-
     <!-- All The JS Files
       ================================================== -->
         @extends('front_view.components.scripts')

@@ -83,11 +83,6 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
         Route::get('transaction_delete/{id}', 'destroy')->name('admin.transaction.delete');
     });
 
-    Route::controller(ReviewsController::class)->group(function() {
-        Route::get('reviews', 'index')->name('admin.reviews');
-        Route::get('reviews_delete/{id}', 'destroy')->name('admin.reviews.delete');
-    });
-
     Route::controller(CommentController::class)->group(function() {
         Route::get('comment', 'index')->name('admin.comment');
         Route::get('comment_delete/{id}', 'destroy')->name('admin.comment.delete');
@@ -100,6 +95,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 
     Route::controller(AdminContactController::class)->group(function() {
         Route::get('contact', 'index')->name('admin.contact');
+        Route::post('contact_store', 'store')->name('admin.contact.store');
         Route::get('contact_delete/{id}', 'destroy')->name('admin.contact.delete');
     });
 
