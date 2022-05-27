@@ -15,7 +15,9 @@ class SearchResultController extends Controller
      */
     public function index()
     {
-        return view('front_view.search-result-page');
+        $list_halls = Hall::paginate(10);
+
+        return view('front_view.search-result-page', compact('list_halls'));
     }
 
     /**

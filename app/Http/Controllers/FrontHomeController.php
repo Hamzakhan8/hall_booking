@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hall;
 use App\Models\SliderImage;
 use Illuminate\Http\Request;
 use App\Traits\Cities;
@@ -18,9 +19,11 @@ class FrontHomeController extends Controller
         //retrieving the slider images
         $slider_images = SliderImage::value('slider_imgs');
 
+        $halls = Hall::orderByDesc('id')->limit(3)->get();
+
         $cities = $this->cities();
 
-        return view('front_view.index', compact('slider_images', 'cities'));
+        return view('front_view.index', compact('slider_images', 'cities', 'halls'));
     }
 
     /**

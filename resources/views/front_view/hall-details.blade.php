@@ -148,7 +148,7 @@ Author: wp-organic
                                     <!-- Tags/Socail Sharing -->
 
                                     <!-- Comments List -->
-                                    <div class="commnets-reply" style="overflow-y: scroll;height:30rem">
+                                    <div class="commnets-reply">
                                         <h4 class="fw-7 mb-4">({{ $detail->comments->count() }}) Comments</h4>
                                         @foreach ($detail->comments as $comments)
                                             <div class="media">
@@ -263,8 +263,11 @@ Author: wp-organic
                                         <div class="popular-post">
                                             <ul class="list-unstyled">
                                                 @foreach ($latest_halls as $latest)
+                                                @php
+                                                    $decode = json_decode($latest->images);
+                                                @endphp
                                                     <li>
-                                                        <img src="{{ asset('assets') }}/images/blogs/blog_standard_img_1.jpg" alt="">
+                                                        <img src="{{ asset('storage/hall_img/'.$decode[0]) }}" alt="">
                                                         <div>
                                                             <h6><a href="#">{{ $latest->title }}</a></h6>
                                                             <small>{{ ($latest->created_at)->diffForHumans() }}</small>

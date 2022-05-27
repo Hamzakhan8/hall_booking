@@ -98,9 +98,26 @@ Author: wp-organic
 
 
                                                 <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                                    @foreach ($halls as $hall)
+                                                    @if (isset($halls))
+                                                        @foreach ($halls as $hall)
                                                         <li><a style="cursor: pointer">{{ $hall->hallCategory->category }}</a></li>
-                                                    @endforeach
+                                                        @endforeach
+
+                                                        @elseif (isset($by_category))
+                                                        @foreach ($by_category as $by_cat_hall)
+                                                        <li><a style="cursor: pointer">{{ $by_cat_hall->hallCategory->category }}</a></li>
+                                                        @endforeach
+
+                                                        @elseif (isset($by_name))
+                                                        @foreach ($by_name as $by_name_hall)
+                                                        <li><a style="cursor: pointer">{{ $by_name_hall->hallCategory->category }}</a></li>
+                                                        @endforeach
+
+                                                        @elseif (isset($list_halls))
+                                                        @foreach ($list_halls as $list_hall)
+                                                        <li><a style="cursor: pointer">{{ $list_hall->hallCategory->category }}</a></li>
+                                                        @endforeach
+                                                    @endif
                                                 </ul>
                                             </div>
 
@@ -293,6 +310,10 @@ Author: wp-organic
                                 <strong>{{ $halls->count() }} results:</strong>
                             @elseif (isset($by_category))
                                 <strong>{{ $by_category->count() }} results:</strong>
+                            @elseif (isset($by_name))
+                            <strong>{{ $by_name->count() }} results:</strong>
+                            @elseif (isset($list_halls))
+                                <strong>{{ $list_halls->count() }} results:</strong>
                             @endif
                             <ul class="nav nav-pills theme-tabbing list-style-map" id="pills-tab" role="tablist">
                                 <li class="nav-item">
@@ -331,6 +352,7 @@ Author: wp-organic
                                                             <h3><a href="{{ route('front.search.details', $hall->id) }}">{{ $hall->title }}</a></h3>
                                                         </div>
                                                         <p>{{ $hall->description }}</p>
+                                                        <div><i class="fa fa-map-marker"></i> {{ $hall->location }}</div>
                                                         <div class="bottom">
                                                             <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
                                                         </div>
@@ -361,6 +383,7 @@ Author: wp-organic
                                                             <h3><a href="{{ route('front.search.details', $by_cat_halls->id) }}">{{ $by_cat_halls->title }}</a></h3>
                                                         </div>
                                                         <p>{{ $by_cat_halls->description }}</p>
+                                                        <div><i class="fa fa-map-marker"></i> {{ $by_cat_halls->location }}</div>
                                                         <div class="bottom">
                                                             <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
                                                         </div>
@@ -391,6 +414,38 @@ Author: wp-organic
                                                             <h3><a href="{{ route('front.search.details', $by_name_halls->id) }}">{{ $by_name_halls->title }}</a></h3>
                                                         </div>
                                                         <p>{{ $by_name_halls->description }}</p>
+                                                        <div><i class="fa fa-map-marker"></i> {{ $by_name_halls->location }}</div>
+                                                        <div class="bottom">
+                                                            <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                @elseif (isset($list_halls))
+                                    {{-- results by names and location --}}
+                                    @foreach ($list_halls as $list_hall)
+                                        @php
+                                            $image = json_decode($list_hall->images);
+                                        @endphp
+                                        <div class="result-list">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="img">
+                                                        <a href="{{ route('front.search.details', $list_hall->id) }}">
+                                                            <img src="{{ asset('storage/hall_img/'. $image[0]) }}" alt="" class="rounded">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="content">
+                                                        <div class="head">
+                                                            <h3><a href="{{ route('front.search.details', $list_hall->id) }}">{{ $list_hall->title }}</a></h3>
+                                                        </div>
+                                                        <p>{{ $list_hall->description }}</p>
+                                                        <div><i class="fa fa-map-marker"></i> {{ $list_hall->location }}</div>
                                                         <div class="bottom">
                                                             <a class="btn btn-outline-primary btn-rounded" data-toggle="modal" data-target="#request_quote">Request Pricing</a>
                                                         </div>
@@ -405,10 +460,15 @@ Author: wp-organic
                                 <!-- Search Result Pagination -->
                                 @if (isset($halls))
                                     {{ $halls->links() }}
+
                                 @elseif (isset($by_category))
                                     {{ $by_category->links() }}
+
                                 @elseif (isset($by_name))
                                     {{ $by_name->links() }}
+
+                                @elseif (isset($list_halls))
+                                    {{ $list_halls->links() }}
                                 @endif
                                 <!-- Post Pagination -->
                             </div>

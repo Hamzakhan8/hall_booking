@@ -80,19 +80,6 @@ Author: wp-organic
                         <h1>FIND the Perfect Hall</h1>
                         <p class="lead txt-white text-center">Search over 360,000 Halls with reviews, pricing, availability and more</p>
                         <div class="slider-form rounded">
-                            @if ($errors && (is_array($errors) || $errors->all()))
-                            <div class="alert alert-danger" role="alert">
-                                <strong class="text-danger">Errors encounteded!</strong>
-                                <br>
-                                <ul>
-                                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
-                                    <li>
-                                        <strong>{{ $error }}</strong>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             @if (Session::has('not found'))
                             <div class="alert alert-danger" role="alert">
                                 <strong>{{ Session::get('not found') }}</strong>
@@ -132,23 +119,28 @@ Author: wp-organic
                     <p>Chose one of the best Hall all over Pakistan</p>
                 </div>
                 <div class="row">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="wedding-listing">
-                                <div class="img">
-                                    <a href="{{ route('front.search') }}">
-                                        <img height="263px" src="{{ asset('assets') }}/images/weddings/3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <div class="gap">
-                                        <h3><a href="{{ route('front.search') }}">Town Wedding Hall <span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
-                                        <div><i class="fa fa-map-marker"></i> Peshawar, Pakistan</div>
+                    @foreach ($halls as $hall)
+                        @php
+                            $decode = json_decode($hall->images);
+                        @endphp
+                        <div id="owl-demo" class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="wedding-listing">
+                                    <div class="img">
+                                        <a href="{{ route('front.search.details', $hall->id) }}">
+                                            <img height="263px" src="{{ asset('storage/hall_img/'.$decode[0]) }}" alt="Hall image">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <div class="gap">
+                                            <h3><a href="{{ route('front.search.details', $hall->id) }}">{{ $hall->title }}<span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                            <div><i class="fa fa-map-marker"></i> {{ $hall->location }} city</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
 
             </div>
