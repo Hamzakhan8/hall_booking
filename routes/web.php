@@ -2,17 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontHomeController;
-use App\Http\Controllers\hall\ChatController;
 use App\Http\Controllers\hall\HallCategoryController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\HallDetailsController;
 use App\Http\Controllers\SearchResultController;
 use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\ProfileController;
-use App\Http\Controllers\admin\ReviewsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\admin\SliderImgController;
 use App\Http\Controllers\hall\ManageUserController;
@@ -30,6 +26,7 @@ use App\Http\Controllers\couple\CommentController as CoupleCommentController;
 use App\Http\Controllers\couple\ReplyController;
 use App\Http\Controllers\FrontCommentController;
 use App\Http\Controllers\hall\CommentController as HallCommentController;
+use App\Http\Controllers\couple\PaymentController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
@@ -158,10 +155,7 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
        Route::get('hall_transaction', 'index')->name('hall.transaction.index');
     });
 
-    Route::get('booking/available-halls/{checkin_date}',[BookingController::class,'available_halls']);
-    Route::resource('/booking',BookingController::class);
     Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
-    Route::get('chat', [ChatController::class, 'index'])->name('hall.chat');
 });
 
 
@@ -195,6 +189,10 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
         Route::get('reply/{comment_id}', 'index')->name('couple.reply');
         Route::post('re_reply/{comment_id}', 'store')->name('couple.re_reply');
         Route::get('reply_delete/{id}/{comment_id}', 'destroy')->name('couple.reply.delete');
+    });
+
+    Route::controller(PaymentController::class)->group(function () {
+        Route::post('couple_pay', 'store')->name('couple.pay.store');
     });
 });
 

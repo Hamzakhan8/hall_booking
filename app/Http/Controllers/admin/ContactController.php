@@ -56,7 +56,7 @@ class ContactController extends Controller
         ]);
 
         return redirect()->route('admin.contact')
-        ->with('added_info', 'Contact info has been updated to contacts page');
+        ->with('updated', 'Contact info has been updated to contacts page');
     }
 
     /**

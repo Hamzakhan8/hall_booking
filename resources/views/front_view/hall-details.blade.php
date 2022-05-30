@@ -113,6 +113,7 @@ Author: wp-organic
                                                     <th>Events</th>
                                                     <th>Maximum Guests</th>
                                                     <th>Price</th>
+                                                    <th>Pay</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -124,13 +125,20 @@ Author: wp-organic
                                                         <td scope="row">{{ ucfirst($event) }}</td>
                                                         <td>{{ $values[1] }}</td>
                                                         <td>${{ $values[0] }}</td>
+                                                        <td>
+                                                            <div class="bottom">
+                                                                <a class="btn btn-outline-primary btn-rounded hall_payment_btn"
+                                                                data-hall-id="{{ $detail->id }}"
+                                                                data-hall-title="{{ $detail->title }}"
+                                                                data-hall-event="{{ $event }}"
+                                                                data-hall-price="{{ $values[0] }}"
+                                                                data-toggle="modal"
+                                                                data-target="#request_quote"
+                                                                >Request Price</a>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                     @endforeach
-                                                    <tr>
-                                                        <td scope="row"></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
                                                 </tbody>
                                         </table>
                                         <div class="tag-wrap">
@@ -410,6 +418,50 @@ Author: wp-organic
             </div>
         </div>
     </div>
+
+    <!-- Request Quote Modal -->
+    <div class="modal fade" id="request_quote" tabindex="-1" aria-labelledby="request_quote" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered register-tab">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="d-flex justify-content-between align-items-center p-3 px-4 bg-light-gray">
+                        <h3 class="m-0" >Request A Quote</h3>
+                        <button type="button" class="close" id="modal_close_btn" data-dismiss="modal" aria-label="Close">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-3 px-4 pt-0">
+                        <div class="request-quote-form">
+
+                            <form
+                            action="{{ route('couple.pay.store') }}"
+                            method="POST"
+                            class="hall_payment_form"
+                            id="payment-form">
+                                @csrf
+                                <input type="hidden" name="hall_id" id="hallId" value="">
+                                <input type="hidden" name="hall_title" id="hallTitle" value="">
+                                <input type="hidden" name="hall_price" id="hallPrice" value="">
+                                <input type="hidden" name="hall_event" id="hallEvents" value="">
+
+                                <div id="card-element">
+                                  <!-- Elements will create input elements here -->
+                                </div>
+
+                                <!-- We'll put the error messages in this element -->
+                                <div id="card-errors" role="alert"></div>
+
+                                <button type="submit" class="btn btn-primary mt-5 subscription_payment_btn">Buy</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Request Quote Modal -->
 
     <!-- All The JS Files
       ================================================== -->

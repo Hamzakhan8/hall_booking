@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\couple;
 
-use App\Models\Customer;
-use Illuminate\Support\Facades\DB;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BookingController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('admin.booking.index');
+        //
     }
 
     /**
@@ -26,8 +24,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        $customers=Customer::all();
-        return view('admin.booking.create',compact( 'customers' ));
+        //
     }
 
     /**
@@ -39,13 +36,12 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'customer_id'=>'required',
-            'room_id'=>'required',
-            'checkin_date'=>'required',
-            'checkout_date'=>'required',
-            'total_adults'=>'required',
-            'hallprice'=>'required',
+            'hall_id' => ['required', 'numeric'],
+            'hall_title' => ['required', 'string'],
+            'hall_price' => ['required', 'numeric'],
+            'hall_event' => ['required', 'string'],
         ]);
+
 
     }
 
@@ -92,18 +88,5 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-//check available halls
-    public function available_halls(Request $request , $checkin_date)
-
-    {
-
-        $Ahalls=DB::SELECT
-        
-        ("SELECT * FROM halls WHERE id NOT IN(SELECT hall_id FROM bookings WHERE '$checkin_date' BETWEEN  checkin_date AND checkout_date ) ");
-
-        return response()->json(['data'=> $Ahalls]);
-
     }
 }
