@@ -57,7 +57,6 @@ Author: wp-organic
     <!--  Page Breadcrumbs End -->
 
     <main id="body-content">
-
         <!-- Blog Page Start -->
         @foreach ($hall_details as $detail)
             <section class="wide-tb-90">
@@ -66,6 +65,11 @@ Author: wp-organic
                         <div class="col-lg-8 col-md-12">
                             <!-- Post Blog -->
                             <div class="post-content mb-0">
+                                @if (Session::has('created'))
+                                    <div class="alert alert-success" role="alert">
+                                        <strong>{{ Session::get('created') }}</strong>
+                                    </div>
+                                @endif
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     @php
                                         $json_img = json_decode($detail->images);
@@ -425,7 +429,7 @@ Author: wp-organic
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-between align-items-center p-3 px-4 bg-light-gray">
-                        <h3 class="m-0" >Request A Quote</h3>
+                        <h3 class="m-0" >Book Event</h3>
                         <button type="button" class="close" id="modal_close_btn" data-dismiss="modal" aria-label="Close">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -441,6 +445,17 @@ Author: wp-organic
                             class="hall_payment_form"
                             id="payment-form">
                                 @csrf
+
+                                <div class="form-group">
+                                    <label for="" style="color: #00aeaf">Event</label>
+                                    <input type="text" class="form-control" disabled id="ShowHallTitle" value="">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="" style="color: #00aeaf">Price</label>
+                                    <input type="text" class="form-control" disabled id="ShowHallPrice" value="">
+                                </div>
+
                                 <input type="hidden" name="hall_id" id="hallId" value="">
                                 <input type="hidden" name="hall_title" id="hallTitle" value="">
                                 <input type="hidden" name="hall_price" id="hallPrice" value="">

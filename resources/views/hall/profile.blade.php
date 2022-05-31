@@ -29,6 +29,10 @@
                         <div class="alert alert-success" role="alert">
                             <strong>{{ Session::get('updated') }}</strong>
                         </div>
+                        @elseif (Session::has('profile'))
+                        <div class="alert alert-info" role="alert">
+                            <strong>{{ Session::get('profile') }}</strong>
+                        </div>
                         @endif
                         <div class="card-shadow-header">
                             <div class="head-simple">

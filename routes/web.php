@@ -27,6 +27,7 @@ use App\Http\Controllers\couple\ReplyController;
 use App\Http\Controllers\FrontCommentController;
 use App\Http\Controllers\hall\CommentController as HallCommentController;
 use App\Http\Controllers\couple\PaymentController;
+use App\Http\Controllers\couple\StripeCustomerController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
@@ -194,6 +195,12 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::controller(PaymentController::class)->group(function () {
         Route::post('couple_pay', 'store')->name('couple.pay.store');
     });
+
+    Route::controller(StripeCustomerController::class)->group(function () {
+        Route::get('stripe_customer/{customer}/{request}', 'stripe_customer')
+        ->name('couple.stripe.customer');
+    });
+
 });
 
 // grouped routes for front site

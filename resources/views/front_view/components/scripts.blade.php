@@ -65,7 +65,9 @@
 
             $("#hallId").val(hall_id);
             $("#hallTitle").val(hall_title);
+            $("#ShowHallTitle").val(hall_title);
             $("#hallPrice").val(hall_price);
+            $("#ShowHallPrice").val(hall_price);
             $("#hallEvents").val(hall_event);
 
             hall_modal.modal('show');

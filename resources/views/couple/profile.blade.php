@@ -32,7 +32,16 @@
                         </div>
 
                         <div class="card-shadow-body">
-                            @if (!empty($profile))
+                            @if (Session::has('profile'))
+                                <div class="alert alert-info" role="alert">
+                                    <strong>{{ Session::get('profile') }}</strong>
+                                </div>
+                                @elseif (Session::has('updated'))
+                                <div class="alert alert-success" role="alert">
+                                    <strong>{{ Session::get('updated') }}</strong>
+                                </div>
+                            @endif
+                            @if (!empty($profile) || $profile != null)
                                 <form action="{{ route('couple.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -94,7 +103,7 @@
                                     </div>
                                 </form>
 
-                            @elseif (empty($profile))
+                            @elseif (empty($profile) || $profile == null)
                                 <form action="{{ route('couple.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')

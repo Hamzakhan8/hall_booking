@@ -25,7 +25,7 @@ class CreateTransactionsTable extends Migration
             $table->string('transaction_id')->unique();
             $table->bigInteger('amount');
             $table->date('date');
-            $table->smallInteger('card_cvc')->unique();
+            $table->enum('card_cvc', ['pass']);
             $table->tinyInteger('exp_month');
             $table->smallInteger('exp_year');
             $table->smallInteger('card_last_4');

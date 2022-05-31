@@ -1,11 +1,25 @@
+@php
+$profile = Auth::user()->profile;
+@endphp
     <aside class="offcanvas-collapse">
-        <div class="avatar-wrap">
-            <img src="{{ asset('storage/profile_img/'.Auth::user()->profile->avatar) }}"
-            width="130"
-            height="130"
-            alt="profile_image">
-            <h3>{{ Auth::user()->username }}</h3>
-        </div>
+        @if (!empty($profile) || $profile != null)
+            <div class="avatar-wrap">
+                <img src="{{ asset('storage/profile_img/'.Auth::user()->profile->avatar) }}"
+                width="130"
+                height="130"
+                alt="profile_image">
+                <h3>{{ Auth::user()->username }}</h3>
+            </div>
+            @elseif (empty($profile) || $profile == null)
+
+            <div class="avatar-wrap">
+                <img src="{{ asset('assets/images/about/team/team_img_1.jpg') }}"
+                width="130"
+                height="130"
+                alt="profile_image">
+                <h3>{{ Auth::user()->username }}</h3>
+            </div>
+        @endif
         <div class="sidebar-nav">
             <ul class="list-unstyled">
                 <li>

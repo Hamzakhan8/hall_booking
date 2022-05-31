@@ -32,6 +32,11 @@
                         </div>
 
                         <div class="card-shadow-body">
+                            @if (Session::has('profile'))
+                                <div class="alert alert-info" role="alert">
+                                    <strong>{{ Session::get('profile') }}</strong>
+                                </div>
+                            @endif
                             @if (!empty($profile))
                                 <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf

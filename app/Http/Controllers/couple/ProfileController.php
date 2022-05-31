@@ -8,9 +8,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Traits\StripeCustomer;
 
-class ProfileController extends Controller
+class ProfileController extends StripeCustomerController
 {
+    use StripeCustomer;
     /**
      * Display a listing of the resource.
      *
@@ -82,6 +84,8 @@ class ProfileController extends Controller
             'description' => ['required']
         ]);
 
+        $user = $request->user();
+
         $logged_id =  Auth::user()->id;
 
         User::where('id', $logged_id)->update([
@@ -111,7 +115,14 @@ class ProfileController extends Controller
             'description' => $request['description'],
         ]);
 
-        return $this->index();
+        if($user->role === "couple")
+        // making stripe customer for every user that registers
+        $customer = $this->StripeCustomer($request);
+
+        $this->stripe_customer($customer, $request);
+
+        return view('couple.profile')
+        ->with('updated', 'Profile has been updated');
     }
 
         /**

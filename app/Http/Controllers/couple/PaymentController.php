@@ -4,9 +4,12 @@ namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Traits\Payment;
+use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
+    use Payment;
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +45,26 @@ class PaymentController extends Controller
             'hall_event' => ['required', 'string'],
         ]);
 
+        $user = $request->user();
+        $customerID = $user->stripe_customer->customer_id;
 
+        $charge = $this->StripeCharge($customerID, $request);
+
+        $user->transactions()
+        ->create([
+            'user_id' => $user->id,
+            'user_name' => $user->username,
+            'transaction_id' => Str::orderedUuid(),
+            'amount' => $charge->amount,
+            'date' => now()->format('Y-m-d'),
+            'card_cvc' => $charge->payment_method_details->card->checks->cvc_check,
+            'exp_month' => $charge->payment_method_details->card->exp_month,
+            'exp_year' => $charge->payment_method_details->card->exp_year,
+            'card_last_4' => $charge->payment_method_details->card->last4,
+        ]);
+
+        return redirect()->route('front.search.details', $request['hall_id'])
+        ->with('created', 'Payment has been made successfully');
     }
 
     /**

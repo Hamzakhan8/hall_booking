@@ -56,13 +56,16 @@ class LoginController extends Controller
 
         if(Auth::attempt([$column => $request['username'], 'password' => $request['password']])
          && Auth::user()->role == 'admin')
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.profile')
+        ->with('profile', 'Update your profile first!');
 
         elseif(Auth::user()->role == 'hall')
-        return redirect()->route('hall.dashboard');
+        return redirect()->route('hall.profile')
+        ->with('profile', 'Update your profile first!');
 
         elseif(Auth::user()->role == 'couple')
-        return redirect()->route('couple.dashboard');
+        return redirect()->route('couple.profile')
+        ->with('profile', 'Update your profile first!');
 
         else
         return redirect()->route('front.home')

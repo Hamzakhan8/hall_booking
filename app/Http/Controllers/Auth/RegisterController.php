@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 class RegisterController extends Controller
 {
     /*
@@ -80,6 +78,6 @@ class RegisterController extends Controller
         ]);
 
         return redirect()->route('front.home')
-        ->with('now_login', 'Your Account has been registered, please login!');
+        ->with('now_login', 'Your are now registered, please login!');
     }
 }

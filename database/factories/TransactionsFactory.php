@@ -27,7 +27,7 @@ class TransactionsFactory extends Factory
             'transaction_id' => $this->faker->uuid,
             'amount' => $this->faker->randomElement(['1000', '2000', '4000']),
             'date' => $this->faker->date($formate = 'Y-m-d', $max = 'now'),
-            'card_cvc' => $this->faker->randomElement(['123', '456', '789', '987', '655']),
+            'card_cvc' => $this->faker->randomElement(['pass']),
             'exp_month' => $this->faker->randomElement(['1', '2', '3', '4', '5']),
             'exp_year' => $this->faker->randomElement(['2023', '2024', '2025']),
             'card_last_4' => $this->faker->randomElement(['1234', '5678']),
