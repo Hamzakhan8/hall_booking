@@ -23,8 +23,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'avatar' => $this->faker->image($dir = public_path('storage/profile_img'),
-            $width = 640, $height = 480),
+            // 'avatar' => $this->text($maxNbChars = 100),
             'contact' => $this->faker->e164PhoneNumber,
             'address' => $this->faker->text($maxNbChars = 100),
             'description' => $this->faker->text($maxNbChars = 100)

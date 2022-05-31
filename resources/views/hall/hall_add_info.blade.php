@@ -57,42 +57,42 @@
             <div class="form-check pb-3">
                 <label class="form-check-label" for="exampleCheck1">Wedding</label>
                 <div class="d-flex align-items-center">
-                    <input type="number" class="form-control ml-3 col-4" name="wedding_price" placeholder="Enter price">
-                    <input type="number" class="form-control ml-3 col-4" name="wedding_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-4" min="1" name="wedding_price" placeholder="Enter price">
+                    <input type="number" class="form-control ml-3 col-4"  min="1" name="wedding_guests" placeholder="Enter guests">
                 </div>
             </div>
 
             <div class="form-check pb-3">
                 <label class="form-check-label" for="exampleCheck2">Birthday</label>
                 <div class="d-flex align-items-center">
-                    <input type="number" class="form-control ml-3 col-4" name="birthday_price" placeholder="Enter price">
-                    <input type="number" class="form-control ml-3 col-4" name="birthday_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-4" min="1" name="birthday_price" placeholder="Enter price">
+                    <input type="number" class="form-control ml-3 col-4"  min="1" name="birthday_guests" placeholder="Enter guests">
                 </div>
             </div>
 
             <div class="form-check pb-3">
                 <label class="form-check-label" for="exampleCheck3">Concert</label>
                 <div class="d-flex align-items-center">
-                    <input type="number" class="form-control ml-3 col-4" name="concert_price" placeholder="Enter price">
-                    <input type="number" class="form-control ml-3 col-4" name="concert_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-4" min="1" name="concert_price" placeholder="Enter price">
+                    <input type="number" class="form-control ml-3 col-4"  min="1" name="concert_guests" placeholder="Enter guests">
                 </div>
             </div>
 
             <div class="form-check pb-3">
                 <label class="form-check-label" for="exampleCheck4">Festival</label>
                 <div class="d-flex align-items-center">
-                    <input type="number" class="form-control ml-3 col-4" name="festival_price" placeholder="Enter price">
-                    <input type="number" class="form-control ml-3 col-4" name="festival_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-4" min="1" name="festival_price" placeholder="Enter price">
+                    <input type="number" class="form-control ml-3 col-4"  min="1" name="festival_guests" placeholder="Enter guests">
                 </div>
             </div>
 
             <div class="form-group">
               <label for="">Social Links</label>
               <div class="links d-flex">
-                <input type="url" class="form-control m-2" name="facebook" id="" aria-describedby="helpId" placeholder="facebook.com">
-                <input type="url" class="form-control m-2" name="twitter" id="" aria-describedby="helpId" placeholder="twitter.com">
-                <input type="url" class="form-control m-2" name="instagram" id="" aria-describedby="helpId" placeholder="instagram.com">
-                <input type="url" class="form-control m-2" name="linkedin" id="" aria-describedby="helpId" placeholder="linkedin.com">
+                <input type="url" class="form-control m-2" name="facebook" value="https://facebook.com/" id="" aria-describedby="helpId" placeholder="facebook.com">
+                <input type="url" class="form-control m-2" name="twitter" value="https://twitter.com/" id="" aria-describedby="helpId" placeholder="twitter.com">
+                <input type="url" class="form-control m-2" name="instagram" value="https://instagram.com/" id="" aria-describedby="helpId" placeholder="instagram.com">
+                <input type="url" class="form-control m-2" name="linkedin" value="https://linkedin.com/" id="" aria-describedby="helpId" placeholder="linkedin.com">
               </div>
             </div>
 

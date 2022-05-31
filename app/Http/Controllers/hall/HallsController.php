@@ -56,7 +56,7 @@ class HallsController extends Controller
             'images' => 'required|min:4|max:6',
             'hall_category' => 'required',
             'title' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:255',
             'location' => 'required',
             'facebook' => 'required|url',
             'twitter' => 'required|url',

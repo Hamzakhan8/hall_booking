@@ -32,11 +32,11 @@
 
     $("#owl-demo").owlCarousel({
 
-        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        autoPlay: 1000, //Set AutoPlay to 3 seconds
 
-        items : 3,
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
+        items : 4,
+        itemsDesktop : [1199,]4,
+        itemsDesktopSmall : [979,4]
 
     });
 

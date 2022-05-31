@@ -153,7 +153,7 @@ Author: wp-organic
                     <h1>Popular locations</h1>
                     <p>Popular Locations for Hall booking</p>
                 </div>
-                <div class="row justify-content-space-between">
+                {{-- <div class="row justify-content-space-between">
                     <div class="col-lg-3 col-md-4 mx-auto d-lg-block d-none">
                         <div class="popular-locations">
                             <div class="overlay-box">
@@ -203,6 +203,31 @@ Author: wp-organic
                             </div>
                         </div>
                     </div>
+
+                </div> --}}
+                <div class="owl-carousel owl-theme dots-black" id="slider-feedback">
+                    
+                    @foreach ($list_halls as $list_hall)
+                                    @php
+                                    $decode = json_decode($list_hall->images);
+                                @endphp
+                        <div class="item">
+                            <div class="wedding-listing">
+                                <div class="img">     
+                                    <a href="{{ route('front.search.details', $list_hall->id) }}">
+                                        <img height="263px" width="263px" src="{{ asset('storage/hall_img/'.$decode[0]) }}" alt="Hall image">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <div class="gap">
+                                        <h3><a href="{{ route('front.search.details', $list_hall->id) }}">{{ $list_hall->title }}<span class="verified"><i class="fa fa-check-circle"></i></span></a></h3>
+                                        <div><i class="fa fa-map-marker"></i> {{ $list_hall->location }} city</div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    @endforeach
+                   
 
                 </div>
             </div>
