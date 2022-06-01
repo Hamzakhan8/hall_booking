@@ -23,25 +23,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($comments as $comment)
-                        @php
-                            $comment_id = $comment['id'];
-                        @endphp
+                    @foreach ($halls as $comment)
+                        @foreach ($comment->comments as $comm)
+                            @php
+                                $comment_id = $comm->id;
+                                $hall_id = $comm->hall_id;
+                                $hall_name = $comm->hall_name;
+                            @endphp
                         <tr>
-                            <td>{{ $comment['username'] }}</td>
-                            <td>{{ $comment['hall_name'] }}</td>
-                            <td>{{ $comment['comment'] }}</td>
+                            <td>{{ $comm['username'] }}</td>
+                            <td>{{ $comm['hall_name'] }}</td>
+                            <td>{{ $comm['comment'] }}</td>
                             <td>
                                 <a style="color: #17a2b8"
-                                data-name="{{ $comment['username'] }}"
-                                data-id="{{ $comment['id'] }}"
+                                data-name="{{ $comm['username'] }}"
+                                data-id="{{ $comm['id'] }}"
                                 data-toggle="tooltip"
                                 data-placement="top"
                                 class="myReplyModalBtn"
                                 title="Reply">
                                 <i class="fa fa-reply"></i>
                             </a> |
-                                <a href="{{ route('hall.reply', $comment['id']) }}"
+                                <a href="{{ route('hall.reply', $comm['id']) }}"
                                 style="color: #17a2b8"
                                 data-toggle="tooltip"
                                 data-placement="top"
@@ -66,6 +69,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="hidden" id="contact_id" name="comment_id">
+                                                <input type="hidden" name="hall_id" value="{{ $hall_id }}">
+                                                <input type="hidden" name="hall_name" value="{{ $hall_name }}">
                                                 <input type="text" id="contactReply" name="reply" class="form-control" placeholder="Enter reply here" required>
                                             </div>
                                             <button type="submit" class="btn btn-sm btn-primary">Submit</button>
@@ -77,6 +82,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     @endforeach
                 </tbody>
             </table>
@@ -84,5 +90,5 @@
     </div>
 </div>
 
-{{ $comments->links() }}
+{{ $halls->links() }}
 @endsection

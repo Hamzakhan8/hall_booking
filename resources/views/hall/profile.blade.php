@@ -44,6 +44,19 @@
                             @if (!empty($profile))
                                 <form action="{{ route('hall.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                     @if ($errors && (is_array($errors) || $errors->all()))
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong class="text-danger">Errors encounteded!</strong>
+                                        <br>
+                                        <ul>
+                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                            <li>
+                                                <strong>{{ $error }}</strong>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     @method('PUT')
                                     <div class="row">
                                         <div class="col-md-12">

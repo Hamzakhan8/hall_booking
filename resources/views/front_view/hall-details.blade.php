@@ -456,6 +456,16 @@ Author: wp-organic
                                     <input type="text" class="form-control" disabled id="ShowHallPrice" value="">
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="" style="color: #00aeaf">Checkin Date</label>
+                                    <input type="date" id="checkindate" class="form-control" name="checkin_date">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="" style="color: #00aeaf">Checkout Date</label>
+                                    <input type="date" id="checkoutdate" class="form-control" name="checkout_date">
+                                </div>
+
                                 <input type="hidden" name="hall_id" id="hallId" value="">
                                 <input type="hidden" name="hall_title" id="hallTitle" value="">
                                 <input type="hidden" name="hall_price" id="hallPrice" value="">

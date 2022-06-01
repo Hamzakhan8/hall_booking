@@ -8,7 +8,7 @@ $profile = Auth::user()->profile;
                 width="130"
                 height="130"
                 alt="profile_image">
-                <h3>{{ Auth::user()->username }}</h3>
+                <h3>{{ Auth::user()->name }}</h3>
             </div>
             @elseif (empty($profile) || $profile == null)
 
