@@ -16,7 +16,7 @@ class ReplyController extends Controller
      */
     public function index($comment_id)
     {
-        $replies = Reply::where('comment_id', $comment_id)->get();
+        $replies = Reply::where('comments_id', $comment_id)->get();
 
         $re_replies = ReReply::where('comment_id', $comment_id)->get();
 
@@ -41,7 +41,9 @@ class ReplyController extends Controller
         Reply::create([
           'user_id' => $logged_id,
           'username' => $logged_username,
-          'comment_id' => $request['comment_id'],
+          'comments_id' => $request['comment_id'],
+          'hall_id' => $request->hall_id,
+          'hall_name' => $request->hall_name,
           'reply' => $request['reply'],
         ]);
 
@@ -72,6 +74,8 @@ class ReplyController extends Controller
             'comment_id' => $comment_id,
             'reply_id' => $request['reply_id'],
             'reply' => $request['reply'],
+            'hall_id' => $request->hall_id,
+            'hall_name' => $request->hall_name,
         ]);
 
         return $this->index($comment_id);

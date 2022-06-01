@@ -19,16 +19,11 @@ class CommentController extends Controller
     {
         $logged_id = Auth::user()->id;
 
-        $halls = Hall::where('user_id', $logged_id)->pluck('id');
+        $halls = Hall::where('user_id', $logged_id)
+        ->with('comments')
+        ->paginate(5);
 
-        $comments = array();
-
-        foreach ($halls as $key) {
-
-            $comments = Comments::where('hall_id', $key)->paginate(5);
-        }
-
-        return view('hall.comment', compact('comments'));
+        return view('hall.comment', compact('halls'));
     }
 
     /**

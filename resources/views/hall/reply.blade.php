@@ -87,35 +87,38 @@
                                         @endforeach
                                     </div>
                                 </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Reply User's Message</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="myModalForm" action="{{ route('hall.re_reply', $comment_id) }}" method="POST">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Message Reply To</label>
+                                                        <input type="text" class="form-control" id="contact_username" name="reply_username">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="hidden" id="contact_id" name="reply_id">
+                                                        <input type="hidden" name="hall_id" value="{{ $reply->hall_id }}">
+                                                        <input type="hidden" name="hall_name" value="{{ $reply->hall_name }}">
+                                                        <input type="text" id="contactReply" name="reply" class="form-control" placeholder="Enter reply here" required>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @endforeach
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Reply User's Message</h5>
-                    </div>
-                    <div class="modal-body">
-                        <form class="myModalForm" action="{{ route('hall.re_reply', $comment_id) }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Message Reply To</label>
-                                <input type="text" class="form-control" id="contact_username" name="reply_username">
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" id="contact_id" name="reply_id">
-                                <input type="text" id="contactReply" name="reply" class="form-control" placeholder="Enter reply here" required>
-                            </div>
-                            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

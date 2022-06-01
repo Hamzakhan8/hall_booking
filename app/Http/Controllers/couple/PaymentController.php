@@ -43,6 +43,8 @@ class PaymentController extends Controller
             'hall_title' => ['required', 'string'],
             'hall_price' => ['required', 'numeric'],
             'hall_event' => ['required', 'string'],
+            'checkin_date' => ['required' , 'date'],
+            'checkout_date' => ['required' , 'date'],
         ]);
 
         $user = $request->user();
@@ -61,6 +63,17 @@ class PaymentController extends Controller
             'exp_month' => $charge->payment_method_details->card->exp_month,
             'exp_year' => $charge->payment_method_details->card->exp_year,
             'card_last_4' => $charge->payment_method_details->card->last4,
+        ]);
+
+        $user->bookings()->create([
+             'user_id' => $user->id,
+             'username' => $user->username,
+             'halls_id' => $request->hall_id,
+             'hall_name' => $request->hall_title,
+             'booking_date' => now()->format('Y-m-d'),
+             'checkin_date' => $request->checkin_date,
+             'checkout_date' => $request->checkout_date,
+
         ]);
 
         return redirect()->route('front.search.details', $request['hall_id'])
