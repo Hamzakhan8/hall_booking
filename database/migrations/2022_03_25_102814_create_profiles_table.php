@@ -24,7 +24,7 @@ class CreateProfilesTable extends Migration
             $table->string('avatar')->default(0);
             $table->bigInteger('contact')->unique();
             $table->string('address', 255);
-            $table->string('description');
+            $table->string('description', 255);
 
             $table->timestamps();
         });

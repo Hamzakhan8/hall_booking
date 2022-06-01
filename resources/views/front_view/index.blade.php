@@ -206,14 +206,14 @@ Author: wp-organic
 
                 </div> --}}
                 <div class="owl-carousel owl-theme dots-black" id="slider-feedback">
-                    
+
                     @foreach ($list_halls as $list_hall)
                                     @php
                                     $decode = json_decode($list_hall->images);
                                 @endphp
                         <div class="item">
                             <div class="wedding-listing">
-                                <div class="img">     
+                                <div class="img">
                                     <a href="{{ route('front.search.details', $list_hall->id) }}">
                                         <img height="263px" width="263px" src="{{ asset('storage/hall_img/'.$decode[0]) }}" alt="Hall image">
                                     </a>
@@ -227,7 +227,7 @@ Author: wp-organic
                             </div>
                     </div>
                     @endforeach
-                   
+
 
                 </div>
             </div>

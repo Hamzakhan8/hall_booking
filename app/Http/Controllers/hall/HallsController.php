@@ -55,8 +55,8 @@ class HallsController extends Controller
         $request->validate([
             'images' => 'required|min:4|max:6',
             'hall_category' => 'required',
-            'title' => 'required',
-            'description' => 'required|max:255',
+            'title' => 'required|string',
+            'description' => 'required|max:500',
             'location' => 'required',
             'facebook' => 'required|url',
             'twitter' => 'required|url',
@@ -89,10 +89,11 @@ class HallsController extends Controller
             'hall_id' => $hall->id,
             'meta_key' => 'hall_events',
             'meta_value' => [
-                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'],
-                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'],
-                "concert" => $request['concert_price'].'-'.$request['concert_guests'],
-                "festival" => $request['festival_price'].'-'.$request['wedding_guests'],
+                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'].'-'.$request['wedding_days'],
+                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'].'-'.$request['birthday_days'],
+                "concert" => $request['concert_price'].'-'.$request['concert_guests'].'-'.$request['concert_days'],
+                "festival" => $request['festival_price'].'-'.$request['festival_guests'].'-'.$request['festival_days'],
+                "convocation" => $request['convocation_price'].'-'.$request['convocation_guests'].'-'.$request['convocation_days'],
             ],
         ]);
 
@@ -201,11 +202,25 @@ class HallsController extends Controller
             ['meta_key' => 'hall_events'])
         ->update([
             'meta_value' => [
-                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'],
-                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'],
-                "concert" => $request['concert_price'].'-'.$request['concert_guests'],
-                "festival" => $request['festival_price'].'-'.$request['wedding_guests'],
+                "wedding" => $request['wedding_price'].'-'.$request['wedding_guests'].'-'.$request['wedding_days'],
+                "birthday" => $request['birthday_price'].'-'.$request['birthday_guests'].'-'.$request['birthday_days'],
+                "concert" => $request['concert_price'].'-'.$request['concert_guests'].'-'.$request['concert_days'],
+                "festival" => $request['festival_price'].'-'.$request['festival_guests'].'-'.$request['festival_days'],
+                "convocation" => $request['convocation_price'].'-'.$request['convocation_guests'].'-'.$request['convocation_days'],
             ]
+        ]);
+
+        Halls_meta::where(
+            ['user_id' => $request->user()->id],
+            ['hall_id' => $hall_id],
+            ['meta_key' => 'hall_links'])
+        ->update([
+            'meta_value' => [
+                "facebook" => $request['facebook'],
+                "twitter" => $request['twitter'],
+                "instagram" => $request['instagram'],
+                "linkedin" => $request['linkedin']
+            ],
         ]);
 
         return redirect()->route('hall.halls.index')

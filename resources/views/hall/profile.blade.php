@@ -25,14 +25,26 @@
                 <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel"
                     aria-labelledby="v-pills-home-tab">
                     <div class="card-shadow">
-                        @if (Session::has('updated'))
-                        <div class="alert alert-success" role="alert">
-                            <strong>{{ Session::get('updated') }}</strong>
+                        @if ($errors && (is_array($errors) || $errors->all()))
+                        <div class="alert alert-danger" role="alert">
+                            <strong class="text-danger">Errors encounteded!</strong>
+                            <br>
+                            <ul>
+                                @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                <li>
+                                    <strong>{{ $error }}</strong>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
-                        @elseif (Session::has('profile'))
-                        <div class="alert alert-info" role="alert">
-                            <strong>{{ Session::get('profile') }}</strong>
-                        </div>
+                            @elseif (Session::has('updated'))
+                            <div class="alert alert-success" role="alert">
+                                <strong>{{ Session::get('updated') }}</strong>
+                            </div>
+                            @elseif (Session::has('profile'))
+                            <div class="alert alert-info" role="alert">
+                                <strong>{{ Session::get('profile') }}</strong>
+                            </div>
                         @endif
                         <div class="card-shadow-header">
                             <div class="head-simple">

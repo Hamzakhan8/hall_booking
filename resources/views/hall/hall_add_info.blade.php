@@ -59,6 +59,7 @@
                 <div class="d-flex align-items-center">
                     <input type="number" class="form-control ml-3 col-4" min="1" name="wedding_price" placeholder="Enter price">
                     <input type="number" class="form-control ml-3 col-4"  min="1" name="wedding_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-2"  min="1" name="wedding_days" placeholder="Enter days">
                 </div>
             </div>
 
@@ -67,6 +68,7 @@
                 <div class="d-flex align-items-center">
                     <input type="number" class="form-control ml-3 col-4" min="1" name="birthday_price" placeholder="Enter price">
                     <input type="number" class="form-control ml-3 col-4"  min="1" name="birthday_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-2"  min="1" name="birthday_days" placeholder="Enter days">
                 </div>
             </div>
 
@@ -75,6 +77,7 @@
                 <div class="d-flex align-items-center">
                     <input type="number" class="form-control ml-3 col-4" min="1" name="concert_price" placeholder="Enter price">
                     <input type="number" class="form-control ml-3 col-4"  min="1" name="concert_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-2"  min="1" name="concert_days" placeholder="Enter days">
                 </div>
             </div>
 
@@ -83,6 +86,16 @@
                 <div class="d-flex align-items-center">
                     <input type="number" class="form-control ml-3 col-4" min="1" name="festival_price" placeholder="Enter price">
                     <input type="number" class="form-control ml-3 col-4"  min="1" name="festival_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-2"  min="1" name="festival_days" placeholder="Enter days">
+                </div>
+            </div>
+
+            <div class="form-check pb-3">
+                <label class="form-check-label" for="exampleCheck4">Convocation</label>
+                <div class="d-flex align-items-center">
+                    <input type="number" class="form-control ml-3 col-4" min="1" name="convocation_price" placeholder="Enter price">
+                    <input type="number" class="form-control ml-3 col-4"  min="1" name="convocation_guests" placeholder="Enter guests">
+                    <input type="number" class="form-control ml-3 col-2"  min="1" name="convocation_days" placeholder="Enter days">
                 </div>
             </div>
 

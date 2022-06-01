@@ -117,6 +117,7 @@ Author: wp-organic
                                                     <th>Events</th>
                                                     <th>Maximum Guests</th>
                                                     <th>Price</th>
+                                                    <th>Maximum Days</th>
                                                     <th>Pay</th>
                                                 </tr>
                                                 </thead>
@@ -129,6 +130,7 @@ Author: wp-organic
                                                         <td scope="row">{{ ucfirst($event) }}</td>
                                                         <td>{{ $values[1] }}</td>
                                                         <td>${{ $values[0] }}</td>
+                                                        <td>{{ $values[2] }}</td>
                                                         <td>
                                                             <div class="bottom">
                                                                 <a class="btn btn-outline-primary btn-rounded hall_payment_btn"
@@ -448,7 +450,7 @@ Author: wp-organic
 
                                 <div class="form-group">
                                     <label for="" style="color: #00aeaf">Event</label>
-                                    <input type="text" class="form-control" disabled id="ShowHallTitle" value="">
+                                    <input type="text" class="form-control" disabled id="ShowHallEvent" value="">
                                 </div>
 
                                 <div class="form-group">

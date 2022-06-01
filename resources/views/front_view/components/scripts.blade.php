@@ -65,7 +65,7 @@
 
             $("#hallId").val(hall_id);
             $("#hallTitle").val(hall_title);
-            $("#ShowHallTitle").val(hall_title);
+            $("#ShowHallEvent").val(hall_event);
             $("#hallPrice").val(hall_price);
             $("#ShowHallPrice").val(hall_price);
             $("#hallEvents").val(hall_event);
@@ -121,5 +121,22 @@
     } else {
         displayError.textContent = '';
     }
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".event_days").change(function () {
+            let days = $(this).val();
+
+            let price = $(".events_price").attr("data-event-price");
+            alert(price);
+            // let check = price.attr("data-event-price");
+
+            // alert(price);
+            // let check = price * days;
+
+            // console.log(check);
+        });
     });
 </script>

@@ -55,7 +55,6 @@
                 <label for="exampleFormControlTextarea1">City</label>
                 <input type="text" class="form-control col-4" value="{{ $hall->location }}" name="location">
             </div>
-
             @foreach ($events[0] as $event => $value)
             @php
                 $values = explode('-', $value);
@@ -66,6 +65,7 @@
                         <div class="d-flex align-items-center">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[0] }}" name="wedding_price" placeholder="Enter price">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[1] }}" name="wedding_guests" placeholder="Enter guests">
+                            <input type="number" class="form-control ml-3 col-2" value="{{ $values[2] }}"  min="1" name="wedding_days" placeholder="Enter days">
                         </div>
                     </div>
                     @elseif ($event === "birthday")
@@ -74,6 +74,7 @@
                         <div class="d-flex align-items-center">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[0] }}" name="birthday_price" placeholder="Enter price">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[1] }}" name="birthday_guests" placeholder="Enter guests">
+                            <input type="number" class="form-control ml-3 col-2" value="{{ $values[2] }}"  min="1" name="birthday_days" placeholder="Enter days">
                         </div>
                     </div>
                     @elseif ($event === "concert")
@@ -82,6 +83,7 @@
                         <div class="d-flex align-items-center">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[0] }}" name="concert_price" placeholder="Enter price">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[1] }}" name="concert_guests" placeholder="Enter guests">
+                            <input type="number" class="form-control ml-3 col-2" value="{{ $values[2] }}"  min="1" name="concert_days" placeholder="Enter days">
                         </div>
                     </div>
                     @elseif ($event === "festival")
@@ -90,10 +92,28 @@
                         <div class="d-flex align-items-center">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[0] }}" name="festival_price" placeholder="Enter price">
                             <input type="number" class="form-control ml-3 col-4" value="{{ $values[1] }}" name="festival_guests" placeholder="Enter guests">
+                            <input type="number" class="form-control ml-3 col-2" value="{{ $values[2] }}"  min="1" name="festival_days" placeholder="Enter days">
+                        </div>
+                    </div>
+                    @elseif ($event === "convocation")
+                    <div class="form-check pb-3">
+                        <label class="form-check-label" for="exampleCheck1">{{ $event }}</label>
+                        <div class="d-flex align-items-center">
+                            <input type="number" class="form-control ml-3 col-4" value="{{ $values[0] }}" name="convocation_price" placeholder="Enter price">
+                            <input type="number" class="form-control ml-3 col-4" value="{{ $values[1] }}" name="convocation_guests" placeholder="Enter guests">
+                            <input type="number" class="form-control ml-3 col-2" value="{{ $values[2] }}"  min="1" name="convocation_days" placeholder="Enter days">
                         </div>
                     </div>
                 @endif
             @endforeach
+                <div class="form-group">
+                    <label for="">Social Links</label>
+                    <div class="links d-flex">
+                        @foreach ($events[1] as $social => $links)
+                        <input type="url" class="form-control m-2" name="{{ $social }}" value="{{ $links }}" id="" aria-describedby="helpId" placeholder="facebook.com">
+                        @endforeach
+                    </div>
+                </div>
 
             <button type="submit" class="btn btn-primary mt-4">Save changes</button>
         </form>

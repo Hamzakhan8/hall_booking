@@ -28,7 +28,7 @@ class CreateHallsTable extends Migration
 
             $table->string('title');
             $table->string('images', 255);
-            $table->string('description', 255);
+            $table->string('description', 500);
             $table->string('location');
 
             $table->timestamps();
