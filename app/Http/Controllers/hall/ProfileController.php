@@ -77,7 +77,7 @@ class ProfileController extends Controller
             'avatar' => ['required', 'file', 'max:2048'],
             'name' => ['required', 'string'],
             'contact_number' => ['required', 'numeric', 'digits_between:11,15'],
-            'address' => ['required', 'max:80'],
+            'address' => ['required', 'max:255'],
             'description' => ['required', 'max:255']
         ]);
 

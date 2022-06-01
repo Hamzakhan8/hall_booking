@@ -40,9 +40,11 @@ class SearchResultController extends Controller
     {
         $request->validate([
             'city' => ['required'],
+            'category_id' => ['required'],
         ]);
 
-        $halls = Hall::where('location', $request['city'])->paginate(10);
+        $halls = Hall::where(['location' => $request['city']],
+         ['halls_category_id' => $request['category_id']])->paginate(10);
 
         if(empty($halls) || $halls == null)
         return back()->with('not found', 'There is no hall in '.$request['city'].'');

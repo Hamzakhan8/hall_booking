@@ -56,33 +56,32 @@
                             @if (!empty($profile))
                                 <form action="{{ route('hall.profile.update') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                     @if ($errors && (is_array($errors) || $errors->all()))
-                                    <div class="alert alert-danger" role="alert">
-                                        <strong class="text-danger">Errors encounteded!</strong>
-                                        <br>
-                                        <ul>
-                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
-                                            <li>
-                                                <strong>{{ $error }}</strong>
-                                            </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    @endif
                                     @method('PUT')
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <div class="custom-file-wrap">
-                                                    <div class="custom-file-holder">
-                                                        <div class="avatar_profile" id="show_avatar">
-                                                            <img src='{{ asset('storage/profile_img/'. Auth::user()->profile->avatar) }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
+                                                    @if (!empty($profile->avatar))
+                                                        <div class="custom-file-holder">
+                                                            <div class="avatar_profile" id="show_avatar">
+                                                                <img src='{{ asset('storage/profile_img/'. Auth::user()->profile->avatar) }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
+                                                            </div>
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="avatar" value="{{ Auth::user()->profile->avatar }}" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
+                                                                <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-pencil"></i></label>
+                                                            </div>
                                                         </div>
-                                                        <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" name="avatar" value="{{ Auth::user()->profile->avatar }}" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
-                                                            <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-pencil"></i></label>
+                                                        @elseif (empty($profile->avatar))
+                                                        <div class="custom-file-holder">
+                                                            <div class="avatar_profile" id="show_avatar">
+                                                                <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
+                                                            </div>
+                                                            <div class="custom-file">
+                                                                <input type="file" required class="custom-file-input" name="avatar" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">
+                                                                <label class="custom-file-label" for="inputGroupFile01"><i class="fa fa-pencil"></i></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                     <div class="custom-file-text">
                                                         <div class="head">Upload Profile Image</div>
                                                         <div>Files must be less than <strong>4mb</strong>, allowed files types are <strong>png/jpg</strong>.</div>
@@ -138,7 +137,7 @@
                                                 <div class="custom-file-wrap">
                                                     <div class="custom-file-holder">
                                                         <div class="avatar_profile" id="show_avatar">
-                                                            <img src='{{ asset('assets/images/about/team/team_img_1.jpg') }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
+                                                            <img src='{{ asset('assets/images/about/team/team_img_2.jpg') }}' class='p-2 rounded-circle' id="default_avatar" style='width:130px;height:120px;' alt='images'>
                                                         </div>
                                                         <div class="custom-file">
                                                             <input type="file" required class="custom-file-input" name="avatar" onchange="readAvatar(this)" id="inputGroupFile01" aria-describedby="inputGroupFile01">

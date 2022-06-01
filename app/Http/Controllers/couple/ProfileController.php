@@ -80,7 +80,7 @@ class ProfileController extends StripeCustomerController
             'avatar' => ['required', 'file', 'max:2048'],
             'name' => ['required','string'],
             'contact_number' => ['required','numeric','digits_between:11,15'],
-            'address' => ['required','max:80'],
+            'address' => ['required','max:255'],
             'description' => ['required','max:255']
         ]);
 
@@ -121,8 +121,7 @@ class ProfileController extends StripeCustomerController
 
         $this->stripe_customer($customer, $request);
 
-        return view('couple.profile')
-        ->with('updated', 'Profile has been updated');
+        return view('couple.profile')->with('updated', 'Profile has been updated');
     }
 
         /**

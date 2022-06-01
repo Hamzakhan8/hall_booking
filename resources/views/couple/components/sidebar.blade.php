@@ -2,7 +2,7 @@
 $profile = Auth::user()->profile;
 @endphp
     <aside class="offcanvas-collapse">
-        @if (!empty($profile) || $profile != null)
+        @if (!empty($profile->avatar))
             <div class="avatar-wrap">
                 <img src="{{ asset('storage/profile_img/'.Auth::user()->profile->avatar) }}"
                 width="130"
@@ -10,7 +10,7 @@ $profile = Auth::user()->profile;
                 alt="profile_image">
                 <h3>{{ Auth::user()->name }}</h3>
             </div>
-            @elseif (empty($profile) || $profile == null)
+            @elseif (empty($profile->avatar))
 
             <div class="avatar-wrap">
                 <img src="{{ asset('assets/images/about/team/team_img_1.jpg') }}"

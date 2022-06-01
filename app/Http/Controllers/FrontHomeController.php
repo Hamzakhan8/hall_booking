@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hall;
+use App\Models\HallCategory;
 use App\Models\SliderImage;
 use Illuminate\Http\Request;
 use App\Traits\Cities;
@@ -23,9 +24,16 @@ class FrontHomeController extends Controller
 
         $list_halls = Hall::orderBy('location')->get();
 
+        $categories = HallCategory::all();
+
+        // $pluck = $list_halls->toArray();
+        // $col = collect($pluck);
+
+        // dd($col->pluck('hall_category'));
+
         $cities = $this->cities();
 
-        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls'));
+        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls', 'categories'));
     }
 
     /**

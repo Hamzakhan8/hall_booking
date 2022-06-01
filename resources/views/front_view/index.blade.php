@@ -89,6 +89,14 @@ Author: wp-organic
                                     @csrf
                                 <div class="d-flex justify-content-center">
                                     <div class="col-12 col-md-5 left-border">
+                                        <select class="form-light-select theme-combo home-select-2" required name="category_id">
+                                            <option>Choose Category</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-12 col-md-5 left-border">
                                         <select class="form-light-select theme-combo home-select-2" required name="city">
                                             <option>Choose Location</option>
                                             @foreach ($cities as $city)
@@ -96,7 +104,7 @@ Author: wp-organic
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-12 col-md-2">
+                                    <div class="col-12 col-md-3">
                                         <button type="submit" class="btn btn-default text-nowrap btn-block" >Search Now</button>
                                     </div>
                                 </div>
@@ -153,58 +161,6 @@ Author: wp-organic
                     <h1>Popular locations</h1>
                     <p>Popular Locations for Hall booking</p>
                 </div>
-                {{-- <div class="row justify-content-space-between">
-                    <div class="col-lg-3 col-md-4 mx-auto d-lg-block d-none">
-                        <div class="popular-locations">
-                            <div class="overlay-box">
-                                <h3><a href="{{ route('front.search') }}">Islamabad <span>26 Halls</span></a></h3>
-                                <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
-                            </div>
-                            <img src="{{ asset('assets') }}/images/locations/location_img_1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="row h-100">
-                            <div class="col-md-6 col-lg-4 mb-0">
-                                <div class="popular-locations">
-                                    <div class="overlay-box">
-                                        <h3><a href="{{ route('front.search') }}">Peshawer <span>42 Halls</span></a></h3>
-                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <img src="{{ asset('assets') }}/images/locations/location_img_2.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 mt-auto order-lg-last mb-0">
-                                <div class="popular-locations">
-                                    <div class="overlay-box">
-                                        <h3><a href="{{ route('front.search') }}">Multan <span>141 Halls</span></a></h3>
-                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <img src="{{ asset('assets') }}/images/locations/location_img_5.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-6  mb-0">
-                                <div class="popular-locations">
-                                    <div class="overlay-box">
-                                        <h3><a href="{{ route('front.search') }}">Karachi <span>67 Halls</span></a></h3>
-                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <img src="{{ asset('assets') }}/images/locations/location_img_3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-6 mt-lg-auto mb-0">
-                                <div class="popular-locations">
-                                    <div class="overlay-box">
-                                        <h3><a href="{{ route('front.search') }}">Lahore <span>59 Halls</span></a></h3>
-                                        <a class="iconlink" href="{{ route('front.search') }}"><i class="fa fa-angle-right"></i></a>
-                                    </div>
-                                    <img src="{{ asset('assets') }}/images/locations/location_img_4.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> --}}
                 <div class="owl-carousel owl-theme dots-black" id="slider-feedback">
 
                     @foreach ($list_halls as $list_hall)
@@ -225,7 +181,7 @@ Author: wp-organic
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     @endforeach
 
 

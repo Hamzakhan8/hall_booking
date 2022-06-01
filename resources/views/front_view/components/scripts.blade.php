@@ -34,9 +34,9 @@
 
         autoPlay: 1000, //Set AutoPlay to 3 seconds
 
-        items : 4,
-        itemsDesktop : [1199,]4,
-        itemsDesktopSmall : [979,4]
+        items : 3,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,1]
 
     });
 
@@ -121,22 +121,5 @@
     } else {
         displayError.textContent = '';
     }
-    });
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".event_days").change(function () {
-            let days = $(this).val();
-
-            let price = $(".events_price").attr("data-event-price");
-            alert(price);
-            // let check = price.attr("data-event-price");
-
-            // alert(price);
-            // let check = price * days;
-
-            // console.log(check);
-        });
     });
 </script>
