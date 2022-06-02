@@ -45,6 +45,11 @@ use App\Http\Controllers\hall\TransactionController as HallTransactionController
 
 
 
+
+
+
+
+
 Route::get('/', [FrontHomeController::class, 'index']);
 
 Route::prefix('auth')->group(function (){
@@ -53,6 +58,14 @@ Route::prefix('auth')->group(function (){
     ->name('auth.register');
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
+
+
+
+
+
+
+
+
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
@@ -106,7 +119,23 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
         Route::put('slider_img_update/{id}', 'update')->name('admin.slider.update');
         Route::get('slider_img_delete/{id}', 'destroy')->name('admin.slider.delete');
     });
+
+    Route::controller(AboutController::class)->group(function(){
+        Route::get('about_us','create')->name('admin.about.create');
+        Route::post('store_about_us','store')->name('admin.about.store');
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 // grouped routes for hall
@@ -160,6 +189,20 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  grouped routes for couple
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
@@ -202,6 +245,17 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // grouped routes for front site
 Route::prefix('front')->group(function (){

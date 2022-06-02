@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -23,7 +23,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add_about_us');
     }
 
     /**
@@ -34,7 +34,13 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'about_us' => 'required|max:500',
+        ]);
+
+        $hall = About::create([
+            'about_us' => $request['about_us'],
+        ]);
     }
 
     /**

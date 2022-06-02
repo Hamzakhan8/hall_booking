@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<!--
+    <!DOCTYPE html>
 
-**********************************************************************************************************
-Copyright (c) 2020
-**********************************************************************************************************
-
-Template Name: WeddingDir - HTML Template
-Version: 1.0.0
-Author: wp-organic
-
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]>
--->
 <html lang="en">
-    <!-- <![endif]-->
-    <!-- head -->
+  
 
-<!-- Mirrored from wporganic.com/html/weddingdir/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Feb 2022 17:28:21 GMT -->
     @extends('front_view.components.head')
     <!-- end head -->
     <!--body start-->
@@ -32,9 +16,8 @@ Author: wp-organic
     </div>
     <!-- end preloader -->
 
-    <!--  WeddingDir top -->
     @extends('front_view.components.header')
-    <!--  WeddingDir top -->
+
 
     <!-- =============================
        *
@@ -65,7 +48,9 @@ Author: wp-organic
                     <div class="col-sm-10 mx-auto">
                         <div class="text-center">
                             <h2 class="fw-7">Who we are</h2>
-                            <p>WeddingDir is the largest and most trusted global directory connecting engaged couples with local wedding professionals.</p>
+                            <p>WeddingDir is the largest and most trusted global directory connecting engaged couples with local wedding professionals.
+                                Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p> 
+                            <p>Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p>
 
                             <p>Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p>
                         </div>
@@ -75,93 +60,10 @@ Author: wp-organic
         </section>
         <!-- About Intro Start -->
 
-        <!-- About Slider Start -->
-        <section>
-            <div class="owl-carousel owl-theme" id="slider-about">
-                <!-- About Slider Images -->
-                <div class="item">
-                    <div class="about-slider">
-                        <img src="{{ asset('assets') }}/images/about/slider_img_1.jpg" alt="">
-                    </div>
-                </div>
-                <!-- About Slider Images -->
-
-                <!-- About Slider Images -->
-                <div class="item">
-                    <div class="about-slider">
-                        <img src="{{ asset('assets') }}/images/about/slider_img_3.jpg" alt="">
-                    </div>
-                </div>
-                <!-- About Slider Images -->
-
-                <!-- About Slider Images -->
-                <div class="item">
-                    <div class="about-slider">
-                        <img src="{{ asset('assets') }}/images/about/slider_img_2.jpg" alt="">
-                    </div>
-                </div>
-                <!-- About Slider Images -->
-            </div>
-        </section>
-        <!-- About Slider End -->
 
         <!-- Why Choose Start -->
         <section class="wide-tb-90">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h1>Why Choose Wedding Dir</h1>
-                    <p>Excepteur sint occaecat cupidatat non proident sunt</p>
-                </div>
-                <div class="row">
-                    <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_hand"></i>
-                            <h4>15 Years Experience</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
-                        </div>
-                    </div>
-                    <!-- Why Choose Icons -->
-
-                    <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="icon-box-style-2">
-                            <i class="weddingdir_shopping_bag_heart"></i>
-                            <h4>350,000 Vendors</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
-                        </div>
-                    </div>
-                    <!-- Why Choose Icons -->
-
-                    <!-- Spacer For Medium -->
-                    <div class="w-100 d-none d-md-block d-lg-none spacer-60"></div>
-                    <!-- Spacer For Medium -->
-
-                    <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_envelope"></i>
-                            <h4>Trusted Services</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
-                        </div>
-                    </div>
-                    <!-- Why Choose Icons -->
-
-                    <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_ring"></i>
-                            <h4>25K Real Weddings</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
-                        </div>
-                    </div>
-                    <!-- Why Choose Icons -->
-                </div>
-            </div>
+           
         </section>
         <!-- Why Choose End -->
 
@@ -280,70 +182,57 @@ Author: wp-organic
         <section class="wide-tb-90">
             <div class="container">
                 <div class="section-title text-center">
-                    <h1>Ideas and Tips</h1>
-                    <p>Excepteur sint occaecat cupida</p>
+                    <h1>Why Choose Wedding Dir</h1>
+                    <p>Excepteur sint occaecat cupidatat non proident sunt</p>
                 </div>
-
-                <div class="row ideas-tips-wrap">
-                    <!-- Idea & Tips -->
-                    <div class="col">
-                        <div class="content">
-                            <img src="{{ asset('assets') }}/images/ideas-tip/ideas_tip_img_1.jpg" alt="">
-                            <i class="weddingdir_gender"></i>
-                            <a href="javascript:">
-                                <h4>Wedding Services</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Idea & Tips -->
-
-                    <!-- Idea & Tips -->
-                    <div class="col">
-                        <div class="content">
-                            <img src="{{ asset('assets') }}/images/ideas-tip/ideas_tip_img_2.jpg" alt="">
-                            <i class="weddingdir_heart_double_alt"></i>
-                            <a href="javascript:">
-                                <h4>Married Life</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Idea & Tips -->
-
-                    <!-- Idea & Tips -->
-                    <div class="col">
-                        <div class="content">
-                            <img src="{{ asset('assets') }}/images/ideas-tip/ideas_tip_img_3.jpg" alt="">
-                            <i class="weddingdir_heart_envelope"></i>
-                            <a href="javascript:">
-                                <h4>Receptions</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Idea & Tips -->
-
-                    <!-- Idea & Tips -->
-                    <div class="col">
-                        <div class="content">
-                            <img src="{{ asset('assets') }}/images/ideas-tip/ideas_tip_img_4.jpg" alt="">
-                            <i class="weddingdir_fashion"></i>
-                            <a href="javascript:">
-                                <h4>Wedding Fashion</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Idea & Tips -->
-
-                    <!-- Idea & Tips -->
-                    <div class="col">
-                        <div class="content">
-                            <img src="{{ asset('assets') }}/images/ideas-tip/ideas_tip_img_5.jpg" alt="">
+                <div class="row">
+                    <!-- Why Choose Icons -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="icon-box-style-2">
                             <i class="weddingdir_heart_hand"></i>
-                            <a href="javascript:">
-                                <h4>Family & Friends</h4>
-                            </a>
+                            <h4>15 Years Experience</h4 >
+                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
+                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
                         </div>
                     </div>
-                    <!-- Idea & Tips -->
+                    <!-- Why Choose Icons -->
+
+                    <!-- Why Choose Icons -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="icon-box-style-2">
+                            <i class="weddingdir_shopping_bag_heart"></i>
+                            <h4>350,000 Vendors</h4 >
+                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
+                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                        </div>
+                    </div>
+                    <!-- Why Choose Icons -->
+
+                    <!-- Spacer For Medium -->
+                    <div class="w-100 d-none d-md-block d-lg-none spacer-60"></div>
+                    <!-- Spacer For Medium -->
+
+                    <!-- Why Choose Icons -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="icon-box-style-2">
+                            <i class="weddingdir_heart_envelope"></i>
+                            <h4>Trusted Services</h4 >
+                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
+                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                        </div>
+                    </div>
+                    <!-- Why Choose Icons -->
+
+                    <!-- Why Choose Icons -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="icon-box-style-2">
+                            <i class="weddingdir_heart_ring"></i>
+                            <h4>25K Real Weddings</h4 >
+                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
+                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                        </div>
+                    </div>
+                    <!-- Why Choose Icons -->
                 </div>
             </div>
         </section>

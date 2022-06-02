@@ -15,6 +15,17 @@
         </div>
         <div class="sidebar-nav">
             <ul class="list-unstyled">
+
+                <li>
+                    <a href="{{ route('admin.slider.img') }}"><i class="weddingdir_my_profile"></i>Slider Image</a>
+
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.about.store') }}"><i class="weddingdir_my_profile"></i>About Website</a>
+
+                </li>
+
                 <li>
                     <a href="{{ route('admin.manage.user') }}"><i class="weddingdir_request_quote"></i> Manage Couple</a>
                 </li>
