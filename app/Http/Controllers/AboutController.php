@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\AboutUS;
+use App\Models\Bookings;
 use App\Models\Comments;
+use App\Models\Hall;
+use App\Models\Transactions;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -19,7 +22,13 @@ class AboutController extends Controller
 
         $comments = Comments::orderBy('id', 'desc')->get();
 
-        return view('front_view.about-us', compact('about', 'comments'));
+        $bookings = Bookings::all();
+
+        $halls = Hall::all();
+
+        $transaction = Transactions::all();
+
+        return view('front_view.about-us', compact('about', 'comments', 'bookings', 'halls', 'transaction'));
     }
 
     /**

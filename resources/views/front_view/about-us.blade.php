@@ -31,7 +31,7 @@
             <h1>About Us</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:"><i class="fa fa-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('front.home') }}"><i class="fa fa-home"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">About Us</li>
                 </ol>
             </nav>
@@ -70,7 +70,6 @@
             <div class="container">
                 <div class="section-title text-center">
                     <h1>feedback from our customers</h1>
-                    <p>Excepteur sint occaecat cupidatat non proident sunt</p>
                 </div>
                 <div class="owl-carousel owl-theme dots-black" id="slider-feedback">
                     <!-- Customer Testimonials -->
@@ -105,10 +104,10 @@
                     <div class="col-md-12 col-lg-6">
                         <div class="callout-text">
                             <div class="section-title">
-                                <h1>The Best Wedding Vendor Service</h1>
+                                <h1>The Best Booking Service</h1>
                             </div>
-                            <p class="lead">Sed ut perspiciatis unde omnis iste oluptatem accusantium doloremque laud.</p>
-                            <a href="contact-us.html" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
+                            <p class="lead">If you have any queries, feel free to contact us</p>
+                            <a href="{{ route('front.contact') }}" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -120,28 +119,16 @@
         <section class="wide-tb-90">
             <div class="container">
                 <div class="section-title text-center">
-                    <h1>Why Choose Wedding Dir</h1>
-                    <p>Excepteur sint occaecat cupidatat non proident sunt</p>
+                    <h1>Why Choose Book Hall</h1>
+                    <p>The most trusted online hall booking system</p>
                 </div>
                 <div class="row">
-                    <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_hand"></i>
-                            <h4>15 Years Experience</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
-                        </div>
-                    </div>
-                    <!-- Why Choose Icons -->
 
                     <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
                             <i class="weddingdir_shopping_bag_heart"></i>
-                            <h4>350,000 Vendors</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                            <h4>{{ $halls->count() }} Halls</h4 >
                         </div>
                     </div>
                     <!-- Why Choose Icons -->
@@ -151,23 +138,19 @@
                     <!-- Spacer For Medium -->
 
                     <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
                             <i class="weddingdir_heart_envelope"></i>
-                            <h4>Trusted Services</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                            <h4>{{ $transaction->count() }} Trusted Payments</h4>
                         </div>
                     </div>
                     <!-- Why Choose Icons -->
 
                     <!-- Why Choose Icons -->
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
                             <i class="weddingdir_heart_ring"></i>
-                            <h4>25K Real Weddings</h4 >
-                            <p>Sed ut perspiciatis und omnis iste natus errors sit.</p>
-                            <a href="javascript:" class="btn btn-link btn-link-secondary">Read more</a>
+                            <h4>{{ $bookings->count() }} Real Bookings</h4 >
                         </div>
                     </div>
                     <!-- Why Choose Icons -->

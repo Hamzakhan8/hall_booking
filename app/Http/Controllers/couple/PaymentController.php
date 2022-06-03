@@ -44,7 +44,7 @@ class PaymentController extends Controller
             'hall_price' => ['required', 'numeric'],
             'hall_event' => ['required', 'string'],
             'checkin_date' => ['required' , 'date'],
-            'checkout_date' => ['required' , 'date'],
+            'checkout_date' => ['required', 'date', 'after:today'],
         ]);
 
         $user = $request->user();
@@ -64,6 +64,8 @@ class PaymentController extends Controller
             'exp_year' => $charge->payment_method_details->card->exp_year,
             'card_last_4' => $charge->payment_method_details->card->last4,
         ]);
+
+
 
         $user->bookings()->create([
              'user_id' => $user->id,

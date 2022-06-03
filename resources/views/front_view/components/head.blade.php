@@ -23,6 +23,8 @@
     <link rel="icon" href="{{asset('assets')}}/images/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="{{asset('assets')}}/images/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="{{asset('assets')}}/images/favicon/favicon.ico">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- CSS ( Bootstrap + Owlcarouses + Fontawesome + Animate + Select2 + Custom Style )
     ======================================================================================= -->
