@@ -12,6 +12,23 @@
 <script src="{{asset('assets')}}/library/perfect-scrollbars/perfect-scrollbar.min.js"></script>
 <script src="{{asset('assets')}}/js/dashboard.js"></script>
 <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 <script type="text/javascript">
     $(document).ready(function(){

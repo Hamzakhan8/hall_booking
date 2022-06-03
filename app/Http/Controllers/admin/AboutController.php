@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\About;
+namespace App\Http\Controllers\admin;
+
+use App\Http\Controllers\Controller;
 use App\Models\AboutUS;
-use App\Models\Comments;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -17,9 +17,7 @@ class AboutController extends Controller
     {
         $about = AboutUS::all();
 
-        $comments = Comments::orderBy('id', 'desc')->get();
-
-        return view('front_view.about-us', compact('about', 'comments'));
+        return view('admin.about_us', compact('about'));
     }
 
     /**
@@ -29,7 +27,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -40,7 +38,16 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'about_us' => ['required', 'string'],
+        ]);
 
+        AboutUS::create([
+            'about' => $request->about_us,
+        ]);
+
+        return redirect()->route('admin.about.index')
+        ->with('created', 'About info has been created');
     }
 
     /**
@@ -72,9 +79,21 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $about_id)
     {
-        //
+        $request->validate([
+            'about_us' => ['required', 'string'],
+        ]);
+
+        $about = AboutUS::findOrFail($about_id);
+
+        $about->update([
+            'about' => $request->about_us,
+        ]);
+
+        return redirect()->route('admin.about.index')
+        ->with('updated', 'About info has been updated');
+
     }
 
     /**

@@ -56,7 +56,9 @@
                     <li class="nav-item dropdown">
                         <li><a class="nav-link dropdown-toggle-mob" href="{{ route('front.home') }}" aria-haspopup="true" aria-expanded="false">Home</a></li>
                     </li>
-
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle-mob" href="{{ route('front.about') }}">About Us</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle-mob" href="{{ route('front.search') }}">Hall Booking</a>
                     </li>

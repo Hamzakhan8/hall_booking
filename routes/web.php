@@ -31,6 +31,7 @@ use App\Http\Controllers\couple\StripeCustomerController;
 use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
+use App\Http\Controllers\admin\AboutController as AdminAboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,15 +60,7 @@ Route::prefix('auth')->group(function (){
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
-
-
-
-
-
-
-
-
-
+//admin routes
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 
     Route::get('dashboard', fn () => view('admin.dashboard'))
@@ -120,23 +113,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
         Route::get('slider_img_delete/{id}', 'destroy')->name('admin.slider.delete');
     });
 
-    Route::controller(AboutController::class)->group(function(){
-        Route::get('about_us','create')->name('admin.about.create');
-        Route::post('store_about_us','store')->name('admin.about.store');
+    Route::controller(AdminAboutController::class)->group(function(){
+        Route::get('about_index', 'index')->name('admin.about.index');
+        Route::post('about_store','store')->name('admin.about.store');
+        Route::put('about_store/{about_id}','update')->name('admin.about.update');
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // grouped routes for hall
 Route::prefix('hall')->middleware('auth', 'hall')->group(function () {

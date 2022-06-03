@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class AboutUS extends Model
 {
     use HasFactory;
 
-            /**
+                /**
      * The table associated with model
      */
     protected $table = 'about_us';
@@ -20,9 +20,4 @@ class About extends Model
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The relationship models
-     */
-  
 }

@@ -1,7 +1,7 @@
     <!DOCTYPE html>
 
 <html lang="en">
-  
+
 
     @extends('front_view.components.head')
     <!-- end head -->
@@ -48,11 +48,9 @@
                     <div class="col-sm-10 mx-auto">
                         <div class="text-center">
                             <h2 class="fw-7">Who we are</h2>
-                            <p>WeddingDir is the largest and most trusted global directory connecting engaged couples with local wedding professionals.
-                                Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p> 
-                            <p>Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p>
-
-                            <p>Maecenas semper dolor metus, a convallis ipsum condimentum ras eros ex, euismod vitae congue ullamcorper id ligula. Maecenas semper dolor metusm ras eros ex, euismod vitae congue ullamcorper id ligula.</p>
+                            @foreach ($about as $data)
+                                <p>{{ strip_tags($data->about) }}</p>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -63,7 +61,7 @@
 
         <!-- Why Choose Start -->
         <section class="wide-tb-90">
-           
+
         </section>
         <!-- Why Choose End -->
 
@@ -76,81 +74,21 @@
                 </div>
                 <div class="owl-carousel owl-theme dots-black" id="slider-feedback">
                     <!-- Customer Testimonials -->
-                    <div class="item">
-                        <div class="customer-feedback-wrap">
-                            <div class="content">
-                                <div class="icon"><i class="weddingdir_chat"></i></div>
-                                Sed ut perspiciatis unde omnis iste nat error sit voluptatem accusantium doau dantium totam rem aperiam eaque.
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
+                    @foreach ($comments as $comment)
+                        <div class="item">
+                            <div class="customer-feedback-wrap">
+                                <div class="content">
+                                    <div class="icon"><i class="weddingdir_chat"></i></div>
+                                    {{ $comment->comment }}
+                                </div>
+                                <div class="name-wrap">
+                                    <div class="text">
+                                        <h3>{{ $comment->username }}</h3>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="name-wrap">
-                                <img src="{{ asset('assets') }}/images/feedback_1.jpg" alt="">
-                                <div class="text">
-                                    <h3>Mark Hunter</h3>
-                                    <div>New York, USA</div>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
-                    <!-- Customer Testimonials -->
-
-                    <!-- Customer Testimonials -->
-                    <div class="item">
-                        <div class="customer-feedback-wrap">
-                            <div class="content">
-                                <div class="icon"><i class="weddingdir_chat"></i></div>
-                                Sed ut perspiciatis unde omnis iste nat error sit voluptatem accusantium doau dantium totam rem aperiam eaque.
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </div>
-                            </div>
-                            <div class="name-wrap">
-                                <img src="{{ asset('assets') }}/images/feedback_2.jpg" alt="">
-                                <div class="text">
-                                    <h3>Andrew Lincoln</h3>
-                                    <div>New York, USA</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Customer Testimonials -->
-
-                    <!-- Customer Testimonials -->
-                    <div class="item">
-                        <div class="customer-feedback-wrap">
-                            <div class="content">
-                                <div class="icon"><i class="weddingdir_chat"></i></div>
-                                Sed ut perspiciatis unde omnis iste nat error sit voluptatem accusantium doau dantium totam rem aperiam eaque.
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half-o"></i>
-                                </div>
-                            </div>
-                            <div class="name-wrap">
-                                <img src="{{ asset('assets') }}/images/feedback_3.jpg" alt="">
-                                <div class="text">
-                                    <h3>Mark Hunter</h3>
-                                    <div>New York, USA</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    @endforeach
                     <!-- Customer Testimonials -->
                 </div>
             </div>
@@ -246,12 +184,12 @@
     <a id="back-to-top" href="javascript:" class="btn btn-outline-primary back-to-top"><i class="fa fa-arrow-up"></i></a>
 
     <!-- Modal -->
-    <div class="modal fade" id="login_form" tabindex="-1" aria-labelledby="login_form" aria-hidden="true">
+    <div class="modal fade front_login_modal" id="login_form" tabindex="-1" aria-labelledby="login_form" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered register-tab">
             <div class="modal-content">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-between align-items-center p-3 px-4 bg-light-gray">
-                        <h2 class="m-0" >Sign In</h2>
+                        <h2 style="color: #00aeaf" class="m-0" >Be a Couple | Hall</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -261,28 +199,36 @@
 
                     <ul class="nav nav-pills mb-3 horizontal-tab-second justify-content-center nav-fill pt-2" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active show" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
+                            <a class="nav-link active show login_panel_title" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="false">Log In</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
+                            <a class="nav-link register_panel_title" id="pills-register-tab" data-toggle="pill" href="#pills-hr-vendor" role="tab" aria-controls="pills-hr-vendor" aria-selected="false">Register</a>
                         </li>
                     </ul>
                     <div class="p-3 px-4 pt-0">
 
                         <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-                                <form>
+                            <div class="tab-pane fade show active login_panel" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                                <form action="{{ route('auth.login') }}" method="POST">
+                                @csrf
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong class="text-danger">Errors encounteded!</strong>
+                                        <br>
+                                        <ul>
+                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                            <li>
+                                                <strong>{{ $error }}</strong>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                     <div class="form-group">
-                                        <div class="alert alert-primary" role="alert">
-                                            Username: <strong>vendor</strong> / <strong>couple</strong><br>
-                                            Password: <strong>test</strong>
-                                        </div>
+                                        <input type="text" required class="form-control" name="username" id="exampleInputEmail1" placeholder="Username/Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username/Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        <input type="password" required class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox form-dark">
@@ -295,38 +241,52 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="tab-pane fade" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
-                                <form>
+                            <div class="tab-pane fade register_panel" id="pills-hr-vendor" role="tabpanel" aria-labelledby="pills-register-tab">
+                                <form action="{{ route('auth.register') }}" method="POST">
+                                @csrf
+                                    @if ($errors && (is_array($errors) || $errors->all()))
+                                            <div class="alert alert-danger" role="alert">
+                                                <strong class="text-danger">Errors encounteded!</strong>
+                                                <br>
+                                                <ul>
+                                                    @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                                    <li>
+                                                        <strong>{{ $error }}</strong>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                    @endif
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="dgest" name="dgest" class="custom-control-input">
+                                                    <input type="radio" id="dgest" name="role" value="couple" class="custom-control-input">
                                                     <label class="custom-control-label" for="dgest">Couple</label>
                                                 </div>
                                             </div>
                                             <div class="col text-center">
                                                 <div class="custom-control custom-radio custom-control-inline form-dark">
-                                                    <input type="radio" id="owner" name="dgest" class="custom-control-input">
-                                                    <label class="custom-control-label" for="owner">Vendor</label>
+                                                    <input type="radio" id="owner" name="role" value="hall" class="custom-control-input">
+                                                    <label class="custom-control-label" for="owner">Hall</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" type="text" name="username" id="username2" value="">
+                                        <input class="form-control" placeholder="Username" required type="text" name="username" id="username2">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" type="password" name="password" id="password1">
+                                        <input class="form-control" placeholder="Password" required type="password" name="password" id="password1">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="First Name" type="text" name="first_name" id="first-name">
+                                        <input class="form-control" placeholder="First Name" required type="text" name="first_name" id="first-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Last Name" type="text" name="last_name" id="last-name">
+                                        <input class="form-control" placeholder="Last Name" required type="text" name="last_name" id="last-name">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Email Address" name="email" id="email" value="">
+                                        <input class="form-control" required type="email" placeholder="Email Address" name="email" id="email">
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-default btn-rounded mt-3">Register</button>

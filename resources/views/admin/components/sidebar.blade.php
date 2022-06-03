@@ -22,8 +22,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.about.store') }}"><i class="weddingdir_my_profile"></i>About Website</a>
-
+                    <a href="{{ route('admin.about.index') }}"><i class="weddingdir_my_profile"></i>About Us</a>
                 </li>
 
                 <li>
