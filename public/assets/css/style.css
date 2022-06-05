@@ -1463,6 +1463,7 @@ Background Color / Color
 
 /*---- 4.6 Preloader ---*/
 .preloader {
+  position: relative;
   background: #302d34;
   bottom: 0;
   top: 0;

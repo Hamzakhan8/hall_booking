@@ -655,6 +655,7 @@
 
         initializ: function () {
 
+            this.loader();
             this.select_dark();
             this.date_picker();
             this.select_light();
@@ -697,7 +698,7 @@
    --------------------------------------------- */
     $(function () {
 
-        wporganic.loader();
+        // wporganic.loader();
         wporganic.initializ();
     });
 

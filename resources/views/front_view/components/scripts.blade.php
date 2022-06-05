@@ -9,17 +9,8 @@
 <script src="{{asset('assets')}}/library/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="{{asset('assets')}}/library/datepicker/js/datepicker.js"></script>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="{{asset('assets')}}/js/script.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
-
-<Script>
-    $(document).ready(function () {
-        $(window).load(function () {
-            $(".load_img").fadeOut("slow");
-        })
-    });
-</Script>
 
 @if ($errors && (is_array($errors) || $errors->all()))
     <script type="text/javascript">
@@ -89,8 +80,8 @@
 <script type="text/javascript">
     // Set your publishable key: remember to change this to your live publishable key in production
     // See your keys here: https://dashboard.stripe.com/apikeys
-    // var Publishable_key = "{{ env('STRIPE_PUBLIC_KEY') }}";
-    var stripe = Stripe("pk_test_51K3NIIAcehZZuafTtf9NQ6PZfGuNnYmHvbraQAqCUKxmin4bKDknYpnKAssVr6TdYGfpje3LjiiYefBlClZeKzDA00b6dHZEky");
+    var Publishable_key = "{{ env('STRIPE_PUBLIC_KEY') }}";
+    var stripe = Stripe(Publishable_key);
     // Set up Stripe.js and Elements to use in checkout form
     var form = document.getElementById("payment-form");
       form.addEventListener('submit', function(event) {

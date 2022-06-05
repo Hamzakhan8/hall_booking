@@ -25,7 +25,7 @@ Author: wp-organic
     <body>
 
     <!-- preloader -->
-    <div class="load_img">
+    <div class="preloader">
         <div class="status">
             <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
         </div>
