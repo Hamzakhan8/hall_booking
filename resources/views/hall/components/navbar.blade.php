@@ -10,7 +10,7 @@
                 <a href="javascript:" class="sidebar-toggle desktop" data-toggle="offcanvas">
                     <i class="fa fa-bars"></i>
                 </a>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{{ route('hall.dashboard') }}">
                     <h2>HALL Dashboard</h2>
                 </a>
             </div>

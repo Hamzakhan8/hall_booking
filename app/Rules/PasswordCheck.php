@@ -27,14 +27,11 @@ class PasswordCheck implements Rule
      */
     public function passes($attribute, $value)
     {
-        $users = User::all();
+        $password = User::pluck('password');
 
-        foreach ($users as $key) {
-            $passwords = $key->password;
+        $check_pass = Hash::check($value, $password);
 
-            return Hash::check($value, $passwords);
-
-        }
+        return User::where('password', $check_pass)->exists();
     }
 
     /**

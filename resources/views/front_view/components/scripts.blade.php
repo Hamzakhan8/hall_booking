@@ -80,10 +80,12 @@
 <script type="text/javascript">
     // Set your publishable key: remember to change this to your live publishable key in production
     // See your keys here: https://dashboard.stripe.com/apikeys
-    var Publishable_key = "{{ env('STRIPE_PUBLIC_KEY') }}";
+    var Publishable_key = "env('STRIPE_PUBLIC_KEY')";
     var stripe = Stripe(Publishable_key);
+
     // Set up Stripe.js and Elements to use in checkout form
     var form = document.getElementById("payment-form");
+
       form.addEventListener('submit', function(event) {
         event.preventDefault();
         stripe.createSource(card).then(function(result) {
@@ -103,20 +105,23 @@
             }
         });
       });
-    var elements = stripe.elements();
-    var style = {
-    base: {
-    color: "#32325d",
-    }
-    };
-    var card = elements.create("card", { style: style });
-    card.mount("#card-element");
-</script>
 
-{{-- Displaying the card errors into the form --}}
-<script type="text/javascript">
+    var elements = stripe.elements();
+
+    var style = {
+        base: {
+        color: "#32325d",
+        }
+    };
+
+    var card = elements.create("card", { style: style });
+
+    card.mount("#card-element");
+
     card.on('change', function(event) {
+
     var displayError = document.getElementById('card-errors');
+
     if (event.error) {
         displayError.textContent = event.error.message;
     } else {

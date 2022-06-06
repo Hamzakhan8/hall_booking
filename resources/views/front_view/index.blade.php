@@ -27,7 +27,7 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
+            <h1>Book Hall</h1>
         </div>
     </div>
     <!-- end preloader -->

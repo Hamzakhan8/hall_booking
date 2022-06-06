@@ -15,9 +15,6 @@
         </div>
         <div class="sidebar-nav">
             <ul class="list-unstyled">
-                <li class="sidebar_btn">
-                    <a class="" id="sidebar_a" href="{{ route('hall.bookings') }}"><i class="weddingdir_request_quote"></i>Bookings</a>
-                </li>
 
                 <li class="sidebar_btn">
                     <a class="" href="{{ route('hall.profile') }}"><i class="weddingdir_request_quote"></i>My Profile</a>
@@ -29,6 +26,9 @@
 
                 <li class="sidebar_btn">
                     <a class="" href="{{ route('hall.halls.index') }}"><i class="weddingdir_my_listing"></i>Halls</a>
+                </li>
+                <li class="sidebar_btn">
+                    <a class="" id="sidebar_a" href="{{ route('hall.bookings') }}"><i class="weddingdir_request_quote"></i>Bookings</a>
                 </li>
 
                 <li class="sidebar_btn">

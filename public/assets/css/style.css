@@ -83,7 +83,7 @@ html {
   font-size: 16px;
 }
 body {
-  font-family: "muliregular";
+    font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
   color: #444444;
@@ -91,9 +91,6 @@ body {
 }
 img {
   max-width: 100%;
-}
-strong {
-  font-family: "mulisemibold";
 }
 /* Links Setting */
 a,
@@ -116,21 +113,11 @@ a:focus {
 }
 
 /* Heading */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Lora", serif !important;
-  color: #121212;
-}
 h1 {
   font-size: 2.5rem;
 }
 h1 small {
   display: block;
-  font-family: "mulilight";
   color: #444444;
   font-size: 1.2rem;
   padding-top: 0.5rem;
@@ -152,101 +139,6 @@ h6 {
 }
 
 /* Wedding Icons Set */
-@font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoonbbd3.eot?m8nw1l");
-  src: url("fonts/icomoonbbd3.eot?m8nw1l#iefix") format("embedded-opentype"),
-    url("fonts/icomoonbbd3.ttf?m8nw1l") format("truetype"),
-    url("fonts/icomoonbbd3.woff?m8nw1l") format("woff"),
-    url("fonts/icomoonbbd3.svg?m8nw1l#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-@font-face {
-  font-family: "muliregular";
-  src: url("fonts/muli-webfont.woff2") format("woff2"),
-    url("fonts/muli-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulibold";
-  src: url("fonts/muli-bold-webfont.woff2") format("woff2"),
-    url("fonts/muli-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulibolditalic";
-  src: url("fonts/muli-bolditalic-webfont.woff2") format("woff2"),
-    url("fonts/muli-bolditalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "muliextralight";
-  src: url("fonts/muli-extralight-webfont.woff2") format("woff2"),
-    url("fonts/muli-extralight-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "muliextralightitalic";
-  src: url("fonts/muli-extralightitalic-webfont.woff2") format("woff2"),
-    url("fonts/muli-extralightitalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "muliregularitalic";
-  src: url("fonts/muli-italic-webfont.woff2") format("woff2"),
-    url("fonts/muli-italic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulilight";
-  src: url("fonts/muli-light-webfont.woff2") format("woff2"),
-    url("fonts/muli-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulilightitalic";
-  src: url("fonts/muli-lightitalic-webfont.woff2") format("woff2"),
-    url("fonts/muli-lightitalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulisemibold";
-  src: url("fonts/muli-semibold-webfont.woff2") format("woff2"),
-    url("fonts/muli-semibold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "mulisemibolditalic";
-  src: url("fonts/muli-semi-bolditalic-webfont.woff2") format("woff2"),
-    url("fonts/muli-semi-bolditalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-i[class*="weddingdir_"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .weddingdir_support:before {
   content: "\e900";
 }
@@ -718,7 +610,7 @@ Background Color / Color
 .section-title {
   margin-bottom: 3.5rem;
   color: #444444;
-  font-family: "mulisemibold";
+
 }
 .section-title h1 {
   text-transform: uppercase;
@@ -763,7 +655,7 @@ Background Color / Color
 .btn {
   display: inline-block;
   padding: 0.7rem 1.3rem 0.7rem;
-  font-family: "mulisemibold";
+
   font-size: 1rem;
   outline: none;
   align-items: center;
@@ -1390,7 +1282,7 @@ Background Color / Color
   display: block;
   color: #302d34;
   font-weight: 600;
-  font-family: "mulisemibold";
+
 }
 .sidebar-nav ul li a i {
   color: #b4b4b5;
@@ -1471,7 +1363,7 @@ Background Color / Color
   right: 0;
   position: fixed;
   z-index: 1050;
-  display: none;
+  /* display: none; */
 }
 .status {
   position: absolute;
@@ -1482,9 +1374,33 @@ Background Color / Color
   background-repeat: no-repeat;
   z-index: 1;
 }
-.status img {
-  width: 250px;
+.status h1 {
+    font-size: 5rem;
+    color: #f48f00;
 }
+#loader {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    z-index: 99999;
+    background: #f30
+  }
+
+  #loader p {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 100px;
+    padding: 0;
+    margin: 0;
+  }
 /*---- 4.6 Preloader End ---*/
 
 /*---- 4.7 Back To Top ---*/
@@ -1517,7 +1433,6 @@ blockquote,
   margin: 0 0 30px 0;
   position: relative;
   font-size: 1.5rem;
-  font-family: "Lora", serif;
   border-radius: 7px;
   font-style: italic;
   color: #333333;
@@ -1553,7 +1468,6 @@ blockquote footer cite,
   font-size: 1.25rem;
   padding: 2rem 2rem 2rem 5rem;
   line-height: 1.4;
-  font-family: "Lora", serif;
   border-radius: 7px;
   font-style: italic;
   color: #00aeaf;
@@ -1768,7 +1682,6 @@ header .btn {
   font-weight: 700;
   display: flex;
   align-items: center;
-  font-family: "Lora", serif;
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-item:hover > a {
@@ -1804,7 +1717,7 @@ header .btn {
   color: #565656;
   border-bottom: 1px solid #f0f0f0;
   text-decoration: none;
-  font-family: "mulisemibold";
+
   display: flex;
   align-items: center;
   position: relative;
@@ -1870,7 +1783,7 @@ header .btn {
 .breadcrumb {
   background: transparent;
   padding: 1.131rem;
-  font-family: "mulisemibold";
+
   font-size: 1rem;
   color: #303030;
   border-radius: 5px;
@@ -1885,7 +1798,6 @@ header .btn {
   right: 15px;
   top: 50%;
   z-index: 99;
-  font-family: "icomoon" !important;
   font-size: 2rem;
   color: #00aeaf;
   transform: translateY(-50%);
@@ -1943,7 +1855,6 @@ header .btn {
   left: 50%;
 }
 .slider-content h1 {
-  font-family: "Lora", serif;
   font-size: 2.5rem;
   font-weight: 700;
   color: #fff;
@@ -2015,7 +1926,6 @@ header .btn {
   display: inline-flex;
   align-items: center;
   max-width: max-content;
-  font-family: "Lora", serif;
 }
 .slider-category a i {
   margin-right: 7px;
@@ -2157,7 +2067,6 @@ header .btn {
 .icon-box-style-2 a.btn-link {
   text-transform: uppercase;
   font-size: 0.875rem;
-  font-family: "Lora", serif !important;
   font-weight: 700;
   padding: 0;
 
@@ -2187,7 +2096,7 @@ header .btn {
   text-align: center;
   font-size: 0.9375rem;
   margin-bottom: 1.5rem;
-  font-family: "mulisemibold";
+
 }
 .icon-box-style-3 i {
   width: 40px;
@@ -2258,7 +2167,6 @@ header .btn {
 
 /*---- 7.3 Tabbing ---*/
 .theme-tabbing.nav-pills .nav-link {
-  font-family: "mulibold";
   border-radius: 5.25rem;
   color: #b0b0b0;
   padding: 0.5rem 1.5rem;
@@ -2286,7 +2194,6 @@ header .btn {
 .theme-tabbing-vertical .nav-link {
   color: #00aeaf;
   font-size: 1.125rem;
-  font-family: "Lora", serif;
   border-left: 2px solid transparent;
   border-radius: 0;
   margin: 7px 0;
@@ -2308,7 +2215,6 @@ header .btn {
 .horizontal-tab-second .nav-link {
   color: #00aeaf;
   font-size: 1.125rem;
-  font-family: "Lora", serif;
   border-bottom: 3px solid transparent;
   border-radius: 0;
   margin: 0 7px;
@@ -2984,7 +2890,6 @@ header .btn {
 .pricing-table-wrap .plan-price {
   color: #00aeaf;
   font-size: 2.5rem;
-  font-family: "Lora", serif;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -3031,7 +2936,6 @@ header .btn {
 /*---- 9.3  Error Page Start ---*/
 .tags a {
   padding: 0.5rem 1rem;
-  font-family: "muliregularitalic";
   color: #27304b;
   display: inline-block;
   font-size: 0.87rem;
@@ -3061,7 +2965,6 @@ header .btn {
 }
 .left-navbar .nav-item .nav-link {
   font-size: 1.25rem;
-  font-family: "Lora", serif;
   color: #00aeaf;
   font-weight: 500;
   padding: 0.9rem 1.2rem;
@@ -3160,7 +3063,6 @@ header .btn {
   color: #fff;
   /* display: block; */
   font-size: 0.8125rem;
-  font-family: "Lora", serif;
 }
 .post-content .meta-date {
   background-color: #666666;
@@ -3176,7 +3078,6 @@ header .btn {
   line-height: 1.7;
 }
 .post-content .read-more a {
-  font-family: "Lora", serif;
   padding: 0;
   font-weight: 600;
   text-transform: uppercase;
@@ -3310,7 +3211,6 @@ header .btn {
 }
 .popular-post ul li h6 {
   margin: 0;
-  font-family: "mulisemibold" !important;
 }
 .popular-post ul li h6 a {
   font-size: 1rem;
@@ -3348,7 +3248,6 @@ header .btn {
 }
 .commnets-reply .media h4 {
   color: #00aeaf;
-  font-family: "mulisemibold" !important;
 }
 .commnets-reply .thumb {
   width: 75px;
@@ -3404,7 +3303,6 @@ header .btn {
   font-size: 0.775rem;
   color: #0f0f0f;
   font-style: italic;
-  font-family: "muliregularitalic";
 }
 
 .post-linking {
@@ -3428,7 +3326,6 @@ header .btn {
   font-size: 0.75rem;
   color: #0f0f0f;
   text-transform: capitalize;
-  font-family: "muliregularitalic";
 }
 .post-linking .next-post,
 .post-linking .previous-post {
@@ -3467,7 +3364,6 @@ header .btn {
 .post-tags a {
   color: #27304b;
   font-weight: 600;
-  font-family: "muliregularitalic";
 }
 .post-tags a:hover {
   color: #f48f00;
@@ -3855,7 +3751,7 @@ header .btn {
 .vendor-profile-single {
   background: #f6f6f7;
   padding: 3rem 0 5rem;
-  font-family: "mulisemibold";
+
 }
 .profile-single h3 {
   color: #f39108;
@@ -3868,7 +3764,7 @@ header .btn {
 }
 .profile-single .reviews {
   color: #444444;
-  font-family: "mulisemibold";
+
   font-size: 0.875rem;
 }
 .profile-single .reviews .badge {
@@ -3899,7 +3795,6 @@ header .btn {
 }
 .vendor-nav a {
   color: #b0b0b0;
-  font-family: "mulibold";
   font-size: 00.875rem;
   text-transform: uppercase;
 }
@@ -4062,7 +3957,6 @@ header .btn {
   color: #f29008;
 }
 .tagged-vendors h3 {
-  font-family: "mulisemibold" !important;
   font-size: 1.25rem;
   color: #00aeaf;
 }
@@ -4093,7 +3987,7 @@ header .btn {
 .profile-avatar .content {
   font-size: 1.125rem;
   color: #f48f00;
-  font-family: "mulisemibold";
+
 }
 .profile-avatar .content small {
   display: block;
@@ -4401,7 +4295,6 @@ header .btn {
   text-transform: uppercase;
   color: #fff;
   padding: 0.6rem 1rem;
-  font-family: "Lora", serif;
   font-size: 0.875rem;
   line-height: 1;
 }
@@ -4495,7 +4388,6 @@ header .btn {
   flex-direction: column;
   font-size: 1.8rem;
   font-weight: 200;
-  font-family: "Lora", serif;
   font-style: italic;
   opacity: 0;
   pointer-events: none;
@@ -4523,7 +4415,6 @@ header .btn {
   color: #fff;
   font-size: 1.125rem;
   font-weight: 600;
-  font-family: "Lora", serif;
   pointer-events: none;
 }
 .real-wedding .gallery {
@@ -4554,7 +4445,6 @@ header .btn {
   color: #fff;
   font-size: 1.125rem;
   font-weight: 600;
-  font-family: "Lora", serif;
   line-height: 1;
 }
 .real-wedding-single-wrap {
@@ -4680,7 +4570,7 @@ header .btn {
 }
 .gallery-sorting a {
   color: #333;
-  font-family: "mulisemibold";
+
 }
 .gallery-sorting a:hover,
 .gallery-sorting a.mixitup-control-active {
@@ -4776,7 +4666,7 @@ header .btn {
 .view-by {
   background: transparent;
   padding: 0.4rem 1.131rem;
-  font-family: "mulisemibold";
+
   font-size: 1rem;
   color: #303030;
   border-radius: 5px;
@@ -5035,7 +4925,6 @@ header .btn {
 }
 .popular-locations .overlay-box h3 span {
   display: block;
-  font-family: "muliregular";
   padding-top: 4px;
   font-size: 0.875rem;
 }
@@ -5526,7 +5415,6 @@ header .btn {
   color: #333333;
   text-align: center;
   font-size: 1.25rem;
-  font-family: "Lora", serif;
   font-style: italic;
   padding: 2rem 2rem 7rem 2rem;
 }
@@ -5573,7 +5461,6 @@ header .btn {
 }
 .customer-feedback-alternate .content .text {
   font-size: 1.25rem;
-  font-family: "Lora", serif;
   font-style: italic;
   margin-top: -0.5rem;
 }
@@ -5663,7 +5550,6 @@ header .btn {
 }
 
 .reviews-media h3 {
-  font-family: "mulisemibold" !important;
 }
 .reviews-media .media {
   padding: 1.2rem;
@@ -5677,7 +5563,6 @@ header .btn {
 }
 .reviews-media .media h4 {
   color: #00aeaf;
-  font-family: "mulisemibold" !important;
 }
 .reviews-media .thumb {
   width: 75px;
@@ -5756,7 +5641,7 @@ header .btn {
 .typo-head {
   color: #1f2c36;
   font-size: 1.375rem;
-  font-family: "mulisemibold";
+
   line-height: 1.6rem;
 }
 .typo-border {
@@ -5773,7 +5658,6 @@ header .btn {
   margin-bottom: 0;
 }
 .typo-border h3 {
-  font-family: "muliregular";
 }
 .typo-border .color-pallete-box {
   margin: 0 0 2.5rem 0;
@@ -5946,7 +5830,7 @@ footer {
   padding-top: 5rem;
 }
 .footer-logo {
-  font-family: "mulisemibold";
+
 }
 .footer-logo img {
   margin-bottom: 1rem;
