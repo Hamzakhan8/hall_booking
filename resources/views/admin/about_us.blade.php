@@ -61,17 +61,17 @@
                                             @csrf
                                             @method('PUT')
                                                 @if ($errors && (is_array($errors) || $errors->all()))
-                                                <div class="alert alert-danger" role="alert">
-                                                    <strong class="text-danger">Errors encounteded!</strong>
-                                                    <br>
-                                                    <ul>
-                                                        @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
-                                                        <li>
-                                                            <strong>{{ $error }}</strong>
-                                                        </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <strong class="text-danger">Errors encounteded!</strong>
+                                                        <br>
+                                                        <ul>
+                                                            @foreach ((is_array($errors) ? $errors : $errors->all()) as $error)
+                                                            <li>
+                                                                <strong>{{ $error }}</strong>
+                                                            </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                     @elseif (Session::has('created'))
                                                     <div class="alert alert-success" role="alert">
                                                         <strong>{{ Session::get('created') }}</strong>
@@ -86,8 +86,8 @@
                                               <textarea class="form-control" id="editor2" name="about_us" rows="10">{{ $data->about }}</textarea>
                                             </div>
                                             <div class="form-group d-flex justify-content-between align-content-center">
-                                            <button type="submit" class="btn btn-primary mt-4">Save changes</button>
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary mt-4">Save changes</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             </div>
                                         </form>
                                     </div>

@@ -27,7 +27,7 @@ Author: wp-organic
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="assets/images/logo_light.svg" alt="">
+            <h1>Book Hall</h1>
         </div>
     </div>
     <!-- end preloader -->
@@ -58,7 +58,7 @@ Author: wp-organic
                         <!-- Contact Details Wrap -->
                         <div class="col-md-6">
                             <div class="contact-details-wrap">
-                                <i class="weddingdir_support"></i>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
                                 <h3 class="txt-primary">Customer Support</h3>
                                 <p class="my-4">Call our 24-hour helpline.</p>
                                 <div>Phone number: <a href="javascript:" class="btn-link btn-link-default">{{ $contact->call_number }}</a></div>
@@ -70,7 +70,7 @@ Author: wp-organic
                         <!-- Contact Details Wrap -->
                         <div class="col-md-6">
                             <div class="contact-details-wrap">
-                                <i class="weddingdir_location"></i>
+                                <i class="fa fa-address-book" aria-hidden="true"></i>
                                 <h3 class="txt-primary">Our Address</h3>
                                 <p class="my-4">{{ $contact->address }}</p>
                             </div>

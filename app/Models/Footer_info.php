@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AboutUS extends Model
+class Footer_info extends Model
 {
     use HasFactory;
 
-                /**
+                    /**
      * The table associated with model
      */
-    protected $table = 'about_us';
+    protected $table = 'footer_infos';
 
     /**
      * The attributes that should be cast to native types.

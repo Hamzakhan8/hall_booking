@@ -26,6 +26,10 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('admin.footer.index') }}"><i class="weddingdir_my_profile"></i>Footer</a>
+                </li>
+
+                <li>
                     <a href="{{ route('admin.manage.user') }}"><i class="weddingdir_request_quote"></i> Manage Couple</a>
                 </li>
 

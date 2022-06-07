@@ -104,6 +104,27 @@ class SearchResultController extends Controller
         return view('front_view.search-result-page', compact('by_name'));
     }
 
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function byLocation(Request $request)
+    {
+        $request->validate([
+            'hall_city' => ['required', 'string'],
+        ]);
+
+        $by_location = Hall::where(['location' => $request->hall_city])->paginate(10);
+
+         if(empty($by_location) || $by_location == null)
+         return back()
+         ->with('not found', 'There is no hall in '.$request->hall_city.'');
+
+        return view('front_view.search-result-page', compact('by_name'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

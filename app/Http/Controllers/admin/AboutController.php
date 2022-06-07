@@ -39,11 +39,11 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'about_us' => ['required', 'string'],
+            'about_us' => ['required', 'string', 'max:500'],
         ]);
 
         AboutUS::create([
-            'about' => $request->about_us,
+            'about' => strip_tags($request->about_us),
         ]);
 
         return redirect()->route('admin.about.index')

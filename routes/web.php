@@ -32,6 +32,8 @@ use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
 use App\Http\Controllers\admin\AboutController as AdminAboutController;
+use App\Http\Controllers\admin\FooterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,7 +118,13 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     Route::controller(AdminAboutController::class)->group(function(){
         Route::get('about_index', 'index')->name('admin.about.index');
         Route::post('about_store','store')->name('admin.about.store');
-        Route::put('about_store/{about_id}','update')->name('admin.about.update');
+        Route::put('about_update/{about_id}','update')->name('admin.about.update');
+    });
+
+    Route::controller(FooterController::class)->group(function(){
+        Route::get('footer_index', 'index')->name('admin.footer.index');
+        Route::post('footer_store','store')->name('admin.footer.store');
+        Route::put('footer_update/{footer_id}','update')->name('admin.footer.update');
     });
 });
 
@@ -170,21 +178,6 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //  grouped routes for couple
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
     Route::get('dashboard', fn () => view('couple.dashboard'))
@@ -228,17 +221,6 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
 // grouped routes for front site
 Route::prefix('front')->group(function (){
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
@@ -261,6 +243,7 @@ Route::prefix('front')->group(function (){
         Route::get('search_details/{id}', 'details')->name('front.search.details');
         Route::get('by_category/{id}/{location}', 'byCategory')->name('front.search.by_category');
         Route::post('by_name', 'byName')->name('front.search.by_name');
+        Route::post('by_location', 'byLocation')->name('front.search.by_location');
         Route::post('search_store', 'store')->name('front.search.store');
     });
 });

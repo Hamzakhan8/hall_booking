@@ -5870,11 +5870,8 @@ footer .widget-listing li {
   color: #b5b4b6;
   margin-right: 0.4rem;
   font-size: 14px;
-  padding: 0;
+  padding: 10px;
   background: #4f4c52;
-  width: 35px;
-  height: 35px;
-  display: flex;
   align-items: center;
   justify-content: center;
 }

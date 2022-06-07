@@ -11,7 +11,7 @@
     <!-- preloader -->
     <div class="preloader">
         <div class="status">
-            <img src="{{ asset('assets') }}/images/logo_light.svg" alt="">
+            <h1>Book Hall</h1>
         </div>
     </div>
     <!-- end preloader -->
@@ -77,7 +77,7 @@
                         <div class="item">
                             <div class="customer-feedback-wrap">
                                 <div class="content">
-                                    <div class="icon"><i class="weddingdir_chat"></i></div>
+                                    <div class="icon"><i class="fa fa-comments"></i></div>
                                     {{ $comment->comment }}
                                 </div>
                                 <div class="name-wrap">

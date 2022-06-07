@@ -26,11 +26,9 @@
                         <div class="footer-widget">
                             <h3 class="widget-title">Locations</h3>
                             <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
-                                <li><a href="{{ route('front.search') }}">Peshawar</a></li>
-                                <li><a href="{{ route('front.search') }}">Islamabad</a></li>
-                                <li><a href="{{ route('front.search') }}">Lahore</a></li>
-                                <li><a href="{{ route('front.search') }}">Karachi</a></li>
-                                <li><a href="{{ route('front.search') }}">Multan</a></li>
+                            @foreach ($list_halls as $list_hall)
+                                <li><a class="searc_by_location" data-hall-location="{{ $list_hall->location }}" href="{{ route('front.search') }}">{{ $list_hall->location }}</a></li>
+                            @endforeach
                             </ul>
                         </div>
                     </div>
@@ -42,28 +40,25 @@
                     <div class="col-md-6 col-12">
                         <div class="footer-widget">
                             <h3 class="widget-title">Contact Us</h3>
-                            <div class="widget-contact">
-                                <p>Peshawar, Pakistan</p>
-                                <p>Call : <a href="tel:+81-258-852-6699">Number</a></p>
-                                <p>Mail : <a href="mailto:Info@weddingdir.com">Info@hall.com</a></p>
-                            </div>
-                            <div class="social-icons-footers">
-                                <ul class="list-unstyled">
-                                    <li><a href="javascript:"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="javascript:"><i class="fa fa-instagram"></i></a>
-                                    <li><a href="javascript:"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                            @foreach ($footer as $foo)
+                                <div class="widget-contact">
+                                    <p>Location : {{ $foo->location }}</p>
+                                    <p>Call : <a href="tel:+81-258-852-6699">{{ $foo->phone_number }}</a></p>
+                                    <p>Mail : <a href="mailto:Info@weddingdir.com">{{ $foo->email }}</a></p>
 
-                    <div class="col-md-6 col-12">
-                        <div class="footer-widget">
-                            <h3 class="widget-title">Newsletter</h3>
-                            <p>Subscribe to our newsletter  to receive exclusive offers.</p>
-                            <div class="mb-3"><input type="text" class="form-control form-light" id="exampleFormControlInput1" placeholder="Enter Email Address"></div>
-                            <button type="button" class="btn btn-default">Subscribe</button>
+                                </div>
+                                <div class="social-icons-footers">
+                                    <ul class="list-unstyled d-flex">
+                                        @foreach ($foo->social_links as $names => $links)
+                                        @php
+                                            $i = "fa fa-".$names."";
+                                            $class = "share-btn-".$names."";
+                                        @endphp
+                                        <li><a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

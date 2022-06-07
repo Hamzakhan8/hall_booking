@@ -129,3 +129,23 @@
     }
     });
 </script>
+
+<script type="text/javascript">
+    $(".searc_by_location").click(function () {
+        let location = $(this).attr("data-hall-location");
+
+        $.ajax({
+            type: "POST",
+            url: "{{ route('front.search.by_location') }}",
+            data: hall_city:location,
+            // dataType: "json",
+            success: function (response) {
+                alert('success');
+            },
+            error: function (response) {
+                alert('not success');
+            }
+        });
+
+    });
+</script>

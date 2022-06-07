@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\HallCategory;
 use App\Models\SliderImage;
@@ -26,14 +27,11 @@ class FrontHomeController extends Controller
 
         $categories = HallCategory::all();
 
-        // $pluck = $list_halls->toArray();
-        // $col = collect($pluck);
-
-        // dd($col->pluck('hall_category'));
+        $footer = Footer_info::all();
 
         $cities = $this->cities();
 
-        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls', 'categories'));
+        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls', 'categories', 'footer'));
     }
 
     /**
