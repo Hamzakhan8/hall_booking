@@ -46,7 +46,8 @@ class FooterController extends Controller
             'facebook' => 'required|url',
             'twitter' => 'required|url',
             'instagram' => 'required|url',
-            'linkedin' => 'required|url'
+            'linkedin' => 'required|url',
+            'copyRight' => 'required|string',
         ]);
 
         Footer_info::create([
@@ -60,6 +61,7 @@ class FooterController extends Controller
                 "instagram" => $request['instagram'],
                 "linkedin" => $request['linkedin']
             ],
+            'copyRight' => $request->copyRight,
         ]);
 
         return redirect()->route('admin.footer.index')
@@ -105,7 +107,8 @@ class FooterController extends Controller
             'facebook' => 'required|url',
             'twitter' => 'required|url',
             'instagram' => 'required|url',
-            'linkedin' => 'required|url'
+            'linkedin' => 'required|url',
+            'copyRight' => 'required|string',
         ]);
 
         $footer = Footer_info::findOrFail($footer_id);
@@ -121,6 +124,7 @@ class FooterController extends Controller
                 "instagram" => $request['instagram'],
                 "linkedin" => $request['linkedin']
             ],
+            'copyRight' => $request->copyRight,
         ]);
 
         return redirect()->route('admin.footer.index')

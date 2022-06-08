@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\HallCategory;
 use Illuminate\Http\Request;
@@ -17,7 +18,9 @@ class SearchResultController extends Controller
     {
         $list_halls = Hall::paginate(10);
 
-        return view('front_view.search-result-page', compact('list_halls'));
+        $footer = Footer_info::all();
+
+        return view('front_view.search-result-page', compact('list_halls', 'footer'));
     }
 
     /**
@@ -64,7 +67,11 @@ class SearchResultController extends Controller
 
         $latest_halls = Hall::orderByDesc('id')->limit(3)->get();
 
-        return view('front_view.hall-details', compact('hall_details', 'latest_halls'));
+        $list_halls = Hall::orderBy('location')->get();
+
+        $footer = Footer_info::all();
+
+        return view('front_view.hall-details', compact('hall_details', 'latest_halls', 'list_halls', 'footer'));
     }
 
     /**

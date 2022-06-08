@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contacts;
 use App\Models\Contacts_info;
+use App\Models\Footer_info;
+use App\Models\Hall;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -15,7 +17,11 @@ class ContactController extends Controller
     {
         $contacts = Contacts_info::all();
 
-        return view('front_view.contact-us', compact('contacts'));
+        $list_halls = Hall::orderBy('location')->get();
+
+        $footer = Footer_info::all();
+
+        return view('front_view.contact-us', compact('contacts', 'list_halls', 'footer'));
     }
 
         /**

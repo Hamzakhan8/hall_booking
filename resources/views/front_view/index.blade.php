@@ -75,8 +75,8 @@ Author: wp-organic
 
         <div class="slider-content">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-12 mx-auto">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9 col-lg-12">
                         <h1>FIND the Perfect Hall</h1>
                         <p class="lead txt-white text-center">Search over 360,000 Halls with reviews, pricing, availability and more</p>
                         <div class="slider-form rounded">
@@ -87,7 +87,7 @@ Author: wp-organic
                             @endif
                             <form action="{{ route('front.search.store') }}" method="post">
                                     @csrf
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex">
                                     <div class="col-12 col-md-5 left-border">
                                         <select class="form-light-select theme-combo home-select-2" required name="category_id">
                                             <option>Choose Category</option>
@@ -105,7 +105,7 @@ Author: wp-organic
                                         </select>
                                     </div>
                                     <div class="col-12 col-md-3">
-                                        <button type="submit" class="btn btn-default text-nowrap btn-block" >Search Now</button>
+                                        <button type="submit" class="btn btn-default" >Search Now</button>
                                     </div>
                                 </div>
                             </form>

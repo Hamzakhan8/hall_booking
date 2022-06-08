@@ -54,7 +54,7 @@
                                             $i = "fa fa-".$names."";
                                             $class = "share-btn-".$names."";
                                         @endphp
-                                        <li><a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a></li>
+                                        <li><a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i></a></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -70,9 +70,11 @@
     <div class="copyrights">
         <div class="container">
             <div class="row">
+                @foreach ($footer as $foo)
                 <div class="col-md-auto col-12">
-                    © 2022 All rights reserved.
+                    {{ $foo->copyRight }}
                 </div>
+                @endforeach
                 <div class="col-md-auto col-12 copyrights-link ml-md-auto">
                     <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a>
                 </div>

@@ -127,7 +127,7 @@
                     <!-- Why Choose Icons -->
                     <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
-                            <i class="weddingdir_shopping_bag_heart"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                             <h4>{{ $halls->count() }} Halls</h4 >
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                     <!-- Why Choose Icons -->
                     <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_envelope"></i>
+                            <i class="fa fa-money" aria-hidden="true"></i>
                             <h4>{{ $transaction->count() }} Trusted Payments</h4>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                     <!-- Why Choose Icons -->
                     <div class="col-md-6 col-lg-4">
                         <div class="icon-box-style-2">
-                            <i class="weddingdir_heart_ring"></i>
+                            <i class="fa fa-bookmark" aria-hidden="true"></i>
                             <h4>{{ $bookings->count() }} Real Bookings</h4 >
                         </div>
                     </div>

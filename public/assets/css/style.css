@@ -6317,6 +6317,12 @@ footer .widget-listing li {
   }
 }
 
+@media (max-width: 768px) {
+    html {
+        overflow-x: hidden;
+    }
+}
+
 @media (min-width: 576px) and (max-width: 767.99px) {
   footer .col,
   footer .col-3 {

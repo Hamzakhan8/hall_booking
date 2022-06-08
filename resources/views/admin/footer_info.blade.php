@@ -47,6 +47,10 @@
                       <input type="url" class="form-control m-2" name="linkedin" value="https://linkedin.com/" id="" aria-describedby="helpId" placeholder="linkedin.com">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="copy_right">CopyRights</label>
+                    <input type="text" name="copyRight" id="copy_right" class="form-control" placeholder="Write copy right info" aria-describedby="helpId">
+                </div>
             <button type="submit" class="btn btn-primary mt-4">Save changes</button>
         </form>
     </div>
@@ -59,6 +63,7 @@
                     <th>Email</th>
                     <th>Short Description</th>
                     <th>Social Links</th>
+                    <th>Copy Rights</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -76,6 +81,7 @@
                                 </span>
                                 @endforeach
                             </td>
+                            <td scope="row">{{ $data->copyRight }}</td>
                             <td class="d-flex justify-content-around align-items-center action_icons">
                                 <a  data-target="#aboutModal"
                                     data-toggle="modal">
@@ -137,9 +143,12 @@
                                                 <div class="links d-flex">
                                                     @foreach ($data->social_links as $names => $links)
                                                     <input type="url" class="form-control m-2" name="{{ $names }}" value="{{ $links }}" id="" aria-describedby="helpId" placeholder="{{ $names }}.com">
-
                                                     @endforeach
                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="copy_right">CopyRights</label>
+                                              <input type="text" name="copyRight" id="copy_right" class="form-control" placeholder="Write copy right info" aria-describedby="helpId">
                                             </div>
                                             <div class="form-group d-flex justify-content-between align-content-center">
                                             <button type="submit" class="btn btn-primary mt-4">Save changes</button>

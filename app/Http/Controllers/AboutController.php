@@ -5,6 +5,7 @@ use App\Models\About;
 use App\Models\AboutUS;
 use App\Models\Bookings;
 use App\Models\Comments;
+use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
@@ -28,7 +29,12 @@ class AboutController extends Controller
 
         $transaction = Transactions::all();
 
-        return view('front_view.about-us', compact('about', 'comments', 'bookings', 'halls', 'transaction'));
+        $list_halls = Hall::orderBy('location')->get();
+
+        $footer = Footer_info::all();
+
+        return view('front_view.about-us',
+        compact('about', 'comments', 'bookings', 'halls', 'transaction', 'list_halls', 'footer'));
     }
 
     /**
