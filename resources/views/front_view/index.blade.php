@@ -194,8 +194,8 @@ Author: wp-organic
         <section class="callout-main">
             <div class="container-fluid pl-0">
                 <div class="row">
-                    <div class="col-lg-6" style="background: url({{ asset('assets/images/vendors/download.jpg') }}) center center no-repeat; background-size: cover;">
-                        <img src="{{ asset('assets/images/vendors/download.jpg') }}" class="d-lg-none invisible" alt="">
+                    <div class="col-lg-6" style="background: url({{ asset('assets/images/vendors/vendor_img_1.jpg') }}) center center no-repeat; background-size: cover;">
+                        <img src="{{ asset('assets/images/vendors/vendor_img_1.jpg') }}" class="d-lg-none invisible" alt="">
                     </div>
                     <div class="col-md-12 col-lg-6">
                         <div class="callout-text">
