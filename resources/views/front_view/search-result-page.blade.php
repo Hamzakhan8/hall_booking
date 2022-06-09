@@ -100,22 +100,22 @@ Author: wp-organic
                                                 <ul class="list-unstyled icons-listing mb-0 widget-listing arrow">
                                                     @if (isset($halls))
                                                         @foreach ($halls as $hall)
-                                                        <li><a style="cursor: pointer">{{ $hall->hallCategory->category }}</a></li>
+                                                        <li><a href="{{ route('front.search.by_category',[$hall->hallCategory->id,$hall->location]) }}" style="cursor: pointer">{{ $hall->hallCategory->category }}</a></li>
                                                         @endforeach
 
                                                         @elseif (isset($by_category))
                                                         @foreach ($by_category as $by_cat_hall)
-                                                        <li><a style="cursor: pointer">{{ $by_cat_hall->hallCategory->category }}</a></li>
+                                                        <li><a href="{{ route('front.search.by_category',[$by_cat_hall->hallCategory->id,$by_cat_hall->location]) }}" style="cursor: pointer">{{ $by_cat_hall->hallCategory->category }}</a></li>
                                                         @endforeach
 
                                                         @elseif (isset($by_name))
                                                         @foreach ($by_name as $by_name_hall)
-                                                        <li><a style="cursor: pointer">{{ $by_name_hall->hallCategory->category }}</a></li>
+                                                        <li><a href="{{ route('front.search.by_category',[$by_name_hall->hallCategory->id,$by_name_hall->location]) }}" style="cursor: pointer">{{ $by_name_hall->hallCategory->category }}</a></li>
                                                         @endforeach
 
                                                         @elseif (isset($list_halls))
                                                         @foreach ($list_halls as $list_hall)
-                                                        <li><a style="cursor: pointer">{{ $list_hall->hallCategory->category }}</a></li>
+                                                        <li><a href="{{ route('front.search.by_category',[$list_hall->hallCategory->id,$list_hall->location]) }}" style="cursor: pointer">{{ $list_hall->hallCategory->category }}</a></li>
                                                         @endforeach
                                                     @endif
                                                 </ul>

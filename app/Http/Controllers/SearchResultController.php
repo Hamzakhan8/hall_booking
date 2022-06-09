@@ -52,7 +52,7 @@ class SearchResultController extends Controller
         if(empty($halls) || $halls == null)
         return back()->with('not found', 'There is no hall in '.$request['city'].'');
 
-        return view('front_view.search-result-page', compact('halls'));
+        return redirect()->route('front.search', compact('halls'));
     }
 
     /**
@@ -85,7 +85,7 @@ class SearchResultController extends Controller
         $by_category = Hall::where(['halls_category_id'=> $id,
          'location' => $location])->paginate(10);
 
-        return view('front_view.search-result-page', compact('by_category'));
+        return redirect()->route('front.search', compact('by_category'));
     }
 
     /**
@@ -108,7 +108,7 @@ class SearchResultController extends Controller
          return back()
          ->with('not found', 'There is no hall with '.$request->hall_name.' in '.$request->hall_city.'');
 
-        return view('front_view.search-result-page', compact('by_name'));
+        return redirect()->route('front.search')->with('by_name');
     }
 
         /**
@@ -129,7 +129,7 @@ class SearchResultController extends Controller
          return back()
          ->with('not found', 'There is no hall in '.$request->hall_city.'');
 
-        return view('front_view.search-result-page', compact('by_name'));
+        return redirect()->route('front.search')->with('by_location');
     }
 
     /**

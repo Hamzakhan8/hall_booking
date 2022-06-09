@@ -87,7 +87,7 @@ Author: wp-organic
                             @endif
                             <form action="{{ route('front.search.store') }}" method="post">
                                     @csrf
-                                <div class="d-flex">
+                                <div class="make_change d-flex">
                                     <div class="col-12 col-md-5 left-border">
                                         <select class="form-light-select theme-combo home-select-2" required name="category_id">
                                             <option>Choose Category</option>
@@ -104,7 +104,7 @@ Author: wp-organic
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-12 col-md-3">
+                                    <div class="col-12 form-btn col-md-3">
                                         <button type="submit" class="btn btn-default" >Search Now</button>
                                     </div>
                                 </div>
@@ -194,8 +194,8 @@ Author: wp-organic
         <section class="callout-main">
             <div class="container-fluid pl-0">
                 <div class="row">
-                    <div class="col-lg-6" style="background: url({{ asset('assets') }}/images/callout_img.jpg) center center no-repeat; background-size: cover;">
-                        <img src="{{ asset('assets') }}/images/callout_img.jpg" class="d-lg-none invisible" alt="">
+                    <div class="col-lg-6" style="background: url({{ asset('assets/images/vendors/download.jpg') }}) center center no-repeat; background-size: cover;">
+                        <img src="{{ asset('assets/images/vendors/download.jpg') }}" class="d-lg-none invisible" alt="">
                     </div>
                     <div class="col-md-12 col-lg-6">
                         <div class="callout-text">

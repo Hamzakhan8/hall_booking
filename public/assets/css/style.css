@@ -617,11 +617,12 @@ Background Color / Color
 }
 
 .callout-main {
-  background-color: #f2f3f0;
+  background-color: #302d34;
 }
 .callout-text {
   padding: 5rem;
   max-width: 70%;
+  color: #f2f3f0;
 }
 .callout-text .section-title {
   margin-bottom: 1.5rem;
@@ -629,6 +630,7 @@ Background Color / Color
 .callout-text .section-title h1 {
   text-transform: capitalize;
   font-size: 3rem;
+  color: #f2f3f0;
 }
 .call-out-bg {
   background: url(../images/callout_bg.jpg) no-repeat center center;
@@ -1791,16 +1793,6 @@ header .btn {
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.09);
   bottom: -26px;
   position: relative;
-}
-.breadcrumb::after {
-  position: absolute;
-  content: "\e921";
-  right: 15px;
-  top: 50%;
-  z-index: 99;
-  font-size: 2rem;
-  color: #00aeaf;
-  transform: translateY(-50%);
 }
 .breadcrumbs-page h1 {
   color: #fff;
@@ -6016,6 +6008,7 @@ footer .widget-listing li {
 @media (min-width: 768px) and (max-width: 991.99px) {
   html {
     font-size: 15px;
+    overflow-x: hidden;
   }
   .mr-top-footer {
     margin-top: 2.5rem;
@@ -6040,8 +6033,7 @@ footer .widget-listing li {
   }
   .slider-content .form-bg .btn,
   .slider-content .btn {
-    padding-left: 0;
-    padding-right: 0;
+      padding: 7.5px;
   }
   .customer-feedback-alternate .content .name-wrap .icon {
     display: none;
@@ -6317,12 +6309,6 @@ footer .widget-listing li {
   }
 }
 
-@media (max-width: 768px) {
-    html {
-        overflow-x: hidden;
-    }
-}
-
 @media (min-width: 576px) and (max-width: 767.99px) {
   footer .col,
   footer .col-3 {
@@ -6455,6 +6441,17 @@ footer .widget-listing li {
   }
 }
 @media (max-width: 430px) {
+
+    .slider-content form .make_change {
+        display: block !important;
+    }
+
+    .slider-content form .form-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
   .select2-container {
     z-index: 9;
     width: 100% !important;

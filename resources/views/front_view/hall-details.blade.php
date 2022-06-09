@@ -155,7 +155,7 @@ Author: wp-organic
                                                         $i = "fa fa-".$social."";
                                                         $class = "share-btn-".$social."";
                                                     @endphp
-                                                    <a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i><a>
+                                                    <a href="{{ $links }}" class="{{ $class }}"><i class="{{ $i }}"></i></a>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -252,9 +252,9 @@ Author: wp-organic
                                 <!-- Sidebar Primary Start -->
                                 <div class="sidebar-primary col-lg-12 col-md-6">
                                     <!-- Widget Wrap -->
-                                    <form action="{{ route('front.search.store') }}" method="POST" class="sidebar-search">
+                                    <form action="{{ route('front.search.by_location') }}" method="POST" class="sidebar-search">
                                         @csrf
-                                        <input type="text" name="city" class="form-control" placeholder="Search by city...">
+                                        <input type="text" name="hall_city" class="form-control" placeholder="Search by city...">
                                         <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                     </form>
                                     <!-- Widget Wrap -->
@@ -283,7 +283,7 @@ Author: wp-organic
                                                     <li>
                                                         <img src="{{ asset('storage/hall_img/'.$decode[0]) }}" alt="">
                                                         <div>
-                                                            <h6><a href="#">{{ $latest->title }}</a></h6>
+                                                            <h6><a href="{{ route('front.search.details', $latest->id) }}">{{ $latest->title }}</a></h6>
                                                             <small>{{ ($latest->created_at)->diffForHumans() }}</small>
                                                         </div>
                                                     </li>

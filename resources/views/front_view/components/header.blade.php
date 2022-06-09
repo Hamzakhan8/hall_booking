@@ -8,16 +8,16 @@
                     <h2 style="color:#00aeaf;">BOOK HALL</h2>
                 </a>
             </div>
-            <!-- Topbar Request Quote Start -->
-            <span class="order-lg-last d-inline-flex ml-3">
-                <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form">
-                Get Started Now
-                </a>
-            </span>
-            <!-- Toggle Button Start -->
 
             <!-- Dashboard Button -->
             @if (!Auth::check())
+                <!-- Topbar Request Quote Start -->
+                <span class="order-lg-last d-inline-flex ml-3">
+                    <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form">
+                    Get Started Now
+                    </a>
+                </span>
+                <!-- Toggle Button Start -->
                 @elseif (Auth::user()->role == "admin")
                 <span class="order-lg-last d-inline-flex ml-3">
                     <a href="{{ route('admin.dashboard') }}" class="btn btn-warning text-white" role="button">
