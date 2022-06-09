@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacts_info;
 use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\HallCategory;
@@ -29,9 +30,11 @@ class FrontHomeController extends Controller
 
         $footer = Footer_info::all();
 
+        $contacts = Contacts_info::value('short_description');
+
         $cities = $this->cities();
 
-        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls', 'categories', 'footer'));
+        return view('front_view.index', compact('slider_images', 'cities', 'halls', 'list_halls', 'categories', 'footer', 'contacts'));
     }
 
     /**

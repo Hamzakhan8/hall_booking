@@ -20,7 +20,7 @@ class Contacts_info extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','call_number', 'email', 'address'
+        'user_id','call_number', 'email', 'address', 'short_description'
     ];
 
 }

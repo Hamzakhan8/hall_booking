@@ -43,6 +43,7 @@ class ContactController extends Controller
             'call' => ['required'],
             'email' => ['required', 'email'],
             'address' => ['required', 'string'],
+            'short_description' => ['required', 'string'],
         ]);
 
         $user = $request->user();
@@ -53,6 +54,7 @@ class ContactController extends Controller
             'call_number' => $request->call,
             'email' => $request->email,
             'address' => $request->address,
+            'short_description' => $request->short_description,
         ]);
 
         return redirect()->route('admin.contact')

@@ -98,15 +98,17 @@
         <section class="callout-main">
             <div class="container-fluid pl-0">
                 <div class="row">
-                    <div class="col-lg-6" style="background: url({{ asset('assets') }}/images/callout_img.jpg) center center no-repeat; background-size: cover;">
-                        <img src="{{ asset('assets') }}/images/callout_img.jpg" class="d-lg-none invisible" alt="">
+                    <div class="col-lg-6" style="background: url({{ asset('assets/images/vendors/vendor_img_1.jpg') }}) center center no-repeat; background-size: cover;">
+                        <img src="{{ asset('assets/images/vendors/vendor_img_1.jpg') }}" class="d-lg-none invisible" alt="">
                     </div>
                     <div class="col-md-12 col-lg-6">
                         <div class="callout-text">
                             <div class="section-title">
-                                <h1>The Best Booking Service</h1>
+                                <h1>The Best Hall Booking Service</h1>
                             </div>
-                            <p class="lead">If you have any queries, feel free to contact us</p>
+                            <p class="lead">
+                                {{ $contacts }}
+                            </p>
                             <a href="{{ route('front.contact') }}" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
                         </div>
                     </div>

@@ -16,9 +16,9 @@
     <div class="card-shadow-body p-4">
         <form action="{{ route('admin.contact.store') }}" method="post">
             @csrf
-                @if (Session::has('added'))
+                @if (Session::has('created'))
                 <div class="alert alert-success" role="alert">
-                    <strong>{{ Session::has('added') }}</strong>
+                    <strong>{{ Session::has('created') }}</strong>
                 </div>
                 @endif
             <div class="form-group">
@@ -32,6 +32,10 @@
               <div class="form-group">
                 <label for="">Address</label>
                 <input name="address" class="form-control" id="" placeholder="Write Address">
+              </div>
+              <div class="form-group">
+                <label for="">Content Short description</label>
+                <input name="short_description" class="form-control" id="" placeholder="Write description">
               </div>
               <div class="form-group">
                 <button type="submit"class="form-control btn btn-primary">submit</button>

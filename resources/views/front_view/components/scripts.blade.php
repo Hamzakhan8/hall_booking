@@ -9,7 +9,7 @@
 <script src="{{asset('assets')}}/library/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="{{asset('assets')}}/library/datepicker/js/datepicker.js"></script>
 <!-- Compiled and minified JavaScript -->
-<script src="{{asset('assets')}}/js/script.js"></script>
+{{-- <script src="{{asset('assets')}}/js/script.js"></script> --}}
 <script src="https://js.stripe.com/v3/"></script>
 
 @if ($errors && (is_array($errors) || $errors->all()))
@@ -80,7 +80,7 @@
 <script type="text/javascript">
     // Set your publishable key: remember to change this to your live publishable key in production
     // See your keys here: https://dashboard.stripe.com/apikeys
-    var Publishable_key = "env('STRIPE_PUBLIC_KEY')";
+    var Publishable_key = "pk_test_51K3NIIAcehZZuafTtf9NQ6PZfGuNnYmHvbraQAqCUKxmin4bKDknYpnKAssVr6TdYGfpje3LjiiYefBlClZeKzDA00b6dHZEky";
     var stripe = Stripe(Publishable_key);
 
     // Set up Stripe.js and Elements to use in checkout form

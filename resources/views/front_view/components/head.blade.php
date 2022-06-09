@@ -17,6 +17,7 @@
     <!-- CSS ( Bootstrap + Owlcarouses + Fontawesome + Animate + Select2 + Custom Style )
     ======================================================================================= -->
     <link href="{{asset('assets')}}/css/base.css" rel="stylesheet">
+    <script src="{{asset('assets')}}/js/script.js"></script>
 
     <style>
         #owl-demo .item{

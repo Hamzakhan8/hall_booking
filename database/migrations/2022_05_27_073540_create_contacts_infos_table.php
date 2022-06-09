@@ -19,6 +19,7 @@ class CreateContactsInfosTable extends Migration
             $table->bigInteger('call_number');
             $table->string('email');
             $table->string('address', 255);
+            $table->string('short_description', 255);
 
             $table->timestamps();
         });

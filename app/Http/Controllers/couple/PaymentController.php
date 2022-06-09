@@ -48,9 +48,14 @@ class PaymentController extends Controller
         ]);
 
         $user = $request->user();
-        $customerID = $user->stripe_customer->customer_id;
+        $customer = $user->stripe_customer;
 
-        $charge = $this->StripeCharge($customerID, $request);
+        if (!$customer)
+            return back()->with('first_profile', 'We need some information, update your profile first!');
+            // dd("not");
+
+        $charge = $this->StripeCharge($customer->customer_id, $request);
+
 
         $user->transactions()
         ->create([

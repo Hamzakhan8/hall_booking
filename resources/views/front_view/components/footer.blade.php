@@ -8,7 +8,7 @@
                             <h2 style="color:#00aeaf;">BOOK HALL</h2>
                             <p>An online Hall booking System to find the best and affordable Halls all over the Country.</p>
                         </div>
-                        <div><a href="{{ route('front.about') }}" class="btn btn-primary">Know More</a></div>
+                        <div><a href="{{ route('front.about') }}" class="btn btn-warning">Know More</a></div>
                     </div>
 
                     <div class="col-md">

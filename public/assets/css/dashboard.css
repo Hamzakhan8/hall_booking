@@ -1678,6 +1678,7 @@ main::after{
 
 /*---- 4.6 Preloader ---*/
 .preloader {
+    position: relative;
     background: #302d34;
     bottom: 0;
     top: 0;
@@ -1685,9 +1686,9 @@ main::after{
     right: 0;
     position: fixed;
     z-index: 1050;
-    display: none;
-}
-.status {
+    /* display: none; */
+  }
+  .status {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1695,10 +1696,11 @@ main::after{
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
-}
-.status img {
-    width: 250px;
-}
+  }
+  .status h1 {
+      font-size: 5rem;
+      color: #f48f00;
+  }
 /*---- 4.6 Preloader End ---*/
 
 /*---- 4.7 Back To Top ---*/

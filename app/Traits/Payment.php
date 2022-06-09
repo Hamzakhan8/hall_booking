@@ -15,7 +15,7 @@ trait Payment
     {
                 // Set your secret key. Remember to switch to your live secret key in production.
         // See your keys here: https://dashboard.stripe.com/apikeys
-        StripeStripe::setApiKey(env('STRIPE_SECRET_KEY'));
+        StripeStripe::setApiKey("sk_test_51K3NIIAcehZZuafTMTklTzp2xhUUybuUhqqE0C9OOxN3POXNmfHIAwYC8Y2jfZK4bZAwKX8i71qhwEyPa39nXQJZ00SS2ddkFh");
 
         $charge = \Stripe\Charge::create([
             'amount' => $request['hall_price'] * 100, // Convert dollar into cents,

@@ -69,6 +69,10 @@ Author: wp-organic
                                     <div class="alert alert-success" role="alert">
                                         <strong>{{ Session::get('created') }}</strong>
                                     </div>
+                                    @elseif (Session::has('first_profile'))
+                                    <div class="alert alert-warning" role="alert">
+                                        <strong>{{ Session::get('first_profile') }}</strong>
+                                    </div>
                                 @endif
                                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                     @php

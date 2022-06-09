@@ -5,6 +5,7 @@ use App\Models\About;
 use App\Models\AboutUS;
 use App\Models\Bookings;
 use App\Models\Comments;
+use App\Models\Contacts_info;
 use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\Transactions;
@@ -33,8 +34,10 @@ class AboutController extends Controller
 
         $footer = Footer_info::all();
 
+        $contacts = Contacts_info::value('short_description');
+
         return view('front_view.about-us',
-        compact('about', 'comments', 'bookings', 'halls', 'transaction', 'list_halls', 'footer'));
+        compact('about', 'comments', 'bookings', 'halls', 'transaction', 'list_halls', 'footer', 'contacts'));
     }
 
     /**

@@ -22,7 +22,7 @@ Author: wp-organic
     @extends('front_view.components.head')
     <!-- end head -->
     <!--body start-->
-    <body>
+<body>
 
     <!-- preloader -->
     <div class="preloader">
@@ -202,7 +202,9 @@ Author: wp-organic
                             <div class="section-title">
                                 <h1>The Best Hall Booking Service</h1>
                             </div>
-                            <p class="lead">Contact us to select the best and affordable Hall for you event all over the Country.</p>
+                            <p class="lead">
+                                {{ $contacts }}
+                            </p>
                             <a href="{{ route('front.contact') }}" class="btn btn-default btn-rounded btn-lg">Contact Us</a>
                         </div>
                     </div>
