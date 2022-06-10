@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Contacts;
 use App\Models\Contacts_info;
+use App\Models\Footer_info;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -18,7 +19,9 @@ class ContactController extends Controller
     {
         $contacts = Contacts::paginate(5);
 
-        return view('admin.contact', compact('contacts'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.contact', compact('contacts', 'copy_right'));
     }
 
     /**
@@ -58,7 +61,7 @@ class ContactController extends Controller
         ]);
 
         return redirect()->route('admin.contact')
-        ->with('added', 'Contact info has been added to contacts page');
+        ->with('created', 'Contact info has been added to contacts page');
     }
 
     /**

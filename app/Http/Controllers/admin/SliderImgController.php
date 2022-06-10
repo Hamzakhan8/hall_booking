@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\SliderImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,9 @@ class SliderImgController extends Controller
     {
         $slider_imgs = SliderImage::all();
 
-        return view('admin.slider_img', compact('slider_imgs'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.slider_img', compact('slider_imgs', 'copy_right'));
     }
 
     /**

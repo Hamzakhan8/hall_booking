@@ -5,6 +5,7 @@ namespace App\Http\Controllers\hall;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Bookings;
+use App\Models\Footer_info;
 use App\Models\Hall;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +29,9 @@ class ManageUserController extends Controller
             $bookings = Bookings::where('halls_id', $key)->paginate(5);
         }
 
-        return view('hall.Bookings', compact('bookings'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.Bookings', compact('bookings', 'copy_right'));
     }
 
     /**

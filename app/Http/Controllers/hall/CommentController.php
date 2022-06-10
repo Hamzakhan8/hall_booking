@@ -4,6 +4,7 @@ namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comments;
+use App\Models\Footer_info;
 use App\Models\Hall;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,9 @@ class CommentController extends Controller
         ->with('comments')
         ->paginate(5);
 
-        return view('hall.comment', compact('halls'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.comment', compact('halls', 'copy_right'));
     }
 
     /**

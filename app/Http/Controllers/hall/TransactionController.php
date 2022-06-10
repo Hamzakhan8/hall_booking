@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,9 @@ class TransactionController extends Controller
 
         $transactions = Transactions::where('user_id', $logged_id)->paginate(10);
 
-        return view('hall.transaction', compact('transactions'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.transaction', compact('transactions', 'copy_right'));
     }
 
     /**

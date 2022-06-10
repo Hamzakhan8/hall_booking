@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bookings;
+use App\Models\Footer_info;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -17,7 +18,9 @@ class BookingController extends Controller
     {
         $bookings = Bookings::paginate(5);
 
-        return view('admin.booking', compact('bookings'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.booking', compact('bookings', 'copy_right'));
     }
 
     /**

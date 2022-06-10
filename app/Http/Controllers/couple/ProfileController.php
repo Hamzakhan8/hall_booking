@@ -5,6 +5,7 @@ namespace App\Http\Controllers\couple;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,8 +21,9 @@ class ProfileController extends StripeCustomerController
      */
     public function index()
     {
-        return view('couple.profile');
+        $copy_right = Footer_info::value('copyRight');
 
+        return view('couple.profile', compact('copy_right'));
     }
 
     /**

@@ -55,7 +55,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-auto col-12">
-                                © 2022 All rights reserved.
+                                © {{ $copy_right }}
                             </div>
                             <div class="col-md-auto col-12 copyrights-link ml-md-auto">
                                 <a href="{{ route('front.home') }}">Home</a> | <a href="{{ route('front.about') }}">About</a> | <a href="{{ route('front.contact') }}">Contact Us</a>

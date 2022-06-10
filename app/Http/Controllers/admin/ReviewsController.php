@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Reviews;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,10 @@ class ReviewsController extends Controller
     public function index()
     {
         $reviews = Reviews::paginate(5);
-        return view('admin.reviews', compact('reviews'));
+
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.reviews', compact('reviews', 'copy_right'));
     }
 
     /**

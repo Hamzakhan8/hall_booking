@@ -4,6 +4,7 @@ namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bookings;
+use App\Models\Footer_info;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,9 @@ class BookingController extends Controller
 
         $bookings = Bookings::where('user_id', $logged_id)->paginate(5);
 
-        return view('couple.booking', compact('bookings'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('couple.booking', compact('bookings', 'copy_right'));
     }
 
     /**

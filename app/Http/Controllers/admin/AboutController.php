@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUS;
+use App\Models\Footer_info;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -17,7 +18,9 @@ class AboutController extends Controller
     {
         $about = AboutUS::all();
 
-        return view('admin.about_us', compact('about'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.about_us', compact('about', 'copy_right'));
     }
 
     /**

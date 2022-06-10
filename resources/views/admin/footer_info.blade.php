@@ -148,7 +148,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="copy_right">CopyRights</label>
-                                              <input type="text" name="copyRight" id="copy_right" class="form-control" value=""placeholder="Write copy right info" aria-describedby="helpId">
+                                              <input type="text" name="copyRight" id="copy_right" class="form-control" value="{{ $data->copyRight }}" placeholder="Write copy right info" aria-describedby="helpId">
                                             </div>
                                             <div class="form-group d-flex justify-content-between align-content-center">
                                             <button type="submit" class="btn btn-primary mt-4">Save changes</button>

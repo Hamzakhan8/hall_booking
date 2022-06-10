@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +19,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('hall.profile');
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.profile', compact('copy_right'));
     }
 
     /**

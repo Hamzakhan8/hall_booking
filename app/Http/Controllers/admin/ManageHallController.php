@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class ManageHallController extends Controller
     {
         $halls = User::where(['role' => 'hall'])->paginate(5);
 
-        return view('admin.manageHall', compact('halls'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.manageHall', compact('halls', 'copy_right'));
     }
 
     /**

@@ -4,23 +4,20 @@ namespace App\Http\Controllers\couple;
 
 use App\Http\Controllers\Controller;
 use App\Models\Footer_info;
-use App\Models\ReReply;
 use Illuminate\Http\Request;
 
-class ReReplyController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($reply_id)
+    public function index()
     {
-        $re_replies = ReReply::where('reply_id', $reply_id)->get();
-
         $copy_right = Footer_info::value('copyRight');
 
-        return view('couple.reply', compact('re_replies', 'copy_right'));
+        return view('couple.dashboard', compact('copy_right'));
     }
 
     /**
@@ -41,24 +38,7 @@ class ReReplyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'reply_id' => ['required'],
-            'reply' => ['required', 'string'],
-        ]);
-
-        $reply_id = $request['reply_id'];
-
-        $logged_id = $request->user()->id;
-        $logged_username = $request->user()->username;
-
-        ReReply::create([
-            'user_id' => $logged_id,
-            'username' => $logged_username,
-            'reply_id' => $request['reply_id'],
-            'reply' => $request['reply'],
-        ]);
-
-        return $this->index($reply_id);
+        //
     }
 
     /**

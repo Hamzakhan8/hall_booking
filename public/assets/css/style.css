@@ -4617,7 +4617,7 @@ header .btn {
   background-repeat: no-repeat;
   padding: 4rem 0 0 0;
   background-position: top center;
-  margin-top: 129px;
+  margin-top: 5rem;
   position: relative;
   margin-bottom: 1rem;
   background-size: cover;
@@ -6441,6 +6441,12 @@ footer .widget-listing li {
 }
 @media (max-width: 430px) {
 
+    .login-content {
+        display: none !important;
+    }
+    .login-form-title {
+        display: block !important;
+    }
     .slider-content form .make_change {
         display: block !important;
     }

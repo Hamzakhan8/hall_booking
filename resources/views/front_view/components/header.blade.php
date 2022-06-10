@@ -12,10 +12,22 @@
             <!-- Dashboard Button -->
             @if (!Auth::check())
                 <!-- Topbar Request Quote Start -->
-                <span class="order-lg-last d-inline-flex ml-3">
+                {{-- <span class="order-lg-last d-inline-flex ml-3">
                     <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#login_form">
-                    Get Started Now
+                        Get Started Now
                     </a>
+                </span> --}}
+                <span class="order-lg-last d-inline-flex ml-3">
+                    <div class="dropdown open">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Get Started Now
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="{{ route('auth.login.show') }}">Login</a>
+                            <a class="dropdown-item" href="{{ route('auth.register.show') }}">Register</a>
+                        </div>
+                    </div>
                 </span>
                 <!-- Toggle Button Start -->
                 @elseif (Auth::user()->role == "admin")

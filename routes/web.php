@@ -32,7 +32,10 @@ use App\Http\Controllers\hall\ProfileController as HallProfileController;
 use App\Http\Controllers\hall\ReplyController as HallReplyController;
 use App\Http\Controllers\hall\TransactionController as HallTransactionController;
 use App\Http\Controllers\admin\AboutController as AdminAboutController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FooterController;
+use App\Http\Controllers\couple\DashboardController as CoupleDashboardController;
+use App\Http\Controllers\hall\DashboardController as HallDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,15 +60,22 @@ Route::get('/', [FrontHomeController::class, 'index']);
 
 Route::prefix('auth')->group(function (){
     Route::post('login', [LoginController::class, 'login'])->name('auth.login');
+
+    Route::get('login-form', [LoginController::class, 'showLoginForm'])->name('auth.login.show');
+
     Route::post('register', [RegisterController::class, 'validator'])
     ->name('auth.register');
+
+    Route::get('register-form', [RegisterController::class, 'showRegisterForm'])
+    ->name('auth.register.show');
+
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 });
 
 //admin routes
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 
-    Route::get('dashboard', fn () => view('admin.dashboard'))
+    Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('admin.dashboard');
 
     Route::controller(ProfileController::class)->group(function() {
@@ -131,6 +141,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
 // grouped routes for hall
 Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
 
+    Route::get('dashboard', [HallDashboardController::class, 'index'])->name('hall.dashboard');
+
     Route::controller(ManageUserController::class)->group(function () {
         Route::get('bookings', 'index')->name('hall.bookings');
         Route::get('bookings_delete/{id}', 'destroy')->name('hall.bookings.delete');
@@ -174,13 +186,12 @@ Route::prefix('hall')->middleware('auth', 'hall')->group(function () {
     Route::controller(HallTransactionController::class)->group(function () {
        Route::get('hall_transaction', 'index')->name('hall.transaction.index');
     });
-
-    Route::get('dashboard', fn () => view('hall.dashboard'))->name('hall.dashboard');
 });
 
 //  grouped routes for couple
 Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
-    Route::get('dashboard', fn () => view('couple.dashboard'))
+
+    Route::get('dashboard', [CoupleDashboardController::class, 'index'])
     ->name('couple.dashboard');
 
     Route::controller(CoupleProfileController::class)->group(function () {
@@ -223,6 +234,7 @@ Route::prefix('couple')->middleware(['auth', 'couple'])->group(function () {
 
 // grouped routes for front site
 Route::prefix('front')->group(function (){
+
     Route::get('home', [FrontHomeController::class, 'index'])->name('front.home');
     Route::get('contact', [ContactController::class, 'index'])->name('front.contact');
     Route::get('about', [AboutController::class, 'index'])->name('front.about');
@@ -237,6 +249,7 @@ Route::prefix('front')->group(function (){
         Route::post('front_comment_reply', 'replyComment')->name('front.hall.comment.reply');
         Route::post('front_reply_reply', 'replyToReply')->name('front.hall.reply.reply');
     });
+
     // Routes with post methods
     Route::controller(SearchResultController::class)->group(function (){
         Route::get('search', 'index')->name('front.search');

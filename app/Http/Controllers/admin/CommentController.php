@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comments;
+use App\Models\Footer_info;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -17,7 +18,9 @@ class CommentController extends Controller
     {
         $comments = Comments::paginate(5);
 
-        return view('admin.comments', compact('comments'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.comments', compact('comments', 'copy_right'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\hall;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\HallCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,9 @@ class HallCategoryController extends Controller
 
         $categories = HallCategory::where('user_id', $user->id)->paginate(5);
 
-        return view('hall.Hall_category', compact('categories'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.Hall_category', compact('categories', 'copy_right'));
     }
 
     /**

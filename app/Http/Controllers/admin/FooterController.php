@@ -17,7 +17,9 @@ class FooterController extends Controller
     {
         $footer = Footer_info::all();
 
-        return view('admin.footer_info', compact('footer'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.footer_info', compact('footer', 'copy_right'));
     }
 
     /**

@@ -40,6 +40,16 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegisterForm()
+    {
+        return view('front_view.register');
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -77,7 +87,7 @@ class RegisterController extends Controller
             'role' => $request['role'],
         ]);
 
-        return redirect()->route('front.home')
+        return redirect()->route('auth.login.show')
         ->with('now_login', 'Your are now registered, please login!');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\hall;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Reply;
 use App\Models\ReReply;
 use Illuminate\Http\Request;
@@ -20,7 +21,9 @@ class ReplyController extends Controller
 
         $re_replies = ReReply::where('comment_id', $comment_id)->get();
 
-        return view('hall.reply', compact('replies', 're_replies', 'comment_id'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('hall.reply', compact('replies', 're_replies', 'comment_id', 'copy_right'));
     }
 
     /**

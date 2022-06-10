@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Footer_info;
 use App\Models\Transactions;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,9 @@ class TransactionController extends Controller
     {
         $transactions = Transactions::paginate(5);
 
-        return view('admin.transaction', compact('transactions'));
+        $copy_right = Footer_info::value('copyRight');
+
+        return view('admin.transaction', compact('transactions', 'copy_right'));
     }
 
     /**

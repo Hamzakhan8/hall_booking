@@ -12,7 +12,7 @@
 {{-- <script src="{{asset('assets')}}/js/script.js"></script> --}}
 <script src="https://js.stripe.com/v3/"></script>
 
-@if ($errors && (is_array($errors) || $errors->all()))
+{{-- @if ($errors && (is_array($errors) || $errors->all()))
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -26,7 +26,7 @@
 
         });
     </script>
-@endif
+@endif --}}
 
 <script type="text/javascript">
     $(document).ready(function() {
