@@ -72,7 +72,7 @@
             <div class="row">
                 @foreach ($footer as $foo)
                 <div class="col-md-auto col-12">
-                    {{ $foo->copyRight }}
+                    ©{{ $foo->copyRight }}
                 </div>
                 @endforeach
                 <div class="col-md-auto col-12 copyrights-link ml-md-auto">
