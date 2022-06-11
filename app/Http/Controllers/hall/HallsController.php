@@ -42,9 +42,11 @@ class HallsController extends Controller
 
         $categories=HallCategory::where('user_id', $logged_id)->get();
 
+        $copy_right = Footer_info::value('copyRight');
+
         $cities = $this->cities();
 
-        return view('hall.hall_add_info', compact('categories', 'cities'));
+        return view('hall.hall_add_info', compact('categories', 'cities', 'copy_right'));
     }
 
     /**
@@ -142,9 +144,11 @@ class HallsController extends Controller
 
         $categories = HallCategory::all();
 
+        $copy_right = Footer_info::value('copyRight');
+
         $cities = $this->cities();
 
-        return view('hall.hall_edit_info', compact('hall', 'categories', 'events', 'cities'));
+        return view('hall.hall_edit_info', compact('hall', 'categories', 'events', 'cities', 'copy_right'));
 
     }
 

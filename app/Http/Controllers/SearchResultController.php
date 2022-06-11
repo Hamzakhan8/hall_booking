@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookings;
 use App\Models\Footer_info;
 use App\Models\Hall;
 use App\Models\HallCategory;
@@ -65,13 +66,21 @@ class SearchResultController extends Controller
     {
         $hall_details = Hall::where('id', $id)->with(['halls_meta', 'hallCategory', 'comments'])->get();
 
+        $id_hall = 0;
+
+        foreach ($hall_details as $value) {
+            $id_hall = $value->id;
+        }
+
+        $bookings = Bookings::where('halls_id', $id_hall)->get();
+
         $latest_halls = Hall::orderByDesc('id')->limit(3)->get();
 
         $list_halls = Hall::orderBy('location')->get();
 
         $footer = Footer_info::all();
 
-        return view('front_view.hall-details', compact('hall_details', 'latest_halls', 'list_halls', 'footer'));
+        return view('front_view.hall-details', compact('hall_details', 'latest_halls', 'list_halls', 'footer', 'bookings'));
     }
 
     /**

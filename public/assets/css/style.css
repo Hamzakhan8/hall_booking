@@ -5832,6 +5832,10 @@ footer .widget-title {
   font-size: 1.375rem;
   margin-bottom: 1.2rem;
 }
+footer .know_more_btn {
+    background-color: #00aeaf;
+
+}
 footer .widget-listing li a,
 footer .widget-listing li a svg {
   color: #bebebf;

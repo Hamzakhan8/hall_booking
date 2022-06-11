@@ -123,7 +123,7 @@ class ProfileController extends StripeCustomerController
 
         $this->stripe_customer($customer, $request);
 
-        return view('couple.profile')->with('updated', 'Profile has been updated');
+        return redirect()->route('couple.profile')->with('updated', 'Profile has been updated');
     }
 
         /**

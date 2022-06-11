@@ -26,7 +26,7 @@
               <label for="exampleFormControlInput1">Add Images </label>
               <input  class="form-control" type="file" name="images[]" multiple>
             </div>
-            <div class="form-group col-lg-10">
+            <div class="form-group col-lg-10 col-sm-6">
               <label for="exampleFormControlSelect1">Select Category</label>
               <select class="form-control" name="hall_category" id="exampleFormControlSelect1">
                 @foreach ($categories as $category)

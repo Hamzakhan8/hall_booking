@@ -936,11 +936,6 @@ main::after{
         display: none;
     }
   }
-@media (min-height: 546px) {
-    .main-contaner{
-        height: 100vh;
-    }
-}
 @media (min-width: 991px) {
     html, body, main {
         height: 100%;
