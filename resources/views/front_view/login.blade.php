@@ -70,11 +70,36 @@
                 </div>
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-default btn-rounded mt-3 mb-2">Login</button><br>
-                    <a class="text-info" href="{{ route('auth.register.show') }}">Do not have an account!</a>
+                    <a class="text-info" href="{{ route('auth.register.show') }}">Do not have an account!</a><br>
+                    <a class="text-info" data-target="#my-modal" data-toggle="modal" style="cursor: pointer !important" >Forget password!</a>
+
                 </div>
                 <div class="form-group">
                 </div>
             </form>
+
+            <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="my-modal-title">Forget passwrod</h5>
+
+                        </div>
+                        <div class="modal-body">
+                         <form action="{{ route('auth.forget.password') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <input type="email" required class="form-control" name="email" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" required class="form-control btn btn-success" value="submit">
+                            </div>
+                         </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
     </main>

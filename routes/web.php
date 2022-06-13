@@ -35,6 +35,7 @@ use App\Http\Controllers\admin\AboutController as AdminAboutController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\FooterController;
 use App\Http\Controllers\couple\DashboardController as CoupleDashboardController;
+use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\hall\DashboardController as HallDashboardController;
 
 /*
@@ -70,6 +71,10 @@ Route::prefix('auth')->group(function (){
     ->name('auth.register.show');
 
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
+
+    Route::post('forget-password', [ForgetPasswordController::class, 'show'])->name('auth.forget.password');
+
+    Route::post('store-forget-password', [ForgetPasswordController::class, 'store'])->name('auth.forget.password.store');
 });
 
 //admin routes
