@@ -63,6 +63,7 @@ class HallsController extends Controller
             'title' => 'required|string',
             'description' => 'required|max:500',
             'location' => 'required',
+            'address' => 'required|max:255',
             'facebook' => 'required|url',
             'twitter' => 'required|url',
             'instagram' => 'required|url',
@@ -87,6 +88,7 @@ class HallsController extends Controller
             'title' => $request['title'],
             'description' => $request['description'],
             'location' => ucfirst($request['location']),
+            'address' => $request['address'],
         ]);
 
         $hall->halls_meta()->create([
@@ -164,7 +166,8 @@ class HallsController extends Controller
         $check = $request->validate([
             'hall_category' => ['required'],
             'title' => ['required'],
-            'description' => ['required']
+            'description' => ['required'],
+            'address' => ['required'],
         ]);
 
         $check = $request->user()->hall[0];
@@ -201,6 +204,7 @@ class HallsController extends Controller
             'images' => $filename,
             'description' => $request['description'],
             'location' => ucfirst($request['location']),
+            'address' => $request['address'],
         ]);
 
         Halls_meta::where(

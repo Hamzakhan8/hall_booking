@@ -107,6 +107,17 @@ Author: wp-organic
 
                                 <div class="entry-content">
                                     <p>{{ $detail->description }}</p>
+                                    <small class="text-info">
+                                        <i class="fa fa-location-arrow" aria-hidden="true"></i> {{ $detail->location }}
+                                    </small>
+                                    <div class="live-location mb-3">
+                                        <p>{{ $detail->address }}</p>
+                                        <button data-hall-address="{{ $detail->address }}" data-hall-city="{{ $detail->location }}" id="get_live_location" class="btn btn-light style_live_location">
+                                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                                            get live location
+                                        </button>
+                                    </div>
+
                                     @php
                                         $metaValue = $detail->halls_meta->toArray();
 

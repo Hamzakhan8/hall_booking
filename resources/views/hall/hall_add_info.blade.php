@@ -54,6 +54,11 @@
                 <input type="text" class="form-control col-4" name="location">
             </div>
 
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Address</label>
+                <input type="text" class="form-control" name="address">
+            </div>
+
             <div class="form-check pb-3">
                 <label class="form-check-label" for="exampleCheck1">Wedding</label>
                 <div class="d-flex align-items-center">

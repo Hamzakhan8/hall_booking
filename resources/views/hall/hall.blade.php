@@ -33,6 +33,8 @@
                         <th scope="col">Category</th>
                         <th scope="col">Images</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -67,6 +69,8 @@
                         @endif
 
                         <td><p>{{$hall->description}}</p></td>
+                        <td><p>{{$hall->location}}</p></td>
+                        <td><p>{{$hall->address}}</p></td>
                         <td class="rounded-sm">
                             <a href="{{ route('hall.halls.destroy', $hall['id']) }}" class="action-links">
                                 <lord-icon

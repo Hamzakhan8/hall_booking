@@ -72,9 +72,11 @@ Route::prefix('auth')->group(function (){
 
     Route::post('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-    Route::post('forget-password', [ForgetPasswordController::class, 'show'])->name('auth.forget.password');
+    Route::post('forget-password', [ForgetPasswordController::class, 'show'])
+    ->name('auth.forget.password');
 
-    Route::post('store-forget-password', [ForgetPasswordController::class, 'store'])->name('auth.forget.password.store');
+    Route::post('store-forget-password', [ForgetPasswordController::class, 'store'])
+    ->name('auth.forget.password.store');
 });
 
 //admin routes

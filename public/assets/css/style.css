@@ -3010,6 +3010,9 @@ header .btn {
   text-align: center;
   position: relative;
 }
+.style_live_location > i {
+    color: #007bb6;
+}
 .contact-details-wrap h3 {
   margin: 3rem 0;
   position: relative;

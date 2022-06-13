@@ -12,21 +12,17 @@
 {{-- <script src="{{asset('assets')}}/js/script.js"></script> --}}
 <script src="https://js.stripe.com/v3/"></script>
 
-{{-- @if ($errors && (is_array($errors) || $errors->all()))
-    <script type="text/javascript">
-        $(document).ready(function () {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#get_live_location").click(function () {
+            let address = $(this).attr("data-hall-address");
+            let location = $(this).attr("data-hall-city");
 
-            var front_modal = $('.front_login_modal').modal('show');
-
-            $('.login_panel').removeClass(['show', 'active']);
-            $('.login_panel_title').removeClass(['show', 'active']);
-
-            $('.register_panel').addClass(['show', 'active']);
-            $('.register_panel_title').addClass(['show', 'active']);
+            window.location.href="https://www.google.com/maps/search/"+address+' '+location+"/@41.9956771,-93.6403663,17z?hl=en-US";
 
         });
-    </script>
-@endif --}}
+    });
+</script>
 
 <script type="text/javascript">
     $(document).ready(function() {

@@ -55,6 +55,12 @@
                 <label for="exampleFormControlTextarea1">City</label>
                 <input type="text" class="form-control col-4" value="{{ $hall->location }}" name="location">
             </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Address</label>
+                <input type="text" class="form-control" value="{{ $hall->address }}" name="address">
+            </div>
+
             @foreach ($events[0] as $event => $value)
             @php
                 $values = explode('-', $value);

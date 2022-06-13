@@ -30,6 +30,7 @@ class CreateHallsTable extends Migration
             $table->string('images', 255);
             $table->string('description', 500);
             $table->string('location');
+            $table->string('address', 255);
 
             $table->timestamps();
         });
