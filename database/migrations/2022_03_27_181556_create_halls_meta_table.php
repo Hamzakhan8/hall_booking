@@ -27,7 +27,7 @@ class CreateHallsMetaTable extends Migration
             ->cascadeOnDelete();
 
             $table->string('meta_key');
-            $table->string('meta_value');
+            $table->string('meta_value', 255);
 
             $table->timestamps();
         });

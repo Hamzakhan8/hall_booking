@@ -302,15 +302,15 @@ Author: wp-organic
                                         <h3 class="widget-title">Bookings</h3>
 
                                             @foreach ($bookings as $booking)
-                                            @php
-                                            $checkin_day = Carbon\Carbon::parse($booking->checkin_date)->format('d');
-                                            $checkin_year = Carbon\Carbon::parse($booking->checkin_date)->format('Y');
-                                            $checkin_month = Carbon\Carbon::parse($booking->checkin_date)->format('M');
+                                                @php
+                                                    $checkin_day = Carbon\Carbon::parse($booking->checkin_date)->format('d');
+                                                    $checkin_year = Carbon\Carbon::parse($booking->checkin_date)->format('Y');
+                                                    $checkin_month = Carbon\Carbon::parse($booking->checkin_date)->format('M');
 
-                                            $checkout_day = Carbon\Carbon::parse($booking->checkout_date)->format('d');
-                                            $checkout_year = Carbon\Carbon::parse($booking->checkout_date)->format('Y');
-                                            $checkout_month = Carbon\Carbon::parse($booking->checkin_date)->format('M');
-                                            @endphp
+                                                    $checkout_day = Carbon\Carbon::parse($booking->checkout_date)->format('d');
+                                                    $checkout_year = Carbon\Carbon::parse($booking->checkout_date)->format('Y');
+                                                    $checkout_month = Carbon\Carbon::parse($booking->checkin_date)->format('M');
+                                                @endphp
                                             <div class="d-flex align-items-center justify-content-between mb-3">
                                                 <span class="text-info">from:</span> {{ $checkin_month.'-'.$checkin_day.'-'.$checkin_year }} <span class="text-info">to:</span> {{ $checkout_month.'-'.$checkout_day.'-'.$checkin_year }}
                                             </div>
