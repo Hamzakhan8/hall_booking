@@ -10,16 +10,25 @@
 <script src="{{asset('assets')}}/library/datepicker/js/datepicker.js"></script>
 <!-- Compiled and minified JavaScript -->
 {{-- <script src="{{asset('assets')}}/js/script.js"></script> --}}
+{{-- google maps js api --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTbYZF_kDxKNopcvej6oh-eVs1z9Xq2J0&callback=myMap"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.googlemap/1.5.1/jquery.googlemap.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         $("#get_live_location").click(function () {
             let address = $(this).attr("data-hall-address");
-            let location = $(this).attr("data-hall-city");
 
-            window.location.href="https://www.google.com/maps/search/"+address+' '+location+"/@41.9956771,-93.6403663,17z?hl=en-US";
+            $("#googleMap").append(
+                "<div id='map' style='width: 500px; height: 500px;'></div>"
+            );
 
+            $("#map").googleMap();
+            $("#map").addMarker({
+                address: ""+address+"", // Postale Address
+                url: 'http://www.tiloweb.com' // Link
+            });
         });
     });
 </script>

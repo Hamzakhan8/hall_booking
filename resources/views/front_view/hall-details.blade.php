@@ -112,10 +112,11 @@ Author: wp-organic
                                     </small>
                                     <div class="live-location mb-3">
                                         <p>{{ $detail->address }}</p>
-                                        <button data-hall-address="{{ $detail->address }}" data-hall-city="{{ $detail->location }}" id="get_live_location" class="btn btn-light style_live_location">
+                                        <button data-hall-address="{{ $detail->address }}" id="get_live_location" class="btn btn-light style_live_location">
                                             <i class="fa fa-location-arrow" aria-hidden="true"></i>
                                             get live location
                                         </button>
+                                        <div id="googleMap"></div>
                                     </div>
 
                                     @php
